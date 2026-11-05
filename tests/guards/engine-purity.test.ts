@@ -16,8 +16,9 @@ describe("engine purity", () => {
       "const roll = Math.random();",
       "const t = Date.now();",
       'import { reviews } from "./reviews";',
+      'import { a } from "../views";',
     ].join("\n");
-    expect(engineViolations("engine/x.ts", src).map((v) => v.line)).toEqual([1, 4, 6, 7, 8, 9, 10]);
+    expect(engineViolations("engine/x.ts", src).map((v) => v.line)).toEqual([1, 4, 6, 7, 8, 9, 10, 12]);
   });
 
   it("covers every script extension under engine/, but not tests", () => {

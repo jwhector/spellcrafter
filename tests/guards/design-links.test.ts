@@ -19,7 +19,7 @@ describe("design source links have one home", () => {
 
   it("holds for the repository", () => {
     const files = walk(ROOT)
-      .filter((p) => /\.(md|ts|mjs|js|json|html|ya?ml|sh)$/.test(p) || !basename(p).includes("."))
+      .filter((p) => /\.(md|txt|[cm]?[jt]sx?|json|html|css|ya?ml|sh)$/.test(p) || !basename(p).includes("."))
       .filter((p) => !p.startsWith(".mulch/") && !p.startsWith(".seeds/"))
       .map((path) => ({ path, text: read(ROOT, path) }));
     expect(files.some((f) => f.path === ".githooks/pre-push")).toBe(true);

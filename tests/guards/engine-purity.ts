@@ -6,9 +6,9 @@
  */
 const BROWSER = /\b(document|window|localStorage|sessionStorage|HTMLElement|requestAnimationFrame)\b/;
 const UNSEEDED = /\b(Math\.random|Date\.now|performance\.now)\b|\bnew Date\(\s*\)/;
-// Any module string that reaches into views/: `from "…"`, a side-effect
+// Any module string that reaches into views/ (or names the folder itself): `from "…"`, a side-effect
 // `import "…"`, a dynamic `import("…")` or a `require("…")`.
-const FROM_VIEWS = /(\bfrom\s*|\bimport\s*\(?\s*|\brequire\s*\(\s*)["'`][^"'`]*\bviews\//;
+const FROM_VIEWS = /(\bfrom\s*|\bimport\s*\(?\s*|\brequire\s*\(\s*)["'`][^"'`]*\bviews(?:\/|["'`])/;
 /** The engine source files the rule covers. */
 export const ENGINE_SOURCE = /^engine\/.*\.(ts|tsx|js|jsx|mjs|cjs|mts|cts)$/;
 
