@@ -6,7 +6,7 @@ browser prototype; the end target is a Discord Activity.
 
 ```bash
 npm ci
-npm run dev     # the prototype at http://localhost:5173
+npm run dev     # the prototype at http://localhost:3000
 npm run check   # everything CI runs
 ```
 

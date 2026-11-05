@@ -15,7 +15,7 @@ Where the project came from, and the state of the design when it moved here:
 | Path | What lives there |
 | --- | --- |
 | `engine/` | Pure game logic: runes, circles, the budget model, the forge, battle rules. No UI. |
-| `views/` | The web page (Vite's root): the crafter view, the budget readout, the hex battle board. |
+| `app/` | The views, as a Next.js app (App Router): the crafter view, the budget readout, the hex battle board. |
 | `tests/` | Tests that span the repo, including the guards in `tests/guards/`. Unit tests sit beside their code as `*.test.ts`. |
 | `docs/design/` | Markdown snapshots of the design docs, and the one home for their links. |
 | `docs/decisions/` | Decision records: why the repo is built the way it is. |
@@ -45,7 +45,7 @@ crafter's preview and in battle.
    ([docs/design/README.md](docs/design/README.md)). Do not change a snapshot
    in `docs/design/` to change the design.
 5. **The engine is pure and deterministic.** Nothing in `engine/` imports
-   from `views/` or touches the DOM (guarded by
+   from `app/` or a UI library (React, Next.js), or touches the DOM (guarded by
    `tests/guards/engine-purity.test.ts`). Same input, same result, so a
    preview and a battle can never disagree.
 6. **One fact, one home.** A fact more than one file needs lives in one place
@@ -65,7 +65,7 @@ crafter's preview and in battle.
 | Links to the design docs and tools | `docs/design/README.md` | `tests/guards/design-links.test.ts` |
 | Which copy of the design leads | `docs/design/README.md` | none (one sentence, read by people) |
 | Node version | `.nvmrc` (CI reads it with `node-version-file`) | none needed: nothing else states it |
-| Stack and tool choices | `docs/decisions/0002-typescript-vite.md` | none |
+| Stack and tool choices | `docs/decisions/0002-typescript-nextjs.md` | none |
 | What counts as code for the push gate, the summary format, the round budget and when the larger one applies | `.github/scripts/loop-gate.mjs` | `.github/scripts/loop-gate.test.mjs` |
 | The reviewer's model | `.claude/agents/reviewer.md` | none (one file) |
 
@@ -73,10 +73,16 @@ crafter's preview and in battle.
 
 ```bash
 npm ci              # once, and after the lockfile changes
-npm run dev         # the views at http://localhost:5173
+npm run dev         # the views at http://localhost:3000
 npm run check       # typecheck, lint, tests, script tests, build: what CI runs
 npm run format      # Biome: format and fix lint
 ```
+
+Next.js changes between versions faster than an agent's training. Before
+writing Next.js code, read the guide for this version in
+`node_modules/next/dist/docs/`. `next dev` writes that instruction into
+`AGENTS.md`, which is committed so the tree stays clean; leave it as Next
+writes it.
 
 Checks prove consistency, not behaviour. Before calling a change done, watch
 it work and write what you saw as a `Proof:` paragraph in a commit message:

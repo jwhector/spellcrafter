@@ -30,4 +30,4 @@ A status line is a fact, true the moment the record lands on main:
 | # | Title | Status |
 | --- | --- | --- |
 | 0001 | [Scaffold the agentic workflow](0001-agentic-workflow-scaffold.md) | ratified when it lands |
-| 0002 | [TypeScript and Vite, one package](0002-typescript-vite.md) | pending Jared on the stack |
+| 0002 | [TypeScript and Next.js, one package](0002-typescript-nextjs.md) | ratified when it lands |

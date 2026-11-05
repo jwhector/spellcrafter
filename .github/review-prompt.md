@@ -62,8 +62,8 @@ finding.
    cases, broken error handling, behaviour that differs from the intent.
    Read the surrounding code in `head/`, not just the diff hunks.
 2. **Does it keep the golden rules in `CLAUDE.md`?** In particular:
-   - the engine (`engine/`) is pure game logic: no imports from `views/`, no
-     DOM, no randomness that is not seeded;
+   - the engine (`engine/`) is pure game logic: no imports from `app/` or a UI
+     library (React, Next.js), no DOM, no randomness that is not seeded;
    - game mechanics are never given names Jared has not given them. A new
      name for a rune, inscription or mechanic in code, a doc or a UI string
      is a finding (should), unless the commits cite Jared naming it;

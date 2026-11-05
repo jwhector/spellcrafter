@@ -7,7 +7,7 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": ["**", "!**/*.md", "!reference", "!.mulch", "!.seeds", "!dist"]
+    "includes": ["**", "!**/*.md", "!reference", "!.mulch", "!.seeds", "!.next", "!next-env.d.ts"]
   },
   "formatter": {
     "enabled": true,

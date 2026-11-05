@@ -100,7 +100,7 @@ test("check judges by ancestry: data and a clean merge of main may follow the su
 
   // main moves on; merging it in cleanly keeps the branch reviewed.
   r.g("switch", "-q", "main");
-  r.put("views/v.ts", "export const v = 1;\n");
+  r.put("app/v.ts", "export const v = 1;\n");
   r.commit("main moves");
   r.g("update-ref", "refs/remotes/origin/main", "HEAD");
   r.g("switch", "-q", "claude/x");
@@ -120,7 +120,7 @@ test("check refuses a merge that changes code beyond git's own merge", (t) => {
   r.commit("Add b");
   r.commit("review-loop: clean after 1 round");
   r.g("switch", "-q", "main");
-  r.put("views/v.ts", "export const v = 1;\n");
+  r.put("app/v.ts", "export const v = 1;\n");
   r.commit("main moves");
   r.g("update-ref", "refs/remotes/origin/main", "HEAD");
   r.g("switch", "-q", "claude/x");

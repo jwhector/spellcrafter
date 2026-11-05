@@ -19,14 +19,14 @@ and saw as a `Proof:` paragraph in a commit message.
   compare its output for the same circle too; where it is out of date (see
   `reference/README.md`), the docs win. A test that encodes a doc's example
   is the best proof: cite the doc and section in the test name.
-- **Views** (`views/`). Run `npm run dev`, open the page, and drive the flow
+- **Views** (`app/`). Run `npm run dev`, open the page, and drive the flow
   you changed: build the circle, run the round, read the readout. In a cloud
   session, use the preinstalled Playwright: `require('playwright')` works
   from any directory and `chromium.launch()` needs no options. Take a
   screenshot of the changed view and look at it. Check a phone width
   (about 390px) as well, since the end target is a Discord Activity.
 - **The build or tooling.** Run `npm run check` from a clean `npm ci`, and
-  `npm run build && npm run preview` to see the built page load.
+  `npm run build && npm start` to see the built page load.
 - **The gates** (`.github/scripts/`, `.githooks/`). Run the script against a
   real repository the way git calls it. The tests in `.github/scripts/` show
   how.
