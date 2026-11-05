@@ -159,6 +159,17 @@ export function blockedReason(s: Sigil, id: string): string | null {
   ) {
     return "Remove extra destinations, more range and triggers first: the whole battlefield can't take them (Decided Nov 4).";
   }
+  // system-b.md "Minor inscriptions", rule 1 (Proposed): a minor Where needs an anchor with a position.
+  const minorWhere = Object.values(s.minor)
+    .flat()
+    .some((i) => inscription(i).minor === "where");
+  if ((id === "global" || id === "spell") && minorWhere) {
+    return "Remove the minor Where inscriptions first: they need an anchor with a position, so not on a global effect or an altered spell (Proposed).";
+  }
+  // system-b.md "Tethers", Open: a tether on the whole battlefield is refused, as the tools do for now.
+  if ((shape.id === "global" && ins.group === "tether") || (id === "global" && hasTether(s))) {
+    return "A tether on the whole battlefield is refused for now (Open).";
+  }
   return null;
 }
 
@@ -299,7 +310,7 @@ export function makes(ref: RuneReference, s: Sigil): Makes {
   return pick("on a unit", "on a unit", "The center makes an effect on one unit.", "Decided");
 }
 
-/** Major output types where every minor rune is an aspect, so ring order never matters (system-b.md "Conflict and order rules", Proposed). */
+/** Major output types where every minor rune is an aspect, so ring order never matters (system-b.md "Conflict and order rules": Decided Nov 5 for a shield and ground, Proposed for a summon and a global modification). */
 export function orderFree(kind: OutputKind): boolean {
   return kind === "on a summon" || kind === "on ground" || kind === "on a shield" || kind === "global";
 }
@@ -452,10 +463,15 @@ export function readSigil(ref: RuneReference, s: Sigil, grounds: Record<string, 
     note("Filters don't work on ground (Decided Nov 4), so the filter does nothing here.", "Decided", true);
   }
   if (s.inscriptions.includes("steerable") && !isLingering(s)) note("Steerable needs lingering.", "Proposed", true);
-  if (hasTether(s))
+  if (hasTether(s) && (m.kind === "on a unit" || m.kind === "at a destination"))
     note(
       'A tether has no major output type of its own: its kind decides how the effect travels, and its minor runes read the "on a unit" table at each end (Decided Nov 5).',
       "Decided",
+    );
+  else if (hasTether(s))
+    note(
+      `The docs don't yet say what a tether's minor runes read when the spell makes ${m.kind === "on ground" ? "ground" : `something ${m.kind}`}; this shows the major output type's own table.`,
+      "Open",
     );
   if (shape.id === "self" && (s.center === "portal" || hasTether(s))) {
     if (s.center === "portal" && s.inscriptions.includes("extra")) {

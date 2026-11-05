@@ -29,7 +29,6 @@ import {
   freeSlots,
   MAX_SIZE,
   MIN_SIZE,
-  makes,
   minorBlockedReason,
   moveRune,
   nextSlot,
@@ -91,7 +90,7 @@ export function CrafterDashboard({
   const names = useMemo(() => new Map(reference.runes.map((r) => [r.slug, r.name])), [reference]);
   const readout = useMemo(() => readSigil(reference, sigil, grounds), [reference, sigil, grounds]);
   const plan = useMemo(() => planBoard(sigil), [sigil]);
-  const kind = useMemo(() => makes(reference, sigil).kind, [reference, sigil]);
+  const kind = readout.makes.kind;
   const free = freeSlots(sigil);
 
   function update(next: Sigil, failure: string) {

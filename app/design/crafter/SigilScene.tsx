@@ -83,7 +83,7 @@ function SealedSocket({ x, y, color }: { x: number; y: number; color: string }) 
   );
 }
 
-/** The inscriptions as arcs on the outer band, one per slot they take (at least one each). */
+/** The inscriptions as arcs on the outer band, one arc per inscription. */
 function InscriptionBand({ ids }: { ids: string[] }) {
   const arcs = useMemo(() => {
     const items = ids.map((id) => inscription(id));

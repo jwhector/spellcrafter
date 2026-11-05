@@ -6,12 +6,12 @@ import { Text } from "../runes/Text";
 import styles from "./crafter.module.css";
 import type { OutputKind, Readout as ReadoutData } from "./sigil";
 
-function madeThing(kind: OutputKind, center: string | null): string {
+function madeThing(kind: OutputKind): string {
   switch (kind) {
     case "at a destination":
       return "an effect on an area";
     case "on a unit":
-      return center === "protect" ? "a shield" : "an effect on one unit";
+      return "an effect on one unit";
     case "on a shield":
       return "a shield";
     case "on ground":
@@ -37,8 +37,8 @@ export function Readout({ data }: { data: ReadoutData }) {
         <>
           <p className={styles.makesLine}>
             A <strong>{center.name}</strong> center, {shape.label}
-            {destinations > 1 ? `, ${destinations} destinations` : ""}, makes{" "}
-            <strong>{madeThing(makes.kind, center.slug)}</strong>. <Badge status={makes.status} />
+            {destinations > 1 ? `, ${destinations} destinations` : ""}, makes <strong>{madeThing(makes.kind)}</strong>.{" "}
+            <Badge status={makes.status} />
           </p>
           <p className={styles.muted}>
             {makes.why} {makes.table ? <>Its minor runes read the &ldquo;{makes.table.title}&rdquo; table.</> : null}

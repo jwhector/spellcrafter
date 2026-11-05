@@ -29,7 +29,7 @@ export interface Inscription {
   destinations?: number;
   /** Shapes only: "unit" shapes pick units, "area" shapes cover hexes, "move" shapes move the caster. */
   aims?: "unit" | "area" | "move" | "global" | "spell";
-  /** Only one inscription of the same exclusive group fits a sigil. */
+  /** Only one inscription of the same exclusive group fits a sigil. Only shapes have one (system-b.md "Shapes"). */
   exclusive?: string;
   /** Can attach to one minor rune: "whowhen" (minor Who or When) or "where" (minor Where). */
   minor?: "whowhen" | "where";
@@ -55,6 +55,9 @@ const shape = (
   destinations,
   aims,
   exclusive: "shape",
+  // system-b.md "Minor inscriptions": a minor Where is any shape. The whole battlefield and a spell set the
+  // output, so they can't be minor (rule 2); single target is the free default, so there is nothing to attach.
+  minor: id === "single" || id === "global" || id === "spell" ? undefined : ("where" as const),
   ...opts,
 });
 
@@ -82,13 +85,11 @@ export const INSCRIPTIONS: readonly Inscription[] = [
     },
   ),
   shape("self", "self", "unit", 1, "The spell lands on you."),
-  shape("bolt", "bolt", "unit", 1, "Stops at the first unit it hits; a bolt that finds no unit does nothing.", {
-    minor: "where",
-  }),
-  shape("burst", "burst", "area", 1, "A hex plus its 6 neighbours, at range.", { minor: "where" }),
-  shape("line", "line", "area", 1, "3 hexes from you, hitting everything.", { minor: "where" }),
-  shape("cone", "cone", "area", 1, "Rows of 1, 2 and 3 hexes in front of you.", { minor: "where" }),
-  shape("ring", "ring", "area", 1, "The 6 hexes around a destination, not the destination itself.", { minor: "where" }),
+  shape("bolt", "bolt", "unit", 1, "Stops at the first unit it hits; a bolt that finds no unit does nothing."),
+  shape("burst", "burst", "area", 1, "A hex plus its 6 neighbours, at range."),
+  shape("line", "line", "area", 1, "3 hexes from you, hitting everything."),
+  shape("cone", "cone", "area", 1, "Rows of 1, 2 and 3 hexes in front of you."),
+  shape("ring", "ring", "area", 1, "The 6 hexes around a destination, not the destination itself."),
   shape("wall", "wall", "area", 1, "3 hexes at range; it always leaves ground."),
   shape("dash", "dash", "move", 2, "Move up to 3 in a line; the start and the landing are its 2 destinations."),
   shape("leap", "leap", "move", 2, "Like dash, over units and obstacles; 2 destinations."),
@@ -126,11 +127,9 @@ export const INSCRIPTIONS: readonly Inscription[] = [
     "Spend a bonus action each round to move it up to 3 hexes. Needs lingering.",
   ),
   other("enemies", "enemies only", "who", "Only enemies are affected. Filters don't work on ground.", {
-    exclusive: "filter",
     minor: "whowhen",
   }),
   other("allies", "allies only", "who", "Only allies are affected. Filters don't work on ground.", {
-    exclusive: "filter",
     minor: "whowhen",
   }),
   other("weakest", "weakest first", "who", "Touches units with the least health first, until its strength runs out."),
@@ -138,70 +137,55 @@ export const INSCRIPTIONS: readonly Inscription[] = [
   other("lingering", "lingering", "when", "What the spell made lasts longer: on a place, it leaves ground.", {
     minor: "whowhen",
   }),
-  other("push", "push", "move", "Shoves the units it hits away.", { status: "Decided", exclusive: "push-pull" }),
-  other("pull", "pull", "move", "Draws the units it hits in.", { status: "Decided", exclusive: "push-pull" }),
+  other("push", "push", "move", "Shoves the units it hits away.", { status: "Decided" }),
+  other("pull", "pull", "move", "Draws the units it hits in.", { status: "Decided" }),
   other(
     "copy",
     "copy",
     "tether",
     "Tether (placeholder name): gives the spell's payloads to both ends for 2 rounds, half strength at the far end.",
-    {
-      exclusive: "tether",
-    },
+    {},
   ),
   other(
     "redirect",
     "redirect",
     "tether",
     "Tether (placeholder name): sends the payloads to the other end instead, for 2 rounds.",
-    {
-      exclusive: "tether",
-    },
+    {},
   ),
   other(
     "transfer",
     "transfer",
     "tether",
     "Tether (placeholder name): damage dealt becomes healing at the other end; removed statuses move.",
-    {
-      exclusive: "tether",
-    },
+    {},
   ),
-  other("leash", "leash", "tether", "Tether (placeholder name): keeps the first end within 2 hexes of the other.", {
-    exclusive: "tether",
-  }),
+  other("leash", "leash", "tether", "Tether (placeholder name): keeps the first end within 2 hexes of the other.", {}),
   other(
     "t-hit",
     "when it's hit",
     "trigger",
     "Waits through the next enemy phase and fires once when its target is hit.",
     {
-      exclusive: "trigger",
       minor: "whowhen",
     },
   ),
   other("t-enters", "when something enters", "trigger", "Fires once when something enters.", {
-    exclusive: "trigger",
     minor: "whowhen",
   }),
   other("t-moved", "when it's moved", "trigger", "Fires once when its target is moved.", {
-    exclusive: "trigger",
     minor: "whowhen",
   }),
   other("t-half", "when it drops below half health", "trigger", "Fires once when its target drops below half health.", {
-    exclusive: "trigger",
     minor: "whowhen",
   }),
   other("t-attacks", "when it attacks", "trigger", "Fires once when its target attacks.", {
-    exclusive: "trigger",
     minor: "whowhen",
   }),
   other("t-dies", "when it dies", "trigger", "Fires once when its target dies.", {
-    exclusive: "trigger",
     minor: "whowhen",
   }),
   other("t-zero", "when it would drop to 0", "trigger", "Fires once when its target would drop to 0 health.", {
-    exclusive: "trigger",
     minor: "whowhen",
   }),
 ];

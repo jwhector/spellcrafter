@@ -105,6 +105,25 @@ describe("which major output type the ring reads (system-b.md)", () => {
     expect(kind(build("wound", [], ["transfer"]))).toBe("on a unit");
   });
 
+  it("keeps minor Where off a global effect or an altered spell, whichever comes first", () => {
+    const withCone = toggleMinor(build("dispel", ["fire"], ["bolt"]), 0, "cone");
+    expect(withCone.minor[0]).toEqual(["cone"]);
+    expect(blockedReason(withCone, "global")).toMatch(/minor Where/);
+    expect(blockedReason(withCone, "spell")).toMatch(/minor Where/);
+    expect(toggleMinor(build("fire", ["frost"], ["global"]), 0, "range").minor[0]).toBeUndefined();
+  });
+
+  it("makes only shapes exclusive, as system-b.md says", () => {
+    const s = build("wound", [], ["enemies", "allies", "push", "pull"]);
+    expect(s.inscriptions).toEqual(["enemies", "allies", "push", "pull"]);
+    expect(build("wound", [], ["bolt", "burst"]).inscriptions).toEqual(["burst"]);
+  });
+
+  it("refuses a tether on the whole battlefield, as the tools do for now", () => {
+    expect(blockedReason(build("wound", [], ["global"]), "copy")).toMatch(/tether on the whole battlefield/);
+    expect(blockedReason(build("wound", [], ["copy"]), "global")).toMatch(/tether on the whole battlefield/);
+  });
+
   it("lets only a Dispel center target a spell", () => {
     expect(blockedReason(build("fire", []), "spell")).toMatch(/Only a Dispel center/);
     expect(kind(build("dispel", [], ["spell"]))).toBe("on a spell");
