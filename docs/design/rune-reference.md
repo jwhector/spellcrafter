@@ -34,22 +34,22 @@ then decides which row of the major output types table its minor runes read
 
 | Rune | Role | Opposite | Makes | Aimed at the board | Across the whole battlefield |
 | --- | --- | --- | --- | --- | --- |
-| Fire | Plain effect | Frost | an effect | Burns the target now and next round | Burning lasts a round longer for everyone |
+| Fire | Plain effect | Frost | an effect | Burns the target now and next round | Burning lasts a round longer for everyone. Open (Jared, Nov 5): needs something more interesting |
 | Frost | Plain effect | Fire | an effect | Chills the target, which loses its bonus move | Every unit's bonus move is gone while it lasts |
-| Mend | Plain effect | Wound | an effect | Heals the target | Everyone heals a little at the start of each round |
-| Wound | Plain effect | Mend | an effect | Deals plain damage, more to units below half health | Everyone takes a little damage at the end of each round |
+| Mend | Plain effect | Wound | an effect | Heals the target | Everyone heals a little at the start of each round. Open (Jared, Nov 5): healing enemies too makes little sense; the idea of healing stays |
+| Wound | Plain effect | Mend | an effect | Deals plain damage, more to units below half health | Everyone takes a little damage at the end of each round (Decided, Jared Nov 5) |
 | Protect | Amplifier | Expose | a shield | Shields the target, which also heals a little more; the ring changes the shield itself | The first hit on each unit each round is reduced |
-| Expose | Amplifier | Protect | an effect | Makes the target take more damage and heal less | All damage is increased a little |
-| Portal | Mover | none | a gate | Opens a gate that lasts the round; anyone can walk through. Cast on yourself with an extra destination, it moves you there | Each round, two random hexes become linked gates |
-| Summon | Maker | Dispel | a summon | Creates a body at each destination; the ring says what it is made of. Aimed at a unit, the unit is set aside and the body takes its place until it dies or the spell ends | A weak neutral creature enters at the edge each round |
-| Dispel | Remover | Summon | an effect | Clears statuses, terrain and summons | All statuses and lingering terrain clear, and new ones last only a round |
-| Stone | Maker | none | an effect | Raises stone that blocks movement; units already standing there are encased | The edge hexes turn to rock, shrinking the battlefield |
+| Expose | Amplifier | Protect | an effect | Makes the target take more damage and heal less | All damage is increased a little (Decided, Jared Nov 5) |
+| Portal | Mover | none | a gate | Opens a gate that lasts the round; anyone can walk through. Cast on yourself with an extra destination, it moves you there | Open (Jared, Nov 5): to rethink. The old rule (each round, two random hexes become linked gates) moves to Portal's minor rune effect on a global modification |
+| Summon | Maker | Dispel | a summon | Creates a body at each destination; the ring says what it is made of. Aimed at a unit, the unit is set aside and the body takes its place until it dies or the spell ends | A weak neutral creature enters at the edge each round (Decided, Jared Nov 5) |
+| Dispel | Remover | Summon | an effect | Clears statuses, terrain and summons | All statuses and lingering terrain clear, and new ones last only a round (Decided, Jared Nov 5) |
+| Stone | Maker | none | an effect | Raises stone that blocks movement; units already standing there are encased | The edge hexes turn to rock, shrinking the battlefield (Decided, Jared Nov 5) |
 | Amplification | Amplifier | Diminishing | an effect | Makes the target deal more damage and give more healing for a round | Everyone deals a little more |
 | Diminishing | Amplifier | Amplification | an effect | Makes the target deal less damage and give less healing for a round | Everyone deals a little less |
 | Haste | Plain effect | Slow | an effect | Gives the target an extra move next turn (an extra action with more strength) | Everyone gets an extra move each round |
-| Slow | Plain effect | Haste | an effect | Makes the target lose its next action; on an enemy that cancels its shown move | Each unit can either act or move on its turn, not both |
-| Invisibility | Plain effect | Revelation | an effect | Hides the target: single, bolt and chain spells can't pick it until it acts, and an enemy move aimed at it loses its target; areas still hit it | Units more than 3 hexes away can't be picked as single targets |
-| Revelation | Plain effect | Invisibility | an effect | Removes hiding from the target and stops it hiding again for a round. On an enemy, it also shows that enemy's next move exactly (Proposed, Jared Nov 5, to playtest) | No one can hide |
+| Slow | Plain effect | Haste | an effect | Makes the target lose its next action; on an enemy that cancels its shown move | Each unit can either act or move on its turn, not both (Decided, Jared Nov 5) |
+| Invisibility | Plain effect | Revelation | an effect | Hides the target: single, bolt and chain spells can't pick it until it acts, and an enemy move aimed at it loses its target; areas still hit it | Units more than 3 hexes away can't be picked as single targets (Decided, Jared Nov 5) |
+| Revelation | Plain effect | Invisibility | an effect | Removes hiding from the target and stops it hiding again for a round. On an enemy, it also shows that enemy's next move exactly (Proposed, Jared Nov 5, to playtest) | No one can hide (Decided, Jared Nov 5) |
 | Blank (Jared's name, Decided Nov 5) | | none | an effect | Open: the center for a spell that only moves things, with the Push or Pull inscription | Open |
 
 **Aimed at a spell.** Decided (Nov 5): only a Dispel center can target a spell,
@@ -266,7 +266,7 @@ shapes that global effect.
 | Wound | The global effect also chips everyone for a little damage each round |
 | Protect | The global effect is softer on your side |
 | Expose | The global effect is stronger |
-| Portal | The global effect jumps between two zones each round |
+| Portal | Each round, two random hexes become linked gates (Jared, Nov 5: moved here from Portal's major output) |
 | Summon | Creatures carry the global effect; it only applies near them |
 | Dispel | The global effect also clears statuses and terrain when it starts |
 | Stone | The global effect is anchored: it lasts longer but stays in one region |
