@@ -17,7 +17,7 @@ Where the project came from, and the state of the design when it moved here:
 | `engine/` | Pure game logic: runes, circles, the budget model, the forge, battle rules. No UI. |
 | `app/` | The views, as a Next.js app (App Router): the crafter view, the budget readout, the hex battle board. |
 | `tests/` | Tests that span the repo, including the guards in `tests/guards/`. Unit tests sit beside their code as `*.test.ts`. |
-| `docs/design/` | Markdown snapshots of the design docs, and the one home for their links. |
+| `docs/design/` | The design docs (they lead the design), and the one home for links to their sources. |
 | `docs/decisions/` | Decision records: why the repo is built the way it is. |
 | `docs/plans/` | Plans for larger work, from `TEMPLATE.md`. |
 | `docs/agentic-workflow.md` | How work flows here: the loop, the kickoff prompt, the maintenance contract. |
@@ -41,9 +41,9 @@ crafter's preview and in battle.
 3. **Design is discussed with Jared, one item at a time.** Give options and a
    pick, let him answer, and update the docs once he decides. A decision that
    exists only in code or a table is not a decision.
-4. **The design docs lead** until Jared decides otherwise
-   ([docs/design/README.md](docs/design/README.md)). Do not change a snapshot
-   in `docs/design/` to change the design.
+4. **The design docs in `docs/design/` lead**
+   ([decision 0003](docs/decisions/0003-repo-markdown-leads.md)). Editing
+   one changes the design, so it waits for Jared's decision (rule 3).
 5. **The engine is pure and deterministic.** Nothing in `engine/` imports
    from `app/` or a UI library (React, Next.js), or touches the DOM (guarded by
    `tests/guards/engine-purity.test.ts`). Same input, same result, so a

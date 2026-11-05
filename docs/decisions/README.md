@@ -13,7 +13,7 @@ Take the next number above every record on `main`, on any remote branch
 Two parallel branches will otherwise take the same one. Add your number to
 the reserved list in your branch, and remove it when the record lands on main.
 
-**Reserved by open pull requests:** none.
+**Reserved by open pull requests:** 0003 (branch `claude/project-thread-kj0lmw`).
 
 ## Status lines
 
@@ -31,3 +31,4 @@ A status line is a fact, true the moment the record lands on main:
 | --- | --- | --- |
 | 0001 | [Scaffold the agentic workflow](0001-agentic-workflow-scaffold.md) | ratified when it lands |
 | 0002 | [TypeScript and Next.js, one package](0002-typescript-nextjs.md) | ratified when it lands |
+| 0003 | [The repo's Markdown leads the design](0003-repo-markdown-leads.md) | pending Jared on the shape of the Artifact mirror |
