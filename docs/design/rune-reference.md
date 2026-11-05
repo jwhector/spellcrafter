@@ -1,7 +1,7 @@
 # The Hollow: rune reference
 
-What every System B rune does in the center and in each central output type. The rules
-that pick a central output type are in [System B rules](system-b.md#what-the-center-makes-and-what-the-ring-does);
+What every System B rune does in the center and in each major output type. The rules
+that pick a major output type are in [System B rules](system-b.md#what-the-center-makes-and-what-the-ring-does);
 what each meaning costs is in the [budget model](budget-model.md).
 
 **Decided (Nov 5):** there are 16 runes, in opposite pairs: Fire and Frost, Mend
@@ -12,12 +12,12 @@ Slow, Invisibility, Revelation) on Nov 5. Push and Pull are inscriptions now
 ([System B rules](system-b.md#other-major-inscriptions)), and a Blank rune is
 planned for spells that only move things (Decided Nov 5, mechanics Open).
 
-**How to read the ring tables.** Each central output type is being settled in the ring
-review, one central output type at a time (step 3 of the plan: grammar and linking, then what
+**How to read the ring tables.** Each major output type is being settled in the ring
+review, one major output type at a time (step 3 of the plan: grammar and linking, then what
 the budget measures, then the ring review, then numbers in the audit tool, then
-playtest). The central output types marked Decided are done. The rest still show the crafter's
+playtest). The major output types marked Decided are done. The rest still show the crafter's
 v14 minor rune effects, which are Proposed and written before the Nov 5 rules that a rune's
-central output stays unique to the center and that minor runes on a central output change the
+major output stays unique to the center and that minor runes on a major output change the
 output itself. A minor rune that matches the center adds strength to the center
 instead of using its minor rune effect (Decided Nov 4).
 
@@ -27,9 +27,9 @@ The center decides what the spell makes: an effect, a gate (Portal), a summon
 (Summon) or a shield (Protect). An effect that lingers on an area, or is cast as a
 wall, becomes ground. All Proposed (crafter v14), except where marked.
 
-A rune's row here is its central output: what it does in the center. "Makes"
-is the kind of thing it makes, which picks the central output type its minor
-runes read (see [System B rules](system-b.md#the-central-output-types)).
+A rune's row here is its major output: what it does in the center. "Makes"
+is the kind of thing it makes, which picks the major output type its minor
+runes read (see [System B rules](system-b.md#the-major-output-types)).
 
 | Rune | Role | Opposite | Makes | Aimed at the board | Across the whole battlefield |
 | --- | --- | --- | --- | --- | --- |
@@ -85,7 +85,7 @@ names are still placeholders (see the [glossary](system-b.md#glossary)).
 
 **Open:** whether Wound's finish applies to bosses (immune, or a smaller
 threshold). **To check:** how these read on a Protect center's shield, which uses
-this central output type with each rune firing when the shield is hit.
+this major output type with each rune firing when the shield is hit.
 
 ## Minor rune effect: through a gate
 

@@ -39,11 +39,11 @@ loot (more trading) or stay learned only (protects progression).
 
 ## What the center makes, and what the ring does
 
-**Decided (Nov 4): minor runes modify the central output.** Minor runes never act
+**Decided (Nov 4): minor runes modify the major output.** Minor runes never act
 on their own. They modify what the center produces, so swapping a rune between
 the center and the ring always makes a different spell.
 
-- A summon, portal or protect center always outputs its central output (a summon, a gate,
+- A summon, portal or protect center always outputs its major output (a summon, a gate,
   a shield), wherever it's aimed on the battlefield.
 - Any center aimed at a spell outputs an altered spell.
 - A plain-effect center outputs an effect: on a place, on a unit, or (across the
@@ -53,23 +53,23 @@ the center and the ring always makes a different spell.
 
 **Decided (Nov 5)**
 
-- A rune's central output stays unique to the center, and minor runes always do something
+- A rune's major output stays unique to the center, and minor runes always do something
   different. Combos (such as a healing portal) come from [linking](#linking).
-- On a central output (a gate, a summon, a shield, ground), minor runes change the
+- On a major output (a gate, a summon, a shield, ground), minor runes change the
   output itself rather than adding an effect to it. The one exception so far is
   Wound on a gate.
-- Every rune gets a meaning in every central output type.
+- Every rune gets a meaning in every major output type.
 - Only a Dispel center can target a spell, and its minor runes decide what
   happens to that spell.
 
 **Decided (Nov 4): a minor rune that matches the center adds strength to the
 center,** like a duplicate.
 
-### The central output types
+### The major output types
 
-Which central output type a minor rune reads depends on what the center made. There are eight:
+Which major output type a minor rune reads depends on what the center made. There are eight:
 
-| Central output type | Used when |
+| Major output type | Used when |
 | --- | --- |
 | At a destination | The center makes an effect on an area |
 | On a unit | The center makes an effect on one unit; also a Protect center's shield, with each minor rune firing when the shield is hit |
@@ -80,18 +80,18 @@ Which central output type a minor rune reads depends on what the center made. Th
 | On a spell | A Dispel center aimed at a spell |
 | Global modification | The whole-battlefield shape (Jared's name) |
 
-A central output type is a kind of central output, not a target. A new mechanic adds a central output type
+A major output type is a kind of major output, not a target. A new mechanic adds a major output type
 only when it creates a recipient that can't be described as one of these. Every
-new central output type needs a minor rune effect from every minor rune, so new central output types are the expensive
+new major output type needs a minor rune effect from every minor rune, so new major output types are the expensive
 kind of addition. For example, an aura that follows a unit is still a place, so
-no new central output type; a projectile that stays on the board is a body, unless it can't
+no new major output type; a projectile that stays on the board is a body, unless it can't
 be attacked.
 
-**Proposed: each kind of central output declares how it spreads over a shape:** one per
+**Proposed: each kind of major output declares how it spreads over a shape:** one per
 hex (summon, budget split), as a footprint (gate), one per unit in the area
-(shield), or as an area effect (hit). That's a small table of central output types by shapes,
-plus central output types by destination count, and the audit sweep fails any cell with no rule, so a
-new shape or a new kind of central output can't ship with an undefined combination.
+(shield), or as an area effect (hit). That's a small table of major output types by shapes,
+plus major output types by destination count, and the audit sweep fails any cell with no rule, so a
+new shape or a new kind of major output can't ship with an undefined combination.
 
 ## Reading a sigil
 
@@ -153,7 +153,7 @@ geometry needs check against it (a portal needs two destinations).
 - **More range.**
 - **Delay.**
 - **Lingering, one rule (Proposed Nov 4):** what the spell made lasts longer. On a
-  place that's the ground, on a unit the status, on a central output the output, on a global
+  place that's the ground, on a unit the status, on a major output the output, on a global
   effect the rules, and on an enemy's spell its next shown moves for a few rounds,
   which is how lasting control works.
 - **Filters:** enemies only, allies only. **Decided (Nov 4):** filters don't work on
@@ -182,8 +182,8 @@ geometry needs check against it (a portal needs two destinations).
 **Decided (Nov 4)**
 
 - Tether is no longer a rune. It exists only as inscriptions.
-- The "along a tether" central output type stays: anything that travels between two ends
-  travels along a tether underneath, so the engine keeps one link and one central output type.
+- The "along a tether" major output type stays: anything that travels between two ends
+  travels along a tether underneath, so the engine keeps one link and one major output type.
 - Each way of routing an effect along a tether is its own inscription. They are
   the same tether underneath; in the UI they are separate inscriptions, each
   balanced on its own numbers (cost, share, range, duration). The names below are
@@ -235,12 +235,12 @@ A minor inscription attaches to one minor rune (Decided Nov 4, above). Proposed
 Nov 4:
 
 - **Minor Who or When** (filter, delay, lingering, trigger): the minor rune still
-  modifies the central output, using its normal minor rune effect, but only for those units
+  modifies the major output, using its normal minor rune effect, but only for those units
   or at that time. Example: wound center, burst, enemies only; mend in the ring
   with a minor "allies only". Enemies are hit and allies are healed.
 - **Minor Where** (a shape, more range): the minor rune becomes a small sub-effect
-  anchored on the output. It uses its own central output, over its own region,
-  positioned relative to the anchor (a destination, a unit, or a central output). It is still a
+  anchored on the output. It uses its own major output, over its own region,
+  positioned relative to the anchor (a destination, a unit, or a major output). It is still a
   modification of the output, because it can't exist without the anchor.
 
 Examples: a summon that breathes fire (summon center, bolt; fire in the ring with
@@ -363,7 +363,7 @@ everywhere (a global modification rewrites terrain rules).
   and wound in its ring heals the bearer and hurts whoever hits it.
 - **Decided (Nov 4): a shield's minor runes are order-free aspects** that fire when the
   shield is hit, following the rule above.
-- **Decided (Nov 4): opposite runes cancel only where their minor rune effects in that central output type
+- **Decided (Nov 4): opposite runes cancel only where their minor rune effects in that major output type
   are true opposites** (at a destination, on a unit, through a gate). There they cancel by
   amount. Elsewhere both apply. Fire and frost count as opposites.
 - **Order (Proposed Nov 4).** Whether ring order matters is declared on each minor rune effect,
@@ -411,9 +411,9 @@ battle budget.
    keep it? Inscription.
 
 Examples: casting again next round is an inscription (when). Invisibility is a
-rune (a status on a unit). Reflecting attacks is a rune whose central output is
+rune (a status on a unit). Reflecting attacks is a rune whose major output is
 shield-like. An aura that follows the target is an inscription (where). A
-counterspell is a rune, and its recipient is the "on a spell" central output type.
+counterspell is a rune, and its recipient is the "on a spell" major output type.
 
 ## Worked examples
 
@@ -437,12 +437,12 @@ are still placeholders, so we can talk about the parts.
 | --- | --- | --- | --- |
 | sigil | In System B, the whole spell layout: center, ring and inscriptions. In System A a sigil is the form without its runes, so write "System A sigil" or "System B sigil" wherever both appear | Jared | circle |
 | major rune | The rune in the center, which decides what the spell makes. Major and minor name the position, not a kind of rune: any rune can sit in either | Jared | center rune |
-| minor runes | The runes in the ring around the center, which modify the central output | Jared | ring runes |
+| minor runes | The runes in the ring around the center, which modify the major output | Jared | ring runes |
 | center, ring | The two positions in a sigil: the center holds the major rune, the ring holds the minor runes | placeholder | |
-| central output | The thing a major rune makes, itself: what that rune does in the center. Fire's is "burns the target now and next round"; Portal's is the gate it opens | Jared | thing, center meaning |
-| effect | The plain central output type: damage, healing or a status landing on units | Jared | |
-| central output type | The kind of thing a major rune makes: an effect (at a destination, on a unit, or global), ground, a gate, a summon, a shield or an altered spell. It decides what each minor rune does (the crafter's data calls it a hook type) | Jared | column |
-| minor rune effect | What one minor rune does in one central output type | Jared | entry, hook entry |
+| major output | The thing a major rune makes, itself: what that rune does in the center. Fire's is "burns the target now and next round"; Portal's is the gate it opens | Jared | thing, center meaning |
+| effect | The plain major output type: damage, healing or a status landing on units | Jared | |
+| major output type | The kind of thing a major rune makes: an effect (at a destination, on a unit, or global), ground, a gate, a summon, a shield or an altered spell. It decides what each minor rune does (the crafter's data calls it a hook type) | Jared | column |
+| minor rune effect | What one minor rune does in one major output type | Jared | entry, hook entry |
 | minor rune effect types | What a minor rune effect touches: positions, damage modifiers, health, statuses, terrain, aspects | Jared | channels |
 | role | What a rune does as a group: plain effect, amplifier, mover, maker, remover | Jared | (had no word) |
 | inscription | Shape, extra destination, range, timing, filter, trigger and so on | Jared | |

@@ -32,12 +32,12 @@ Everything a spell can read or change:
 
 | Part | Holds |
 | --- | --- |
-| Positions | Which unit, summon or other central output stands on which hex |
+| Positions | Which unit, summon or other major output stands on which hex |
 | Health | Each unit's and summon's health |
 | Statuses | Burning, chilled, shielded, exposed, encased, hidden, and so on, with durations |
 | Damage modifiers | The numbers that change incoming and outgoing damage and healing (from Protect, Expose, Amplification, Diminishing) |
 | Terrain | What each hex is: burning, ice, rubble, rock, ground with aspects, and the remains of fallen units |
-| Central outputs and links | Gates, summons, shields and tether links, each with its own aspects |
+| Major outputs and links | Gates, summons, shields and tether links, each with its own aspects |
 | Spells in waiting | Enemy intents and prepared (trigger) spells, each a sigil |
 | Global rules | Active global modifications and their remaining rounds |
 | Listeners | Triggers and aspects waiting for an event |
@@ -54,14 +54,14 @@ The only ways anything changes. Thirteen cover every rune effect written so far,
 | Move (push, pull, teleport, slide) | positions, terrain | positions |
 | Apply status | positions | statuses (and damage modifiers for Protect, Expose, Amplification, Diminishing) |
 | Place terrain | positions | terrain |
-| Create central output | positions | positions, central outputs and links |
-| Remove (statuses, terrain, central outputs) | everything it removes | statuses, terrain, central outputs |
-| Link | positions | central outputs and links |
+| Create major output | positions | positions, major outputs and links |
+| Remove (statuses, terrain, major outputs) | everything it removes | statuses, terrain, major outputs |
+| Link | positions | major outputs and links |
 | Alter spell (strip runes, move its area) | spells in waiting | spells in waiting |
 | Add global rule | nothing | global rules |
 | Listen | nothing | listeners |
 | Wait | clock | nothing |
-| Set aside | positions | positions, central outputs (takes a unit off the board and returns it later) |
+| Set aside | positions | positions, major outputs (takes a unit off the board and returns it later) |
 
 Damage reads health (for Wound's extra damage to units below half health). Turn
 order reads statuses (Haste and Slow), and so does targeting (Invisibility).
@@ -77,13 +77,13 @@ name). Nothing else describes a spell.
 
 | Property primitive | What it holds | Possible values |
 | --- | --- | --- |
-| **Output** | The kind of thing the spell produces; this picks the central output type | effect on a place, effect on a unit, link, gate, summon, shield, altered spell, global effect, ground |
+| **Output** | The kind of thing the spell produces; this picks the major output type | effect on a place, effect on a unit, link, gate, summon, shield, altered spell, global effect, ground |
 | **Where** | Ordered destinations, the region at each destination, the origin, the anchor, and how the region changes over time | destinations from the shape; anchors: a hex, a unit, the other unit in a trigger event; region shapes: grow, shrink, sweep, close in, anchor, follow a unit, steer, jump between zones |
 | **When** | Start, duration, repeats | now, next round, on a trigger; instant or N rounds; once or each round |
 | **Who** | Which units it touches, in what order, and what carries it | everyone, enemies only, allies only; weakest first with a health pool; carried by nothing, a unit, or a summon |
 | **What** | The payload: a list of engine primitive calls | damage, heal, move, status, terrain, create, remove, link, alter spell, global rule, set aside |
 | **How much** | A magnitude for each payload item | set by the power budget, then scaled |
-| **Aspects** | Only for central outputs and links (summons, gates, links, shields, ground): small effect records attached to the output, each with its own When | "on hit", "each round", "on pass-through", "along the link" |
+| **Aspects** | Only for major outputs and links (summons, gates, links, shields, ground): small effect records attached to the output, each with its own When | "on hit", "each round", "on pass-through", "along the link" |
 
 Aspects are effect records inside an effect record, which is how a burning,
 teleporting summon is described: a summon whose aspects are "burn neighbours each
@@ -99,21 +99,21 @@ Every rune and inscription is a small list of writes to property primitives:
 | --- | --- | --- |
 | **Set** | Replace a value outright | Major rune and inscriptions only |
 | **Add** | Append to a list (a payload item, a status, a terrain, an aspect) | Center and ring |
-| **Remove** | Delete from a list (statuses, terrain, central outputs, a spell's runes) | Center and ring |
+| **Remove** | Delete from a list (statuses, terrain, major outputs, a spell's runes) | Center and ring |
 | **Scale** | Multiply a magnitude or a duration (stronger, weaker, longer) | Center and ring |
 | **Shape** | Transform Where or When (grow, shrink, sweep, close in, anchor, follow, repeat) | Center and ring |
 
-"Minor runes modify the central output" is exactly the rule that **minor runes never
+"Minor runes modify the major output" is exactly the rule that **minor runes never
 use Set**. That's why Stone can feel like an inscription on a global effect: it
 shapes Where and When (anchor, last longer), while an inscription sets them.
 
 **Compiling a sigil, in order:**
 
-1. The major rune sets Output (from its central output, or from the target: a spell or the
+1. The major rune sets Output (from its major output, or from the target: a spell or the
    whole battlefield) and adds its base payload.
 2. Inscriptions set Where (shape, extra destination, range), When (delay, lingering,
    trigger) and Who (filter, order).
-3. The output picks the central output type. Each minor rune's effect in that central output type is its list
+3. The output picks the major output type. Each minor rune's effect in that major output type is its list
    of writes.
 4. Minor rune effects apply section by section, in clockwise order, after duplicates
    merge.
@@ -121,7 +121,7 @@ shapes Where and When (anchor, last longer), while an inscription sets them.
    budget, and hashes the result: the recipe id.
 
 **Running it in battle:** at the start time, for each destination in order, the payload
-runs as primitive calls against the units Who and Where allow. Central outputs and links persist and
+runs as primitive calls against the units Who and Where allow. Major outputs and links persist and
 register their aspects as listeners. Global rules register with their duration.
 Events go through a queue; each listener fires once per cause, and chains stop at
 depth 3.
@@ -149,7 +149,7 @@ primitives a minor rune effect uses.
 
 **Inverse adds cancel.** Fire and Frost statuses in the same cohort cancel, as do
 Mend and Wound, Protect and Expose. The forge flags them as wasted. This only
-applies where both minor rune effects in that central output type are true opposites on the same
+applies where both minor rune effects in that major output type are true opposites on the same
 recipients (Decided Nov 4: at a destination, on a unit, through a gate).
 
 **Duplicates scale.** A rune twice in a section becomes one write with its
@@ -201,13 +201,13 @@ For each output, the forge tries these in order:
 2. What, re-aimed at the nearest unit the output involves: the spell's caster, a
    gate's travelers, a summon's neighbours, a shield's attacker.
 3. Where or When, if the rune has a minor rune effect there.
-4. If nothing fits, the rune does nothing in that central output type, and the forge flags it as
+4. If nothing fits, the rune does nothing in that major output type, and the forge flags it as
    wasted rather than inventing a meaning.
 
 With the current sixteen runes, step 2 always succeeds, because every rune has a
 What that works on a unit. Step 4 only matters for a future rune with no What of
 its own (a pure shaping rune, which may be what Blank becomes). That rune would
-need its own minor rune effect in each central output type, or the forge would refuse it where it has none.
+need its own minor rune effect in each major output type, or the forge would refuse it where it has none.
 
 ## Worked example: Stone, three ways
 
@@ -232,9 +232,9 @@ cheap to expensive:
 
 | Extension | Example | What it costs |
 | --- | --- | --- |
-| New rune or inscription using existing pieces | a rune that deals damage and spreads like a chain | one row in each central output type |
+| New rune or inscription using existing pieces | a rune that deals damage and spreads like a chain | one row in each major output type |
 | New engine primitive | swapping a unit's side (charm), rewinding a unit's last move | the engine, plus its reads and changes row; minor rune effects that use it |
-| New output kind (central output type) | already added: altered spell, global effect, ground | one minor rune effect from every minor rune, or a fallback |
+| New output kind (major output type) | already added: altered spell, global effect, ground | one minor rune effect from every minor rune, or a fallback |
 | New property primitive | height, visibility, line of sight | every shape that could write it, plus the cost formula |
 | New write mode | "swap two values" | the combination math itself; avoid |
 
