@@ -1,0 +1,968 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Spell Circle Grammar</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: a working bench. Grammar map on top, the circle builder as the centerpiece, then the hook table and branching counts as reference sheets. */
+:root{
+  --bg:#eceff3; --surface:#f8f9fb; --ink:#18202b; --muted:#5a6474; --line:#cdd3dc; --accent:#1d5d69; --accent-soft:#d5e7ea; --warn:#9a5a00; --warn-soft:#f6e8d2;
+  --c-effect:#b0601a; --c-amplifier:#6a4ea2; --c-mover:#2c5fae; --c-maker:#3b7638; --c-remover:#8c3a3a; --c-ghost:#8a93a1;
+  --f-display:"Marcellus", "Trajan Pro", Georgia, serif;
+  --f-body:"Alegreya Sans", "Gill Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#10141a; --surface:#181e27; --ink:#e5e9ef; --muted:#9aa4b3; --line:#2d3644; --accent:#72bccb; --accent-soft:#1b3237; --warn:#e7b264; --warn-soft:#352915;
+  --c-effect:#e3a05e; --c-amplifier:#ab92e3; --c-mover:#7ea8ee; --c-maker:#88c482; --c-remover:#de8686; --c-ghost:#7d8796;
+  color-scheme:dark; } }
+:root[data-theme="dark"]{
+  --bg:#10141a; --surface:#181e27; --ink:#e5e9ef; --muted:#9aa4b3; --line:#2d3644; --accent:#72bccb; --accent-soft:#1b3237; --warn:#e7b264; --warn-soft:#352915;
+  --c-effect:#e3a05e; --c-amplifier:#ab92e3; --c-mover:#7ea8ee; --c-maker:#88c482; --c-remover:#de8686; --c-ghost:#7d8796;
+  color-scheme:dark; }
+
+*{box-sizing:border-box}
+body{background:var(--bg); color:var(--ink); font-family:var(--f-body); font-size:16px; line-height:1.5;}
+.wrap{max-width:1140px; margin:0 auto; padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px)); padding-block:28px 64px; display:grid; gap:44px;}
+h1,h2,h3{font-family:var(--f-display); font-weight:400; text-wrap:balance; margin:0; letter-spacing:.01em}
+h1{font-size:clamp(30px,5vw,44px); line-height:1.1}
+h2{font-size:26px; line-height:1.2}
+h3{font-size:18px}
+p{margin:0}
+.lede{max-width:68ch; color:var(--muted); font-size:17px}
+.eyebrow{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); font-weight:700}
+header{display:grid; gap:10px}
+section{display:grid; gap:18px; min-width:0}
+.sec-head{display:grid; gap:6px; max-width:72ch}
+.sec-head p{color:var(--muted)}
+.mono{font-family:var(--f-mono); font-size:13px}
+button, select, input{font:inherit; color:inherit}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+
+/* Grammar map */
+.map{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px}
+@media (max-width:860px){ .map{grid-template-columns:1fr} }
+.pillar{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:16px; display:grid; gap:12px; align-content:start}
+.pillar .role{font-family:var(--f-display); font-size:20px}
+.pillar .q{font-size:13px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
+.pillar ul{margin:0; padding-left:18px; display:grid; gap:6px}
+.pillar li{padding-left:2px}
+.pillar .sub{font-size:14px; color:var(--muted)}
+.tag{display:inline-block; font-size:12px; font-weight:700; letter-spacing:.04em; padding:1px 7px; border-radius:999px; border:1px solid currentColor; white-space:nowrap}
+.flow{display:flex; flex-wrap:wrap; align-items:center; gap:8px; font-size:15px}
+.flow .node{background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:6px 10px}
+.flow .arrow{color:var(--muted)}
+.sentence{font-family:var(--f-display); font-size:19px; background:var(--accent-soft); border-radius:10px; padding:12px 16px}
+.sentence b{font-weight:400; color:var(--accent)}
+
+.cat-effect{color:var(--c-effect)} .cat-amplifier{color:var(--c-amplifier)} .cat-mover{color:var(--c-mover)} .cat-maker{color:var(--c-maker)} .cat-remover{color:var(--c-remover)} .cat-ghost{color:var(--c-ghost)}
+
+/* Builder */
+.presets{display:flex; flex-wrap:wrap; gap:8px}
+.chipbtn{background:var(--surface); border:1px solid var(--line); border-radius:999px; padding:5px 12px; cursor:pointer; font-size:14px}
+.chipbtn:hover{border-color:var(--accent)}
+.chipbtn[aria-pressed="true"]{background:var(--accent); color:var(--surface); border-color:var(--accent)}
+.bench{display:grid; grid-template-columns:minmax(0,380px) minmax(0,1fr); gap:20px; align-items:start}
+@media (max-width:900px){ .bench{grid-template-columns:1fr} }
+.panel{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:16px; display:grid; gap:14px; min-width:0}
+.field{display:grid; gap:6px}
+.field > label, .field > .lbl{font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); font-weight:700}
+select{background:var(--bg); border:1px solid var(--line); border-radius:6px; padding:6px 8px; width:100%}
+.checks{display:flex; flex-wrap:wrap; gap:6px 14px; font-size:15px}
+.checks label{display:flex; gap:6px; align-items:center}
+.section-ed{border:1px dashed var(--line); border-radius:8px; padding:10px; display:grid; gap:8px}
+.section-ed .hd{display:flex; justify-content:space-between; gap:8px; font-size:14px}
+.section-ed .hd b{font-family:var(--f-display); font-weight:400}
+.rlist{display:flex; flex-wrap:wrap; gap:6px; min-height:30px}
+.rchip{display:inline-flex; align-items:center; gap:2px; border:1px solid currentColor; border-radius:6px; padding:2px 4px 2px 8px; font-size:14px; background:color-mix(in srgb, currentColor 8%, var(--surface))}
+.rchip span{color:var(--ink)}
+.rchip button{border:0; background:none; cursor:pointer; padding:0 4px; color:var(--muted); font-size:14px; line-height:1}
+.rchip button:hover{color:var(--ink)}
+.addrow{display:flex; gap:6px}
+.addrow select{flex:1}
+.btn{background:var(--accent); color:var(--surface); border:0; border-radius:6px; padding:6px 12px; cursor:pointer; font-weight:700}
+.empty{color:var(--muted); font-size:14px; font-style:italic}
+
+.out{display:grid; gap:14px; min-width:0}
+.out-top{display:grid; grid-template-columns:minmax(0,340px) minmax(0,1fr); gap:16px; align-items:start}
+@media (max-width:700px){ .out-top{grid-template-columns:1fr} }
+.circle-box{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:8px; display:grid; place-items:center}
+.circle-box svg{width:100%; max-width:340px; height:auto; display:block}
+.reading{font-size:17px; line-height:1.55}
+.reading .lbl{display:block; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); font-weight:700; margin-bottom:4px}
+.recipe{display:grid; gap:8px}
+.recipe .idrow{display:flex; flex-wrap:wrap; gap:8px 14px; align-items:baseline}
+.rid{font-family:var(--f-mono); font-size:15px; font-weight:600; color:var(--accent)}
+.canon{font-family:var(--f-mono); font-size:12.5px; color:var(--muted); overflow-wrap:anywhere}
+.same{font-size:15px}
+.alts{margin:0; padding-left:18px; font-family:var(--f-mono); font-size:12.5px; color:var(--muted)}
+.flags{display:grid; gap:6px}
+.flag{background:var(--warn-soft); color:var(--ink); border-left:3px solid var(--warn); padding:6px 10px; border-radius:4px; font-size:14.5px}
+.flag.info{background:var(--accent-soft); border-left-color:var(--accent)}
+.steps{margin:0; padding:12px 14px 12px 34px; background:var(--bg); border:1px solid var(--line); border-radius:8px; font-family:var(--f-mono); font-size:12.5px; line-height:1.65; display:grid; gap:2px; overflow-x:auto}
+.steps li::marker{color:var(--muted)}
+.steps .k{color:var(--accent); font-weight:600}
+.slots{display:flex; gap:4px; align-items:center; flex-wrap:wrap; font-size:14px; color:var(--muted)}
+.pip{width:14px; height:14px; border-radius:3px; border:1px solid var(--accent); display:inline-block}
+.pip.on{background:var(--accent)}
+.pip.over{background:var(--warn); border-color:var(--warn)}
+
+/* Rules list */
+.rules{margin:0; padding-left:22px; display:grid; gap:6px; max-width:76ch}
+
+/* Hook table */
+.toolbar{display:flex; flex-wrap:wrap; gap:8px 16px; align-items:center; font-size:15px}
+.toolbar label{display:flex; gap:6px; align-items:center}
+.scroll{overflow-x:auto; border:1px solid var(--line); border-radius:10px; background:var(--surface)}
+table{border-collapse:collapse; width:100%; min-width:1180px; font-size:13.5px}
+th,td{border-bottom:1px solid var(--line); padding:7px 9px; text-align:left; vertical-align:top}
+thead th{font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); background:var(--bg); position:sticky; top:0}
+tbody th{font-family:var(--f-display); font-weight:400; font-size:15px; white-space:nowrap}
+td.fb{color:var(--muted); font-style:italic}
+td.used{background:var(--accent-soft); box-shadow:inset 3px 0 0 var(--accent)}
+tr.ghost th, tr.ghost td, td.ghost, th.ghost{color:var(--c-ghost); font-style:italic; background:repeating-linear-gradient(135deg, transparent 0 6px, color-mix(in srgb, var(--c-ghost) 10%, transparent) 6px 12px)}
+.cost{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px}
+@media (max-width:760px){ .cost{grid-template-columns:1fr} }
+.cost .panel{gap:6px}
+.cost .num{font-family:var(--f-display); font-size:28px; color:var(--accent); font-variant-numeric:tabular-nums}
+
+/* Branching */
+.btable{min-width:560px; font-variant-numeric:tabular-nums}
+.btable td.n{text-align:right; font-family:var(--f-mono); font-size:13px}
+.btable th.n{text-align:right}
+.bar{height:6px; border-radius:3px; background:var(--accent); margin-top:4px}
+.note{color:var(--muted); font-size:14.5px; max-width:76ch}
+@media (prefers-reduced-motion: reduce){ *{transition:none!important; animation:none!important} }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">The Hollow · System B</div>
+    <h1>Spell Circle Grammar</h1>
+    <p class="lede">How a circle of runes and inscriptions becomes one well-defined spell, when two circles count as the same spell, and what each new rune or mechanic adds to the space. Everything here is a working proposal for the prototype. Updated Nov 4 with the fixes from the BG3 coverage audit: three new rune pairs (named by Jared on Nov 5: amplification and diminishing, haste and slow, invisibility and revelation), a ground column, and new inscriptions and rules.</p>
+  </header>
+
+  <section aria-labelledby="h-map">
+    <div class="sec-head">
+      <h2 id="h-map">The three parts of a circle</h2>
+      <p>A circle reads like a sentence. The center is the noun (the thing the spell makes), the ring holds the verbs (instant actions), and the inscriptions say where and when.</p>
+    </div>
+    <div class="map">
+      <div class="pillar">
+        <div class="q">Where and when</div>
+        <div class="role">Inscriptions</div>
+        <ul>
+          <li><b>Shape</b>, exactly one. No shape means a single target. The shape sets how many <b>points</b> the spell has. One shape aims at a spell (an enemy's shown next move or an ally's prepared spell) instead of a place.</li>
+          <li><b>Points</b>: up to 3 extra points (a portal exit, a second summon, three chosen targets). They stack, one slot each, and the budget spreads across them.</li>
+          <li><b>Anchor</b> (Nov 4): the area follows the unit at its point. A burst on you that follows you is an aura.</li>
+          <li><b>Steerable</b> (Nov 4, needs lingering): move the effect each round for a bonus action.</li>
+          <li><b>Reach</b>: more range.</li>
+          <li><b>Timing</b>: delay, lingering. Lingering always means what the spell made lasts longer: ground on a place, a status on a unit, the thing itself, or the change to an enemy's next shown moves.</li>
+          <li><b>Filter</b>: enemies only or allies only. Friendly fire is on otherwise. Not allowed on ground (decided Nov 4).</li>
+          <li><b>Weakest first</b> (Nov 4): touches the units with the least health first, until the spell's strength runs out.</li>
+          <li><b>Trigger</b>: one event the spell waits for. On an event with two units (an attack, a hit), harmful runes land on the enemy and beneficial ones on your side.</li>
+          <li><b>Tether</b> (decided Nov 4: an inscription, not a rune): joins the first point to the next point, or to you. Four kinds, the same tether underneath, balanced separately: copy, redirect, transfer and leash.</li>
+                    <li><b>Whole battlefield</b>: a 3-slot shape for global modifications.</li>
+        </ul>
+        <p class="sub">Inscriptions are a set, so their order never matters. They are learned, permanent and never traded. These are major inscriptions (for the whole circle). Minor inscriptions, attached to one ring rune, are proposed in the spell model doc and not in this builder yet.</p>
+      </div>
+      <div class="pillar">
+        <div class="q">What it makes</div>
+        <div class="role">Center rune</div>
+        <ul>
+          <li><b>Hit</b>: the rune's plain effect at each point (every rune except portal, summon and protect). On an area with lingering, or a wall, it also leaves <b>ground</b>.</li>
+          <li><b>Gate</b> (portal): a door between two points that lasts the round.</li>
+                    <li><b>Body</b> (summon): a summon at each point, or one on every hex of an area shape, with the power budget split between them.</li>
+          <li><b>Shield</b> (protect): a shield, and whatever hits it.</li>
+          <li><b>Ground</b> (Nov 4): any hit on an area with lingering, or a wall. The center sets its base trait and ring runes add more.</li>
+        </ul>
+        <p class="sub">Each thing has hooks, the places where ring runes attach. A two-point thing with only one point uses you as the second. With three or more points, each point joins the next. A ring rune that matches the center adds strength to the center instead of acting on it. Where a rune has a choice of recipient, beneficial effects go to allies first and harmful ones to enemies first.</p>
+      </div>
+      <div class="pillar">
+        <div class="q">What it does</div>
+        <div class="role">Ring runes</div>
+        <ul>
+          <li><span class="tag cat-effect">Plain effects</span> fire, frost, mend, wound, and since Nov 4 haste, slow, invisibility and revelation. Their health and status changes add up.</li>
+          <li><span class="tag cat-amplifier">Amplifiers</span> protect, expose (damage and healing taken), and since Nov 4 amplification and diminishing (damage and healing given).</li>
+          <li><span class="tag cat-mover">Movers</span> push, pull, portal.</li>
+          <li><span class="tag cat-maker">Makers</span> summon, stone.</li>
+          <li><span class="tag cat-remover">Removers</span> dispel.</li>
+        </ul>
+        <p class="sub">Whether order matters depends on the hook. On a summon, on ground and in a global modification, every ring rune becomes a trait, so order never matters. On a spell, movers and dispel keep their place and the rest are traits. On a shield, ring runes are traits that fire when it's hit: beneficial ones help the bearer, harmful ones hit the attacker. At a point, on a unit or through a gate, runes run as steps, and two neighbours swap freely only when neither changes something the other uses. The ring splits into one section per point and is read clockwise from the top.</p>
+      </div>
+    </div>
+    <div class="flow" aria-label="From circle to battle">
+      <span class="node">Circle in the forge</span><span class="arrow">→</span>
+      <span class="node">Canonical recipe</span><span class="arrow">→</span>
+      <span class="node">Step list of engine actions</span><span class="arrow">→</span>
+      <span class="node">Battle and forge preview run the same list</span>
+    </div>
+    <p class="sentence"><b>The rule:</b> ring runes never act on their own. They modify what the center produces, and the hook table column is chosen by that output: an effect on a place, an effect on a unit, ground, a gate, a summon, an altered spell, or a global effect. A tether inscription adds one more column: what each rune sends along the tether.</p>
+    <p class="sentence">[<b>Trigger</b>] [<b>timing</b>] the <b>center</b> makes its thing at the <b>points</b> the shape picks, and at each point the <b>ring runes</b> of that section act on its hook, in clockwise order.</p>
+  </section>
+
+  <section aria-labelledby="h-build">
+    <div class="sec-head">
+      <h2 id="h-build">Circle builder</h2>
+      <p>Build any circle from the current rune set. The page reads it back, compiles it into steps, and shows its recipe id. Two circles with the same id are the same spell, with the same look and the same discovery credit.</p>
+    </div>
+    <div class="presets" id="presets" role="group" aria-label="Worked examples"></div>
+    <div class="bench">
+      <div class="panel" id="controls">
+        <div class="field"><label for="center">Center rune</label><select id="center"></select></div>
+        <div class="field"><label for="shape">Shape inscription</label><select id="shape"></select></div>
+        <div class="field"><span class="lbl">Other inscriptions</span>
+          <div class="checks">
+            <label>Extra points <select id="i-extra" style="width:auto"><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label>
+            <label><input type="checkbox" id="i-range"> More range</label>
+            <label><input type="checkbox" id="i-delay"> Delay</label>
+            <label><input type="checkbox" id="i-linger"> Lingering</label>
+            <label><input type="checkbox" id="i-follow"> Follows the unit</label>
+            <label><input type="checkbox" id="i-steer"> Steerable</label>
+            <label><input type="checkbox" id="i-weak"> Weakest first</label>
+          </div>
+        </div>
+        <div class="field"><label for="filter">Filter</label>
+          <select id="filter"><option value="">Everyone (friendly fire on)</option><option value="enemies">Enemies only</option><option value="allies">Allies only</option></select>
+        </div>
+        <div class="field"><label for="trigger">Trigger</label><select id="trigger"></select></div>
+        <div class="field"><label for="tether">Tether</label><select id="tether"></select></div>
+        <div class="field"><span class="lbl">Ring, by section</span><div id="sections" style="display:grid; gap:10px"></div></div>
+      </div>
+      <div class="out">
+        <div class="out-top">
+          <div class="circle-box" id="circle"></div>
+          <div style="display:grid; gap:14px; min-width:0">
+            <div class="reading"><span class="lbl">How it reads</span><span id="reading"></span></div>
+            <div class="slots" id="slots"></div>
+            <div class="recipe">
+              <div class="idrow"><span class="rid" id="rid"></span><span class="same" id="same"></span></div>
+              <div class="canon" id="canon"></div>
+              <ul class="alts" id="alts"></ul>
+            </div>
+          </div>
+        </div>
+        <div class="flags" id="flags"></div>
+        <div class="field"><span class="lbl">Compiled steps</span><ol class="steps" id="steps"></ol></div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-same">
+    <div class="sec-head">
+      <h2 id="h-same">When two circles are the same spell</h2>
+      <p>The forge rewrites every circle into one canonical form before giving it an id. These steps run in order.</p>
+    </div>
+    <ol class="rules">
+      <li>Fill in defaults. No shape inscription means a single target.</li>
+      <li>Sort the inscriptions. They are a set, so their order never matters.</li>
+      <li>Merge duplicates. A rune that appears twice in a section becomes one rune with more strength, at its first position.</li>
+      <li>Sort runes that don't depend on each other. Every hook entry declares what it reads and what it changes: positions, damage modifiers, health, statuses, terrain, or traits of a thing. Two neighbouring runes swap freely when neither changes something the other reads; changes to health, statuses, terrain, damage modifiers and traits simply add up. The forge puts swappable runes in alphabetical order. Opposite pairs that end up together cancel when their entries in that column are true opposites (fire and frost, mend and wound, protect and expose, and since Nov 4 amplification and diminishing, haste and slow, invisibility and revelation, at a point, on a unit, through a gate or on ground), and the forge flags them as wasted. In other columns the two entries are different traits and both apply.</li>
+      <li>Keep everything else in place. Wherever runes run as steps, a remover keeps its place, and sections keep their point order.</li>
+      <li>Hash what's left. That is the recipe id.</li>
+    </ol>
+    <p class="note">To revisit while building: the read and change declarations. They live on each hook entry, not on the rune, because the same rune can be a step in one place and a trait in another. As a safety net, the balance test boards can run both orders of every neighbouring pair and flag any pair whose declarations say "swappable" but whose results differ, or the reverse. Changing a declaration changes recipe ids, so settle them before launch.</p>
+  </section>
+
+  <section aria-labelledby="h-centers">
+    <div class="sec-head">
+      <h2 id="h-centers">Center table: what every rune does as the center</h2>
+      <p>The center rune decides what the spell makes: an effect, a gate, a summon or a shield. An effect that lingers on an area, or is cast as a wall, becomes ground. The last three columns say what the center does depending on where the spell is aimed: at the board (a hex, an area or a unit), across the whole battlefield, or at a spell. The six runes added Nov 4 are amplification, diminishing, haste, slow, invisibility and revelation (Jared named them Nov 5). The circle above's center is highlighted.</p>
+    </div>
+    <div class="scroll"><table id="centertable"></table></div>
+  </section>
+
+  <section aria-labelledby="h-hooks">
+    <div class="sec-head">
+      <h2 id="h-hooks">Hook table: every ring rune on every kind of recipient</h2>
+      <p>Each column is a kind of center output that a ring rune modifies: an effect on a place, an effect on a unit, ground (added Nov 4), something passing through a gate, a summon, an altered spell, or a global effect (global modification). The "along a tether" column is different: it says what each rune sends along a tether inscription (copy, redirect or transfer decide how it travels). A summon, portal or protect center always uses its own column, wherever it is aimed; a plain-effect center uses the place, unit or global column; anything aimed at a spell uses the spell column. Each ring rune needs one short meaning per column. This table is the real content work. The two empty cells are a thing center's own rune in its own column (portal through a gate, summon on a summon). Decided Nov 4: a ring rune that matches the center adds strength to the center, so these never need writing. Any other missing entry would fall back to the rune's "on a unit" meaning. Cells used by the circle above are highlighted.</p>
+    </div>
+    <div class="toolbar">
+      <label><input type="checkbox" id="ghost-row"> Show the cost of one more ring rune</label>
+      <label><input type="checkbox" id="ghost-col"> Show the cost of one more hook type</label>
+    </div>
+    <div class="scroll"><table id="hooktable"></table></div>
+    <div class="cost">
+      <div class="panel"><div class="num" id="cost-written"></div><p>meanings written for the current set, plus <span id="cost-fb"></span> cells where a rune meets its own center.</p></div>
+      <div class="panel"><div class="num">+8</div><p><b>New ring rune:</b> one new row. Eight meanings to write, or a few plus fallbacks. Cheap, and it multiplies the spell count.</p></div>
+      <div class="panel"><div class="num" id="cost-col"></div><p><b>New kind of thing with a new hook:</b> one new column that touches every ring rune. The expensive kind of addition, so add these rarely. A new center rune that reuses an existing thing (a second kind of gate, say) costs nothing here.</p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-branch">
+    <div class="sec-head">
+      <h2 id="h-branch">How the space branches</h2>
+      <p>Distinct rings for one center and one shape, counted by building every ring and keeping one per recipe id. The same runes branch very differently depending on the hook they land on.</p>
+    </div>
+    <div class="scroll"><table class="btable" id="btable"></table></div>
+    <p class="note">Order matters most at a point, where movers, makers and amplifiers make positions count. On a summon, every ring is a set of traits, so the count is just the number of rune mixes. A new mover grows the space faster than a new plain effect. Multiply by the 18 center runes, 14 shapes and the inscription choices for the full space; the circle size set by Level caps how many of these a player can reach.</p>
+  </section>
+</div>
+
+<script>
+(function(){
+"use strict";
+var HOOKS = [
+  {k:"P", name:"At a point"},
+  {k:"U", name:"On a unit"},
+  {k:"G", name:"On ground"},
+  {k:"L", name:"Along a tether"},
+  {k:"E", name:"Through a gate"},
+  {k:"B", name:"On a summon"},
+  {k:"S", name:"On a spell"},
+  {k:"W", name:"Global modification"}
+];
+var HOOKNAME = {}; HOOKS.forEach(function(h){ HOOKNAME[h.k]=h.name; });
+
+var RUNES = [
+  {id:"fire", name:"Fire", cat:"effect", inv:"frost", thing:"hit", center:"burns the target now and next round",
+   h:{G:"Burns whoever stands in it at round end", P:"The effect sets the units it touches burning and leaves burning ground behind", U:"The unit is also set burning", L:"Burning", E:"Travelers catch fire", B:"The summon burns units next to it", S:"When the spell is cast, its caster burns", W:"The global effect also leaves scattered burning hexes"}, gw:"Burning lasts a round longer for everyone"},
+  {id:"frost", name:"Frost", cat:"effect", inv:"fire", thing:"hit", center:"chills the target, which loses its bonus move",
+   h:{G:"Slippery: units slide 1 hex further", P:"The effect leaves ice behind; units slide 1 extra hex on it", U:"The unit is also chilled", L:"Chill", E:"Travelers arrive chilled", B:"The summon chills units next to it", S:"The spell goes off last in its phase", W:"The global effect also takes away everyone's bonus move"}, gw:"Every unit's bonus move is gone while it lasts"},
+  {id:"mend", name:"Mend", cat:"effect", inv:"wound", thing:"hit", center:"heals the target",
+   h:{G:"Heals allies standing in it at round end", P:"Allies inside the effect are also healed", U:"The unit is also healed", L:"Healing", E:"Travelers are healed", B:"The summon heals units next to it each round", S:"Allies the spell hits are healed afterward", W:"Allies heal a little each round while the global effect lasts"}, gw:"Everyone heals a little at the start of each round"},
+  {id:"wound", name:"Wound", cat:"effect", inv:"mend", thing:"hit", center:"deals plain damage, more to units below half health",
+   h:{G:"Hurts each unit that steps onto a hex of it", P:"The effect also deals damage", U:"The effect also deals damage", L:"Damage", E:"Travelers take damage", B:"The summon hits harder", S:"The spell's caster takes damage when it casts", W:"The global effect also chips everyone for a little damage each round"}, gw:"Everyone takes a little damage at the end of each round"},
+  {id:"protect", name:"Protect", cat:"amplifier", inv:"expose", thing:"shield", center:"shields the target, which also heals a little more; the ring says what happens to anyone who hits it",
+   h:{G:"Cover: units standing in it take less damage", P:"Allies inside the effect are shielded", U:"The unit is shielded after the effect", L:"Hits: damage from any source while the tether lasts", E:"Travelers are shielded", B:"The summon is tougher", S:"Units the spell hits take less damage", W:"The global effect is softer on your side"}, gw:"The first hit on each unit each round is reduced"},
+  {id:"expose", name:"Expose", cat:"amplifier", inv:"protect", thing:"hit", center:"makes the target take more damage and heal less",
+   h:{G:"Units standing in it are exposed", P:"Units the effect touches take more damage for a round", U:"The unit takes more damage for a round", L:"Exposure (taking more damage)", E:"Travelers are exposed", B:"The summon draws enemy attacks", S:"The spell hits harder (good on an ally's spell, risky on an enemy's)", W:"The global effect is stronger"}, gw:"All damage is increased a little"},
+  {id:"push", name:"Push", cat:"mover", inv:"pull", thing:"hit", center:"shoves units away from the point",
+   h:{G:"Drifts 1 hex a round, carrying units with it like a current", P:"The effect spreads 1 hex further out, a little weaker", U:"The effect knocks the unit back 1 hex", L:"Forced movement; the two ends are also pushed apart now", E:"Travelers are shoved out of the exit", B:"The summon knocks back units that hit it", S:"The spell's area shifts 1 hex away from you", W:"The global effect sweeps across the battlefield one row per round"}, gw:"At round end, every unit slides 1 hex the same way, like a gale"},
+  {id:"pull", name:"Pull", cat:"mover", inv:"push", thing:"hit", center:"draws units toward the point",
+   h:{G:"Draws units to its center each round; leaving costs a move", P:"The effect collapses onto the center hex, stronger", U:"The effect drags the unit 1 hex toward you", L:"Forced movement; the two ends are also drawn together now", E:"The gate draws nearby units in", B:"The summon drags enemies next to it", S:"The spell's area shifts 1 hex toward you", W:"The global effect starts at the edges and closes in toward the middle"}, gw:"At round end, every unit slides 1 hex toward the middle"},
+  {id:"portal", name:"Portal", cat:"mover", inv:null, thing:"gate", center:"opens a gate that lasts the round; anyone can walk through",
+   h:{G:"Its hexes are linked: step on one and come out at another", P:"The effect also lands at a second point (or next to you)", U:"The effect also lands on the nearest other unit", L:"A unit at one end can travel the tether to the other end once", E:null, B:"The summon can step through space once per round", S:"The spell's area moves to another point you choose", W:"The global effect jumps between two zones each round"}, gw:"Each round, two random hexes become linked gates"},
+  {id:"summon", name:"Summon", cat:"maker", inv:"dispel", thing:"body", center:"creates a body at each point; the ring says what it is made of. Aimed at a unit, the unit is set aside and the body takes its place until it dies or the spell ends",
+   h:{G:"Spreads 1 hex each round", P:"A creature carries the effect and repeats it around itself each round", U:"A body appears next to the unit and repeats the effect next round", L:"A body: one also appears at the far end", E:"A decoy appears where the first traveler stepped in", B:null, S:"A decoy appears that a single-target spell hits instead", W:"Creatures carry the global effect; it only applies near them"}, gw:"A weak neutral creature enters at the edge each round"},
+  {id:"dispel", name:"Dispel", cat:"remover", inv:"summon", thing:"hit", center:"clears statuses, terrain and summons",
+   h:{G:"Statuses can't land on units in it, and spells aimed into it lose ring runes up to its strength", P:"Clears statuses and terrain where the effect lands, at this point in the order", U:"Strips the unit's statuses, at this point in the order", L:"Cleansing: statuses removed at one end", E:"Travelers are cleansed", B:"The summon clears statuses next to it", S:"Strips runes from the spell, up to this spell's power budget; you pick which, and stripping its center cancels it", W:"The global effect also clears statuses and terrain when it starts"}, gw:"All statuses and lingering terrain clear, and new ones last only a round"},
+  {id:"stone", name:"Stone", cat:"maker", inv:null, thing:"hit", center:"raises stone that blocks movement; units already standing there are encased",
+   h:{G:"Rough: crossing costs an extra move, and it lasts longer", P:"The effect is anchored: it lasts a round longer and leaves rubble at its edge", U:"The effect encases the unit: it can't move and takes less damage", L:"A low wall rises along the tether", E:"Rubble rings the exit", B:"The summon is made of stone: sturdy and blocking", S:"A barrier rises in front of the spell; bolts and lines stop at it", W:"The global effect is anchored: it lasts longer but stays in one region"}, gw:"The edge hexes turn to rock, shrinking the battlefield"},
+  {id:"dealmore", name:"Amplification", cat:"amplifier", inv:"dealless", thing:"hit", center:"makes the target deal more damage and give more healing for a round",
+   h:{P:"Units the effect touches deal more for a round", U:"The unit deals more for a round", G:"Units standing in it deal more", L:"Strength (dealing more)", E:"Travelers deal more for a round", B:"Allies next to the summon deal more", S:"The spell's caster deals more for a round after casting it", W:"Units inside the global effect deal more while it lasts"}, gw:"Everyone deals a little more"},
+  {id:"dealless", name:"Diminishing", cat:"amplifier", inv:"dealmore", thing:"hit", center:"makes the target deal less damage and give less healing for a round",
+   h:{P:"Units the effect touches deal less for a round", U:"The unit deals less for a round", G:"Units standing in it deal less", L:"Weakness (dealing less)", E:"Travelers deal less for a round", B:"Enemies next to the summon deal less", S:"The spell's caster deals less for a round after casting it", W:"Units inside the global effect deal less while it lasts"}, gw:"Everyone deals a little less"},
+  {id:"more", name:"Haste", cat:"effect", inv:"fewer", thing:"hit", center:"gives the target an extra move next turn (an extra action with more strength)",
+   h:{P:"Units the effect touches get an extra move next turn", U:"The unit gets an extra move next turn", G:"Units standing in it get an extra move", L:"Tempo (extra moves)", E:"Travelers get an extra move on arrival", B:"The summon acts twice each round", S:"The spell goes off first in its phase", W:"The global effect acts twice each round"}, gw:"Everyone gets an extra move each round"},
+  {id:"fewer", name:"Slow", cat:"effect", inv:"more", thing:"hit", center:"makes the target lose its next action; on an enemy that cancels its shown move",
+   h:{P:"Units the effect touches lose their next action", U:"The unit loses its next action", G:"Units that end their turn in it lose their next action", L:"Lost time (lost actions)", E:"Travelers arrive dazed and lose their next action", B:"Enemies next to the summon lose their bonus action", S:"The spell goes off a round later", W:"The global effect acts every other round and lasts twice as long"}, gw:"Each unit can either act or move on its turn, not both"},
+  {id:"hide", name:"Invisibility", cat:"effect", inv:"reveal", thing:"hit", center:"hides the target: single, bolt and chain spells can't pick it until it acts; areas still hit it",
+   h:{P:"Units the effect touches are hidden until they act", U:"The unit is hidden after the effect", G:"Units standing in it are hidden", L:"Concealment", E:"Travelers arrive hidden", B:"The summon is hidden until it acts", S:"The spell can't pick single targets: aimed at one unit, it fizzles; areas still land", W:"Enemies see only a blank circle for the global effect"}, gw:"Units more than 3 hexes away can't be picked as single targets"},
+  {id:"reveal", name:"Revelation", cat:"effect", inv:"hide", thing:"hit", center:"removes hiding from the target and stops it hiding again for a round",
+   h:{P:"Units the effect touches are revealed", U:"The unit is revealed", G:"Units standing in it can't hide", L:"Revealing", E:"Travelers are revealed", B:"The summon reveals hidden units next to it", S:"You read the spell exactly: its area, pushes and side effects, without deciphering", W:"The global effect reveals every hidden unit in it"}, gw:"No one can hide"}
+];
+var ABBR = {fire:"Fi",frost:"Fr",mend:"Me",wound:"Wo",protect:"Pr",expose:"Ex",push:"Ps",pull:"Pl",portal:"Po",summon:"Su",dispel:"Di",stone:"St",dealmore:"Am",dealless:"Dm",more:"Ha",fewer:"Sl",hide:"In",reveal:"Rv"};
+var R = {}; RUNES.forEach(function(r){ R[r.id]=r; });
+
+var SHAPES = [
+  {id:"single", name:"Single target (default)", pts:1, slots:0, area:false, learned:false, desc:["the target"]},
+  {id:"self", name:"Self", pts:1, slots:1, area:false, learned:false, desc:["you"]},
+  {id:"bolt", name:"Bolt", pts:1, slots:1, area:false, learned:false, desc:["the first unit the bolt hits"]},
+  {id:"burst", name:"Burst", pts:1, slots:1, area:true, learned:false, desc:["a burst at range"]},
+  {id:"line", name:"Line", pts:1, slots:1, area:true, learned:true, desc:["a 3-hex line"]},
+  {id:"cone", name:"Cone", pts:1, slots:1, area:true, learned:true, desc:["a cone in front of you"]},
+  {id:"ring", name:"Ring", pts:1, slots:1, area:true, learned:true, desc:["the 6 hexes around the point"]},
+  {id:"wall", name:"Wall", pts:1, slots:1, area:true, learned:true, desc:["a 3-hex wall at range"]},
+  {id:"dash", name:"Dash", pts:2, slots:1, area:true, learned:true, desc:["where you start","where you land"]},
+  {id:"leap", name:"Leap", pts:2, slots:1, area:true, learned:true, desc:["where you take off","where you land"]},
+  {id:"chain", name:"Chain", pts:3, slots:1, area:false, learned:true, desc:["the first target","the second target","the third target"]},
+  {id:"large", name:"Large area", pts:1, slots:2, area:true, learned:true, desc:["a large area (radius 2)"]},
+  {id:"global", name:"Whole battlefield", pts:1, slots:3, area:true, learned:true, desc:["the whole battlefield"]},
+  {id:"spell", name:"A spell", pts:1, slots:1, area:false, learned:true, desc:["the spell"]}
+];
+var SH = {}; SHAPES.forEach(function(s){ SH[s.id]=s; });
+
+var TRIGGERS = [
+  {id:"", name:"None"}, {id:"hit", name:"When it's hit"}, {id:"enter", name:"When something enters"},
+  {id:"moved", name:"When it's moved"}, {id:"half", name:"When it drops below half health"}, {id:"attacks", name:"When it attacks"},
+  {id:"dies", name:"When it dies"}, {id:"drop0", name:"When it would drop to 0"}
+];
+var TR = {}; TRIGGERS.forEach(function(t){ TR[t.id]=t; });
+
+var THING = {
+  hit:{name:"Hit", hook:null},
+  gate:{name:"Gate", hook:"E"},
+  body:{name:"Body", hook:"B"},
+  shield:{name:"Shield", hook:"U"}
+};
+var MAXSLOTS = 6;
+var TETHERS = [
+  {id:"", name:"None"},
+  {id:"copy", name:"Copy: both ends get it"},
+  {id:"redirect", name:"Redirect: the other end gets it instead"},
+  {id:"transfer", name:"Transfer: taken from one end, given to the other"},
+  {id:"leash", name:"Leash: one end stays near the other"}
+];
+var TK = {}; TETHERS.forEach(function(t){ TK[t.id]=t; });
+function flowRunes(s){ var o=[s.center]; s.sections.slice(0,points(s)).forEach(function(l){ l.forEach(function(id){ if(o.indexOf(id)<0) o.push(id); }); }); return o; }
+var FLOWNOUN={fire:"burning", frost:"chill", mend:"healing", wound:"damage", protect:"hits", expose:"exposure", push:"forced movement", pull:"forced movement", dispel:"cleansing", dealmore:"strength", dealless:"weakness", more:"tempo", fewer:"lost time", hide:"concealment", reveal:"revealing"};
+function flowNouns(s){ var o=[]; flowRunes(s).forEach(function(id){ var n=FLOWNOUN[id]; if(n && o.indexOf(n)<0) o.push(n); }); return o; }
+function tetherShapers(s){ var o=[]; flowRunes(s).forEach(function(id){ if(id===s.center || FLOWNOUN[id]&&id!=="push"&&id!=="pull") return; var t=R[id].h.L; if(id==="push"||id==="pull") t=t.split("; ")[1]; o.push({id:id, t:t}); }); return o; }
+function hasTake(s){ return flowRunes(s).some(function(id){ return id==="wound"||id==="fire"||id==="dispel"; }) || thingOf(s.center)==="body"; }
+
+var PRESETS = [
+  {name:"Gather and scatter", s:{center:"portal", shape:"burst", extra:true, range:false, delay:false, linger:false, filter:"", trigger:"", sections:[["pull"],["push"]]}},
+  {name:"Damage sharing", s:{center:"protect", shape:"single", extra:false, range:false, delay:false, linger:true, filter:"allies", trigger:"", tether:"redirect", sections:[[]]}},
+  {name:"Life drain", s:{center:"wound", shape:"single", extra:false, range:false, delay:false, linger:false, filter:"", trigger:"", tether:"transfer", sections:[[]]}},
+  {name:"Vampire wraith", s:{center:"summon", shape:"single", extra:false, range:false, delay:false, linger:false, filter:"", trigger:"", tether:"transfer", sections:[["wound"]]}},
+  {name:"Shared mend", s:{center:"mend", shape:"single", extra:false, range:false, delay:false, linger:true, filter:"allies", trigger:"", tether:"copy", sections:[[]]}},
+  {name:"Bodyguard", s:{center:"summon", shape:"single", extra:false, range:false, delay:false, linger:false, filter:"", trigger:"", tether:"leash", sections:[["protect"]]}},
+  {name:"Fire trap", s:{center:"fire", shape:"burst", extra:false, range:true, delay:false, linger:false, filter:"enemies", trigger:"enter", sections:[["push"]]}},
+  {name:"Bundle demo", s:{center:"wound", shape:"cone", extra:false, range:false, delay:false, linger:false, filter:"", trigger:"", sections:[["mend","frost","push","wound","fire"]]}},
+  {name:"Teleporting summon", s:{center:"summon", shape:"single", extra:false, range:false, delay:false, linger:false, filter:"", trigger:"", sections:[["fire","portal","mend"]]}},
+  {name:"Living fire wall", s:{center:"summon", shape:"wall", extra:false, range:false, delay:false, linger:false, filter:"", trigger:"", sections:[["fire"]]}},
+  {name:"Fire wall", s:{center:"fire", shape:"wall", extra:false, range:false, delay:false, linger:false, filter:"", trigger:"", sections:[[]]}},
+  {name:"Strip a spell", s:{center:"dispel", shape:"spell", extra:false, range:false, delay:false, linger:false, filter:"", trigger:"", sections:[[]]}},
+  {name:"Redirect", s:{center:"portal", shape:"spell", extra:true, range:false, delay:false, linger:false, filter:"", trigger:"", sections:[["expose"],[]]}},
+  {name:"Shrinking arena", s:{center:"stone", shape:"global", extra:false, range:false, delay:false, linger:false, filter:"", trigger:"", sections:[["pull"]]}},
+  {name:"Spreading fire", s:{center:"fire", shape:"burst", extra:false, range:false, delay:false, linger:false, filter:"", trigger:"", sections:[["push"]]}},
+  {name:"Burning shove", s:{center:"push", shape:"burst", extra:false, range:false, delay:false, linger:false, filter:"", trigger:"", sections:[["fire"]]}},
+  {name:"Global summons", s:{center:"summon", shape:"global", extra:false, range:false, delay:false, linger:false, filter:"", trigger:"", sections:[["push"]]}},
+  {name:"Storm zone", s:{center:"push", shape:"global", extra:false, range:false, delay:false, linger:false, filter:"", trigger:"", sections:[["wound","dispel","stone","pull"]]}},
+  {name:"Two summons", s:{center:"summon", shape:"single", extra:true, range:false, delay:false, linger:false, filter:"", trigger:"", sections:[["fire"],["stone"]]}},
+  {name:"Smite (Nov 4)", s:{center:"fire", shape:"self", extra:0, range:false, delay:false, linger:false, filter:"", trigger:"attacks", sections:[["expose"]]}},
+  {name:"Three darts", s:{center:"wound", shape:"single", extra:2, range:false, delay:false, linger:false, filter:"", trigger:"", sections:[[],[],[]]}},
+  {name:"Steered beam", s:{center:"wound", shape:"burst", extra:0, range:false, delay:false, linger:true, steer:true, filter:"", trigger:"", sections:[["fire"]]}},
+  {name:"Aura", s:{center:"wound", shape:"burst", extra:0, range:false, delay:false, linger:true, follow:true, filter:"", trigger:"", sections:[["frost"]]}},
+  {name:"Thorn field", s:{center:"stone", shape:"large", extra:0, range:false, delay:false, linger:true, filter:"", trigger:"", sections:[["wound"]]}},
+  {name:"Hiding cloud", s:{center:"hide", shape:"burst", extra:0, range:false, delay:false, linger:true, filter:"", trigger:"", sections:[["fewer"]]}},
+  {name:"Quiet zone", s:{center:"dispel", shape:"burst", extra:0, range:true, delay:false, linger:true, filter:"", trigger:"", sections:[[]]}},
+  {name:"Lull the weakest", s:{center:"fewer", shape:"burst", extra:0, range:false, delay:false, linger:false, weakest:true, filter:"", trigger:"", sections:[[]]}},
+  {name:"Turn its attack", s:{center:"portal", shape:"spell", extra:1, range:false, delay:false, linger:true, filter:"", trigger:"", sections:[[],[]]}},
+  {name:"Stand-in body", s:{center:"summon", shape:"single", extra:0, range:false, delay:false, linger:false, filter:"", trigger:"", sections:[["frost"]]}},
+  {name:"Step away", s:{center:"portal", shape:"self", extra:1, range:false, delay:false, linger:false, filter:"", trigger:"", sections:[[],[]]}},
+  {name:"Battle rally", s:{center:"dealmore", shape:"burst", extra:0, range:false, delay:false, linger:false, filter:"allies", trigger:"", sections:[["more"]]}}
+];
+
+function clone(o){ return JSON.parse(JSON.stringify(o)); }
+PRESETS.forEach(function(p){ var s=p.s; if(s.tether===undefined) s.tether=""; s.extra=+s.extra||0; ["follow","steer","weakest"].forEach(function(k){ if(s[k]===undefined) s[k]=false; }); });
+var state = clone(PRESETS[0].s);
+var activePreset = 0;
+
+/* ---------- core grammar ---------- */
+function catOf(id){ return R[id] ? R[id].cat : (id.indexOf("x-effect")===0 ? "effect" : "mover"); }
+function extraN(s){ return +s.extra||0; }
+function isGround(s){ return thingOf(s.center)==="hit" && s.shape!=="global" && s.shape!=="spell" && SH[s.shape].area && (s.linger || s.shape==="wall"); }
+var UNITSHAPE={single:1, self:1, bolt:1, chain:1};
+function isEffect(id){ return catOf(id)==="effect"; }
+function points(s){ return SH[s.shape].pts + extraN(s); }
+function thingOf(id){ return R[id].thing; }
+
+/* What each rune reads and changes, per hook. Two neighbouring runes swap freely
+   when neither changes something the other reads, and shared changes only add up. */
+var BENEFICIAL={mend:1, protect:1, dealmore:1, more:1, hide:1};
+var ADDITIVE={hp:1, status:1, terrain:1, mod:1, trait:1};
+/* pairs whose entries in a column are true opposites, so they cancel when they act together */
+var INVP=["fire/frost","mend/wound","expose/protect","dealless/dealmore","fewer/more","hide/reveal"];
+var OPPOSITE={P:INVP, U:INVP, E:INVP, G:INVP.concat(["pull/push"]), S:["expose/protect","dealless/dealmore","fewer/more"], W:["pull/push","dealless/dealmore","fewer/more"], L:[], B:[]};
+function opposite(a,b,hk){ var k=[a,b].sort().join("/"); return OPPOSITE[hk].indexOf(k)>=0; }
+function isDamage(id){ return id==="fire" || id==="wound"; }
+function access(id, hk, catFn){
+  var c=(catFn||catOf)(id);
+  if(hk==="B" || hk==="G") return {r:[], w:["trait"]};
+  if(hk==="S") return c==="remover" ? {all:true} : c==="mover" ? {r:["pos"], w:["pos"]} : {r:[], w:["trait"]};
+  if(hk==="W") return {r:[], w:["trait"]};
+  if(hk==="L") return (c==="mover" || c==="maker") ? {r:["pos"], w:["pos"]} : {r:[], w:["trait"]};
+  if(c==="remover") return {all:true};
+  if(c==="effect") return {r: isDamage(id) ? ["pos","mod"] : ["pos"], w:["hp","status","terrain"]};
+  if(c==="amplifier") return {r:["pos"], w:["mod"]};
+  return {r:["pos"], w:["pos"]};
+}
+function commute(a, b, hk, catFn){
+  if(a===b) return true;
+  var A=access(a,hk,catFn), B=access(b,hk,catFn);
+  if(A.all || B.all) return false;
+  function hit(x,y){ return x.w.some(function(c){ return y.r.indexOf(c)>=0 || (y.w.indexOf(c)>=0 && !ADDITIVE[c]); }); }
+  return !hit(A,B) && !hit(B,A);
+}
+/* canonical groups for one section: merge duplicates, put swappable runes in a fixed order, group runes that act together */
+function normalize(list, hk, catFn){
+  var order=[], count={};
+  list.forEach(function(id){ if(count[id]){ count[id]++; } else { count[id]=1; order.push(id); } });
+  var rest=order.slice(), nf=[];
+  while(rest.length){
+    var best=-1;
+    for(var i=0;i<rest.length;i++){
+      var ok=true;
+      for(var j=0;j<i;j++){ if(!commute(rest[j],rest[i],hk,catFn)){ ok=false; break; } }
+      if(ok && (best<0 || rest[i]<rest[best])) best=i;
+    }
+    nf.push(rest.splice(best,1)[0]);
+  }
+  var groups=[];
+  nf.forEach(function(id){
+    var g=groups[groups.length-1];
+    if(g && g.items.every(function(it){ return commute(it.id,id,hk,catFn); })) g.items.push({id:id,n:count[id]});
+    else groups.push({items:[{id:id,n:count[id]}]});
+  });
+  groups.forEach(function(g){ g.bundle = g.items.length>1; });
+  return groups;
+}
+function groupKey(groups){
+  return groups.map(function(g){ return g.items.map(function(it){ return it.id+(it.n>1?"*"+it.n:""); }).join("+"); }).join(">");
+}
+function inscriptionList(s){
+  var out=[];
+  if(extraN(s)) out.push("extra-point"+(extraN(s)>1?"×"+extraN(s):""));
+  if(s.range) out.push("range");
+  if(s.delay) out.push("delay");
+  if(s.linger) out.push("lingering");
+  if(s.follow) out.push("follows-unit");
+  if(s.steer) out.push("steerable");
+  if(s.weakest) out.push("weakest-first");
+  if(s.filter) out.push(s.filter+"-only");
+  if(s.trigger) out.push("trigger:"+s.trigger);
+  if(s.tether) out.push("tether:"+s.tether);
+  return out.sort();
+}
+function canonical(s){
+  var secs = s.sections.slice(0, points(s)).map(function(l){ return "["+groupKey(normalize(l, orderHook(s)))+"]"; }).join(" ");
+  return s.center+" | "+s.shape+(inscriptionList(s).length?" + "+inscriptionList(s).join(" + "):"")+" | "+secs;
+}
+function fnv(str){
+  var h=0x811c9dc5;
+  for(var i=0;i<str.length;i++){ h^=str.charCodeAt(i); h=Math.imul(h,0x01000193)>>>0; }
+  return ("000000"+h.toString(16)).slice(-6);
+}
+/* all distinct orderings of a list (multiset permutations) */
+function perms(list){
+  var a=list.slice().sort(), res=[a.slice()];
+  if(a.length>7) return null;
+  while(true){
+    var i=a.length-2; while(i>=0 && a[i]>=a[i+1]) i--;
+    if(i<0) break;
+    var j=a.length-1; while(a[j]<=a[i]) j--;
+    var t=a[i]; a[i]=a[j]; a[j]=t;
+    var l=i+1, r=a.length-1; while(l<r){ t=a[l]; a[l]=a[r]; a[r]=t; l++; r--; }
+    res.push(a.slice());
+  }
+  return res;
+}
+function sameArrangements(s){
+  var total=1, alts=[], capped=false;
+  var secs = s.sections.slice(0, points(s));
+  var perSec = secs.map(function(l){
+    var hk=orderHook(s), key=groupKey(normalize(l, hk)), p=perms(l);
+    if(!p){ capped=true; return {count:1, list:[l]}; }
+    var m=p.filter(function(x){ return groupKey(normalize(x, hk))===key; });
+    return {count:m.length, list:m};
+  });
+  perSec.forEach(function(x){ total*=x.count; });
+  // a few alternates: vary one section at a time
+  perSec.forEach(function(x, si){
+    x.list.forEach(function(arr){
+      if(alts.length>=4) return;
+      if(arr.join(",")===secs[si].join(",")) return;
+      var copy=secs.map(function(l,i){ return i===si?arr:l; });
+      alts.push(copy);
+    });
+  });
+  return {total:total, alts:alts, capped:capped};
+}
+/* how ring order is judged: a shield's ring runes are on-hit traits */
+function orderHook(s){ var hk=hookFor(s); return (hk==="U" && thingOf(s.center)==="shield") ? "B" : hk; }
+function hookFor(s){
+  /* the column is chosen by what the center outputs */
+  if(s.shape==="spell") return "S";
+  var th = THING[thingOf(s.center)];
+  if(th.hook) return th.hook;
+  if(s.shape==="global") return "W";
+  if(isGround(s)) return "G";
+  var sh = SH[s.shape];
+  return sh.area ? "P" : "U";
+}
+function hookText(id, hk, center){
+  var r=R[id]; var t=r.h[hk];
+  if(id===center) return {text:"Same rune as the center: adds strength to the center's effect", fb:false, same:true};
+  if(t) return {text:t, fb:false};
+  return {text:r.h.U, fb:true};
+}
+function pointDesc(s, i){
+  var sh=SH[s.shape];
+  if(i < sh.desc.length) return sh.desc[i];
+  return "the extra point";
+}
+function slotsUsed(s){
+  var n = SH[s.shape].slots + inscriptionList(s).length + Math.max(0, extraN(s)-1);
+  s.sections.slice(0, points(s)).forEach(function(l){ n+=l.length; });
+  return n;
+}
+
+/* ---------- reading ---------- */
+function esc(t){ return String(t).replace(/[&<>"]/g,function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]; }); }
+function readSpell(s){
+  var np=points(s), th=thingOf(s.center), parts=[];
+  var p1=pointDesc(s,0), p2= np>1 ? pointDesc(s,1) : "you";
+  var lead="";
+  var selfTrig = s.shape==="self" && (s.trigger==="attacks"||s.trigger==="hit");
+  if(selfTrig){ lead += s.trigger==="attacks" ? "when you attack, " : "when you're hit, "; p1 = s.trigger==="attacks" ? "the unit you attack" : "whoever hit you"; }
+  else if(s.trigger) lead += TR[s.trigger].name.replace("When","when")+" at "+p1+", ";
+  if(s.delay) lead += (lead?"":"")+"next round, ";
+  var c="", hk0=hookFor(s);
+  if(th==="gate" && s.shape==="self" && np>1 && hk0!=="S") c="you step through space to "+pointDesc(s,1)+(np>2?", then on to each later point":"");
+  else if(hk0==="S") c="aimed at an enemy's shown spell (or an ally's prepared one): "+R[s.center].h.S.charAt(0).toLowerCase()+R[s.center].h.S.slice(1);
+  else if(s.shape==="global") c="a global modification for a few rounds: "+R[s.center].gw.charAt(0).toLowerCase()+R[s.center].gw.slice(1);
+  else if(th==="gate" && SH[s.shape].area && s.shape!=="global" && np<=2) c= np>1 ? "a gate with "+p1+" as its entrance: anyone in it, or stepping onto it this round, comes out at "+p2+" in the same layout" : "a gate with "+p1+" as its entrance and you as the exit: anyone in it, or stepping onto it this round, comes out on your far side in the same layout, mirrored through you";
+  else if(th==="gate") c= np>2 ? "gates join each point to the next for the round" : "a gate joins "+p1+" and "+p2+" for the round";
+  else if(th==="body" && (s.shape==="single"||s.shape==="bolt") && np===1) c="a summon takes the place of "+p1+": the unit is set aside until the body dies or the spell ends (on an empty hex, the body simply appears)";
+  else if(th==="body") c= np>1 ? "a summon appears at each point" : (SH[s.shape].area ? "a summon appears on each hex of "+p1+", each weaker so together they fit the spell's power budget" : "a summon appears at "+p1);
+  else if(th==="shield") c="units at "+p1+" are shielded";
+  else c=R[s.center].name.toLowerCase()+" "+R[s.center].center+" at "+(np>1?"each point":p1)+(hk0==="G"?", and leaves ground there: "+R[s.center].h.G.charAt(0).toLowerCase()+R[s.center].h.G.slice(1):"");
+  var sentence = lead + c + ".";
+  sentence = sentence.charAt(0).toUpperCase()+sentence.slice(1);
+  parts.push(esc(sentence));
+  var hk=hookFor(s), shieldRing = orderHook(s)==="B" && hk==="U";
+  s.sections.slice(0,np).forEach(function(l,i){
+    if(!l.length) return;
+    var g=normalize(l, orderHook(s));
+    var bits=g.map(function(gr){
+      return gr.items.map(function(it){ var h=hookText(it.id,hk,s.center); var who = shieldRing ? (BENEFICIAL[it.id] ? " (to the bearer)" : " (to the attacker)") : ""; return "<b>"+esc(R[it.id].name)+(it.n>1?" ×"+it.n:"")+"</b>"+who+": "+esc(h.text.charAt(0).toLowerCase()+h.text.slice(1)); }).join(gr.bundle&&gr.items.length>1?", together with ":"");
+    });
+    parts.push((np>1?"At "+esc(pointDesc(s,i))+": ":shieldRing?"When the shield is hit: ":hk==="G"?"The ground also: ":"Then ")+bits.join(hk==="G"?"; ":"; then ")+".");
+  });
+  if(s.filter) parts.push("Affects "+s.filter+" only.");
+  if(s.weakest) parts.push("It touches the units with the least health first, until its strength runs out.");
+  if(s.follow) parts.push("The area follows the unit at its point.");
+  if(s.steer) parts.push("Each round, a bonus action moves it up to 3 hexes"+(UNITSHAPE[s.shape]?" or onto a new target in range":"")+".");
+  if(s.tether) parts.push(tetherText(s));
+  if(s.linger) parts.push(hk==="S" ? "The change holds for the spell's caster's next shown moves for a few rounds." : th!=="hit" && s.shape!=="global" ? "The "+THING[th].name.toLowerCase()+" and its effects last a few rounds." : s.shape==="global" ? "The global modification lasts longer." : hk==="G" ? "The ground lasts a few rounds." : "The statuses it leaves on the unit last a few rounds.");
+  return parts.join(" ");
+}
+
+function endA(s){ var th=thingOf(s.center), p1=pointDesc(s,0); return th==="body" ? "the summon at "+p1 : th==="shield" ? "the shielded unit at "+p1 : th==="gate" ? "the gate's travelers" : p1; }
+function tetherText(s){
+  var np=points(s), a=endA(s), b= np>1 ? (np>2 ? "the next point (each point joins the next)" : pointDesc(s,1)) : "you";
+  var dur = s.linger ? "for a few rounds" : "for 2 rounds";
+  var flows = flowNouns(s);
+  var list = flows.length>1 ? flows.slice(0,-1).join(", ")+" or "+flows[flows.length-1] : flows[0];
+  var lead = "<b>Tether ("+s.tether+")</b>, joining "+esc(a)+" to "+esc(b)+": ", body;
+  if(s.tether==="copy") body = flows.length ? dur+", any "+list+" that reaches the first end also reaches the other, at half strength." : "nothing in this spell travels along it.";
+  else if(s.tether==="redirect") body = flows.length ? dur+", part of any "+list+" meant for the first end goes to the other end instead." : "nothing in this spell travels along it.";
+  else if(s.tether==="transfer") body = "what the spell takes from the first end goes to the other: damage it deals there heals the other end by half as much, and statuses it removes there land on the other end.";
+  else body = dur+", the first end can't move more than 2 hexes from the other.";
+  var extra = tetherShapers(s).map(function(x){ return " Also along the tether ("+R[x.id].name.toLowerCase()+"): "+x.t.charAt(0).toLowerCase()+x.t.slice(1)+"."; }).join("");
+  return lead+esc(body+extra);
+}
+
+/* ---------- flags ---------- */
+function flagsFor(s){
+  var out=[], np=points(s), th=thingOf(s.center);
+  if(s.shape==="spell") out.push({info:true, t:"Targets a spell: the point is an enemy's shown next move or an ally's prepared spell, and every rune acts on that spell instead of on units."});
+  if(s.shape==="global") out.push({info:true, t:"A global modification changes the rules of the whole battlefield for a few rounds and affects everyone, including your side. It costs 3 slots."});
+  if(th==="body" && np===1 && SH[s.shape].area && s.shape!=="global") out.push({info:true, t:"On an area shape, a summon appears on every hex of "+pointDesc(s,0)+", and the spell's power budget is divided between them, so more bodies means weaker bodies. Each takes one hex, has health, blocks movement and can be attacked. Compare a fire center on the same shape, which leaves burning ground that units can walk through."});
+  var hkF=hookFor(s), glob=s.shape==="global", onSpell=hkF==="S";
+  if(onSpell && s.center==="portal" && np===1) out.push({t:"Portal on a spell moves its area to a second point. With no extra point, that point is you, so the spell lands on you. That's allowed (it can work like a taunt), so the forge only warns."});
+  else if(th==="gate" && np===1 && !onSpell && !glob){
+    if(s.shape==="self") out.push({t:"A self-cast "+R[s.center].name.toLowerCase()+" with no extra point has nowhere to send you, so it does nothing. Add an extra point and it moves you there (Nov 4)."});
+    else out.push({info:true, t:R[s.center].name+" needs two points and the spell has one, so you are the second point."});
+  }
+  if(th==="gate" && SH[s.shape].area && !glob && !onSpell) out.push({info:true, t:"On an area shape, the shape is the gate's footprint: the area is the entrance, and units come out at the other end in the same layout, turned to face away from the entrance."+(np===1?" With no extra point the exit is you, so units in front of you come out behind you.":"")+" Moving a whole area is strong, so its cost grows with units moved and distance (proposed)."});
+  if(th==="gate" && s.shape==="self" && np>1 && !onSpell) out.push({info:true, t:"Portal cast on yourself with an extra point moves you to that point (Nov 4; it used to do nothing)."});
+  if(th==="gate" && np>2 && !onSpell && !glob) out.push({info:true, t:"With "+np+" points, each point joins the next ("+pairs(np)+")."});
+  if(th==="body" && s.shape==="self" && !onSpell) out.push({info:true, t:"Every summon takes a hex, so a self-cast summon appears on the nearest free hex next to you."});
+  if(s.shape==="self" && !onSpell && (s.center==="push"||s.center==="pull")) out.push({t:R[s.center].name+" on a self-cast has no direction, because you stand on the point, so nobody moves."});
+  if(s.shape==="self" && hkF==="U") s.sections[0].forEach(function(id){ if((id==="push"||id==="pull") && id!==s.center) out.push({t:R[id].name+" in the ring of a self-cast has no direction, because you stand on the point, so nobody moves."}); });
+  if(glob && s.extra) out.push({t:"The whole battlefield can't take an extra point (decided Nov 4)."});
+  if(glob && s.range) out.push({t:"The whole battlefield can't take more range (decided Nov 4)."});
+  if(glob && s.trigger) out.push({t:"The whole battlefield can't take a trigger (decided Nov 4): there's no unit or place at its point to watch."});
+  if(s.tether){
+    var tA=(th==="hit"||th==="shield");
+    if(glob) out.push({t:"The whole battlefield can't take a tether (proposed, like the extra point): it has no single end to join."});
+    else if(onSpell) out.push({t:s.tether==="copy" ? "Copy on a spell: the spell's caster shares whatever it does to its targets (this was tether on a spell)." : "Open: what "+s.tether+" means on a spell. Only copy has an entry so far."});
+    else if(s.shape==="self" && np===1 && tA) out.push({t:"A self-cast tether joins you to yourself, so it does nothing. Add an extra point."});
+    else if(np===1) out.push({info:true, t:"A tether needs two ends and the spell has one point, so you are the other end."});
+    if((s.tether==="copy"||s.tether==="redirect") && !flowNouns(s).length && !glob && !onSpell) out.push({t:"Nothing in this spell travels along a "+s.tether+" tether: it needs a rune with a payload (an effect, protect, expose, a push or pull, or dispel)."});
+    if(s.tether==="transfer" && !hasTake(s) && !glob) out.push({t:"Transfer needs something to take: damage (fire, wound, or a summon's attacks) or a status removal (dispel). This spell has none, so nothing moves along the tether."});
+    if(s.tether==="leash" && th==="hit" && !glob && !onSpell) out.push({info:true, t:"A leash on a plain hit keeps the units it hits within 2 hexes of the other end, a short-range root."});
+  }
+  if(hkF==="G") out.push({info:true, t:"Ground (Nov 4): a lingering effect on an area, or a wall, leaves ground. The center hits whoever stands there now and sets the ground's base trait; ring runes add traits, which fire when a unit steps on, ends its turn in, or leaves the ground."});
+  if(hkF==="G" && s.filter) out.push({t:"Filters can't be used on ground (decided Nov 4). The ground affects everyone who stands in it."});
+  if(s.steer && !s.linger) out.push({t:"Steerable needs lingering: there's nothing lasting to move."});
+  if(s.follow && (glob || onSpell)) out.push({t:"Follows the unit needs a point on the board: it can't go on the whole battlefield or a spell."});
+  if(s.follow && UNITSHAPE[s.shape] && !s.linger) out.push({info:true, t:"On a unit shape, follows the unit only matters with lingering."});
+  if(s.weakest) out.push({info:true, t:"Weakest first (Nov 4): units are picked from the least health up, and the spell's strength works as a health pool that runs out."});
+  if((s.shape==="single"||s.shape==="bolt"||s.shape==="self") && !onSpell && !glob) out.push({info:true, t:"Single-target bonus (Nov 4): single, bolt and self shapes get about 15% more strength than a strict split, so they're the efficient choice against one target. Tune on the test boards."});
+  if(UNITSHAPE[s.shape] && s.shape!=="self" && !onSpell) out.push({info:true, t:"A unit shape can't be aimed at an empty hex; a bolt that finds no unit does nothing (Nov 4)."});
+  if(s.center==="stone" && SH[s.shape].area && !glob && !onSpell) out.push({info:true, t:"Units already standing in a stone center's area are encased (Nov 4)."});
+  if(th==="body" && (s.shape==="single"||s.shape==="bolt") && np===1 && !onSpell) out.push({info:true, t:"A summon aimed at a unit sets that unit aside and puts the body in its place until the body dies or the spell ends (Nov 4). Works on allies too."});
+  if((s.trigger==="hit"||s.trigger==="attacks") && !onSpell) out.push({info:true, t:"On an event with two units, harmful runes land on the enemy in the event and beneficial ones on your side (Nov 4). With self and \"when it attacks\", the center rides on your next attack."});
+  if(onSpell && s.linger) out.push({info:true, t:"Lingering on a spell: the change holds for that caster's next shown moves for a few rounds (Nov 4)."});
+  if(glob && s.filter) out.push({t:"Open: can a filter narrow a global modification? It's meant to affect everyone, your side included."});
+  if(onSpell && s.delay) out.push({t:"With a delay, an enemy's shown move goes off before this spell does."});
+  if(th==="shield" && !onSpell) out.push({info:true, t:"A shield's ring runes are traits that fire when it's hit, so their order never matters. Beneficial runes (mend, protect) help the shield's bearer; harmful ones hit whoever hit it."});
+  s.sections.slice(0,np).forEach(function(l,i){
+    var g=normalize(l, orderHook(s)), where = np>1 ? " at point "+(i+1) : "";
+    g.forEach(function(gr){
+      if(gr.bundle){
+        var ids=gr.items.map(function(x){return x.id;});
+        ids.forEach(function(a){ var inv=R[a].inv; if(inv && a<inv && ids.indexOf(inv)>=0){
+          if(opposite(a,inv,orderHook(s))) out.push({t:R[a].name+" and "+R[inv].name+" act together"+where+" and their entries here are opposites, so they cancel. The forge flags this as wasted."});
+          else out.push({info:true, t:R[a].name+" and "+R[inv].name+" are opposites, but here their entries are different traits, so both apply."});
+        } });
+      }
+      gr.items.forEach(function(it){ if(it.n>1) out.push({info:true, t:R[it.id].name+" appears "+it.n+" times"+where+". Duplicates merge into one rune with more strength."}); });
+    });
+    for(var k=0;k+1<g.length;k++){
+      var a=g[k], b=g[k+1];
+      if(a.bundle||b.bundle) continue;
+      var x=a.items[0].id, y=b.items[0].id;
+      if(x==="push"&&y==="pull") out.push({t:"Push then pull"+where+" mostly puts units back where they were."});
+      else if(x==="pull"&&y==="push") out.push({info:true, t:"Pull then push"+where+": drag in, then launch."});
+    }
+  });
+  var hk=hookFor(s), fbs=[];
+  s.sections.slice(0,np).forEach(function(l){ l.forEach(function(id){ if(id===s.center){ if(fbs.indexOf("=")<0){ fbs.push("="); out.push({info:true, t:R[id].name+" is also the center rune, so in the ring it adds strength to the center's effect."}); } return; } if(!R[id].h[hk] && fbs.indexOf(id)<0) fbs.push(id); }); });
+  fbs=fbs.filter(function(x){ return x!=="="; });
+  fbs.forEach(function(id){ out.push({info:true, t:R[id].name+" has no "+HOOKNAME[hk].toLowerCase()+" meaning yet, so it falls back to its on-a-unit meaning."}); });
+  if(slotsUsed(s)>MAXSLOTS) out.push({t:"This circle uses "+slotsUsed(s)+" slots. The proposed late-game maximum is "+MAXSLOTS+"."});
+  return out;
+}
+
+/* ---------- compiled steps ---------- */
+function pairs(np){ var o=[]; for(var i=1;i<np;i++) o.push("P"+i+" ↔ P"+(i+1)); return o.join(", "); }
+function stepsFor(s){
+  var out=[], np=points(s), th=thingOf(s.center), hk=hookFor(s);
+  var tgt = s.filter ? s.filter+" only" : "everyone (friendly fire)";
+  var pts=[]; for(var i=0;i<np;i++) pts.push("P"+(i+1)+" = "+pointDesc(s,i));
+  if(s.trigger) out.push("<span class='k'>listen</span>("+esc(TR[s.trigger].name.toLowerCase())+" @ P1) until end of next enemy phase, then:");
+  if(s.delay) out.push("<span class='k'>wait</span>(start of next round)");
+  out.push("<span class='k'>points</span>: "+esc(pts.join("; "))+(s.range?" (+range)":""));
+  out.push("<span class='k'>targets</span>: "+esc(tgt)+(s.weakest?", weakest first (health pool)":""));
+  if(s.follow) out.push("<span class='k'>anchor</span>(P1 → the unit there)");
+  if(s.steer) out.push("<span class='k'>steer</span>(bonus action each round, up to 3 hexes)");
+  if((s.shape==="single"||s.shape==="bolt"||s.shape==="self") && hk!=="S") out.push("<span class='k'>scale</span>(×1.15 single-target bonus)");
+  if(hk==="S") out.push("<span class='k'>target</span>(spell @ P1)  center: "+esc(R[s.center].h.S)+"  hooks: on a spell");
+  else if(s.shape==="global") out.push("<span class='k'>modify</span>(battlefield, 3 rounds)  center: "+esc(R[s.center].gw)+"  hooks: "+esc(HOOKNAME[hk].toLowerCase()));
+  else if(th==="gate") out.push("<span class='k'>create</span>(gate, "+(np>2?pairs(np):"P1 ↔ "+(np>1?"P2":"caster"))+", 1 round)  hooks: through a gate");
+  else if(th==="body") out.push("<span class='k'>create</span>(body @ "+(np>1?"each point":"P1")+(np===1&&SH[s.shape].area?", one per hex, budget split between them":"")+")  hooks: on a summon (ring runes become traits)");
+  else if(th==="shield") out.push("<span class='k'>apply</span>(shield @ P1)  hooks: on a unit, as on-hit traits (beneficial → bearer, harmful → attacker)");
+  else if(hk==="G") out.push("<span class='k'>hit</span>("+esc(R[s.center].name.toLowerCase())+" @ P1)  <span class='k'>create</span>(ground @ P1: "+esc(R[s.center].h.G.toLowerCase())+")  hooks: on ground (ring runes become traits)");
+  else out.push("<span class='k'>hit</span>("+esc(R[s.center].name.toLowerCase())+" @ "+(np>1?"each point":"P1")+")  hooks: "+esc(HOOKNAME[hk].toLowerCase()));
+  s.sections.slice(0,np).forEach(function(l,i){
+    normalize(l, orderHook(s)).forEach(function(gr){
+      var bits=gr.items.map(function(it){ var h=hookText(it.id,hk,s.center); return esc(R[it.id].name.toLowerCase())+(it.n>1?"×"+it.n:"")+(h.fb?" (fallback)":"")+": "+esc(h.text); });
+      if(gr.bundle && bits.length>1) out.push("<span class='k'>together</span> @ P"+(i+1)+" { "+bits.join(" | ")+" }");
+      else out.push("<span class='k'>step</span> @ P"+(i+1)+": "+bits[0]);
+    });
+  });
+  if(s.tether) out.push("<span class='k'>tether</span>("+s.tether+", "+(np>2?pairs(np):"P1 ↔ "+(np>1?"P2":"caster"))+", "+(s.linger?"3":"2")+" rounds)"+(s.tether==="leash"?"  max distance 2":"  carries: "+esc(s.tether==="transfer"?"damage dealt → healing; removed statuses":(flowNouns(s).join(", ")||"nothing"))+(tetherShapers(s).length?"  also: "+esc(tetherShapers(s).map(function(x){return R[x.id].name.toLowerCase();}).join(", ")):"")+"  hooks: along a tether"));
+  if(s.linger) out.push("<span class='k'>linger</span>("+(hk==="S" ? "the change, over the caster's next shown moves" : th!=="hit" && s.shape!=="global" ? THING[th].name.toLowerCase()+" and its traits" : s.shape==="global" ? "the global rules" : hk==="G" ? "the ground" : "the statuses on the unit")+", 2 more rounds)");
+  out.push("<span class='k'>rules</span>: each rune fires once; reactions stop at depth 3");
+  return out;
+}
+
+/* ---------- circle drawing ---------- */
+function polar(cx,cy,r,deg){ var a=(deg-90)*Math.PI/180; return [cx+r*Math.cos(a), cy+r*Math.sin(a)]; }
+function arcPath(cx,cy,r,a0,a1){
+  var p0=polar(cx,cy,r,a0), p1=polar(cx,cy,r,a1), large=(a1-a0)>180?1:0;
+  return "M"+p0[0].toFixed(2)+" "+p0[1].toFixed(2)+" A"+r+" "+r+" 0 "+large+" 1 "+p1[0].toFixed(2)+" "+p1[1].toFixed(2);
+}
+function drawCircle(s){
+  var W=340, cx=170, cy=170, np=points(s), span=360/np, hk=hookFor(s);
+  var svg=['<svg viewBox="0 0 340 340" role="img" aria-label="The circle, read clockwise from the top">'];
+  svg.push('<defs><path id="insc" d="M170 22 A148 148 0 1 1 169.99 22"/></defs>');
+  svg.push('<circle cx="170" cy="170" r="160" fill="none" stroke="var(--line)" stroke-width="1"/>');
+  svg.push('<circle cx="170" cy="170" r="136" fill="none" stroke="var(--ink)" stroke-opacity=".55" stroke-width="1.4"/>');
+  svg.push('<circle cx="170" cy="170" r="80" fill="none" stroke="var(--ink)" stroke-opacity=".55" stroke-width="1.4"/>');
+  var ins=[SH[s.shape].name.replace(" (default)","")].concat(inscriptionList(s).map(function(x){ return x.replace("trigger:","when ").replace("tether:","tether ").replace("-"," "); }));
+  svg.push('<text font-family="var(--f-display)" font-size="12" letter-spacing="2.2" fill="var(--accent)"><textPath href="#insc">'+esc(ins.join("  ·  ").toUpperCase())+'</textPath></text>');
+  for(var i=0;i<np;i++){
+    var a0=i*span;
+    if(np>1){ var q=polar(cx,cy,80,a0), q2=polar(cx,cy,136,a0); svg.push('<line x1="'+q[0].toFixed(1)+'" y1="'+q[1].toFixed(1)+'" x2="'+q2[0].toFixed(1)+'" y2="'+q2[1].toFixed(1)+'" stroke="var(--ink)" stroke-opacity=".55" stroke-width="1.4"/>'); }
+    var lp=polar(cx,cy,92,a0+span/2);
+    if(np>1) svg.push('<text x="'+lp[0].toFixed(1)+'" y="'+(lp[1]+4).toFixed(1)+'" text-anchor="middle" font-family="var(--f-mono)" font-size="10" fill="var(--muted)">P'+(i+1)+'</text>');
+    var list=s.sections[i]||[], m=list.length;
+    if(!m) continue;
+    var pad = np>1 ? 14 : 0, inner=span-2*pad;
+    var angs=list.map(function(_,j){ return a0+pad+(j+0.5)*inner/m; });
+    // bundle joins (in written order: neighbouring plain effects)
+    for(var j=0;j+1<m;j++){
+      if(commute(list[j], list[j+1], hk)) svg.push('<path d="'+arcPath(cx,cy,108,angs[j],angs[j+1])+'" fill="none" stroke="var(--c-effect)" stroke-width="7" stroke-linecap="round" stroke-opacity=".45"/>');
+    }
+    list.forEach(function(id,j){
+      var p=polar(cx,cy,108,angs[j]), col="var(--c-"+R[id].cat+")", fb=!R[id].h[hk];
+      svg.push('<g><circle cx="'+p[0].toFixed(1)+'" cy="'+p[1].toFixed(1)+'" r="15" fill="var(--surface)" stroke="'+col+'" stroke-width="2"'+(fb?' stroke-dasharray="3 3"':'')+'/>');
+      svg.push('<text x="'+p[0].toFixed(1)+'" y="'+(p[1]+4.5).toFixed(1)+'" text-anchor="middle" font-family="var(--f-display)" font-size="13" fill="'+col+'">'+esc(ABBR[id])+'</text><title>'+esc(R[id].name)+'</title></g>');
+    });
+  }
+  // clockwise marker at top
+  svg.push('<path d="M170 30 l7 -4 l0 8 z" fill="var(--muted)" transform="translate(-3 2)"/>');
+  // center
+  var cc="var(--c-"+R[s.center].cat+")";
+  svg.push('<circle cx="170" cy="170" r="50" fill="var(--surface)" stroke="'+cc+'" stroke-width="2.5"/>');
+  svg.push('<text x="170" y="168" text-anchor="middle" font-family="var(--f-display)" font-size="19" fill="'+cc+'">'+esc(R[s.center].name)+'</text>');
+  svg.push('<text x="170" y="186" text-anchor="middle" font-family="var(--f-body)" font-size="11" letter-spacing="1.4" fill="var(--muted)">'+(hookFor(s)==="S"?"ACTS ON A SPELL":s.shape==="global"?"CHANGES THE BATTLE":"MAKES A "+esc(THING[thingOf(s.center)].name.toUpperCase()))+'</text>');
+  svg.push('</svg>');
+  return svg.join("");
+}
+
+/* ---------- controls ---------- */
+var $=function(id){ return document.getElementById(id); };
+function fillSelects(){
+  $("center").innerHTML = RUNES.map(function(r){ return '<option value="'+r.id+'">'+esc(r.name)+' (makes a '+THING[r.thing].name.toLowerCase()+')</option>'; }).join("");
+  $("shape").innerHTML = '<optgroup label="Starter">'+SHAPES.filter(function(s){return !s.learned;}).map(optShape).join("")+'</optgroup><optgroup label="Learned">'+SHAPES.filter(function(s){return s.learned;}).map(optShape).join("")+'</optgroup>';
+  $("tether").innerHTML = TETHERS.map(function(t){ return '<option value="'+t.id+'">'+esc(t.name)+'</option>'; }).join("");
+  $("trigger").innerHTML = TRIGGERS.map(function(t){ return '<option value="'+t.id+'">'+esc(t.name)+'</option>'; }).join("");
+  $("presets").innerHTML = PRESETS.map(function(p,i){ return '<button type="button" class="chipbtn" data-p="'+i+'" aria-pressed="false">'+esc(p.name)+'</button>'; }).join("");
+}
+function optShape(s){ return '<option value="'+s.id+'">'+esc(s.name)+' · '+s.pts+' point'+(s.pts>1?'s':'')+(s.slots===2?' · 2 slots':'')+'</option>'; }
+
+function fitSections(){
+  var np=points(state);
+  while(state.sections.length<np) state.sections.push([]);
+  if(state.sections.length>np){
+    var extra=[]; state.sections.slice(np).forEach(function(l){ extra=extra.concat(l); });
+    state.sections=state.sections.slice(0,np);
+    state.sections[np-1]=state.sections[np-1].concat(extra);
+  }
+}
+function renderSections(){
+  var np=points(state), html=[];
+  var opts=RUNES.map(function(r){ return '<option value="'+r.id+'">'+esc(r.name)+'</option>'; }).join("");
+  for(var i=0;i<np;i++){
+    var l=state.sections[i];
+    html.push('<div class="section-ed"><div class="hd"><b>'+(np>1?'Point '+(i+1):'The ring')+'</b><span style="color:var(--muted)">'+esc(pointDesc(state,i))+'</span></div><div class="rlist">');
+    if(!l.length) html.push('<span class="empty">No ring runes. Only the center acts here.</span>');
+    l.forEach(function(id,j){
+      html.push('<span class="rchip cat-'+R[id].cat+'"><span>'+esc(R[id].name)+'</span>'+
+        '<button type="button" data-act="left" data-s="'+i+'" data-j="'+j+'" aria-label="Move '+esc(R[id].name)+' earlier">‹</button>'+
+        '<button type="button" data-act="right" data-s="'+i+'" data-j="'+j+'" aria-label="Move '+esc(R[id].name)+' later">›</button>'+
+        '<button type="button" data-act="del" data-s="'+i+'" data-j="'+j+'" aria-label="Remove '+esc(R[id].name)+'">×</button></span>');
+    });
+    html.push('</div><div class="addrow"><select id="add-'+i+'" aria-label="Rune to add at '+(np>1?'point '+(i+1):'the ring')+'">'+opts+'</select><button type="button" class="btn" data-act="add" data-s="'+i+'">Add</button></div></div>');
+  }
+  $("sections").innerHTML=html.join("");
+}
+function syncControls(){
+  $("center").value=state.center; $("shape").value=state.shape;
+  $("i-extra").value=String(extraN(state)); $("i-follow").checked=!!state.follow; $("i-steer").checked=!!state.steer; $("i-weak").checked=!!state.weakest; $("i-range").checked=state.range; $("i-delay").checked=state.delay; $("i-linger").checked=state.linger;
+  $("filter").value=state.filter; $("trigger").value=state.trigger; $("tether").value=state.tether||"";
+  Array.prototype.forEach.call(document.querySelectorAll("#presets .chipbtn"), function(b){ b.setAttribute("aria-pressed", String(+b.dataset.p===activePreset)); });
+}
+
+function render(){
+  fitSections();
+  syncControls();
+  renderSections();
+  $("circle").innerHTML=drawCircle(state);
+  $("reading").innerHTML=readSpell(state);
+  var used=slotsUsed(state), pips=[];
+  for(var i=0;i<Math.max(MAXSLOTS,used);i++) pips.push('<span class="pip'+(i<used?(i>=MAXSLOTS?' over':' on'):'')+'"></span>');
+  $("slots").innerHTML='<span>Slots used: '+used+'</span>'+pips.join("")+'<span>(cooldown grows with slots)</span>';
+  var c=canonical(state);
+  $("rid").textContent="Recipe "+fnv(c);
+  $("canon").textContent=c;
+  var sa=sameArrangements(state);
+  $("same").textContent = sa.total>1 ? sa.total+" ring arrangements make this same spell" : "Only this arrangement makes this spell";
+  $("alts").innerHTML = sa.alts.map(function(secs){ return "<li>also: "+esc(secs.map(function(l){ return "["+l.join(", ")+"]"; }).join(" "))+"</li>"; }).join("");
+  $("flags").innerHTML = flagsFor(state).map(function(f){ return '<div class="flag'+(f.info?' info':'')+'">'+esc(f.t)+'</div>'; }).join("");
+  $("steps").innerHTML = stepsFor(state).map(function(t){ return "<li>"+t+"</li>"; }).join("");
+  renderCenterTable();
+  renderHookTable();
+}
+
+document.addEventListener("click", function(e){
+  var b=e.target.closest("button"); if(!b) return;
+  if(b.dataset.p!==undefined){ activePreset=+b.dataset.p; state=clone(PRESETS[activePreset].s); render(); return; }
+  var act=b.dataset.act; if(!act) return;
+  var si=+b.dataset.s, j=+b.dataset.j, l=state.sections[si];
+  if(act==="add"){ l.push($("add-"+si).value); }
+  else if(act==="del"){ l.splice(j,1); }
+  else if(act==="left" && j>0){ var t=l[j-1]; l[j-1]=l[j]; l[j]=t; }
+  else if(act==="right" && j<l.length-1){ var t2=l[j+1]; l[j+1]=l[j]; l[j]=t2; }
+  else return;
+  activePreset=-1; render();
+});
+["center","shape","filter","trigger","tether"].forEach(function(id){ $(id).addEventListener("change", function(){ state[id]=this.value; activePreset=-1; render(); }); });
+$("i-extra").addEventListener("change", function(){ state.extra=+this.value; activePreset=-1; render(); });
+[["i-follow","follow"],["i-steer","steer"],["i-weak","weakest"],["i-range","range"],["i-delay","delay"],["i-linger","linger"]].forEach(function(p){ $(p[0]).addEventListener("change", function(){ state[p[1]]=this.checked; activePreset=-1; render(); }); });
+
+/* ---------- center table ---------- */
+var MAKES={hit:"An effect", gate:"A gate", body:"A summon", shield:"A shield"};
+function renderCenterTable(){
+  var hk=hookFor(state), col = hk==="S" ? 2 : state.shape==="global" ? 1 : 0;
+  var h=['<thead><tr><th>Center rune</th><th>Kind</th><th>Opposite</th><th>Makes</th><th>Aimed at the board</th><th>Across the whole battlefield</th><th>Aimed at a spell</th></tr></thead><tbody>'];
+  RUNES.forEach(function(r){
+    var on=r.id===state.center, cells=[r.center.charAt(0).toUpperCase()+r.center.slice(1), r.gw, r.h.S];
+    h.push('<tr><th class="cat-'+r.cat+'">'+esc(r.name)+'</th><td class="cat-'+r.cat+'">'+catLabel(r.cat)+'</td><td>'+(r.inv?esc(R[r.inv].name):'none')+'</td><td>'+MAKES[r.thing]+'</td>');
+    cells.forEach(function(c,i){ h.push('<td'+(on&&i===col?' class="used"':'')+'>'+esc(c)+'</td>'); });
+    h.push('</tr>');
+  });
+  h.push('</tbody>');
+  $("centertable").innerHTML=h.join("");
+}
+
+/* ---------- hook table ---------- */
+function renderHookTable(){
+  var gr=$("ghost-row").checked, gc=$("ghost-col").checked;
+  var hk=hookFor(state), usedSet={};
+  state.sections.slice(0,points(state)).forEach(function(l){ l.forEach(function(id){ usedSet[id]=true; }); });
+  var h=['<thead><tr><th>Ring rune</th><th>Kind</th>'];
+  HOOKS.forEach(function(x){ h.push('<th>'+esc(x.name)+'</th>'); });
+  if(gc) h.push('<th class="ghost">New hook type</th>');
+  h.push('</tr></thead><tbody>');
+  RUNES.forEach(function(r){
+    h.push('<tr><th class="cat-'+r.cat+'">'+esc(r.name)+'</th><td class="cat-'+r.cat+'">'+catLabel(r.cat)+'</td>');
+    HOOKS.forEach(function(x){
+      var t=r.h[x.k], used = (usedSet[r.id] && x.k===hk) || (x.k==="L" && state.tether && state.tether!=="leash" && flowRunes(state).indexOf(r.id)>=0 && (FLOWNOUN[r.id] || r.id!==state.center));
+      if(t) h.push('<td'+(used?' class="used"':'')+'>'+esc(t)+'</td>');
+      else h.push('<td class="fb'+(used?' used':'')+'">Same rune as the center: adds strength</td>');
+    });
+    if(gc) h.push('<td class="ghost">to write</td>');
+    h.push('</tr>');
+  });
+  if(gr){
+    h.push('<tr class="ghost"><th>New ring rune</th><td>?</td>');
+    HOOKS.forEach(function(){ h.push('<td>to write</td>'); });
+    if(gc) h.push('<td>to write</td>');
+    h.push('</tr>');
+  }
+  h.push('</tbody>');
+  $("hooktable").innerHTML=h.join("");
+  var written=0, fb=0;
+  RUNES.forEach(function(r){ HOOKS.forEach(function(x){ if(r.h[x.k]) written++; else fb++; }); });
+  $("cost-written").textContent=written;
+  $("cost-fb").textContent=fb;
+  $("cost-col").textContent="+"+RUNES.length;
+}
+function catLabel(c){ return {effect:"Plain effect", amplifier:"Amplifier", mover:"Mover", maker:"Maker", remover:"Remover"}[c]; }
+$("ghost-row").addEventListener("change", renderHookTable);
+$("ghost-col").addEventListener("change", renderHookTable);
+
+/* ---------- branching ---------- */
+function countDistinct(ids, catFn, k, hk){
+  var seen=new Set(), n=ids.length, idx=new Array(k).fill(0), total=Math.pow(n,k);
+  for(var c=0;c<total;c++){
+    var seq=new Array(k);
+    for(var i=0;i<k;i++) seq[i]=ids[idx[i]];
+    seen.add(groupKey(normalize(seq, hk, catFn)));
+    for(var p=k-1;p>=0;p--){ idx[p]++; if(idx[p]<n) break; idx[p]=0; }
+  }
+  return {raw:total, distinct:seen.size};
+}
+function renderBranching(){
+  var base=RUNES.map(function(r){return r.id;});
+  var withE=base.concat(["x-effect"]), withO=base.concat(["x-ordered"]);
+  var rows=[], data=[], maxv=1;
+  for(var k=1;k<=3;k++){
+    var a=countDistinct(base,catOf,k,"P"), bB=countDistinct(base,catOf,k,"B"), e=countDistinct(withE,catOf,k,"P"), o=countDistinct(withO,catOf,k,"P");
+    data.push([k,a,bB,e,o]); maxv=Math.max(maxv,a.raw);
+  }
+  rows.push('<thead><tr><th>Ring runes</th><th class="n">Arrangements</th><th class="n">Distinct at a point</th><th class="n">Distinct on a summon</th><th class="n">+1 plain effect (at a point)</th><th class="n">+1 mover (at a point)</th></tr></thead><tbody>');
+  data.forEach(function(d){
+    var k=d[0], a=d[1], b=d[2], e=d[3], o=d[4];
+    rows.push('<tr><td>'+k+'</td><td class="n">'+a.raw.toLocaleString()+'</td><td class="n">'+a.distinct.toLocaleString()+' <span style="color:var(--muted)">('+Math.round(100*a.distinct/a.raw)+'%)</span></td><td class="n">'+b.distinct.toLocaleString()+' <span style="color:var(--muted)">('+Math.round(100*b.distinct/b.raw)+'%)</span></td><td class="n">'+e.distinct.toLocaleString()+' <span style="color:var(--muted)">(+'+(e.distinct-a.distinct).toLocaleString()+')</span></td><td class="n">'+o.distinct.toLocaleString()+' <span style="color:var(--muted)">(+'+(o.distinct-a.distinct).toLocaleString()+')</span></td></tr>');
+  });
+  rows.push('</tbody>');
+  $("btable").innerHTML=rows.join("");
+}
+
+fillSelects();
+render();
+renderBranching();
+})();
+</script>
+
+</body></html>
