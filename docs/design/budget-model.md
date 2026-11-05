@@ -29,7 +29,9 @@ before it's priced are in the [effect flags checklist](effect-flags-checklist.md
   it adds.
 - **Every ring idea is broken down into primitives,** and each primitive has its
   own math (the table below).
-- **Ring runes keep at least half their share in the three-pass split.**
+- **Ring runes keep at least half their share in the three-pass split.** To
+  confirm: the checklist this came from also called the minimum Open (see
+  [Open](#open)).
 - **Budget spread over targets, points or area:** each gets a smaller share, and a
   binary effect reaches fewer units.
 - **Forced movement** (the Push and Pull inscriptions) is paid from the spell's
@@ -118,7 +120,7 @@ on the same unit. Effects that move in steps use their own step, such as a hex.
 | --- | --- | --- | --- |
 | Amplification (stronger) | A third more | Its next binary effect reaches one more unit or lasts a round longer, never two extra actions on one unit | Open |
 | Budget spread over targets, points or area | Each gets a smaller share | Reaches fewer units | Decided Nov 5 |
-| The three-pass split | Ring runes keep at least half their share | The center gets as many whole units as the rest pays for | Decided Nov 5 (half); see Open |
+| The three-pass split | Ring runes keep at least half their share | The center gets as many whole units as the rest pays for | Decided Nov 5 (half), to confirm; see Open |
 | Single-target bonus (×1.15) | 15% stronger | The effect costs 15% less, and the savings go to ring runes | Proposed |
 | A linked spell (× about 1.5) | Each part a bit weaker | Reaches fewer units | Proposed |
 | Copy tether (half strength at the far end) | Half strength | Reaches the far end only if the budget pays for one more unit | Proposed |

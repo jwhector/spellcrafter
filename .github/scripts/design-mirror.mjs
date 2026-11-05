@@ -42,13 +42,23 @@ export function slugOf(file) {
   return base === "README" ? "sources" : base;
 }
 
-function headingId(text) {
+/**
+ * A heading's anchor as GitHub writes it (github-slugger): the plain text,
+ * lowercased, with punctuation dropped and each space turned into a hyphen.
+ * Nothing is collapsed, so "A - B" gives "a---b", as on GitHub.
+ */
+export function headingId(html) {
+  const text = html
+    .replace(/<[^>]+>/g, "")
+    .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
+    .replace(/&quot;/g, '"')
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&amp;/g, "&");
   return text
     .toLowerCase()
-    .replace(/<[^>]+>/g, "")
-    .replace(/&[a-z]+;/g, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "");
+    .replace(/[^\p{L}\p{M}\p{N}\p{Pc} -]/gu, "")
+    .replace(/ /g, "-");
 }
 
 const escapeHtml = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -91,10 +101,10 @@ export function renderDoc(file, markdown, { files, repoUrl }) {
       },
       heading({ tokens, depth }) {
         const inner = this.parser.parseInline(tokens);
-        let id = `${slug}--${headingId(inner)}`;
-        const n = seen.get(id) ?? 0;
-        seen.set(id, n + 1);
-        if (n > 0) id = `${id}-${n + 1}`;
+        const base = headingId(inner);
+        const n = seen.get(base) ?? 0;
+        seen.set(base, n + 1);
+        const id = `${slug}--${n > 0 ? `${base}-${n}` : base}`;
         ids.push(id);
         if (depth === 2 || depth === 3) headings.push({ id, depth, html: inner });
         return `<h${depth} id="${id}">${inner}</h${depth}>\n`;
@@ -134,13 +144,17 @@ export function buildPage(docs, { commit, date, branch, repoUrl }) {
     })
     .join("\n");
   const shortSha = commit.slice(0, 7);
-  return TEMPLATE.replace("{{TABS}}", tabs)
-    .replace("{{PANELS}}", panels)
-    .replace("{{SOURCE}}", `${repoUrl}/tree/${encodeURIComponent(branch)}/${DESIGN}`)
-    .replace("{{COMMIT_URL}}", `${repoUrl}/commit/${commit}`)
-    .replace("{{SHA}}", shortSha)
-    .replace("{{BRANCH}}", escapeHtml(branch))
-    .replace("{{DATE}}", escapeHtml(date));
+  // Replacer functions, so a "$&" in a doc is never read as a pattern.
+  const values = {
+    TABS: tabs,
+    PANELS: panels,
+    SOURCE: `${repoUrl}/tree/${encodeURIComponent(branch)}/${DESIGN}`,
+    COMMIT_URL: `${repoUrl}/commit/${commit}`,
+    SHA: shortSha,
+    BRANCH: escapeHtml(branch),
+    DATE: escapeHtml(date),
+  };
+  return TEMPLATE.replace(/\{\{([A-Z_]+)\}\}/g, (m, key) => values[key] ?? m);
 }
 
 /** "The Hollow: spell model" reads as "Spell model" on a tab. */

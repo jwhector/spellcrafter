@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import { test } from "node:test";
-import { buildPage, docFiles, renderDoc, slugOf } from "./design-mirror.mjs";
+import { buildPage, docFiles, headingId, renderDoc, slugOf } from "./design-mirror.mjs";
 
 const README = `# Design sources
 
@@ -48,7 +48,7 @@ test("headings get unique ids and status words are marked", () => {
   const doc = renderDoc("game-design.md", md, OPTS);
   assert.deepEqual(
     doc.headings.map((h) => h.id),
-    ["game-design--open", "game-design--open-2"],
+    ["game-design--open", "game-design--open-1"],
   );
   assert.match(doc.html, /<strong class="mark mark-decided">Decided/);
 });
@@ -88,4 +88,17 @@ test("every link between the repo's design docs lands on a heading or file that 
   );
   const absent = relative.filter(([, path]) => !existsSync(new URL(`../../${path}`, import.meta.url)));
   assert.deepEqual(absent, []);
+});
+
+test("heading ids match GitHub's anchors", () => {
+  assert.equal(headingId("The crafter&#39;s view"), "the-crafters-view");
+  assert.equal(headingId("A — B"), "a--b");
+  assert.equal(headingId("Shapes (one per circle)"), "shapes-one-per-circle");
+  assert.equal(headingId("At a point, or <em>on</em> a unit"), "at-a-point-or-on-a-unit");
+});
+
+test("a dollar pattern in a doc reaches the page as written", () => {
+  const docs = [renderDoc("game-design.md", "# T\n\nCosts $& and $' here.", OPTS)];
+  const page = buildPage(docs, { commit: "abcdef1234", date: "2026-11-05", branch: "main", repoUrl: OPTS.repoUrl });
+  assert.match(page, /Costs \$&amp; and \$(&#39;|') here\./);
 });
