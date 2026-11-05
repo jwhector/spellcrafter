@@ -314,10 +314,14 @@ items are tradable like runes or bound like inscriptions.
 ## Ground
 
 **Proposed (Nov 4).** A lingering effect on a place is ground, and a wall always
-leaves ground. The center still hits whoever stands there when it's cast; the
-minor runes become the ground's aspects, which don't depend on order. Ground can't
-be attacked. Its aspects fire when a unit steps onto it, stands in it at round end,
-or leaves it. Opposite pairs cancel on ground, except Summon and Dispel. Units that
+leaves ground. Ground can't be attacked.
+
+**Decided (Nov 5): the major rune sets what the ground does, and the minor runes
+change it.** The ground is the major output, lasting: lingering Fire is burning
+ground, and Fire's major output lands again on whoever is in it. The minor runes
+become the ground's aspects, which don't depend on order, and change the ground
+itself (it spreads, it's slick, it can't be seen). Proposed (Nov 4): the ground
+acts when a unit steps onto it, stands in it at round end, or leaves it. Opposite pairs cancel on ground, except Summon and Dispel. Units that
 die leave **remains**, a kind of ground, and a summon raised on remains is
 stronger.
 
