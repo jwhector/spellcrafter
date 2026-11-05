@@ -77,7 +77,7 @@ name). Nothing else describes a spell.
 
 | Property primitive | What it holds | Possible values |
 | --- | --- | --- |
-| **Output** | The kind of thing the spell produces; this picks the major output type | effect on a place, effect on a unit, link, gate, summon, shield, altered spell, global effect, ground |
+| **Output** | The kind of thing the spell produces: its major output type | effect on a place, effect on a unit, link, gate, summon, shield, altered spell, global effect, ground |
 | **Where** | Ordered destinations, the region at each destination, the origin, the anchor, and how the region changes over time | destinations from the shape; anchors: a hex, a unit, the other unit in a trigger event; region shapes: grow, shrink, sweep, close in, anchor, follow a unit, steer, jump between zones |
 | **When** | Start, duration, repeats | now, next round, on a trigger; instant or N rounds; once or each round |
 | **Who** | Which units it touches, in what order, and what carries it | everyone, enemies only, allies only; weakest first with a health pool; carried by nothing, a unit, or a summon |
@@ -113,7 +113,7 @@ shapes Where and When (anchor, last longer), while an inscription sets them.
    whole battlefield) and adds its base payload.
 2. Inscriptions set Where (shape, extra destination, range), When (delay, lingering,
    trigger) and Who (filter, order).
-3. The output picks the major output type. Each minor rune's effect in that major output type is its list
+3. The output is the major output type. Each minor rune's effect in that major output type is its list
    of writes.
 4. Minor rune effects apply section by section, in clockwise order, after duplicates
    merge.

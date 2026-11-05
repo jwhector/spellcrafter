@@ -28,8 +28,9 @@ The center decides what the spell makes: an effect, a gate (Portal), a summon
 wall, becomes ground. All Proposed (crafter v14), except where marked.
 
 A rune's row here is its major output: what it does in the center. "Makes"
-is the kind of thing it makes, which picks the major output type its minor
-runes read (see [System B rules](system-b.md#the-major-output-types)).
+is its major output type, the kind of thing it makes. Where the spell is aimed
+then decides which row of the major output types table its minor runes read
+(see [System B rules](system-b.md#the-major-output-types)).
 
 | Rune | Role | Opposite | Makes | Aimed at the board | Across the whole battlefield |
 | --- | --- | --- | --- | --- | --- |

@@ -43,8 +43,8 @@ loot (more trading) or stay learned only (protects progression).
 on their own. They modify what the center produces, so swapping a rune between
 the center and the ring always makes a different spell.
 
-- A summon, portal or protect center always outputs its major output (a summon, a gate,
-  a shield), wherever it's aimed on the battlefield.
+- A summon, portal or protect center always makes its summon, gate or shield,
+  wherever it's aimed on the battlefield.
 - Any center aimed at a spell outputs an altered spell.
 - A plain-effect center outputs an effect: on a place, on a unit, or (across the
   whole battlefield) a global effect.
@@ -439,9 +439,9 @@ are still placeholders, so we can talk about the parts.
 | major rune | The rune in the center, which decides what the spell makes. Major and minor name the position, not a kind of rune: any rune can sit in either | Jared | center rune |
 | minor runes | The runes in the ring around the center, which modify the major output | Jared | ring runes |
 | center, ring | The two positions in a sigil: the center holds the major rune, the ring holds the minor runes | placeholder | |
-| major output | The thing a major rune makes, itself: what that rune does in the center. Fire's is "burns the target now and next round"; Portal's is the gate it opens | Jared | thing, center meaning |
+| major output | The thing a major rune makes, itself: what that rune does in the center. Fire's is "burns the target now and next round"; Portal's is the gate it opens | Jared | thing, center meaning, central output |
 | effect | The plain major output type: damage, healing or a status landing on units | Jared | |
-| major output type | The kind of thing a major rune makes: an effect (at a destination, on a unit, or global), ground, a gate, a summon, a shield or an altered spell. It decides what each minor rune does (the crafter's data calls it a hook type) | Jared | column |
+| major output type | The kind of thing a major rune makes (Jared, Nov 5). The eight kinds a minor rune reads are in [the major output types](#the-major-output-types); the crafter's data calls them hook types | Jared | column, central output type |
 | minor rune effect | What one minor rune does in one major output type | Jared | entry, hook entry |
 | minor rune effect types | What a minor rune effect touches: positions, damage modifiers, health, statuses, terrain, aspects | Jared | channels |
 | role | What a rune does as a group: plain effect, amplifier, mover, maker, remover | Jared | (had no word) |
@@ -473,3 +473,6 @@ placeholders.
 - [ ] Can a filter narrow a global modification? Whether filters stay at all.
 - [ ] The Blank rune's mechanics (see the [rune reference](rune-reference.md)).
 - [ ] Names for the five roles (plain effect, amplifier, mover, maker, remover).
+- [ ] Whether a tether (made by an inscription) and a Protect shield (read as "on a
+      unit") fit "the kind of thing a major rune makes", or the major output types
+      need their own rows for them.
