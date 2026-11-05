@@ -13,6 +13,7 @@ something Jared decided.
 
 | Decision | What it replaced | Where it lives now |
 | --- | --- | --- |
+| Invisibility as a minor rune effect at a destination or on a unit: enemies can't see the effect's area or read it at all, enemy AI included. | Enemies couldn't see or read it until it landed | [Rune reference](rune-reference.md#minor-rune-effect-at-a-destination-or-on-a-unit) |
 | Glossary names. In System B, sigil is the whole spell layout; System A keeps its own meaning, so write "System A sigil" or "System B sigil" where both appear. Major rune and minor runes name the position, not a kind of rune. Also central output, central output type, destination, minor rune effect, minor rune effect types, cohort, aspect, and role (what a rune does as a group). "Effect" stays the name of the plain central output. Primitives, recipe and section stay. Levels unlock new runes, with no separate word for a rune kind. | The placeholders circle, center rune, ring runes, thing, column, point, entry, channels, bundle and trait; "rune kind" | [Glossary](system-b.md#glossary) |
 | When spells are crafted is Open again: between battles, live during a battle, or a mix of both. | Nov 3: spells are crafted between battles, not during them | [Overview](overview.md#crafting-and-casting) |
 | System A keeps Push and Pull as runes, for now. | Open: whether System A followed System B in making them inscriptions | [System A](system-a.md#sigils) |
