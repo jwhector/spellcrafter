@@ -76,6 +76,7 @@ npm ci              # once, and after the lockfile changes
 npm run dev         # the views at http://localhost:3000
 npm run check       # typecheck, lint, tests, script tests, build: what CI runs
 npm run format      # Biome: format and fix lint
+npm run design:mirror  # build the read-only design page (docs/design/README.md)
 ```
 
 Next.js changes between versions faster than an agent's training. Before

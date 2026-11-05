@@ -1,6 +1,6 @@
 # 0003. The repo's Markdown leads the design
 
-Status: pending Jared on the shape of the Artifact mirror
+Status: ratified when it lands
 Date: 2026-11-05
 
 ## Context
@@ -22,8 +22,11 @@ golden rule 3). The Claude Docs are frozen at the revisions listed in
 `docs/design/README.md` and are no longer edited.
 
 When Jared works with Claude outside the repo, Claude mirrors each change
-into an Artifact he can read there (Jared, 2026-11-05). The mirror is
-read-only and never leads. Its exact shape is still open.
+into an Artifact he can read there (Jared, 2026-11-05). The mirror is one
+page with a tab per doc, rendered from the Markdown by a script in the repo,
+so it is a mechanical copy and is never edited by hand. It is read-only and
+never leads. Its link and the steps to refresh it are in
+`docs/design/README.md`.
 
 ## Why
 
@@ -38,6 +41,8 @@ read-only and never leads. Its exact shape is still open.
 - **The Claude Docs lead, and the repo re-exports after each change.** This
   keeps the Docs' reading view and comments, but every change lands in two
   places, and the exports drift as soon as one is skipped.
+- **The five Claude Docs kept as the mirror, updated through the connector.**
+  Five copies kept in sync by hand is how drift starts.
 
 ## Consequences
 

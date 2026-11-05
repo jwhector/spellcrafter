@@ -31,4 +31,4 @@ A status line is a fact, true the moment the record lands on main:
 | --- | --- | --- |
 | 0001 | [Scaffold the agentic workflow](0001-agentic-workflow-scaffold.md) | ratified when it lands |
 | 0002 | [TypeScript and Next.js, one package](0002-typescript-nextjs.md) | ratified when it lands |
-| 0003 | [The repo's Markdown leads the design](0003-repo-markdown-leads.md) | pending Jared on the shape of the Artifact mirror |
+| 0003 | [The repo's Markdown leads the design](0003-repo-markdown-leads.md) | ratified when it lands |
