@@ -75,7 +75,9 @@ Both tools are out of date: see [reference/README.md](../../reference/README.md)
 ## Changing a doc
 
 Edit the file here. Mark each statement Decided, Proposed or Open, and never
-promote one to Decided without Jared. Keep only the current rule in the doc: when
+promote one to Decided without Jared. A balance number (a
+multiplier, a cap, a share) is a preliminary value, proposed and untested, even
+inside a decided rule (Jared, Nov 5). Keep only the current rule in the doc: when
 a decision replaces something, add a row to the [decision log](decision-log.md),
 and move any passage worth keeping word for word into the archive.
 

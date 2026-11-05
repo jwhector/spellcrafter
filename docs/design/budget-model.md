@@ -3,9 +3,12 @@
 How the forge works out what a spell is worth and fits it to its budget. The
 forge works out a spell's cost from what the spell does, not from a fixed price
 per rune. A modifier's cost is whatever it adds to the effect it changes, so its
-relative impact is tracked automatically. The numbers come from the audit tool's
-current price list and get tuned in step 4 of the plan (numbers in the audit
-tool).
+relative impact is tracked automatically.
+
+**Every number here is a preliminary value (Jared, Nov 5).** A balance number,
+even in a decided rule, is proposed and untested: it is where tuning starts, not
+where it ends. The numbers come from the audit tool's current price list and get
+tuned in step 4 of the plan (numbers in the audit tool).
 
 The rules that use these numbers are in [System B rules](system-b.md) and the
 [rune reference](rune-reference.md). The questions every new effect answers
@@ -36,8 +39,8 @@ before it's priced are in the [effect flags checklist](effect-flags-checklist.md
 - **Forced movement** (the Push and Pull inscriptions) is paid from the spell's
   budget by hexes moved times units moved.
 
-**From the handoff only (Nov 5).** The handoff also records these as decided, but
-no frozen doc states them; Jared to confirm:
+**Proposed (preliminary values, Jared Nov 5).** The handoff records these as
+decided, but no frozen doc states them, and Jared marked them preliminary:
 
 - Cooldown buys budget only up to about battle length.
 - The three-pass split works like this: ring runes keep at least half their share,
@@ -164,4 +167,3 @@ strongest possible hotbar and checks it against the battle budget.
 - [ ] The budget curve's actual numbers, the price per hex of forced movement, and
       the expected-neighbours constant (about 1.5).
 - [ ] Tuning the single-target bonus against the area shapes in the audit tool.
-- [ ] The two handoff-only rules above.
