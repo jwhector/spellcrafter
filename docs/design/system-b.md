@@ -72,16 +72,17 @@ center,** like a duplicate.
 
 ### The major output types
 
-Which major output type a minor rune reads depends on what the center made. There are eight:
+Which major output type a minor rune reads depends on what the center made. There are nine:
 
 | Major output type | Used when |
 | --- | --- |
 | At a destination | The center makes an effect on an area |
-| On a unit | The center makes an effect on one unit; also a Protect center's shield, with each minor rune firing when the shield is hit |
+| On a unit | The center makes an effect on one unit |
 | On ground | A lingering area effect, or a wall |
 | Along a tether | A tether inscription joins two destinations |
 | Through a gate | A Portal center |
 | On a summon | A Summon center |
+| On a shield | A Protect center (Decided Nov 5: minor runes change the shield itself) |
 | On a spell | A Dispel center aimed at a spell |
 | Global modification | The whole-battlefield shape (Jared's name) |
 
@@ -110,7 +111,7 @@ new shape or a new kind of major output can't ship with an undefined combination
 - A rune or inscription that needs two destinations (a portal, a tether) uses the
   caster as its second destination when the spell has only one.
 - Each major rune defines how its ring is read. Summon: what the summon is made
-  of. Protect: what happens to anyone who hits the shield. Portal: what happens to
+  of. Protect: how the shield behaves. Portal: what happens to
   whoever goes through.
 - **Decided (Nov 4):** gates and tethers with three or more destinations join each destination
   to the next.
@@ -394,12 +395,12 @@ everywhere (a global modification rewrites terrain rules).
 - A unit standing exactly on the destination is pushed in the spell's direction of
   travel, or stays put on a self-cast.
 - **Decided (Nov 4): beneficial effects go to allies first and harmful effects to
-  enemies first,** wherever a rune has a choice of recipient (a shield's bearer or
-  attacker, a summon's neighbours, a tether's two ends). An area still hits
-  everyone standing in it, so friendly fire stays on. Example: a shield with mend
-  and wound in its ring heals the bearer and hurts whoever hits it.
-- **Decided (Nov 4): a shield's minor runes are order-free aspects** that fire when the
-  shield is hit, following the rule above.
+  enemies first,** wherever a rune has a choice of recipient (a summon's
+  neighbours, a tether's two ends). An area still hits everyone standing in it,
+  so friendly fire stays on.
+- **Decided (Nov 5): a shield's minor runes are order-free aspects that change the
+  shield itself** (see the [rune reference](rune-reference.md#minor-rune-effect-on-a-shield)).
+  This replaces the Nov 4 rule that they fired when the shield was hit.
 - **Decided (Nov 4): opposite runes cancel only where their minor rune effects in that major output type
   are true opposites** (at a destination, on a unit, through a gate). There they cancel by
   amount. Elsewhere both apply. Fire and frost count as opposites.
@@ -478,7 +479,7 @@ are still placeholders, so we can talk about the parts.
 | center, ring | The two positions in a sigil: the center holds the major rune, the ring holds the minor runes | placeholder | |
 | major output | The thing a major rune makes, itself: what that rune does in the center. Fire's is "burns the target now and next round"; Portal's is the gate it opens | Jared | thing, center meaning, central output |
 | effect | The plain major output type: damage, healing or a status landing on units | Jared | |
-| major output type | The kind of thing a major rune makes (Jared, Nov 5). The eight kinds a minor rune reads are in [the major output types](#the-major-output-types); the crafter's data calls them hook types | Jared | column, central output type |
+| major output type | The kind of thing a major rune makes (Jared, Nov 5). The nine kinds a minor rune reads are in [the major output types](#the-major-output-types); the crafter's data calls them hook types | Jared | column, central output type |
 | minor rune effect | What one minor rune does in one major output type | Jared | entry, hook entry |
 | minor rune effect types | What a minor rune effect touches: positions, damage modifiers, health, statuses, terrain, aspects | Jared | channels |
 | role | What a rune does as a group: plain effect, amplifier, mover, maker, remover | Jared | (had no word) |
@@ -510,6 +511,6 @@ placeholders.
 - [ ] Can a filter narrow a global modification? Whether filters stay at all.
 - [ ] The Blank rune's mechanics (see the [rune reference](rune-reference.md)).
 - [ ] Names for the five roles (plain effect, amplifier, mover, maker, remover).
-- [ ] Whether a tether (made by an inscription) and a Protect shield (read as "on a
-      unit") fit "the kind of thing a major rune makes", or the major output types
-      need their own rows for them.
+- [ ] Whether a tether (made by an inscription) fits "the kind of thing a major
+      rune makes", or the major output types need their own row for it. (The
+      Protect shield got its own row, Nov 5.)

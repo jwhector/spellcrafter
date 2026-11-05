@@ -38,7 +38,7 @@ then decides which row of the major output types table its minor runes read
 | Frost | Plain effect | Fire | an effect | Chills the target, which loses its bonus move | Every unit's bonus move is gone while it lasts |
 | Mend | Plain effect | Wound | an effect | Heals the target | Everyone heals a little at the start of each round |
 | Wound | Plain effect | Mend | an effect | Deals plain damage, more to units below half health | Everyone takes a little damage at the end of each round |
-| Protect | Amplifier | Expose | a shield | Shields the target, which also heals a little more; the ring says what happens to anyone who hits it | The first hit on each unit each round is reduced |
+| Protect | Amplifier | Expose | a shield | Shields the target, which also heals a little more; the ring changes the shield itself | The first hit on each unit each round is reduced |
 | Expose | Amplifier | Protect | an effect | Makes the target take more damage and heal less | All damage is increased a little |
 | Portal | Mover | none | a gate | Opens a gate that lasts the round; anyone can walk through. Cast on yourself with an extra destination, it moves you there | Each round, two random hexes become linked gates |
 | Summon | Maker | Dispel | a summon | Creates a body at each destination; the ring says what it is made of. Aimed at a unit, the unit is set aside and the body takes its place until it dies or the spell ends | A weak neutral creature enters at the edge each round |
@@ -85,8 +85,7 @@ names are still placeholders (see the [glossary](system-b.md#glossary)).
 | Revelation | Seeking | The effect can pick hidden units, but they stay hidden; the center is what removes hiding |
 
 **Open:** whether Wound's finish applies to bosses (immune, or a smaller
-threshold). **To check:** how these read on a Protect center's shield, which uses
-this major output type with each rune firing when the shield is hit.
+threshold).
 
 ## Minor rune effect: through a gate
 
@@ -139,6 +138,38 @@ values.
 | Slow | It arrives weak and grows to full strength over three rounds, totalling more |
 | Invisibility | Enemies can't see it until it acts |
 | Revelation | It can see and attack hidden units, and they stay hidden |
+
+## Minor rune effect: on a shield
+
+**Decided (Nov 5, ring review).** Used with a Protect center. Minor runes change
+the shield itself, and every one is an aspect of it, so order never matters. This
+replaces the Nov 4 rule that each minor rune fired when the shield was hit: those
+reactions repeated each rune's major output, which belongs to the center, and
+linking is how a spell gets two major outputs (Jared, Nov 5). The numbers are
+preliminary values.
+
+- **Decided (Jared, Nov 5): a shield fades on a timer** if nothing breaks it. The
+  timer's length is a preliminary value, set in configuration.
+- **Decided (Jared, Nov 5): shielding a hidden ally doesn't reveal them.**
+
+| Rune | Minor rune effect |
+| --- | --- |
+| Fire | A half-strength copy of the shield also lands on each ally next to the bearer |
+| Frost | The bearer slides 1 hex further from any push or pull, and the shield takes no harm from collisions |
+| Mend | While it holds, harmful area spells cast by your own side skip the bearer; helpful ones still land (Jared) |
+| Wound | While any strength is left, it absorbs the whole of the hit that breaks it |
+| Protect | Matches the center: adds strength |
+| Expose | Attacks that ignore shields don't get through it |
+| Portal | The spell starts from an ally or your summon instead of you, for range and line of sight |
+| Summon | A totem stands next to the bearer. While the totem stands, the shield comes back once at half strength after it breaks (Jared) |
+| Dispel | It can't be dispelled or stripped |
+| Stone | The bearer can't be pushed, pulled or teleported while it holds, and it lasts a round longer |
+| Amplification | Hits it absorbs charge it. When it breaks, the charge bursts on every unit next to the bearer, allies too (Jared). Start: the charge caps at the shield's own strength, and it is lost if the shield fades unbroken |
+| Diminishing | Cooldown a round shorter; the forge refits it smaller |
+| Haste | Casting it costs a bonus action |
+| Slow | It starts weak and builds to full strength over three rounds, totalling more |
+| Invisibility | Enemies can't see the shield or its strength, and an enemy AI leaves it out when choosing what to do |
+| Revelation | Before enemies act each round, the shield moves to whichever ally within 3 hexes the first enemy move is aimed at (Jared). It depends on telegraphed enemy moves, which are Proposed, to playtest |
 
 ## Minor rune effect: on ground
 
@@ -246,8 +277,7 @@ shapes that global effect.
 
 ## Open
 
-- [ ] The ring review: the Protect shield (next), along a tether, on a spell,
-      global, and the check of minor runes on a Protect shield.
+- [ ] The ring review: on a spell (next), along a tether, and global.
 - [ ] What the Blank rune does in the center and in the ring.
 - [ ] Wound's finish against bosses.
 - [ ] Which runes ship first.
