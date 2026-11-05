@@ -56,8 +56,8 @@ the center and the ring always makes a different spell.
 - A rune's major output stays unique to the center, and minor runes always do something
   different. Combos (such as a healing portal) come from [linking](#linking).
 - On a major output (a gate, a summon, a shield, ground), minor runes change the
-  output itself rather than adding an effect to it. The one exception so far is
-  Wound on a gate.
+  output itself rather than adding an effect to it. This is a useful guide, not a
+  hard rule (Jared, Nov 5): Wound on a gate and Dispel on a summon add effects.
 - Every rune gets a meaning in every major output type.
 - Only a Dispel center can target a spell, and its minor runes decide what
   happens to that spell.

@@ -114,27 +114,31 @@ what happens to the gate and the units that travel through it.
 
 ## Minor rune effect: on a summon
 
-**Proposed (crafter v14), next in the ring review.** Used with a Summon center.
-Every minor rune here is an aspect of the body, so order never matters.
+**Decided (Nov 5, ring review).** Used with a Summon center. Minor runes change
+the body itself, and every one is an aspect of it, so order never matters. An
+effect around the summon (a burning or healing aura) comes from a minor Where
+inscription instead, as in the fire-breathing summon in
+[System B rules](system-b.md#minor-inscriptions). The numbers are preliminary
+values.
 
 | Rune | Minor rune effect |
 | --- | --- |
-| Fire | The summon burns units next to it |
-| Frost | The summon chills units next to it |
-| Mend | The summon heals units next to it each round |
-| Wound | The summon hits harder |
-| Protect | The summon is tougher |
-| Expose | The summon draws enemy attacks |
-| Portal | The summon can step through space once per round |
-| Summon | (not used: falls back to on a unit) |
-| Dispel | The summon clears statuses next to it |
-| Stone | The summon is made of stone: sturdy and blocking |
-| Amplification | Allies next to the summon deal more |
-| Diminishing | Enemies next to the summon deal less |
-| Haste | The summon acts twice each round |
-| Slow | Enemies next to the summon lose their bonus action |
-| Invisibility | The summon is hidden until it acts |
-| Revelation | The summon reveals hidden units next to it |
+| Fire | Next round, a half-strength copy appears on a free hex next to it, once |
+| Frost | It moves 1 extra hex each round, in straight lines only |
+| Mend | Its attacks never hit allies, and allies can pass through its hex |
+| Wound | It hits harder (a cheap addition, Jared) |
+| Protect | It is tougher: a higher armor or toughness stat (stats are Open) |
+| Expose | It draws enemy attacks |
+| Portal | It can blink a short way (start: 2 hexes) once per round |
+| Summon | A totem stands where it appeared. While the totem stands, the summon rises there once after dying, at half health, and its time left doesn't reset |
+| Dispel | It can't be dispelled or sent away early, and conjured ground and terrain on every hex it stands on or moves through is cleared; natural terrain stays |
+| Stone | It can't be pushed, pulled or teleported, and it lasts a round longer |
+| Amplification | It feeds on friendly fire: allied spells that hit it don't hurt it, and it stores a third of what they would have done for its next attack (start: the store caps at its own attack strength, and it is lost if the summon dies) |
+| Diminishing | Cooldown a round shorter; the forge refits it smaller, and it leaves a round sooner |
+| Haste | Summoning it costs a bonus action |
+| Slow | It arrives weak and grows to full strength over three rounds, totalling more |
+| Invisibility | Enemies can't see it until it acts |
+| Revelation | It can see and attack hidden units, and they stay hidden |
 
 ## Minor rune effect: on ground
 
@@ -243,7 +247,7 @@ shapes that global effect.
 
 ## Open
 
-- [ ] The ring review: on a summon (next), on ground, along a tether, on a spell,
+- [ ] The ring review: on ground (next), along a tether, on a spell,
       global, and the check of minor runes on a Protect shield.
 - [ ] What the Blank rune does in the center and in the ring.
 - [ ] Wound's finish against bosses.
