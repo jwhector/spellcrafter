@@ -21,7 +21,7 @@ Where the project came from, and the state of the design when it moved here:
 | `docs/decisions/` | Decision records: why the repo is built the way it is. |
 | `docs/plans/` | Plans for larger work, from `TEMPLATE.md`. |
 | `docs/agentic-workflow.md` | How work flows here: the loop, the kickoff prompt, the maintenance contract. |
-| `reference/` | The design-phase HTML tools (crafter, audit), as exported. Not built, not edited. |
+| `reference/` | The design-phase HTML tools (crafter, audit) with their smoke tests, and the BG3 coverage data, as handed off. Not built, not edited. |
 | `.seeds/` | The backlog (`sd`). |
 | `.mulch/` | Engineering expertise (`ml`). |
 
