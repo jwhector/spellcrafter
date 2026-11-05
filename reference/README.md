@@ -39,7 +39,7 @@ install. Cloud sessions have both preinstalled. Elsewhere, run
   for the first sweep, runs the full sweep, clicks through each lens and the
   ground column, prints the summary and the problems, and saves `shot1.png`
   and `shot2.png` beside `audit.html` (ignored by git). Run it with
-  `node reference/audit-test.cjs`. The full sweep takes a few minutes.
+  `node reference/audit-test.cjs`. The full sweep took about 40 seconds here.
 - `bg3-spells.py`: the BG3 coverage dataset behind the BG3 coverage audit
   doc. One row per spell: (level, name, circle, verdict, gap letters, note),
   with verdict E (easy), A (awkward) or X (needs an extension), plus the
