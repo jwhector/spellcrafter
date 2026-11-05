@@ -21,8 +21,8 @@ crafting systems Jared will A/B test (Decided Nov 3); the other is
 - **Exception:** sigils that move the caster (dash, leap) stay sigil-defined,
   because the caster's travel is part of the geometry.
 
-(In System B, Push and Pull became inscriptions on Nov 5. Whether System A keeps
-them as runes is not decided.)
+**Decided (Jared, Nov 5), for now: System A keeps Push and Pull as runes,** even
+though System B made them inscriptions the same day.
 
 **Proposed: the sigil is the form, runes are the substance**
 
@@ -201,5 +201,3 @@ on Nov 3 and is in the [archive](archive/superseded.md).
 - [ ] If sigils are learned from an item, can that item be traded? A tradable item
       effectively makes sigils tradable.
 - [ ] Can a player teach a sigil to another player (social, but not trading)?
-- [ ] Whether System A keeps Push and Pull as runes now that System B made them
-      inscriptions.

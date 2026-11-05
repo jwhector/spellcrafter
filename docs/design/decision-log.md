@@ -13,6 +13,7 @@ something Jared decided.
 
 | Decision | What it replaced | Where it lives now |
 | --- | --- | --- |
+| System A keeps Push and Pull as runes, for now. | Open: whether System A followed System B in making them inscriptions | [System A](system-a.md#sigils) |
 | Balance numbers are preliminary values: proposed and untested, even inside a decided rule. | Numbers listed as decided | [Budget model](budget-model.md), [README](README.md#changing-a-doc) |
 | Whether units go down or die stays Open until playtesting. | The Nov 4 lean toward dying, listed among the decided items | [Overview](overview.md#battles) |
 | Whether The Hollow keeps its own progression and currency or uses Glizzybot's is Open. | The master doc described the game as "inside the bot", with a table of hooks into it | [Overview](overview.md#glizzybot) |
