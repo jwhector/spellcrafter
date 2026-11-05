@@ -75,9 +75,12 @@ function overlay(x: number, y: number, diameter: number): CSSProperties {
 export function CrafterDashboard({
   reference,
   modelUrls,
+  grounds,
 }: {
   reference: RuneReference;
   modelUrls: Record<string, string>;
+  /** The ground each major rune makes, from system-b.md. */
+  grounds: Record<string, string>;
 }) {
   const [sigil, setSigil] = useState<Sigil>(() => emptySigil());
   const [selected, setSelected] = useState<Slot | null>(null);
@@ -86,7 +89,7 @@ export function CrafterDashboard({
 
   const groups = useMemo(() => pairs(reference), [reference]);
   const names = useMemo(() => new Map(reference.runes.map((r) => [r.slug, r.name])), [reference]);
-  const readout = useMemo(() => readSigil(reference, sigil), [reference, sigil]);
+  const readout = useMemo(() => readSigil(reference, sigil, grounds), [reference, sigil, grounds]);
   const plan = useMemo(() => planBoard(sigil), [sigil]);
   const kind = useMemo(() => makes(reference, sigil).kind, [reference, sigil]);
   const free = freeSlots(sigil);

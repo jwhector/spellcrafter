@@ -2,6 +2,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { parseRuneReference } from "../runes/reference";
+import { parseGrounds } from "./grounds";
 import {
   blockedReason,
   emptySigil,
@@ -92,7 +93,7 @@ describe("which major output type the ring reads (system-b.md)", () => {
   it("follows the center for Portal, Summon and Protect", () => {
     expect(kind(build("portal", [], ["burst"]))).toBe("through a gate");
     expect(kind(build("summon", []))).toBe("on a summon");
-    expect(["on a unit", "on a shield"]).toContain(kind(build("protect", [], ["lingering", "burst"])));
+    expect(kind(build("protect", [], ["lingering", "burst"]))).toBe("on a shield");
   });
 
   it("reads a plain effect by its shape", () => {
@@ -101,7 +102,7 @@ describe("which major output type the ring reads (system-b.md)", () => {
     expect(kind(build("fire", [], ["burst", "lingering"]))).toBe("on ground");
     expect(kind(build("fire", [], ["wall"]))).toBe("on ground");
     expect(kind(build("fire", [], ["global"]))).toBe("global");
-    expect(kind(build("wound", [], ["transfer"]))).toBe("along a tether");
+    expect(kind(build("wound", [], ["transfer"]))).toBe("on a unit");
   });
 
   it("lets only a Dispel center target a spell", () => {
@@ -172,6 +173,18 @@ describe("the readout", () => {
     const r = readSigil(REF, build("frost", [], ["global"]));
     expect(r.majorOutput?.column).toBe("Across the whole battlefield");
     expect(r.majorOutput?.text).toBe(REF.center.rows.frost?.["Across the whole battlefield"]);
+  });
+
+  it("uses the ground the major rune makes for ground, from system-b.md", () => {
+    const grounds = parseGrounds(readFileSync(join(process.cwd(), "docs/design/system-b.md"), "utf8"));
+    const r = readSigil(REF, build("frost", [], ["burst", "lingering"]), grounds);
+    expect(r.majorOutput).toEqual({ text: grounds.frost, column: "The ground it makes", status: "Decided" });
+  });
+
+  it("reads a tether's minor runes on a unit at each end", () => {
+    const r = readSigil(REF, build("wound", ["fire"], ["transfer"]));
+    expect(r.makes.table?.title.toLowerCase()).toContain("on a unit");
+    expect(r.notes.some((n) => /tether has no major output type/.test(n.text))).toBe(true);
   });
 
   it("asks for a center when there is none", () => {

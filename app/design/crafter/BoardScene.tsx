@@ -73,7 +73,7 @@ export function BoardScene({
   const path = new Set(plan.path.map(key));
   const ground = kind === "on ground";
   const global = kind === "global";
-  const shielded = kind === "on a shield" || (kind === "on a unit" && centerSlug === "protect");
+  const shielded = kind === "on a shield";
   // A shield goes on each unit the spell touches, or on its destination when it touches none.
   const shieldedUnits = [...plan.units, plan.caster].filter((h) => touched.has(key(h)));
   const shieldHexes = !shielded ? [] : shieldedUnits.length ? shieldedUnits : plan.destinations.slice(0, 1);

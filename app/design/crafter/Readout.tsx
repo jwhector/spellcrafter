@@ -16,8 +16,6 @@ function madeThing(kind: OutputKind, center: string | null): string {
       return "a shield";
     case "on ground":
       return "ground";
-    case "along a tether":
-      return "an effect carried along a tether";
     case "through a gate":
       return "a gate";
     case "on a summon":

@@ -219,7 +219,6 @@ export type OutputKind =
   | "on a unit"
   | "on a shield"
   | "on ground"
-  | "along a tether"
   | "through a gate"
   | "on a summon"
   | "on a spell"
@@ -277,31 +276,15 @@ export function makes(ref: RuneReference, s: Sigil): Makes {
   if (center === "summon")
     return pick("on a summon", "on a summon", "A Summon center always makes its summon.", "Decided");
   if (center === "protect") {
-    // A shield reads its own table once the doc has one; until then, "on a unit", firing when the shield is hit.
-    const shield = findTable(ref, "on a shield");
-    if (shield)
-      return {
-        kind: "on a shield",
-        table: shield,
-        why: "A Protect center always makes its shield.",
-        status: "Decided",
-      };
     return pick(
-      "on a unit",
-      "on a unit",
-      'A Protect center always makes its shield, which reads "on a unit", each minor rune firing when the shield is hit.',
+      "on a shield",
+      "on a shield",
+      "A Protect center always makes its shield; its minor runes change the shield itself.",
       "Decided",
     );
   }
-  // The crafter's reading, not stated in the docs: a tether's ring is read "along a tether" only when the center makes a plain effect.
-  if (hasTether(s)) {
-    return pick(
-      "along a tether",
-      "along a tether",
-      "A tether inscription joins two destinations; each minor rune sends something along it. (Which centers this applies to is the crafter's reading.)",
-      "Proposed",
-    );
-  }
+  // A tether has no major output type of its own (system-b.md "Tethers", Decided Nov 5): the shape decides the type,
+  // and readSigil notes that the minor runes read "on a unit" at each end.
   if (shape.id === "wall" || (isLingering(s) && shape.aims === "area")) {
     return pick(
       "on ground",
@@ -363,7 +346,11 @@ export function sectionOf(s: Sigil, slot: number): number {
   return Math.min(n - 1, Math.floor((slot * n) / s.size));
 }
 
-export function readSigil(ref: RuneReference, s: Sigil): Readout {
+/**
+ * readSigil reads the rune reference, plus the ground each major rune makes (system-b.md "Ground", Decided Nov 5).
+ * Pass an empty record when that table is not loaded; the readout then falls back to the center's own major output.
+ */
+export function readSigil(ref: RuneReference, s: Sigil, grounds: Record<string, string> = {}): Readout {
   const byslug = new Map(ref.runes.map((r) => [r.slug, r]));
   const center = s.center ? (byslug.get(s.center) ?? null) : null;
   const m = makes(ref, s);
@@ -372,7 +359,10 @@ export function readSigil(ref: RuneReference, s: Sigil): Readout {
   const note = (text: string, status: Status, warn = false) => notes.push({ text, status, warn });
 
   let majorOutput: Readout["majorOutput"] = null;
-  if (center) {
+  const ground = center && m.kind === "on ground" ? grounds[center.slug] : undefined;
+  if (ground) {
+    majorOutput = { text: ground, column: "The ground it makes", status: "Decided" };
+  } else if (center) {
     const row = ref.center.rows[center.slug] ?? {};
     const column = m.kind === "global" ? "Across the whole battlefield" : "Aimed at the board";
     const text = row[column] ?? "";
@@ -462,6 +452,11 @@ export function readSigil(ref: RuneReference, s: Sigil): Readout {
     note("Filters don't work on ground (Decided Nov 4), so the filter does nothing here.", "Decided", true);
   }
   if (s.inscriptions.includes("steerable") && !isLingering(s)) note("Steerable needs lingering.", "Proposed", true);
+  if (hasTether(s))
+    note(
+      'A tether has no major output type of its own: its kind decides how the effect travels, and its minor runes read the "on a unit" table at each end (Decided Nov 5).',
+      "Decided",
+    );
   if (shape.id === "self" && (s.center === "portal" || hasTether(s))) {
     if (s.center === "portal" && s.inscriptions.includes("extra")) {
       note("A self-cast portal with an extra destination moves you to that destination.", "Proposed");
@@ -478,7 +473,11 @@ export function readSigil(ref: RuneReference, s: Sigil): Readout {
       "Proposed",
     );
   if (orderFree(m.kind) && minorRuneCount(s) > 1)
-    note(`Every minor rune here is an aspect, so their order doesn't matter.`, "Proposed");
+    note(
+      `Every minor rune here is an aspect, so their order doesn't matter.`,
+      // Decided Nov 5 for a shield and for ground; Proposed (Nov 4) for a summon and a global modification.
+      m.kind === "on a shield" || m.kind === "on ground" ? "Decided" : "Proposed",
+    );
   else if (minorRuneCount(s) > 1) note("Minor runes act in clockwise order within their section.", "Proposed");
 
   const counts = new Map<string, number>();
