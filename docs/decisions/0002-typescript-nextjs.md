@@ -26,7 +26,7 @@ Jared chose Next.js instead in the project thread on 2026-11-05.
   `app/`), guarded by `tests/guards/engine-purity.test.ts`, so the same rules
   run in tests, in the crafter's preview and in battle, and the engine can
   become its own package if it ever needs to.
-- **Node 22**, pinned in `.nvmrc`, which CI reads.
+- **The Node version** is pinned in `.nvmrc`, which CI reads.
 - **Next.js defaults otherwise.** No static export, no extra config. How the
   app is deployed as a Discord Activity is its own decision when that work
   starts.
