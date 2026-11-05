@@ -5,7 +5,6 @@
  * about one rune, or one major output type for every rune. Words follow the
  * glossary in docs/design/system-b.md.
  */
-import type { MouseEvent } from "react";
 import {
   cellStatus,
   mainColumn,
@@ -26,7 +25,7 @@ export function Badge({ status, title }: { status: Status; title?: string }) {
   );
 }
 
-type Pick = (slug: string, event?: MouseEvent) => void;
+type Pick = (slug: string) => void;
 
 function RuneLink({ name, reference, onPick }: { name: string; reference: RuneReference; onPick: Pick }) {
   const rune = reference.runes.find((r) => r.name === name);
@@ -36,7 +35,7 @@ function RuneLink({ name, reference, onPick }: { name: string; reference: RuneRe
       href={`/design/runes/${rune.slug}`}
       onClick={(e) => {
         e.preventDefault();
-        onPick(rune.slug, e);
+        onPick(rune.slug);
       }}
     >
       {rune.name}

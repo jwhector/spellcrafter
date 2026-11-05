@@ -18,16 +18,7 @@
 import { PerspectiveCamera, View } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { usePathname } from "next/navigation";
-import {
-  type CSSProperties,
-  type MouseEvent,
-  type PointerEvent,
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import { type CSSProperties, type PointerEvent, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { RUNE_LOOKS } from "./look";
 import { RunePanel, TablePanel } from "./RunePanel";
 import { RuneLights, RuneStone } from "./RuneStone";
@@ -93,17 +84,15 @@ export function RuneDashboard({
   const tables = [reference.center, ...reference.minorEffects];
   const shownTable = tables.find((t) => t.id === view);
 
-  function pick(slug: string, event?: MouseEvent) {
+  function pick(slug: string) {
+    setView("rune");
     if (slug === selected?.slug) {
       setSummons((n) => n + 1);
       return;
     }
-    const slot = slotEls.current.get(slug);
-    flightFrom.current = slot ? slot.getBoundingClientRect() : null;
-    if (event && !slot) flightFrom.current = (event.currentTarget as HTMLElement).getBoundingClientRect();
+    flightFrom.current = slotEls.current.get(slug)?.getBoundingClientRect() ?? null;
     drag.current = { yaw: 0, pitch: 0 };
     window.history.pushState(null, "", `${BASE}/${slug}`);
-    setView("rune");
   }
 
   // Each time the selected rune changes, play the summon: fly from where it was picked, then spin and flare.

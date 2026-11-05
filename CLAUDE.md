@@ -15,7 +15,8 @@ Where the project came from, and the state of the design when it moved here:
 | Path | What lives there |
 | --- | --- |
 | `engine/` | Pure game logic: runes, sigils, the budget model, the forge, battle rules. No UI. |
-| `app/` | The views, as a Next.js app (App Router): the crafter view, the budget readout, the hex battle board. |
+| `app/` | The views, as a Next.js app (App Router): the crafter view, the budget readout, the hex battle board, and the design dashboard (`app/design/`). |
+| `public/` | Static files the app serves, such as rune model files (`public/models/runes/`). |
 | `tests/` | Tests that span the repo, including the guards in `tests/guards/`. Unit tests sit beside their code as `*.test.ts`. |
 | `docs/design/` | The design docs (they lead the design), and the one home for links to their sources. |
 | `docs/decisions/` | Decision records: why the repo is built the way it is. |

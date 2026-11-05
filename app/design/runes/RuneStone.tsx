@@ -6,7 +6,7 @@
  */
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { Suspense, useMemo, useRef } from "react";
+import { Suspense, useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 import { lookFor } from "./look";
 import { fitToStone, STROKE_GEOMETRY_RADIUS, seedOf, stoneGeometry, symbolSegments } from "./stone";
@@ -35,6 +35,9 @@ function CodedStone({ slug, glow }: { slug: string; glow: { current: number } })
     () => new THREE.MeshStandardMaterial({ color: look.color, emissive: look.color, toneMapped: false }),
     [look],
   );
+  // React-three-fiber does not dispose geometry and materials passed in as props; free them here.
+  useEffect(() => () => stone.dispose(), [stone]);
+  useEffect(() => () => symbol.dispose(), [symbol]);
   useFrame(() => {
     symbol.emissiveIntensity = glow.current;
   });

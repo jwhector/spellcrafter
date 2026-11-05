@@ -20,7 +20,9 @@ the coded stone.
   export matches what you see.
 - **Small enough for the hotbar and, later, Discord.** Aim for under 1 MB
   and under about 20,000 triangles per rune. Decimate an AI-generated mesh
-  before export, and keep textures at 1024 px or less.
+  before export, and keep textures at 1024 px or less. Leave the
+  exporter's Draco compression off: the page would then fetch a decoder
+  from a third-party site, which a Discord Activity blocks.
 - **Your own work.** RuneScape is a style reference only: no models,
   textures or symbols taken from it, and no RuneScape images given to an AI
   model generator.
