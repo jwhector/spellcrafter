@@ -47,10 +47,10 @@ wall, becomes ground. All Proposed (crafter v14), except where marked.
 | Revelation | Plain effect | Invisibility | an effect | Removes hiding from the target and stops it hiding again for a round | No one can hide |
 | Blank (Jared's name, Decided Nov 5) | | none | an effect | Open: the center for a spell that only moves things, with the Push or Pull inscription | Open |
 
-**Aimed at a spell (Decided Nov 5):** only a Dispel center can target a spell. It
+**Aimed at a spell.** Decided (Nov 5): only a Dispel center can target a spell,
+and its ring runes decide what happens to the spell. Proposed (crafter v14): it
 strips runes from the spell, up to the Dispel spell's power budget; you pick
-which, and stripping its center cancels it. Its ring runes decide what else
-happens to the spell (see [On a spell](#on-a-spell)).
+which, and stripping its center cancels it (see [On a spell](#on-a-spell)).
 
 "Group" says what a rune does as a group; the word for it is still open (see the
 [glossary](system-b.md#glossary)).

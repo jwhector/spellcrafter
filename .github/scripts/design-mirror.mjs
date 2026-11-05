@@ -75,6 +75,7 @@ export function renderDoc(file, markdown, { files, repoUrl }) {
   const ids = [];
   const links = [];
   const seen = new Map();
+  const used = new Set();
   const marked = new Marked({
     gfm: true,
     renderer: {
@@ -101,10 +102,14 @@ export function renderDoc(file, markdown, { files, repoUrl }) {
       },
       heading({ tokens, depth }) {
         const inner = this.parser.parseInline(tokens);
+        // As github-slugger: count up from the last suffix until the id is unused.
         const base = headingId(inner);
-        const n = seen.get(base) ?? 0;
+        let n = seen.get(base) ?? 0;
+        let anchor = n > 0 ? `${base}-${n}` : base;
+        while (used.has(anchor)) anchor = `${base}-${++n}`;
         seen.set(base, n + 1);
-        const id = `${slug}--${n > 0 ? `${base}-${n}` : base}`;
+        used.add(anchor);
+        const id = `${slug}--${anchor}`;
         ids.push(id);
         if (depth === 2 || depth === 3) headings.push({ id, depth, html: inner });
         return `<h${depth} id="${id}">${inner}</h${depth}>\n`;

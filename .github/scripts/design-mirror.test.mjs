@@ -102,3 +102,11 @@ test("a dollar pattern in a doc reaches the page as written", () => {
   const page = buildPage(docs, { commit: "abcdef1234", date: "2026-11-05", branch: "main", repoUrl: OPTS.repoUrl });
   assert.match(page, /Costs \$&amp; and \$(&#39;|') here\./);
 });
+
+test("a duplicate heading never takes an id another heading already has", () => {
+  const doc = renderDoc("game-design.md", "# T\n\n## Open\n\n## Open\n\n## Open 1\n", OPTS);
+  assert.deepEqual(
+    doc.headings.map((h) => h.id),
+    ["game-design--open", "game-design--open-1", "game-design--open-1-1"],
+  );
+});
