@@ -38,7 +38,7 @@ though System B made them inscriptions the same day.
   area around, another slot turns it into terrain. Same rune, different result
   depending on where it sits.
 - **Slots can have constraints** ("only an element here"), which makes crafting a
-  small puzzle between battles.
+  small puzzle.
 - **References:** Path of Exile (skill gems in linked item sockets) and Diablo 2
   runewords (runes in a socketed item form a named effect). Both separate the
   container from what goes in it.

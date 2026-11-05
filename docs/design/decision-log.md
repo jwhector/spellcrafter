@@ -13,6 +13,7 @@ something Jared decided.
 
 | Decision | What it replaced | Where it lives now |
 | --- | --- | --- |
+| When spells are crafted is Open again: between battles, live during a battle, or a mix of both. | Nov 3: spells are crafted between battles, not during them | [Overview](overview.md#crafting-and-casting) |
 | System A keeps Push and Pull as runes, for now. | Open: whether System A followed System B in making them inscriptions | [System A](system-a.md#sigils) |
 | Balance numbers are preliminary values: proposed and untested, even inside a decided rule. | Numbers listed as decided | [Budget model](budget-model.md), [README](README.md#changing-a-doc) |
 | Whether units go down or die stays Open until playtesting. | The Nov 4 lean toward dying, listed among the decided items | [Overview](overview.md#battles) |
@@ -49,12 +50,12 @@ something Jared decided.
 | Decision | What it replaced | Where it lives now |
 | --- | --- | --- |
 | Each enemy shows only its next move, as its rune circle; deciphering it is optional. | The enemy showed its moves for 5 turns with the order hidden | [Overview](overview.md#battles) |
-| Runes are consumed when used to learn a spell. | Upgrading by swapping runes freely inside the same sigil | [Overview](overview.md#crafting-between-battles-casting-in-battle), [System A](system-a.md) |
+| Runes are consumed when used to learn a spell. | Upgrading by swapping runes freely inside the same sigil | [Overview](overview.md#crafting-and-casting), [System A](system-a.md) |
 | Two crafting systems, A/B tested: System A (sigils plus runes) and System B (a freeform circle). Inverses are separate runes in both. | One crafting system | [Overview](overview.md#runes-and-spells) |
 | Interesting rune pairs come from one entry per ring rune per column. | A curated pair table | [System B rules](system-b.md); archive/superseded.md |
 | Sigils are geometry and runes are effects; movement runes work from the spell's starting point; dash and leap stay sigil-defined. The forge previews every spell; a spell's identity is its recipe; looks are commissioned in the forge. Linking is done by special high-level items, and cooldown alone can't balance powerful spells. | A vortex sigil (number 25 in the brainstorm) | [System A](system-a.md), [overview](overview.md#the-spell-forge), [System B rules](system-b.md#linking) |
 | The configuration is called a sigil; sigils are learned by playing and never traded. | "Configuration" | [System A](system-a.md) |
-| Craft between battles, cast in battle. About a dozen spells, on a hotbar with cooldowns that are small numbers. Wild runes are in, as a shared party pool, and never raise cooldowns. A spell's cooldown doesn't change on upgrade. There is a basic action with no cooldown. | Live spellcrafting from a drawn hand each round | [Overview](overview.md#crafting-between-battles-casting-in-battle); archive/superseded.md |
+| Craft between battles, cast in battle. About a dozen spells, on a hotbar with cooldowns that are small numbers. Wild runes are in, as a shared party pool, and never raise cooldowns. A spell's cooldown doesn't change on upgrade. There is a basic action with no cooldown. | Live spellcrafting from a drawn hand each round | [Overview](overview.md#crafting-and-casting); archive/superseded.md |
 
 ## Nov 2
 

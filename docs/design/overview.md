@@ -1,7 +1,7 @@
 # The Hollow: game overview
 
 A deck-building roguelike RPG for a Discord server. Players collect and trade
-runes, build spells from them between battles, and fight in short battles on a
+runes, build spells from them, and fight in short battles on a
 hex grid where all players act at once, then all enemies act. Each enemy shows
 its next move as a rune circle. Each battle stands alone; runes, Levels and
 shared server progress carry across sessions, so people can drop in for one
@@ -174,11 +174,14 @@ enemy intent and scarce movement.
   Wild's chemistry rules), and they live as a table of runes against states, so
   adding a rune means adding one row. (The table itself is Open.)
 
-### Crafting between battles, casting in battle
+### Crafting and casting
+
+**Open (Jared, Nov 5): when spells are crafted.** Between battles, live during
+a battle, or a mix of both. Nov 3 decided between battles only; Jared reopened
+it on Nov 5, since live crafting is an exciting idea too.
 
 **Decided (Nov 3)**
 
-- Spells are crafted from runes between battles, not during them.
 - A player keeps roughly a dozen spells at most.
 - Runes are consumed when used to learn a spell, which is a rune sink in itself.
 - In battle, spells sit on a hotbar and have cooldowns. A spell's cooldown is
@@ -318,6 +321,8 @@ these hooks were sketched there:
 
 ## Open
 
+- [ ] When spells are crafted: between battles, live during a battle, or a mix
+      of both (above).
 - [ ] Exact spellcrafting rules: System A or System B, settled by A/B playtest.
 - [ ] Names for rune kinds, schools and mechanics (Jared).
 - [ ] Overcharge: in or out.
