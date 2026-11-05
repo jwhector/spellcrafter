@@ -65,7 +65,6 @@ economy yet. System A and System B run on one engine so both can be playtested.
   objectives can also exist (possibly tied to a skilling system Jared is
   considering; to discuss later).
 - **Friendly fire is on by default (Nov 4).**
-- **Units lean toward dying rather than going down (Nov 4).**
 - **Basic attacks exist (Nov 4),** so smites and weapon buffs are in scope.
 - **No accuracy rolls for now (Nov 4).**
 - **Control works through the enemy's shown move first (Nov 4).** Direct control
@@ -89,6 +88,8 @@ economy yet. System A and System B run on one engine so both can be playtested.
 
 **Open**
 
+- **Downed or dead,** Open until playtesting (Jared, Nov 5). The Nov 4 lean was
+  toward dying; the support ideas below include rescuing a downed ally.
 - Dice in battle. No dice was the lean while the enemy's move order was hidden;
   now that the next move is shown, it needs revisiting. Some uncertainty could
   stay by hiding which enemy acts first within the enemy phase. Dice stay for
@@ -122,8 +123,8 @@ enemy intent and scarce movement.
   danger zone, swapping places, or giving someone an extra move is one of the
   strongest things a player can do.
 - **Downed, not dead.** At 0 HP a player is downed and needs an adjacent ally to
-  spend their action to bring them back. (This leans against the Nov 4 lean
-  toward dying; see Open below.)
+  spend their action to bring them back. Reaching them is a positioning problem.
+  (Whether units go down or die is Open: see above.)
 - **Problems only allies can fix.** Some enemy effects can't be removed by the
   affected player, only by a teammate.
 - **Information is support.** Deciphering an enemy's rune circle and telling the
@@ -328,8 +329,7 @@ these hooks were sketched there:
 - [ ] Fallback when someone leaves mid-battle.
 - [ ] What a solo player faces.
 - [ ] Visual identity for schools (deferred).
-- [ ] Downed or dead: the support ideas assume downed allies; the Nov 4 lean is
-      toward dying.
+- [ ] Downed or dead, until playtesting.
 - [ ] The rune-by-state interaction table.
 - [ ] Hotbar size and the cooldown formula.
 - [ ] The concentration-like limit (its own conversation).

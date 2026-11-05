@@ -13,6 +13,8 @@ something Jared decided.
 
 | Decision | What it replaced | Where it lives now |
 | --- | --- | --- |
+| Balance numbers are preliminary values: proposed and untested, even inside a decided rule. | Numbers listed as decided | [Budget model](budget-model.md), [README](README.md#changing-a-doc) |
+| Whether units go down or die stays Open until playtesting. | The Nov 4 lean toward dying, listed among the decided items | [Overview](overview.md#battles) |
 | Whether The Hollow keeps its own progression and currency or uses Glizzybot's is Open. | The master doc described the game as "inside the bot", with a table of hooks into it | [Overview](overview.md#glizzybot) |
 | Each doc has one job: overview, System B rules, rune reference, budget model, engine model, flags checklist, System A, and this log. The docs show current state only; retired text moves to the archive. | Five docs with history written inline, and the rune tables copied in two of them | [README](README.md) |
 | The repo's Markdown leads the design. The Claude Docs are frozen, and an Artifact mirrors the repo. | The Claude Docs led, and the repo held snapshots | [Decision 0003](../decisions/0003-repo-markdown-leads.md) |
