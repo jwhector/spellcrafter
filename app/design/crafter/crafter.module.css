@@ -1,0 +1,313 @@
+/* The System B crafter page, in the rune page's palette. */
+
+.page {
+  --bg: #15120f;
+  --surface: #1e1a16;
+  --line: #3a332b;
+  --ink: #ebe4d6;
+  --muted: #a39a8a;
+  --accent: #c9a45c;
+  --decided: #6fbf8a;
+  --proposed: #d9a441;
+  --open: #8aa3c7;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.header h1,
+.page :where(h2, h3, h4) {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 600;
+  margin: 0;
+}
+
+.header h1 {
+  font-size: 28px;
+}
+
+.muted {
+  color: var(--muted);
+  margin: 4px 0 0;
+}
+
+.tray {
+  margin-top: 12px;
+  padding: 8px 10px 10px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.trayHint {
+  margin: 0 0 6px;
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.trayRunes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.pair {
+  display: flex;
+  gap: 2px;
+  padding: 2px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.trayRune {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 62px;
+  padding: 4px 0 6px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.trayRune:hover,
+.trayRune:focus-visible {
+  border-color: var(--glow);
+  color: var(--ink);
+}
+
+.trayView {
+  width: 48px;
+  height: 48px;
+}
+
+.message {
+  margin: 10px 0 0;
+  padding: 6px 10px;
+  border-left: 3px solid var(--proposed);
+  background: rgba(217, 164, 65, 0.08);
+  border-radius: 4px;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+  margin-top: 16px;
+  align-items: start;
+}
+
+.left,
+.right {
+  min-width: 0;
+}
+
+.sigil {
+  position: relative;
+  aspect-ratio: 1;
+  max-width: 560px;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
+.fill {
+  position: absolute;
+  inset: 0;
+}
+
+.socket {
+  position: absolute;
+  border-radius: 50%;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.socket:hover,
+.socket:focus-visible {
+  outline: 2px solid rgba(201, 164, 92, 0.6);
+  outline-offset: 2px;
+}
+
+.socketOn {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.controls {
+  margin-top: 8px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.label {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.chip,
+.chipOn,
+.chipOff {
+  font: inherit;
+  font-size: 13px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: none;
+  color: var(--ink);
+  cursor: pointer;
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.chip:hover {
+  border-color: var(--accent);
+}
+
+.chipOn {
+  border-color: var(--accent);
+  background: rgba(201, 164, 92, 0.18);
+}
+
+.chipOff {
+  color: var(--muted);
+  opacity: 0.55;
+}
+
+.chipWrap {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.cost {
+  font-size: 10px;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0 5px;
+}
+
+.board {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  margin-top: 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: radial-gradient(circle at 50% 40%, #241f1a 0%, #15120f 75%);
+}
+
+.boardNote {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.inscriptions h2,
+.readout h2 {
+  font-size: 22px;
+}
+
+.group {
+  margin-top: 10px;
+}
+
+.groupName {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.source {
+  margin: 10px 0 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.readout {
+  margin-top: 20px;
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  line-height: 1.5;
+}
+
+.readout h3 {
+  font-size: 17px;
+  margin-top: 14px;
+}
+
+.readout h4 {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+.readout p {
+  margin: 6px 0 0;
+}
+
+.makesLine {
+  font-size: 17px;
+}
+
+.lines {
+  margin: 6px 0 0;
+  padding-left: 20px;
+}
+
+.lines li {
+  margin-top: 4px;
+}
+
+.minorLine {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.warn {
+  color: #f0c27a;
+}
+
+@media (max-width: 860px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .trayRune {
+    width: 50px;
+    font-size: 10px;
+  }
+
+  .trayView {
+    width: 40px;
+    height: 40px;
+  }
+}

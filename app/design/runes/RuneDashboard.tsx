@@ -15,14 +15,16 @@
  * follows its div every frame, so the rune flies from the hotbar and grows on
  * the way, then spins and its symbol flares as it lands.
  */
-import { PerspectiveCamera, View } from "@react-three/drei";
+import { View } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { usePathname } from "next/navigation";
 import { type CSSProperties, type PointerEvent, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { DesignNav } from "../DesignNav";
 import { RUNE_LOOKS } from "./look";
+import { pairs } from "./pairs";
 import { RunePanel, TablePanel } from "./RunePanel";
-import { RuneLights, RuneStone } from "./RuneStone";
-import type { Rune, RuneReference } from "./reference";
+import { CameraForRune, RuneLights, RuneStone } from "./RuneStone";
+import type { RuneReference } from "./reference";
 import styles from "./runes.module.css";
 
 const BASE = "/design/runes";
@@ -38,21 +40,6 @@ function useReducedMotion(): boolean {
     return () => query.removeEventListener("change", update);
   }, []);
   return reduced;
-}
-
-/** Runes in the doc's order, with each opposite pair kept together in one group. */
-function pairs(runes: Rune[], opposite: (r: Rune) => string): Rune[][] {
-  const groups: Rune[][] = [];
-  for (const rune of runes) {
-    const last = groups.at(-1);
-    if (last?.length === 1 && last[0] && opposite(last[0]) === rune.name) last.push(rune);
-    else groups.push([rune]);
-  }
-  return groups;
-}
-
-function CameraForRune() {
-  return <PerspectiveCamera makeDefault position={[0, 0, 4.2]} fov={35} />;
 }
 
 export function RuneDashboard({
@@ -77,10 +64,7 @@ export function RuneDashboard({
   const drag = useRef({ yaw: 0, pitch: 0 });
   const dragging = useRef<{ x: number; y: number } | null>(null);
 
-  const groups = useMemo(
-    () => pairs(reference.runes, (r) => reference.center.rows[r.slug]?.Opposite ?? ""),
-    [reference],
-  );
+  const groups = useMemo(() => pairs(reference), [reference]);
   const tables = [reference.center, ...reference.minorEffects];
   const shownTable = tables.find((t) => t.id === view);
 
@@ -130,6 +114,7 @@ export function RuneDashboard({
 
   return (
     <div className={styles.page}>
+      <DesignNav current="runes" />
       <nav className={styles.hotbar} aria-label="Runes">
         {groups.map((group) => (
           <div key={group.map((r) => r.slug).join("-")} className={styles.pair}>

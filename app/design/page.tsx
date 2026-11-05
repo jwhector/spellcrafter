@@ -13,7 +13,10 @@ export default function DesignHome() {
           <Link href="/design/runes">Runes</Link>: every rune in 3D, with its major output and its minor rune effect in
           each major output type.
         </li>
-        <li>System B crafter: not built yet. It follows the engine port.</li>
+        <li>
+          <Link href="/design/crafter">System B crafter</Link>: build a sigil from 3D runes and inscriptions and see
+          what it makes. A design mock read from the docs, not the engine.
+        </li>
       </ul>
     </main>
   );
