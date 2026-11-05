@@ -142,30 +142,29 @@ values.
 
 ## Minor rune effect: on ground
 
-**Proposed (crafter v14), to review.** Used for lingering area effects and walls.
-Minor runes become the ground's aspects.
+**Decided (Nov 5, ring review).** Used for lingering area effects and walls. The
+major rune sets what the ground does (the table is in
+[System B rules](system-b.md#ground)); minor runes become the ground's aspects and
+change the ground itself. The numbers are preliminary values.
 
 | Rune | Minor rune effect |
 | --- | --- |
-| Fire | Burns whoever stands in it at round end |
-| Frost | Slippery: units slide 1 hex further |
-| Mend | Heals allies standing in it at round end |
-| Wound | Hurts each unit that steps onto a hex of it |
-| Protect | Cover: units standing in it take less damage |
-| Expose | Units standing in it are exposed |
-| Portal | Its hexes are linked: step on one and come out at another |
-| Summon | Spreads 1 hex each round |
-| Dispel | Statuses can't land on units in it, and spells aimed into it lose minor runes up to its strength |
-| Stone | Rough: crossing costs an extra move, and it lasts longer |
-| Amplification | Units standing in it deal more |
-| Diminishing | Units standing in it deal less |
-| Haste | Units standing in it get an extra move |
-| Slow | Units that end their turn in it lose their next action |
-| Invisibility | Units standing in it are hidden |
-| Revelation | Units standing in it can't hide |
-
-Mend's "allies" here reads as a filter, and filters don't work on ground (Decided
-Nov 4). The review should settle it.
+| Fire | It grows 1 hex each round it lasts |
+| Frost | Units crossing it slide 1 hex further |
+| Mend | Allies are spared its harmful effects. This is the one filter that works on ground (Jared, Nov 5, to playtest) |
+| Wound | Units it leaves below a fifth of their health at round end die |
+| Protect | Cover: units in it take less damage from attacks that come from outside it |
+| Expose | Open sightlines: units in it can be targeted from anywhere within range, through walls, clouds and cover |
+| Portal | Random pairs of its hexes are linked: step on one and come out at the other |
+| Summon | A totem keeps the ground going: it refreshes while the totem stands |
+| Dispel | It can't be removed, dispelled or replaced by other ground |
+| Stone | It lasts a round longer, and units in it can't be pushed or pulled |
+| Amplification | A power well: any spell that lands anywhere in its hexes, even on a unit, charges it, and the next spell cast from inside it releases the whole charge, once, by whoever casts first |
+| Diminishing | Cooldown a round shorter, and it lasts a round less |
+| Haste | Casting it costs a bonus action |
+| Slow | It pulses: it acts every other round at double strength, and lasts twice as long |
+| Invisibility | Enemies can't see it at any time |
+| Revelation | It acts on hidden units, and they stay hidden |
 
 ## Minor rune effect: along a tether
 
@@ -247,7 +246,7 @@ shapes that global effect.
 
 ## Open
 
-- [ ] The ring review: on ground (next), along a tether, on a spell,
+- [ ] The ring review: the Protect shield (next), along a tether, on a spell,
       global, and the check of minor runes on a Protect shield.
 - [ ] What the Blank rune does in the center and in the ring.
 - [ ] Wound's finish against bosses.

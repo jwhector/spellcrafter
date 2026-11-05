@@ -59,6 +59,11 @@ the center and the ring always makes a different spell.
   output itself rather than adding an effect to it. This is a useful guide, not a
   hard rule (Jared, Nov 5): Wound on a gate and Dispel on a summon add effects.
 - Every rune gets a meaning in every major output type.
+- **The design philosophy (Jared, Nov 5).** The major output is the rune's core.
+  Each rune has one ring idea that runs through every major output type (Fire
+  spreads, Expose pierces), so a player can guess what a minor rune does somewhere
+  new. Minor runes change mechanics rather than adding stats. Minor runes are
+  cheaper, so a strong one is paid for in the spell's size and length.
 - Only a Dispel center can target a spell, and its minor runes decide what
   happens to that spell.
 
@@ -331,7 +336,7 @@ for, nearest first.
 | Major rune | The ground it makes |
 | --- | --- |
 | Fire | Burning ground: units in it start burning |
-| Frost | Ice: units in it lose their bonus move and slide 1 hex further when pushed or pulled |
+| Frost | Ice: units in it lose their bonus move |
 | Mend | Healing ground: it heals everyone in it, enemies included |
 | Wound | Harmful ground: it damages everyone in it, more to units below half health |
 | Protect | Warded ground: units in it at round end gain a small shield |
@@ -353,7 +358,8 @@ die leave **remains**, a kind of ground, and a summon raised on remains is
 stronger.
 
 **Decided (Nov 4):** battlefields start with terrain players can reshape, and filters
-don't work on ground. How grounds stack, replace each other or react is future
+don't work on ground. The one exception is Mend as a minor rune, which spares
+allies from a ground's harmful effects (Jared, Nov 5, to playtest). How grounds stack, replace each other or react is future
 expansion.
 
 **Proposed (Nov 4): three ways a player shapes terrain.** Make it (any area spell
