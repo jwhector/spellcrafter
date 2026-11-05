@@ -75,14 +75,13 @@ center,** like a duplicate.
 
 ### The major output types
 
-Which major output type a minor rune reads depends on what the center made. There are nine:
+Which major output type a minor rune reads depends on what the center made. There are eight:
 
 | Major output type | Used when |
 | --- | --- |
 | At a destination | The center makes an effect on an area |
-| On a unit | The center makes an effect on one unit |
+| On a unit | The center makes an effect on one unit; also each end of a tether (Decided Nov 5) |
 | On ground | A lingering area effect, or a wall |
-| Along a tether | A tether inscription joins two destinations |
 | Through a gate | A Portal center |
 | On a summon | A Summon center |
 | On a shield | A Protect center (Decided Nov 5: minor runes change the shield itself) |
@@ -191,8 +190,12 @@ geometry needs check against it (a portal needs two destinations).
 **Decided (Nov 4)**
 
 - Tether is no longer a rune. It exists only as inscriptions.
-- The "along a tether" major output type stays: anything that travels between two ends
-  travels along a tether underneath, so the engine keeps one link and one major output type.
+- Anything that travels between two ends travels along a tether underneath, so
+  the engine keeps one link.
+- **Decided (Nov 5): a tether has no major output type of its own.** Its kind
+  (copy, redirect, transfer) decides how the effect travels, and its minor runes
+  read the "on a unit" table at each end. This replaces the "along a tether"
+  major output type.
 - Each way of routing an effect along a tether is its own inscription. They are
   the same tether underneath; in the UI they are separate inscriptions, each
   balanced on its own numbers (cost, share, range, duration). The names below are
@@ -419,7 +422,9 @@ everywhere (a global modification rewrites terrain rules).
   the recipe, so both orders are one spell (same look and discovery credit), and
   draws interchangeable runes joined in the ring.
 
-**Open:** can a filter (enemies only, allies only) narrow a global modification?
+**Open:** can a filter inscription (enemies only, allies only) narrow a global
+modification? Mend's minor rune effect already spares your side from one (Decided
+Nov 5, as on ground).
 
 ## Cooldowns for similar spells
 
@@ -482,7 +487,7 @@ are still placeholders, so we can talk about the parts.
 | center, ring | The two positions in a sigil: the center holds the major rune, the ring holds the minor runes | placeholder | |
 | major output | The thing a major rune makes, itself: what that rune does in the center. Fire's is "burns the target now and next round"; Portal's is the gate it opens | Jared | thing, center meaning, central output |
 | effect | The plain major output type: damage, healing or a status landing on units | Jared | |
-| major output type | The kind of thing a major rune makes (Jared, Nov 5). The nine kinds a minor rune reads are in [the major output types](#the-major-output-types); the crafter's data calls them hook types | Jared | column, central output type |
+| major output type | The kind of thing a major rune makes (Jared, Nov 5). The eight kinds a minor rune reads are in [the major output types](#the-major-output-types); the crafter's data calls them hook types | Jared | column, central output type |
 | minor rune effect | What one minor rune does in one major output type | Jared | entry, hook entry |
 | minor rune effect types | What a minor rune effect touches: positions, damage modifiers, health, statuses, terrain, aspects | Jared | channels |
 | role | What a rune does as a group: plain effect, amplifier, mover, maker, remover | Jared | (had no word) |
@@ -491,7 +496,7 @@ are still placeholders, so we can talk about the parts.
 | destination | A place the spell acts; a burst has one, a dash two (start and landing), a chain three | Jared | point |
 | section | The minor runes that act at one destination (an engine word) | Jared | |
 | cohort | Neighbouring runes whose order doesn't matter | Jared | bundle |
-| aspect | A minor rune that becomes a lasting property of a summon, ground, a shield or a tether | Jared | trait |
+| aspect | A minor rune that becomes a lasting property of a summon, ground, a shield or a global modification | Jared | trait |
 | primitives | The engine's building blocks (see the [engine model](engine-model.md)) | Jared | |
 | property primitives | The seven properties every spell record has | Jared | |
 | recipe, recipe id | A spell's identity: the sigil after sorting and merging | Jared | |
@@ -511,9 +516,8 @@ placeholders.
 - [ ] Tethers: redirect, transfer and leash on a spell; a tether on the whole
       battlefield; the old global tether minor rune effect; transfer and actions; the
       round-trip door.
-- [ ] Can a filter narrow a global modification? Whether filters stay at all.
+- [ ] Can a filter inscription narrow a global modification? Whether filters stay
+      at all. (Mend's minor rune spares your side on ground and on a global
+      modification, Nov 5.)
 - [ ] The Blank rune's mechanics (see the [rune reference](rune-reference.md)).
 - [ ] Names for the five roles (plain effect, amplifier, mover, maker, remover).
-- [ ] Whether a tether (made by an inscription) fits "the kind of thing a major
-      rune makes", or the major output types need their own row for it. (The
-      Protect shield got its own row, Nov 5.)

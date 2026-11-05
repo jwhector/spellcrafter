@@ -12,14 +12,12 @@ Slow, Invisibility, Revelation) on Nov 5. Push and Pull are inscriptions now
 ([System B rules](system-b.md#other-major-inscriptions)), and a Blank rune is
 planned for spells that only move things (Decided Nov 5, mechanics Open).
 
-**How to read the ring tables.** Each major output type is being settled in the ring
-review, one major output type at a time (step 3 of the plan: grammar and linking, then what
-the budget measures, then the ring review, then numbers in the audit tool, then
-playtest). The major output types marked Decided are done. The rest still show the crafter's
-v14 minor rune effects, which are Proposed and written before the Nov 5 rules that a rune's
-major output stays unique to the center and that minor runes on a major output change the
-output itself. A minor rune that matches the center adds strength to the center
-instead of using its minor rune effect (Decided Nov 4).
+**How to read the ring tables.** Every major output type was settled in the ring
+review on Nov 5 (step 3 of the plan: grammar and linking, then what the budget
+measures, then the ring review, then numbers in the audit tool, then playtest).
+Each table is marked Decided, with any row still Open marked in the row. A minor
+rune that matches the center adds strength to the center instead of using its
+minor rune effect (Decided Nov 4).
 
 ## Center
 
@@ -63,7 +61,9 @@ names are still placeholders (see the [glossary](system-b.md#glossary)).
 ## Minor rune effect: at a destination, or on a unit
 
 **Decided (Nov 5, ring review).** Used when the center makes an effect on an area
-(at a destination) or on one unit. The working labels are placeholders.
+(at a destination) or on one unit, and along a tether: the tether's kind decides
+how the effect travels, and its minor runes read this table at each end (Jared,
+Nov 5). The working labels are placeholders.
 
 | Rune | Working label | Minor rune effect |
 | --- | --- | --- |
@@ -194,30 +194,6 @@ change the ground itself. The numbers are preliminary values.
 | Invisibility | Enemies can't see it at any time |
 | Revelation | It acts on hidden units, and they stay hidden |
 
-## Minor rune effect: along a tether
-
-**Proposed (crafter v14), to review.** Used with a tether inscription. The minor rune effect
-says what each rune sends along the tether.
-
-| Rune | Minor rune effect |
-| --- | --- |
-| Fire | Burning |
-| Frost | Chill |
-| Mend | Healing |
-| Wound | Damage |
-| Protect | Hits: damage from any source while the tether lasts |
-| Expose | Exposure (taking more damage) |
-| Portal | A unit at one end can travel the tether to the other end once |
-| Summon | A body: one also appears at the far end |
-| Dispel | Cleansing: statuses removed at one end |
-| Stone | A low wall rises along the tether |
-| Amplification | Strength (dealing more) |
-| Diminishing | Weakness (dealing less) |
-| Haste | Tempo (extra moves) |
-| Slow | Lost time (lost actions) |
-| Invisibility | Concealment |
-| Revelation | Revealing |
-
 ## Minor rune effect: on a spell
 
 **Decided (Nov 5, ring review).** Used only with a Dispel center aimed at a
@@ -251,32 +227,34 @@ shift its area) and Dispel (it strips runes) keep their place.
 
 ## Minor rune effect: global modification
 
-**Proposed (crafter v14), to review.** Used with the whole-battlefield shape. The
-center's global rule is in the center table; these minor rune effects say how a minor rune
-shapes that global effect.
+**Decided (Nov 5, ring review).** Used with the whole-battlefield shape. The
+center's global rule is in the center table; minor runes change how that rule
+behaves. The numbers are preliminary values.
 
 | Rune | Minor rune effect |
 | --- | --- |
-| Fire | The global effect also leaves scattered burning hexes |
-| Frost | The global effect also takes away everyone's bonus move |
-| Mend | Allies heal a little each round while the global effect lasts |
-| Wound | The global effect also chips everyone for a little damage each round |
-| Protect | The global effect is softer on your side |
-| Expose | The global effect is stronger |
-| Portal | Each round, two random hexes become linked gates (Jared, Nov 5: moved here from Portal's major output) |
-| Summon | Creatures carry the global effect; it only applies near them |
-| Dispel | The global effect also clears statuses and terrain when it starts |
-| Stone | The global effect is anchored: it lasts longer but stays in one region |
-| Amplification | Units inside the global effect deal more while it lasts |
-| Diminishing | Units inside the global effect deal less while it lasts |
-| Haste | The global effect acts twice each round |
-| Slow | The global effect acts every other round and lasts twice as long |
-| Invisibility | Enemies see only a blank sigil for the global effect |
-| Revelation | The global effect reveals every hidden unit in it |
+| Fire | When it ends, it comes back once for a round at half strength. Only the major output repeats, without the minor runes |
+| Frost | Units moving while it lasts slide 1 hex further |
+| Mend | Your side is spared its harmful parts: the one filter on a global modification, as on ground |
+| Wound | While it lasts, units at or below the fixed amount of health (as at a destination) die |
+| Protect | Units in cover are spared it |
+| Expose | Nothing can block it: it gets through dispel ground and "can't be undone" |
+| Portal | Each round, two random hexes become linked gates (Jared: moved here from Portal's major output) |
+| Summon | A totem keeps it going: it lasts while the totem stands |
+| Dispel | It can't be ended early or replaced by another global modification |
+| Stone | It lasts a round longer |
+| Amplification | Every spell cast while it lasts, by either side, adds to a charge. In its last round it acts once with the charge added, up to double strength |
+| Diminishing | Open (Jared, Nov 5): a round off a long cooldown means little. Waits on the Amplification and Diminishing review below |
+| Haste | Casting it costs a bonus action |
+| Slow | It acts every other round and lasts twice as long |
+| Invisibility | Enemies can't see it or read it, and an enemy AI is blind to it |
+| Revelation | While it lasts, your side can pick hidden units as single targets, and they stay hidden |
 
 ## Open
 
-- [ ] The ring review: global modification and along a tether (next).
+- [ ] Amplification and Diminishing: whether to swap their major outputs and
+      minor rune ideas, reviewed across every major output type (Jared, Nov 5).
+      Diminishing's minor rune is still a cooldown and size knob everywhere.
 - [ ] What the Blank rune does in the center and in the ring.
 - [ ] Which runes ship first.
 - [ ] The crafter and audit tool still show the old minor rune effects and list Push and
