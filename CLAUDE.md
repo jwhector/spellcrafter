@@ -3,8 +3,8 @@
 A deck-building hex RPG, built first as a single-device browser prototype:
 crafting spells between battles, then a 5-round battle on a 7x7 hex grid,
 with design System A (fixed sigils plus runes) and System B (a freeform rune
-circle) on one engine so Jared can playtest both. The end target is a
-Discord Activity. Jared owns the design; agents do most of the building.
+circle) on one engine so Jared can playtest both (prototype scope, Decided
+Nov 4). The end target is a Discord Activity. Jared owns the design; agents do most of the building.
 
 Where the project came from, and the state of the design when it moved here:
 [docs/HANDOFF.md](docs/HANDOFF.md). The design itself:
@@ -66,7 +66,7 @@ crafter's preview and in battle.
 | Which copy of the design leads | `docs/design/README.md` | none (one sentence, read by people) |
 | Node version | `.nvmrc` (CI reads it with `node-version-file`) | none needed: nothing else states it |
 | Stack and tool choices | `docs/decisions/0002-typescript-vite.md` | none |
-| What counts as code for the push gate, the summary format, the round budget | `.github/scripts/loop-gate.mjs` | `.github/scripts/loop-gate.test.mjs` |
+| What counts as code for the push gate, the summary format, the round budget and when the larger one applies | `.github/scripts/loop-gate.mjs` | `.github/scripts/loop-gate.test.mjs` |
 | The reviewer's model | `.claude/agents/reviewer.md` | none (one file) |
 
 ## Run, test, verify

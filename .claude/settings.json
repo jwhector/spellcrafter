@@ -12,7 +12,7 @@
           },
           {
             "type": "command",
-            "command": "git -C \"$CLAUDE_PROJECT_DIR\" config core.hooksPath >/dev/null 2>&1 || git -C \"$CLAUDE_PROJECT_DIR\" config core.hooksPath .githooks 2>/dev/null || true",
+            "command": "git -C \"$CLAUDE_PROJECT_DIR\" config --local core.hooksPath >/dev/null 2>&1 || git -C \"$CLAUDE_PROJECT_DIR\" config core.hooksPath .githooks 2>/dev/null || true",
             "timeout": 5,
             "statusMessage": "Turning on the commit and push gates"
           }

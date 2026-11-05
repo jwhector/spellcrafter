@@ -1,3 +1,4 @@
+import { basename } from "node:path";
 import { describe, expect, it } from "vitest";
 import { misplacedDesignLinks } from "./design-links";
 import { ROOT, read, walk } from "./scan";
@@ -18,9 +19,10 @@ describe("design source links have one home", () => {
 
   it("holds for the repository", () => {
     const files = walk(ROOT)
-      .filter((p) => /\.(md|ts|mjs|js|json|html|ya?ml|sh)$/.test(p) || !p.includes("."))
+      .filter((p) => /\.(md|ts|mjs|js|json|html|ya?ml|sh)$/.test(p) || !basename(p).includes("."))
       .filter((p) => !p.startsWith(".mulch/") && !p.startsWith(".seeds/"))
       .map((path) => ({ path, text: read(ROOT, path) }));
+    expect(files.some((f) => f.path === ".githooks/pre-push")).toBe(true);
     expect(misplacedDesignLinks(files)).toEqual([]);
   });
 });

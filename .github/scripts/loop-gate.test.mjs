@@ -5,7 +5,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
-import { check, decide, gated, isCode, refsToCheck, roundsSpent } from "./loop-gate.mjs";
+import { budgetFor, check, decide, gated, isCode, refsToCheck, roundsSpent } from "./loop-gate.mjs";
 
 const CLI = fileURLToPath(new URL("./loop-gate.mjs", import.meta.url));
 const SHA = "a".repeat(40);
@@ -50,6 +50,14 @@ test("decide: missing, stale, reviewed, blocking and not owed", () => {
 test("roundsSpent adds up every summary's rounds", () => {
   assert.equal(roundsSpent(["Add x", "review-loop: concerns after 3 rounds", "review-loop: clean after 1 round"]), 4);
   assert.equal(roundsSpent(["review-loop: clean after 1 round, then more"]), 0);
+});
+
+test("the guarded budget applies when a change touches a gate", () => {
+  assert.equal(budgetFor(["engine/a.ts", "docs/design/x.md"]), "usual");
+  for (const gate of [".github/scripts/x.mjs", ".githooks/pre-push", ".claude/settings.json", "tests/guards/scan.ts"]) {
+    assert.equal(budgetFor(["engine/a.ts", gate]), "guarded", gate);
+  }
+  assert.equal(budgetFor([".claude/skills/verify/SKILL.md"]), "usual");
 });
 
 /** A repository with main pushed as origin/main and a branch on top. */

@@ -34,7 +34,8 @@
  *   node .github/scripts/loop-gate.mjs < refs
  *   git log --no-merges --format=%s origin/main..HEAD | node .github/scripts/loop-gate.mjs --rounds
  * The first exits 1 and says why when a ref is refused. The second prints
- * the rounds this branch's summaries have spent and the budget.
+ * the rounds this branch's summaries have spent, which budget applies to
+ * the branch's change (from `git diff origin/main...HEAD`), and its size.
  */
 import { execFileSync } from "node:child_process";
 import { pathToFileURL } from "node:url";
@@ -45,9 +46,13 @@ export const DATA = /^(\.mulch|\.seeds|docs\/plans)\//;
 export const SUMMARY = /^review-loop: (clean|concerns|blocking) after (\d+) rounds?$/;
 
 /** Review rounds one pull request may spend across all its loops.
- *  `guarded` applies when the change touches the gates themselves
- *  (.github/, .githooks/, .claude/settings.json). */
+ *  `guarded` applies when the change touches the gates themselves (GUARDED);
+ *  `usual` otherwise. This file is the one home for both. */
 export const BUDGET = Object.freeze({ usual: 3, guarded: 5 });
+export const GUARDED = /^(\.github\/|\.githooks\/|\.claude\/settings\.json$|tests\/guards\/)/;
+
+/** Which budget a change gets, from the paths it touches. */
+export const budgetFor = (paths) => (paths.some((p) => GUARDED.test(p)) ? "guarded" : "usual");
 
 export const isCode = (path) => path !== "" && !DATA.test(path);
 
@@ -147,7 +152,8 @@ if (import.meta.url === pathToFileURL(process.argv[1] ?? "").href) {
   for await (const chunk of process.stdin) input += chunk;
 
   if (process.argv.includes("--rounds")) {
-    console.log(JSON.stringify({ spent: roundsSpent(input.split("\n")), budget: BUDGET }));
+    const applies = budgetFor(lines(git(["diff", "--name-only", "--no-renames", `${BASE}...HEAD`])));
+    console.log(JSON.stringify({ spent: roundsSpent(input.split("\n")), applies, budget: BUDGET[applies] }));
     process.exit(0);
   }
 

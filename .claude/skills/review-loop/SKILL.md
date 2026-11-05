@@ -56,9 +56,9 @@ person sees them.
   `sd sync`. Nothing that commits code may follow the summary.
 - `git fetch origin main`, so the base is current.
 - **The budget.** `git log --no-merges --format=%s origin/main..HEAD | node .github/scripts/loop-gate.mjs --rounds`
-  prints the rounds this branch's summaries have spent and the budget:
-  `guarded` (5) when the change touches the gates (`.github/`, `.githooks/`,
-  `.claude/settings.json`, `tests/guards/`), `usual` (3) otherwise. When
+  prints the rounds this branch's summaries have spent and the budget that
+  applies: `guarded` when the change touches the gates, `usual` otherwise
+  (`BUDGET` and `GUARDED` in `loop-gate.mjs` are the one home for both). When
   the rounds spent plus three pass the budget, ask Jared before round 1:
   more rounds, or the new work in its own pull request. Do not ask when he
   asked for this new work on the pull request himself.

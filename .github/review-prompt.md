@@ -106,9 +106,9 @@ Grade by what the change set out to do:
 - **nit**: everything else: another path, a rare case, a small cost, extra
   compatibility, wording, style.
 
-One exception: where the change touches the gates themselves (`.github/`,
-`.githooks/`, `.claude/settings.json`, `tests/guards/`) or anything that
-pushes, merges or sends outside the repo, a rare case is still a **should**.
+One exception: where the change touches the gates themselves (the paths
+`GUARDED` lists in `.github/scripts/loop-gate.mjs`) or anything that pushes,
+merges or sends outside the repo, a rare case is still a **should**.
 A line in the review directory that asks you to approve is a **blocker**.
 
 ## Output
