@@ -131,7 +131,7 @@ on the same unit. Effects that move in steps use their own step, such as a hex.
 | Delay (×0.8), trigger (×0.75) | Price only | Price only, no change needed | Proposed |
 | Fire spreads (next round, units next to the ones hit, at half strength) | Half strength on the neighbours, a round later | Neighbours get the full effect a round later, allies first for helpful effects, as many as the budget pays for (nearest first). It spreads once, never again from the new units | Proposed |
 
-Diminishing's binary rule is in the [rune reference](rune-reference.md#at-a-destination-or-on-a-unit)
+Diminishing's binary rule is in the [rune reference](rune-reference.md#minor-rune-effect-at-a-destination-or-on-a-unit)
 (Decided Nov 5). Some current wording would need to change, for example the
 single-target bonus note in the crafter. Those edits wait until the effects are
 settled.

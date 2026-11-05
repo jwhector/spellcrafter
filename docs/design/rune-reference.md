@@ -50,12 +50,12 @@ wall, becomes ground. All Proposed (crafter v14), except where marked.
 **Aimed at a spell.** Decided (Nov 5): only a Dispel center can target a spell,
 and its minor runes decide what happens to the spell. Proposed (crafter v14): it
 strips runes from the spell, up to the Dispel spell's power budget; you pick
-which, and stripping its center cancels it (see [On a spell](#on-a-spell)).
+which, and stripping its center cancels it (see [On a spell](#minor-rune-effect-on-a-spell)).
 
 "Role" says what a rune does as a group (Jared's word, Nov 5); the five role
 names are still placeholders (see the [glossary](system-b.md#glossary)).
 
-## At a destination, or on a unit
+## Minor rune effect: at a destination, or on a unit
 
 **Decided (Nov 5, ring review).** Used when the center makes an effect on an area
 (at a destination) or on one unit. The working labels are placeholders.
@@ -83,7 +83,7 @@ names are still placeholders (see the [glossary](system-b.md#glossary)).
 threshold). **To check:** how these read on a Protect center's shield, which uses
 this central output type with each rune firing when the shield is hit.
 
-## Through a gate
+## Minor rune effect: through a gate
 
 **Decided (Nov 5, ring review).** Used with a Portal center. Minor runes change
 what happens to the gate and the units that travel through it.
@@ -107,7 +107,7 @@ what happens to the gate and the units that travel through it.
 | Invisibility | Enemies can't see the entrance or the exit | Visibility |
 | Revelation | The exit can open next to a hidden unit you know about, and it stays hidden | Exit placement |
 
-## On a summon
+## Minor rune effect: on a summon
 
 **Proposed (crafter v14), next in the ring review.** Used with a Summon center.
 Every minor rune here is a aspect of the body, so order never matters.
@@ -131,7 +131,7 @@ Every minor rune here is a aspect of the body, so order never matters.
 | Invisibility | The summon is hidden until it acts |
 | Revelation | The summon reveals hidden units next to it |
 
-## On ground
+## Minor rune effect: on ground
 
 **Proposed (crafter v14), to review.** Used for lingering area effects and walls.
 Minor runes become the ground's aspects.
@@ -158,7 +158,7 @@ Minor runes become the ground's aspects.
 Mend's "allies" here reads as a filter, and filters don't work on ground (Decided
 Nov 4). The review should settle it.
 
-## Along a tether
+## Minor rune effect: along a tether
 
 **Proposed (crafter v14), to review.** Used with a tether inscription. The minor rune effect
 says what each rune sends along the tether.
@@ -182,7 +182,7 @@ says what each rune sends along the tether.
 | Invisibility | Concealment |
 | Revelation | Revealing |
 
-## On a spell
+## Minor rune effect: on a spell
 
 **Proposed (crafter v14), to review.** Used only with a Dispel center aimed at a
 spell (Decided Nov 5). Proposed with that decision: with an empty ring, the Dispel
@@ -211,7 +211,7 @@ budget doing its thing to the spell instead.
 Proposed order rule: on a spell, minor runes are aspects, except that movers (they
 shift its area) and Dispel (it strips runes) keep their place.
 
-## Global modification
+## Minor rune effect: global modification
 
 **Proposed (crafter v14), to review.** Used with the whole-battlefield shape. The
 center's global rule is in the center table; these minor rune effects say how a minor rune
