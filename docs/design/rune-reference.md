@@ -67,7 +67,7 @@ names are still placeholders (see the [glossary](system-b.md#glossary)).
 
 | Rune | Working label | Minor rune effect |
 | --- | --- | --- |
-| Fire | Spreads | Next round the effect hits again on units next to the ones it hit, at half strength |
+| Fire | Spreads | Next round the effect hits again on units next to the ones it hit, at half strength. Only the major output repeats, without the minor runes (Jared, Nov 5) |
 | Frost | Slick | Units the effect hits slide 1 hex further from any push or pull this round; at a destination it also leaves ice |
 | Mend | Spares allies | At a destination, allies take none of the effect's harm, and nobody is healed. On a unit, a weak heal (about a quarter of a Mend center's on the same budget) goes to the target if it's an ally, or to the caster if it's an enemy |
 | Wound | Finishes | Units the effect leaves below a fifth of their health die |
@@ -122,7 +122,7 @@ values.
 
 | Rune | Minor rune effect |
 | --- | --- |
-| Fire | Next round, a half-strength copy appears on a free hex next to it, once |
+| Fire | Next round, a half-strength copy appears on a free hex next to it, once. The copy has none of the minor runes' aspects (Jared, Nov 5) |
 | Frost | It moves 1 extra hex each round, in straight lines only |
 | Mend | Its attacks never hit allies, and allies can pass through its hex |
 | Wound | It hits harder (a cheap addition, Jared) |
@@ -154,7 +154,7 @@ preliminary values.
 
 | Rune | Minor rune effect |
 | --- | --- |
-| Fire | A half-strength copy of the shield also lands on each ally next to the bearer |
+| Fire | A half-strength copy of the shield also lands on each ally next to the bearer, without the minor runes' aspects |
 | Frost | The bearer slides 1 hex further from any push or pull, and the shield takes no harm from collisions |
 | Mend | While it holds, harmful area spells cast by your own side skip the bearer; helpful ones still land (Jared) |
 | Wound | While any strength is left, it absorbs the whole of the hit that breaks it |
@@ -223,29 +223,31 @@ says what each rune sends along the tether.
 
 ## Minor rune effect: on a spell
 
-**Proposed (crafter v14), to review.** Used only with a Dispel center aimed at a
-spell (Decided Nov 5). Proposed with that decision: with an empty ring, the Dispel
-center strips runes up to its power budget, and each minor rune spends part of that
-budget doing its thing to the spell instead.
+**Decided (Nov 5, ring review).** Used only with a Dispel center aimed at a
+spell (Decided Nov 5): an enemy's shown move, or an ally's prepared spell, aimed
+during the players' phase. Proposed with that decision: with an empty ring, the
+Dispel center strips runes up to its power budget, and each minor rune spends part
+of that budget doing its thing to the spell instead, so a strong minor rune effect
+strips fewer runes. The numbers are preliminary values.
 
 | Rune | Minor rune effect |
 | --- | --- |
-| Fire | When the spell is cast, its caster burns |
-| Frost | The spell goes off last in its phase |
-| Mend | Allies the spell hits are healed afterward |
-| Wound | The spell's caster takes damage when it casts |
-| Protect | Units the spell hits take less damage |
-| Expose | The spell hits harder (good on an ally's spell, risky on an enemy's) |
-| Portal | The spell's area moves to another destination you choose. With no extra destination it moves onto the caster (Decided Nov 4, and the forge warns about it) |
-| Summon | A decoy appears that a single-target spell hits instead |
-| Dispel | (matches the center: strips more) |
-| Stone | A barrier rises in front of the spell; bolts and lines stop at it |
-| Amplification | The spell's caster deals more for a round after casting it |
-| Diminishing | The spell's caster deals less for a round after casting it |
-| Haste | The spell goes off first in its phase |
-| Slow | The spell goes off a round later |
-| Invisibility | The spell can't pick single targets: aimed at one unit, it fizzles; areas still land |
-| Revelation | You read the spell exactly: its area, pushes and side effects, without deciphering |
+| Fire | Next round, the same enemy's next move is stripped again at half strength. Only the stripping repeats, without the minor runes |
+| Frost | The spell's area slides on ice: straight on, away from its caster, until it meets a wall, a unit or the board's edge. A single-target spell passes its target and hits the next unit in line |
+| Mend | The spell can no longer harm your side |
+| Wound | If it's stripped below half its runes, it fizzles |
+| Protect | You gain a shield worth about a quarter of what you stripped |
+| Expose | The change gets through a Dispel minor rune's "can't be undone" |
+| Portal | The spell's area moves to another destination you choose. With no extra destination it moves onto the caster (Decided Nov 4, and the forge warns about it). The cost grows with units moved and distance ([budget model](budget-model.md#balancing-area-relocation-proposed)) |
+| Summon | A totem repeats the change on the next enemy spell cast near it |
+| Dispel | Matches the center: strips more |
+| Stone | The change holds: the spell's next cast loses the same runes too. Only the stripping repeats, without the minor runes (Jared) |
+| Amplification | What you strip charges your next spell |
+| Diminishing | Cooldown a round shorter, and it strips less |
+| Haste | Casting it costs a bonus action |
+| Slow | The spell goes off a round late. Next round its caster casts it as well as its new move, and can aim it again; it is shown again as a new move. Priced high (Jared) |
+| Invisibility | The changed spell can't pick single targets: aimed at one unit it fizzles, and areas still land (Jared) |
+| Revelation | It can target a move you can't see (a hidden enemy's, or one whose area Invisibility hides), and it shows that move exactly |
 
 Proposed order rule: on a spell, minor runes are aspects, except that movers (they
 shift its area) and Dispel (it strips runes) keep their place.
@@ -277,7 +279,7 @@ shapes that global effect.
 
 ## Open
 
-- [ ] The ring review: on a spell (next), along a tether, and global.
+- [ ] The ring review: global modification and along a tether (next).
 - [ ] What the Blank rune does in the center and in the ring.
 - [ ] Wound's finish against bosses.
 - [ ] Which runes ship first.

@@ -66,6 +66,9 @@ the center and the ring always makes a different spell.
   cheaper, so a strong one is paid for in the spell's size and length.
 - Only a Dispel center can target a spell, and its minor runes decide what
   happens to that spell.
+- When Fire repeats or copies something (a second hit, a summon's copy, a
+  repeated strip), only the major output repeats, without the minor runes
+  (Jared, Nov 5).
 
 **Decided (Nov 4): a minor rune that matches the center adds strength to the
 center,** like a duplicate.
