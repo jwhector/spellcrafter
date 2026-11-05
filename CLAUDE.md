@@ -2,8 +2,8 @@
 
 A deck-building hex RPG, built first as a single-device browser prototype:
 crafting spells between battles, then a 5-round battle on a 7x7 hex grid,
-with design System A (fixed sigils plus runes) and System B (a freeform rune
-circle) on one engine so Jared can playtest both (prototype scope, Decided
+with design System A (fixed sigils plus runes) and System B (a freeform
+sigil) on one engine so Jared can playtest both (prototype scope, Decided
 Nov 4). The end target is a Discord Activity. Jared owns the design; agents do most of the building.
 
 Where the project came from, and the state of the design when it moved here:
@@ -14,7 +14,7 @@ Where the project came from, and the state of the design when it moved here:
 
 | Path | What lives there |
 | --- | --- |
-| `engine/` | Pure game logic: runes, circles, the budget model, the forge, battle rules. No UI. |
+| `engine/` | Pure game logic: runes, sigils, the budget model, the forge, battle rules. No UI. |
 | `app/` | The views, as a Next.js app (App Router): the crafter view, the budget readout, the hex battle board. |
 | `tests/` | Tests that span the repo, including the guards in `tests/guards/`. Unit tests sit beside their code as `*.test.ts`. |
 | `docs/design/` | The design docs (they lead the design), and the one home for links to their sources. |

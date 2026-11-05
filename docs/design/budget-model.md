@@ -32,9 +32,9 @@ before it's priced are in the [effect flags checklist](effect-flags-checklist.md
   it adds.
 - **Every ring idea is broken down into primitives,** and each primitive has its
   own math (the table below).
-- **Ring runes keep at least half their share in the three-pass split.** Half is
+- **Minor runes keep at least half their share in the three-pass split.** Half is
   a starting number to tune (Jared, Nov 5).
-- **Budget spread over targets, points or area:** each gets a smaller share, and a
+- **Budget spread over targets, destinations or area:** each gets a smaller share, and a
   binary effect reaches fewer units.
 - **Forced movement** (the Push and Pull inscriptions) is paid from the spell's
   budget by hexes moved times units moved.
@@ -43,7 +43,7 @@ before it's priced are in the [effect flags checklist](effect-flags-checklist.md
 decided, but no frozen doc states them, and Jared marked them preliminary:
 
 - Cooldown buys budget only up to about battle length.
-- The three-pass split works like this: ring runes keep at least half their share,
+- The three-pass split works like this: minor runes keep at least half their share,
   the center gets whole units, and leftovers go back to the ring. The crafter
   shows the result, for example "Haste reaches 2 of 3".
 
@@ -92,7 +92,7 @@ up its value.
 | Fraction of strength | × the fraction | Becomes fewer units, in whole steps | Fire spreads (half), copy tether (half) |
 | Units next to the ones hit | × expected neighbours (Open, about 1.5, measured on test boards) | Same | Fire spreads |
 | Lasts more rounds | × rounds | Adds whole rounds | Haste, lingering |
-| Repeats each round | × times it repeats | Same | Summon traits, ground |
+| Repeats each round | × times it repeats | Same | Summon aspects, ground |
 | Trigger (only if something happens) | ×0.75 | Same | Dies and drop-to-0 triggers |
 | Single target | ×1.15 | Becomes a cheaper price | Single, bolt, self |
 | Steerable, follows the unit | ×1.2, ×1.15 | Same | Inscriptions |
@@ -100,7 +100,7 @@ up its value.
 | Stronger or weaker | ×1.33 or ×0.67 | One step (Open) | Amplification |
 | Forced movement (Decided Nov 5) | Adds hexes moved × units moved × a price per hex (Open) | Already in steps: fewer hexes or fewer units | Push and Pull inscriptions; ground currents and whirlpools; global gales |
 
-Other price multipliers in use: summon traits and global rules ×2, lingering
+Other price multipliers in use: summon aspects and global rules ×2, lingering
 ×1.6.
 
 **Fire spreads, as a recipe:** delay × duplicate onto neighbours × half strength. On
@@ -121,9 +121,9 @@ on the same unit. Effects that move in steps use their own step, such as a hex.
 | Modifier | Smooth effects | Binary effects | Status |
 | --- | --- | --- | --- |
 | Amplification (stronger) | A third more | Its next binary effect reaches one more unit or lasts a round longer, never two extra actions on one unit | Open |
-| Budget spread over targets, points or area | Each gets a smaller share | Reaches fewer units | Decided Nov 5 |
-| The three-pass split | Ring runes keep at least half their share | The center gets as many whole units as the rest pays for | Decided Nov 5 (half, a starting number to tune) |
-| Single-target bonus (×1.15) | 15% stronger | The effect costs 15% less, and the savings go to ring runes | Proposed |
+| Budget spread over targets, destinations or area | Each gets a smaller share | Reaches fewer units | Decided Nov 5 |
+| The three-pass split | Minor runes keep at least half their share | The center gets as many whole units as the rest pays for | Decided Nov 5 (half, a starting number to tune) |
+| Single-target bonus (×1.15) | 15% stronger | The effect costs 15% less, and the savings go to minor runes | Proposed |
 | A linked spell (× about 1.5) | Each part a bit weaker | Reaches fewer units | Proposed |
 | Copy tether (half strength at the far end) | Half strength | Reaches the far end only if the budget pays for one more unit | Proposed |
 | Transfer tether (half as much to the far end) | Half as much | What does taking an action from one end give the other? | Open |
@@ -131,7 +131,7 @@ on the same unit. Effects that move in steps use their own step, such as a hex.
 | Delay (×0.8), trigger (×0.75) | Price only | Price only, no change needed | Proposed |
 | Fire spreads (next round, units next to the ones hit, at half strength) | Half strength on the neighbours, a round later | Neighbours get the full effect a round later, allies first for helpful effects, as many as the budget pays for (nearest first). It spreads once, never again from the new units | Proposed |
 
-Diminishing's binary rule is in the [rune reference](rune-reference.md#at-a-point-or-on-a-unit)
+Diminishing's binary rule is in the [rune reference](rune-reference.md#at-a-destination-or-on-a-unit)
 (Decided Nov 5). Some current wording would need to change, for example the
 single-target bonus note in the crafter. Those edits wait until the effects are
 settled.

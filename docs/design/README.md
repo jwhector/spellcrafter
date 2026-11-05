@@ -21,8 +21,8 @@ what changed and why is in the decision log, and retired text is in the archive.
 | Doc | File | What it holds |
 | --- | --- | --- |
 | Game overview | [overview.md](overview.md) | The pitch, goals, the first prototype, battles, crafting and the hotbar, the spell forge, rune economy, progression, platform. |
-| System B rules | [system-b.md](system-b.md) | The freeform circle: center, ring, columns, inscriptions, tethers, triggers, minor inscriptions, linking, ground, conflict and order rules, and the glossary. |
-| Rune reference | [rune-reference.md](rune-reference.md) | What each of the 16 runes does in the center and in each ring column, and where the ring review stands. |
+| System B rules | [system-b.md](system-b.md) | The freeform sigil: center, ring, central output types, inscriptions, tethers, triggers, minor inscriptions, linking, ground, conflict and order rules, and the glossary. |
+| Rune reference | [rune-reference.md](rune-reference.md) | What each of the 16 runes does in the center and in each central output type, and where the ring review stands. |
 | Budget model | [budget-model.md](budget-model.md) | The budget unit and cap, the value model, the primitives math, binary effects, and balancing area relocation. |
 | Engine model | [engine-model.md](engine-model.md) | Board state, engine primitives, property primitives, write modes, compiling, the combination math, rune essences, extension points, and the audit and test tools. |
 | Effect flags checklist | [effect-flags-checklist.md](effect-flags-checklist.md) | The 16 questions every new effect answers before it goes in. |
@@ -38,8 +38,8 @@ Retired text, kept word for word, each file with a note saying what replaced it
 | --- | --- |
 | [archive/superseded.md](archive/superseded.md) | Superseded passages from the master doc, the spell model and the sigil brainstorm. |
 | [archive/ring-vs-center-audit.md](archive/ring-vs-center-audit.md) | The ring-vs-center audit and per-column review, retired Nov 5. |
-| [archive/ring-review-tables.md](archive/ring-review-tables.md) | The ring review's working tables for its first two columns, and the old binary-effect tables. |
-| [archive/bg3-coverage-audit.md](archive/bg3-coverage-audit.md) | The finished BG3 coverage audit: 176 spells written as circles. |
+| [archive/ring-review-tables.md](archive/ring-review-tables.md) | The ring review's working tables for its first two columns (now central output types), and the old binary-effect tables. |
+| [archive/bg3-coverage-audit.md](archive/bg3-coverage-audit.md) | The finished BG3 coverage audit: 176 spells written as sigils. |
 
 ## The mirror
 
@@ -68,7 +68,7 @@ the mirror.
 | Tool | Link | Copy | Notes |
 | --- | --- | --- | --- |
 | Crafter, "Spell Circle Grammar" v14 | https://claude.ai/artifact/7E3zWYPihzodDzW2MsMznG | [reference/crafter.html](../../reference/crafter.html) | Its script holds the engine data (RUNES, SHAPES, TRIGGERS, TETHERS, HOOKS). |
-| Audit tool, "Hollow Spell Audit" v4 | https://claude.ai/artifact/L8oTdLrYdmrxAoh95TM9tX | [reference/audit.html](../../reference/audit.html) | Sweeps every circle. Jared's marks live in its database collection "marks", which was empty on 2026-11-05. |
+| Audit tool, "Hollow Spell Audit" v4 | https://claude.ai/artifact/L8oTdLrYdmrxAoh95TM9tX | [reference/audit.html](../../reference/audit.html) | Sweeps every sigil. Jared's marks live in its database collection "marks", which was empty on 2026-11-05. |
 
 Both tools are out of date: see [reference/README.md](../../reference/README.md).
 

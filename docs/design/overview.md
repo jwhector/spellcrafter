@@ -3,7 +3,7 @@
 A deck-building roguelike RPG for a Discord server. Players collect and trade
 runes, build spells from them, and fight in short battles on a
 hex grid where all players act at once, then all enemies act. Each enemy shows
-its next move as a rune circle. Each battle stands alone; runes, Levels and
+its next move as a sigil. Each battle stands alone; runes, Levels and
 shared server progress carry across sessions, so people can drop in for one
 battle or play for an hour.
 
@@ -43,7 +43,7 @@ economy yet. System A and System B run on one engine so both can be playtested.
 - **Presence.** Everyone in a battle is expected to be present for planning. No
   late joiners. If someone leaves, a fallback plays their seat (details Open).
 - **Enemy intent (Nov 3).** Each enemy shows only its next move, Slay the Spire
-  style, drawn as its rune circle. Deciphering the circle is optional and gives an
+  style, drawn as its sigil. Deciphering the sigil is optional and gives an
   advantage; players who don't can still play.
 - **Live actions.** Actions in the players' phase land the moment you take them.
 - **Action economy.** Each round you get an action and a bonus action (like D&D).
@@ -78,10 +78,10 @@ economy yet. System A and System B run on one engine so both can be playtested.
 - A battle is about 5 rounds, 2 to 3 minutes.
 - Difficulty scales with headcount (more enemy moves and health). Some fights
   require specific capabilities, so scaling isn't perfect, by design.
-- Next to each enemy circle, a plain hint (attack, defend, move, with its target)
+- Next to each enemy sigil, a plain hint (attack, defend, move, with its target)
   keeps the game playable without deciphering. Deciphering adds the exact area,
   push directions and side effects.
-- Learning a rune yourself could help you read it in enemy circles, which rewards
+- Learning a rune yourself could help you read it in enemy sigils, which rewards
   rune variety.
 - Bosses blunt burst with phases or a per-round damage limit, so one huge hit
   can't skip a fight.
@@ -127,7 +127,7 @@ enemy intent and scarce movement.
   (Whether units go down or die is Open: see above.)
 - **Problems only allies can fix.** Some enemy effects can't be removed by the
   affected player, only by a teammate.
-- **Information is support.** Deciphering an enemy's rune circle and telling the
+- **Information is support.** Deciphering an enemy's sigil and telling the
   party its exact area, push directions and side effects helps everyone plan.
 - **Setup.** Shaping terrain (cover, safe zones) and priming elements so a
   teammate's spell lands harder.
@@ -156,15 +156,15 @@ enemy intent and scarce movement.
   Veterans bring more options, not more raw power. (Jared wants something better
   than a hard power budget for normalization, ideally part of the crafting
   itself: see the [budget model](budget-model.md).)
-- **Levels unlock new kinds of runes:** progressive disclosure of mechanics, not
+- **Levels unlock new runes:** progressive disclosure of mechanics, not
   stronger runes.
 - **Two crafting systems, A/B tested (Nov 3).** Jared will playtest both side by
   side instead of picking one now:
   - **System A**, fixed sigils plus runes. Sigils (learned by playing, never
     traded) set the shape, slot count, cooldown and timing; runes fill the slots.
     See [System A](system-a.md).
-  - **System B**, a freeform circle inspired by Witch Hat Atelier: a center rune,
-    ring runes, and inscriptions (learned by playing, permanent, never traded).
+  - **System B**, a freeform sigil inspired by Witch Hat Atelier: a major rune,
+    minor runes, and inscriptions (learned by playing, permanent, never traded).
     See [System B rules](system-b.md).
 - **Inverses are separate runes, not flipped faces (Nov 3),** in both systems, for
   wider loot and trading.
@@ -239,7 +239,7 @@ it on Nov 5, since live crafting is an exciting idea too.
 - **The forge previews every spell** on a small grid (hexes hit, push and pull
   arrows, terrain left behind): complex to build, simple to read.
 - **A spell's identity is its recipe** (in System A, the sigils plus which runes
-  sit in which slots; in System B, the circle after sorting and merging). Players
+  sit in which slots; in System B, the sigil after sorting and merging). Players
   pick a look from ones others have made for that recipe, or commission a new
   one. A brand-new recipe is announced as new, the player proposes its look and
   feel, and the look incubates in the forge until ready. A new spell is playable
@@ -267,7 +267,7 @@ nothing.
 ## Progression and structure
 
 - People come and go between battles; each battle is complete on its own.
-- Levels unlock rune kinds (Decided, above). Proposed: level-ups also grant runes,
+- Levels unlock new runes (Decided, above). Proposed: level-ups also grant runes,
   and quests grant runes and unlock content.
 - **Proposed** structure: dungeons the whole server pushes through together, where
   any victory counts toward progress; deeper fights check for capabilities;
@@ -312,7 +312,7 @@ these hooks were sketched there:
 
 | Glizzybot system | Hook that was sketched |
 | --- | --- |
-| Level (lifetime XP) | Unlocks rune kinds |
+| Level (lifetime XP) | Unlocks new runes |
 | XP budget | A new capped source for battles |
 | Glizzys | Currency for trading, shop, visual commissions |
 | Badges | Raid wins, discoveries, event badges |
@@ -324,7 +324,7 @@ these hooks were sketched there:
 - [ ] When spells are crafted: between battles, live during a battle, or a mix
       of both (above).
 - [ ] Exact spellcrafting rules: System A or System B, settled by A/B playtest.
-- [ ] Names for rune kinds, schools and mechanics (Jared).
+- [ ] Names for schools and mechanics (Jared).
 - [ ] Overcharge: in or out.
 - [ ] Wild runes: how many per round and how players claim them.
 - [ ] Dice in battle, or none.

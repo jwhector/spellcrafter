@@ -16,11 +16,11 @@ and saw as a `Proof:` paragraph in a commit message.
   examples in `docs/design/engine-model.md` and the recipes in
   `docs/design/budget-model.md` are the reference cases. Where the
   reference crafter (`reference/crafter.html`) still matches the design,
-  compare its output for the same circle too; where it is out of date (see
+  compare its output for the same sigil too; where it is out of date (see
   `reference/README.md`), the docs win. A test that encodes a doc's example
   is the best proof: cite the doc and section in the test name.
 - **Views** (`app/`). Run `npm run dev`, open the page, and drive the flow
-  you changed: build the circle, run the round, read the readout. In a cloud
+  you changed: build the sigil, run the round, read the readout. In a cloud
   session, use the preinstalled Playwright: `require('playwright')` works
   from any directory and `chromium.launch()` needs no options. Take a
   screenshot of the changed view and look at it. Check a phone width
