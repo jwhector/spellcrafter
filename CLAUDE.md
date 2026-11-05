@@ -15,7 +15,8 @@ Where the project came from, and the state of the design when it moved here:
 | Path | What lives there |
 | --- | --- |
 | `engine/` | Pure game logic: runes, sigils, the budget model, the forge, battle rules. No UI. |
-| `app/` | The views, as a Next.js app (App Router): the crafter view, the budget readout, the hex battle board. |
+| `app/` | The views, as a Next.js app (App Router): the crafter view, the budget readout, the hex battle board, and the design dashboard (`app/design/`). |
+| `public/` | Static files the app serves, such as rune model files (`public/models/runes/`). |
 | `tests/` | Tests that span the repo, including the guards in `tests/guards/`. Unit tests sit beside their code as `*.test.ts`. |
 | `docs/design/` | The design docs (they lead the design), and the one home for links to their sources. |
 | `docs/decisions/` | Decision records: why the repo is built the way it is. |
@@ -65,7 +66,8 @@ crafter's preview and in battle.
 | Links to the design docs and tools | `docs/design/README.md` | `tests/guards/design-links.test.ts` |
 | Which copy of the design leads | `docs/design/README.md` | none (one sentence, read by people) |
 | Node version | `.nvmrc` (CI reads it with `node-version-file`) | none needed: nothing else states it |
-| Stack and tool choices | `docs/decisions/0002-typescript-nextjs.md` | none |
+| Stack and tool choices | `docs/decisions/0002-typescript-nextjs.md`; 3D in `docs/decisions/0004-3d-with-react-three-fiber.md` | none |
+| What a rune model file must be, and where it goes | `public/models/runes/README.md` (the code reads the folder through `MODEL_DIR` in `app/design/runes/load.ts`) | none (one folder) |
 | What counts as code for the push gate, the summary format, the round budget and when the larger one applies | `.github/scripts/loop-gate.mjs` | `.github/scripts/loop-gate.test.mjs` |
 | The reviewer's model | `.claude/agents/reviewer.md` | none (one file) |
 
