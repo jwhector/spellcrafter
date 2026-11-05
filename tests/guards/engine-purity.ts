@@ -23,6 +23,8 @@ export interface Violation {
 /** Lines in an engine source file that break the rule. Comments are skipped. */
 export function engineViolations(path: string, source: string): Violation[] {
   const out: Violation[] = [];
+  // JSX uses React through the automatic runtime with no import to match, and the engine has no UI.
+  if (/\.(tsx|jsx)$/.test(path)) out.push({ path, line: 1, text: "a JSX file in the engine" });
   source.split("\n").forEach((text, i) => {
     const code = text.replace(/\/\/.*$/, "").trim();
     if (code.startsWith("*") || code.startsWith("/*")) return;

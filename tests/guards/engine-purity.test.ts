@@ -24,6 +24,11 @@ describe("engine purity", () => {
     expect(engineViolations("engine/x.ts", src).map((v) => v.line)).toEqual([1, 4, 6, 7, 8, 9, 10, 12, 13, 14]);
   });
 
+  it("refuses JSX files in the engine, which reach React with no import", () => {
+    expect(engineViolations("engine/badge.tsx", "export const B = () => <div />;")).toHaveLength(1);
+    expect(engineViolations("engine/badge.ts", "export const n = 1;")).toEqual([]);
+  });
+
   it("covers every script extension under engine/, but not tests", () => {
     expect(["engine/a.ts", "engine/b/c.tsx", "engine/d.mjs", "engine/e.js"].every((p) => ENGINE_SOURCE.test(p))).toBe(
       true,

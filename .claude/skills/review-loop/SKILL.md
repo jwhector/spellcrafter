@@ -74,7 +74,7 @@ finding, added as you triage:
 ```
 r1.3 [should] engine/budget.ts:41 a binary effect is split by a fraction. fixed in 1a2b3c4
 r1.4 [nit] README.md:12 the example is stale. declined: nit
-r2.1 [should] app/crafter.tsx:9 renders twice. disputed: the guard at crafter.ts:20 returns early
+r2.1 [should] app/crafter.tsx:9 renders twice. disputed: the guard at crafter.tsx:20 returns early
 r2.2 [should] docs/decisions/0003.md the cap is marked Decided. left for Jared: asked on a card
 ```
 

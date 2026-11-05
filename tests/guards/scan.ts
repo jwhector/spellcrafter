@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { join, relative, sep } from "node:path";
 
-const SKIP = new Set([".git", "node_modules", ".next", "out", "coverage"]);
+const SKIP = new Set([".git", "node_modules", ".next", "coverage"]);
 
 /** Every file under `root`, as a forward-slash path relative to it. */
 export function walk(root: string, dir = root): string[] {
