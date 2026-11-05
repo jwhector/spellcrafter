@@ -199,7 +199,9 @@ export function minorBlockedReason(s: Sigil, slot: number, id: string): string |
   if (!s.ring[slot]) return "Choose a minor rune first.";
   const attached = s.minor[slot] ?? [];
   if (attached.includes(id)) return null;
-  if (ins.slots > freeSlots(s)) return "Not enough free slots in the sigil.";
+  const replacing = ins.exclusive ? attached.find((i) => inscription(i).exclusive === ins.exclusive) : undefined;
+  const freed = replacing ? inscription(replacing).slots : 0;
+  if (ins.slots > freeSlots(s) + freed) return "Not enough free slots in the sigil.";
   // system-b.md "Minor inscriptions", rule 1 (Proposed): minor Where needs an anchor with a position.
   const shape = shapeOf(s).id;
   if (ins.minor === "where" && (shape === "global" || shape === "spell")) {

@@ -113,6 +113,12 @@ describe("which major output type the ring reads (system-b.md)", () => {
     expect(toggleMinor(build("fire", ["frost"], ["global"]), 0, "range").minor[0]).toBeUndefined();
   });
 
+  it("swaps a minor shape for another on a full sigil", () => {
+    const full = toggleMinor(build("fire", ["wound", "frost", "mend", "stone"], ["bolt"]), 0, "burst");
+    expect(freeSlots(full)).toBe(0);
+    expect(toggleMinor(full, 0, "cone").minor[0]).toEqual(["cone"]);
+  });
+
   it("makes only shapes exclusive, as system-b.md says", () => {
     const s = build("wound", [], ["enemies", "allies", "push", "pull"]);
     expect(s.inscriptions).toEqual(["enemies", "allies", "push", "pull"]);
