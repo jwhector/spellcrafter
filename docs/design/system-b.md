@@ -53,7 +53,7 @@ the center and the ring always makes a different spell.
 
 **Decided (Nov 5)**
 
-- Major rune effects stay unique to the center, and minor runes always do something
+- A rune's center meaning stays unique to the center, and minor runes always do something
   different. Combos (such as a healing portal) come from [linking](#linking).
 - On a central output (a gate, a summon, a shield, ground), minor runes change the
   output itself rather than adding an effect to it. The one exception so far is
@@ -367,11 +367,11 @@ everywhere (a global modification rewrites terrain rules).
   are true opposites** (at a destination, on a unit, through a gate). There they cancel by
   amount. Elsewhere both apply. Fire and frost count as opposites.
 - **Order (Proposed Nov 4).** Whether ring order matters is declared on each minor rune effect,
-  not on the rune, because the same rune can be a step in one place and a aspect
+  not on the rune, because the same rune can be a step in one place and an aspect
   in another. Each minor rune effect declares what it reads and what it changes. Two
   neighbouring runes swap freely when neither changes something the other reads;
   health, statuses, terrain and aspects simply add up. On a summon, on ground, on
-  a shield and on a global effect, every minor rune is a aspect, so order never
+  a shield and on a global effect, every minor rune is an aspect, so order never
   matters there. The engine computes it (see the
   [engine model](engine-model.md)).
 - **Proposed:** the forge sorts runes whose order doesn't matter before computing
@@ -442,7 +442,6 @@ are still placeholders, so we can talk about the parts.
 | central output | What the major rune makes: an effect, ground, a gate, a summon or a shield | Jared | thing |
 | effect | The plain central output: damage, healing or a status landing on units | Jared | |
 | central output type | A kind of central output, which decides what each minor rune does (the crafter's data calls it a hook type) | Jared | column |
-| major rune effect | What a rune does in the center | placeholder, built from Jared's names | center effect |
 | minor rune effect | What one minor rune does in one central output type | Jared | entry, hook entry |
 | minor rune effect types | What a minor rune effect touches: positions, damage modifiers, health, statuses, terrain, aspects | Jared | channels |
 | role | What a rune does as a group: plain effect, amplifier, mover, maker, remover | Jared | (had no word) |

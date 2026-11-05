@@ -32,12 +32,12 @@ Everything a spell can read or change:
 
 | Part | Holds |
 | --- | --- |
-| Positions | Which unit or thing stands on which hex |
+| Positions | Which unit, summon or other central output stands on which hex |
 | Health | Each unit's and summon's health |
 | Statuses | Burning, chilled, shielded, exposed, encased, hidden, and so on, with durations |
 | Damage modifiers | The numbers that change incoming and outgoing damage and healing (from Protect, Expose, Amplification, Diminishing) |
 | Terrain | What each hex is: burning, ice, rubble, rock, ground with aspects, and the remains of fallen units |
-| Central outputs | Gates, links, summons and shields, each with its own aspects |
+| Central outputs and links | Gates, summons, shields and tether links, each with its own aspects |
 | Spells in waiting | Enemy intents and prepared (trigger) spells, each a sigil |
 | Global rules | Active global modifications and their remaining rounds |
 | Listeners | Triggers and aspects waiting for an event |
@@ -54,9 +54,9 @@ The only ways anything changes. Thirteen cover every rune effect written so far,
 | Move (push, pull, teleport, slide) | positions, terrain | positions |
 | Apply status | positions | statuses (and damage modifiers for Protect, Expose, Amplification, Diminishing) |
 | Place terrain | positions | terrain |
-| Create central output | positions | positions, central outputs |
+| Create central output | positions | positions, central outputs and links |
 | Remove (statuses, terrain, central outputs) | everything it removes | statuses, terrain, central outputs |
-| Link | positions | central outputs |
+| Link | positions | central outputs and links |
 | Alter spell (strip runes, move its area) | spells in waiting | spells in waiting |
 | Add global rule | nothing | global rules |
 | Listen | nothing | listeners |
@@ -83,7 +83,7 @@ name). Nothing else describes a spell.
 | **Who** | Which units it touches, in what order, and what carries it | everyone, enemies only, allies only; weakest first with a health pool; carried by nothing, a unit, or a summon |
 | **What** | The payload: a list of engine primitive calls | damage, heal, move, status, terrain, create, remove, link, alter spell, global rule, set aside |
 | **How much** | A magnitude for each payload item | set by the power budget, then scaled |
-| **Aspects** | Only for central outputs (summons, gates, links, shields, ground): small effect records attached to the output, each with its own When | "on hit", "each round", "on pass-through", "along the link" |
+| **Aspects** | Only for central outputs and links (summons, gates, links, shields, ground): small effect records attached to the output, each with its own When | "on hit", "each round", "on pass-through", "along the link" |
 
 Aspects are effect records inside an effect record, which is how a burning,
 teleporting summon is described: a summon whose aspects are "burn neighbours each
@@ -98,7 +98,7 @@ Every rune and inscription is a small list of writes to property primitives:
 | Write mode | Meaning | Who may use it |
 | --- | --- | --- |
 | **Set** | Replace a value outright | Major rune and inscriptions only |
-| **Add** | Append to a list (a payload item, a status, a terrain, a aspect) | Center and ring |
+| **Add** | Append to a list (a payload item, a status, a terrain, an aspect) | Center and ring |
 | **Remove** | Delete from a list (statuses, terrain, central outputs, a spell's runes) | Center and ring |
 | **Scale** | Multiply a magnitude or a duration (stronger, weaker, longer) | Center and ring |
 | **Shape** | Transform Where or When (grow, shrink, sweep, close in, anchor, follow, repeat) | Center and ring |
@@ -121,7 +121,7 @@ shapes Where and When (anchor, last longer), while an inscription sets them.
    budget, and hashes the result: the recipe id.
 
 **Running it in battle:** at the start time, for each destination in order, the payload
-runs as primitive calls against the units Who and Where allow. Things persist and
+runs as primitive calls against the units Who and Where allow. Central outputs and links persist and
 register their aspects as listeners. Global rules register with their duration.
 Events go through a queue; each listener fires once per cause, and chains stop at
 depth 3.

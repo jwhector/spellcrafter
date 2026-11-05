@@ -16,8 +16,8 @@ planned for spells that only move things (Decided Nov 5, mechanics Open).
 review, one central output type at a time (step 3 of the plan: grammar and linking, then what
 the budget measures, then the ring review, then numbers in the audit tool, then
 playtest). The central output types marked Decided are done. The rest still show the crafter's
-v14 minor rune effects, which are Proposed and written before the Nov 5 rules that center
-effects stay unique to the center and that minor runes on a central output change the
+v14 minor rune effects, which are Proposed and written before the Nov 5 rules that a rune's
+center meaning stays unique to the center and that minor runes on a central output change the
 output itself. A minor rune that matches the center adds strength to the center
 instead of using its minor rune effect (Decided Nov 4).
 
@@ -76,7 +76,7 @@ names are still placeholders (see the [glossary](system-b.md#glossary)).
 | Diminishing | Cooldown only | The spell's cooldown is a round shorter, and the forge refits the spell to the smaller budget. Binary effects lose whole steps (a unit or a round) after minor runes drop to their minimum; if not even one step fits, the crafter blocks adding Diminishing and says why |
 | Haste | Quick cast | The spell costs a bonus action instead of an action, and the forge takes roughly half the budget for it. On a linked spell, it costs an action instead of an action and a bonus action |
 | Slow | Drawn out | The effect lands in pieces over this round and the next two. The later pieces are priced like delay, so the total comes out higher (about ×1.2, to tune). Binary effects start a round later and last a round longer. The delay inscription stays |
-| Invisibility | Unseen | Enemies can't see the effect's area or read it, at any point (Jared, Nov 5). An enemy AI is blind to it too |
+| Invisibility | Unseen | Enemies can't see the effect's area or read it, at any time (Jared, Nov 5). An enemy AI is blind to it too |
 | Revelation | Seeking | The effect can pick hidden units, but they stay hidden; the center is what removes hiding |
 
 **Open:** whether Wound's finish applies to bosses (immune, or a smaller
@@ -110,7 +110,7 @@ what happens to the gate and the units that travel through it.
 ## Minor rune effect: on a summon
 
 **Proposed (crafter v14), next in the ring review.** Used with a Summon center.
-Every minor rune here is a aspect of the body, so order never matters.
+Every minor rune here is an aspect of the body, so order never matters.
 
 | Rune | Ring meaning |
 | --- | --- |

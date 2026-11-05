@@ -22,7 +22,7 @@ Sixteen questions. The last column says which rules depend on the answer, so a n
 | Actions | Does it change how many actions a unit gets, or whether a shown move happens? | Yes · No | Extra-action cap (Open), base value, portal plus Haste worry |
 | Information | Does it change what units can see or pick, or what a shown move tells you? | Yes · No | Invisibility and Revelation, single-target picking, deciphering shown moves |
 | Position | Does it move units or change the board? | Yes · No | Hazard combo bonus, gates, leash, walls |
-| Center and ring | Is the ring meaning different from the center meaning? | Must be (Decided Nov 5: major rune effects stay unique to the center) | Duplicate check in the audit tool |
+| Center and ring | Is the ring meaning different from the center meaning? | Must be (Decided Nov 5: a rune's center meaning stays unique to the center) | Duplicate check in the audit tool |
 | Base value | What is it worth per unit per round, in standard turns? | A base value: a rough tier now (cheap, normal, expensive), a number in step 4 | The [budget model](budget-model.md) |
 | As a linked spell | How does it reach through another spell's output? | Follows the reach rule; binary effects reach fewer units when the budget runs short | [Linking](system-b.md#linking) |
 | Counterplay | What stops or removes it? | Dispel · Revelation · stepping off ground · killing the summon · other | Audit check that nothing is unanswerable |
