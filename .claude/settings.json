@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ \"$CLAUDE_CODE_REMOTE\" = \"true\" ] && cd \"$CLAUDE_PROJECT_DIR\" && npm ci >/dev/null 2>&1 || true",
+            "timeout": 300,
+            "statusMessage": "Installing dependencies (cloud)"
+          },
+          {
+            "type": "command",
+            "command": "git -C \"$CLAUDE_PROJECT_DIR\" config --local core.hooksPath >/dev/null 2>&1 || git -C \"$CLAUDE_PROJECT_DIR\" config core.hooksPath .githooks 2>/dev/null || true",
+            "timeout": 5,
+            "statusMessage": "Turning on the commit and push gates"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PROJECT_DIR:-.}/.claude/hooks/format.mjs\"",
+            "timeout": 30,
+            "statusMessage": "Formatting the edited file"
+          }
+        ]
+      }
+    ]
+  }
+}

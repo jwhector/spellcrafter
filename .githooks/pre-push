@@ -1,0 +1,25 @@
+#!/bin/sh
+#
+# The loop gate: refuse to push code to a claude/* branch (or any branch, in a
+# cloud session) unless the review-loop skill ran and its summary is the last
+# commit, apart from data commits and a clean merge of main. The rules live in
+# .github/scripts/loop-gate.mjs (tested).
+#
+# Bypass (a person, deliberately): git push --no-verify
+
+repo=$(git rev-parse --show-toplevel) || exit 0
+refs=$(cat)
+
+# A coarse pre-filter so a person's own push never needs node.
+case "$CLAUDE_CODE_REMOTE:$refs" in
+  true:*|*refs/heads/claude/*) ;;
+  *) exit 0 ;;
+esac
+
+if ! command -v node >/dev/null 2>&1; then
+  echo "pre-push: node is not installed, so the loop gate cannot run." >&2
+  echo "pre-push: refusing the push. Install node, or bypass deliberately with --no-verify." >&2
+  exit 1
+fi
+
+printf '%s\n' "$refs" | node "$repo/.github/scripts/loop-gate.mjs"
