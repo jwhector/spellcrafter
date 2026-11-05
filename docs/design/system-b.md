@@ -53,7 +53,7 @@ the center and the ring always makes a different spell.
 
 **Decided (Nov 5)**
 
-- A rune's center meaning stays unique to the center, and minor runes always do something
+- A rune's central output stays unique to the center, and minor runes always do something
   different. Combos (such as a healing portal) come from [linking](#linking).
 - On a central output (a gate, a summon, a shield, ground), minor runes change the
   output itself rather than adding an effect to it. The one exception so far is
@@ -89,8 +89,8 @@ be attacked.
 
 **Proposed: each kind of central output declares how it spreads over a shape:** one per
 hex (summon, budget split), as a footprint (gate), one per unit in the area
-(shield), or as an area effect (hit). That's a small table of central outputs by shapes,
-plus central outputs by destination count, and the audit sweep fails any cell with no rule, so a
+(shield), or as an area effect (hit). That's a small table of central output types by shapes,
+plus central output types by destination count, and the audit sweep fails any cell with no rule, so a
 new shape or a new kind of central output can't ship with an undefined combination.
 
 ## Reading a sigil
@@ -239,7 +239,7 @@ Nov 4:
   or at that time. Example: wound center, burst, enemies only; mend in the ring
   with a minor "allies only". Enemies are hit and allies are healed.
 - **Minor Where** (a shape, more range): the minor rune becomes a small sub-effect
-  anchored on the output. It uses its own center meaning, over its own region,
+  anchored on the output. It uses its own central output, over its own region,
   positioned relative to the anchor (a destination, a unit, or a central output). It is still a
   modification of the output, because it can't exist without the anchor.
 
@@ -439,9 +439,9 @@ are still placeholders, so we can talk about the parts.
 | major rune | The rune in the center, which decides what the spell makes. Major and minor name the position, not a kind of rune: any rune can sit in either | Jared | center rune |
 | minor runes | The runes in the ring around the center, which modify the central output | Jared | ring runes |
 | center, ring | The two positions in a sigil: the center holds the major rune, the ring holds the minor runes | placeholder | |
-| central output | What the major rune makes: an effect, ground, a gate, a summon or a shield | Jared | thing |
-| effect | The plain central output: damage, healing or a status landing on units | Jared | |
-| central output type | A kind of central output, which decides what each minor rune does (the crafter's data calls it a hook type) | Jared | column |
+| central output | The thing a major rune makes, itself: what that rune does in the center. Fire's is "burns the target now and next round"; Portal's is the gate it opens | Jared | thing, center meaning |
+| effect | The plain central output type: damage, healing or a status landing on units | Jared | |
+| central output type | The kind of thing a major rune makes: an effect (at a destination, on a unit, or global), ground, a gate, a summon, a shield or an altered spell. It decides what each minor rune does (the crafter's data calls it a hook type) | Jared | column |
 | minor rune effect | What one minor rune does in one central output type | Jared | entry, hook entry |
 | minor rune effect types | What a minor rune effect touches: positions, damage modifiers, health, statuses, terrain, aspects | Jared | channels |
 | role | What a rune does as a group: plain effect, amplifier, mover, maker, remover | Jared | (had no word) |

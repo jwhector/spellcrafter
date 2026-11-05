@@ -17,7 +17,7 @@ review, one central output type at a time (step 3 of the plan: grammar and linki
 the budget measures, then the ring review, then numbers in the audit tool, then
 playtest). The central output types marked Decided are done. The rest still show the crafter's
 v14 minor rune effects, which are Proposed and written before the Nov 5 rules that a rune's
-center meaning stays unique to the center and that minor runes on a central output change the
+central output stays unique to the center and that minor runes on a central output change the
 output itself. A minor rune that matches the center adds strength to the center
 instead of using its minor rune effect (Decided Nov 4).
 
@@ -26,6 +26,10 @@ instead of using its minor rune effect (Decided Nov 4).
 The center decides what the spell makes: an effect, a gate (Portal), a summon
 (Summon) or a shield (Protect). An effect that lingers on an area, or is cast as a
 wall, becomes ground. All Proposed (crafter v14), except where marked.
+
+A rune's row here is its central output: what it does in the center. "Makes"
+is the kind of thing it makes, which picks the central output type its minor
+runes read (see [System B rules](system-b.md#the-central-output-types)).
 
 | Rune | Role | Opposite | Makes | Aimed at the board | Across the whole battlefield |
 | --- | --- | --- | --- | --- | --- |
@@ -60,7 +64,7 @@ names are still placeholders (see the [glossary](system-b.md#glossary)).
 **Decided (Nov 5, ring review).** Used when the center makes an effect on an area
 (at a destination) or on one unit. The working labels are placeholders.
 
-| Rune | Working label | Ring meaning |
+| Rune | Working label | Minor rune effect |
 | --- | --- | --- |
 | Fire | Spreads | Next round the effect hits again on units next to the ones it hit, at half strength |
 | Frost | Slick | Units the effect hits slide 1 hex further from any push or pull this round; at a destination it also leaves ice |
@@ -88,7 +92,7 @@ this central output type with each rune firing when the shield is hit.
 **Decided (Nov 5, ring review).** Used with a Portal center. Minor runes change
 what happens to the gate and the units that travel through it.
 
-| Rune | Ring meaning | Part of the gate it changes |
+| Rune | Minor rune effect | Part of the gate it changes |
 | --- | --- | --- |
 | Fire | The entrance grows by 1 hex every round the gate stays open (Proposed: on a two-way gate, both ends grow) | Entrance, over time |
 | Frost | Travelers keep their momentum and come out 1 hex further along the way they entered | Arrival spot |
@@ -112,7 +116,7 @@ what happens to the gate and the units that travel through it.
 **Proposed (crafter v14), next in the ring review.** Used with a Summon center.
 Every minor rune here is an aspect of the body, so order never matters.
 
-| Rune | Ring meaning |
+| Rune | Minor rune effect |
 | --- | --- |
 | Fire | The summon burns units next to it |
 | Frost | The summon chills units next to it |
@@ -136,7 +140,7 @@ Every minor rune here is an aspect of the body, so order never matters.
 **Proposed (crafter v14), to review.** Used for lingering area effects and walls.
 Minor runes become the ground's aspects.
 
-| Rune | Ring meaning |
+| Rune | Minor rune effect |
 | --- | --- |
 | Fire | Burns whoever stands in it at round end |
 | Frost | Slippery: units slide 1 hex further |
@@ -163,7 +167,7 @@ Nov 4). The review should settle it.
 **Proposed (crafter v14), to review.** Used with a tether inscription. The minor rune effect
 says what each rune sends along the tether.
 
-| Rune | Ring meaning |
+| Rune | Minor rune effect |
 | --- | --- |
 | Fire | Burning |
 | Frost | Chill |
@@ -189,7 +193,7 @@ spell (Decided Nov 5). Proposed with that decision: with an empty ring, the Disp
 center strips runes up to its power budget, and each minor rune spends part of that
 budget doing its thing to the spell instead.
 
-| Rune | Ring meaning |
+| Rune | Minor rune effect |
 | --- | --- |
 | Fire | When the spell is cast, its caster burns |
 | Frost | The spell goes off last in its phase |
@@ -217,7 +221,7 @@ shift its area) and Dispel (it strips runes) keep their place.
 center's global rule is in the center table; these minor rune effects say how a minor rune
 shapes that global effect.
 
-| Rune | Ring meaning |
+| Rune | Minor rune effect |
 | --- | --- |
 | Fire | The global effect also leaves scattered burning hexes |
 | Frost | The global effect also takes away everyone's bonus move |
