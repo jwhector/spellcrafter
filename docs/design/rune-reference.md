@@ -23,7 +23,8 @@ minor rune effect (Decided Nov 4).
 
 The center decides what the spell makes: an effect, a gate (Portal), a summon
 (Summon) or a shield (Protect). An effect that lingers on an area, or is cast as a
-wall, becomes ground. All Proposed (crafter v14), except where marked.
+wall, becomes ground, and so does a lingering Portal on a place (Decided, Jared
+Nov 5). All Proposed (crafter v14), except where marked.
 
 A rune's row here is its major output: what it does in the center. "Makes"
 is its major output type, the kind of thing it makes. Where the spell is aimed

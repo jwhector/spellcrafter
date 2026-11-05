@@ -44,7 +44,10 @@ on their own. They modify what the center produces, so swapping a rune between
 the center and the ring always makes a different spell.
 
 - A summon, portal or protect center always makes its summon, gate or shield,
-  wherever it's aimed on the battlefield.
+  wherever it's aimed on the battlefield. **Decided (Jared, Nov 5):** the one
+  exception is a lingering Portal on a place, which makes Portal ground (see
+  [Ground](#ground)); a gate that stays open longer comes from minor runes, such
+  as Summon's totem.
 - Any center aimed at a spell outputs an altered spell.
 - A plain-effect center outputs an effect: on a place, on a unit, or (across the
   whole battlefield) a global effect.
@@ -219,14 +222,12 @@ meaning as copy on a spell.
 **Proposed (Nov 4): snap-back becomes a lingering move.** Lingering statuses and
 terrain already end when they expire. Applied to movement, a lingering move undoes
 itself when it expires, and the unit returns to where it started. A lingering
-portal is the round-trip door; a lingering pull is a yank that lets go.
+pull is a yank that lets go.
 
 **Open:** what redirect, transfer and leash mean on a spell; whether a tether on the
 whole battlefield is refused (the tools refuse it for now); a new home for the old
 global tether minor rune effect (splash damage to neighbours); what the transfer tether does
-with an action taken from one end; and the round-trip door, because lingering on
-a gate already means the gate stays open longer, which clashes with the proposal
-that a lingering move undoes itself when it expires (snap-back).
+with an action taken from one end.
 
 ### Triggers
 
@@ -518,8 +519,7 @@ placeholders.
 - [ ] Names for the new inscriptions and triggers, linking items and trigger types.
 - [ ] Whether linking items are tradable.
 - [ ] Tethers: redirect, transfer and leash on a spell; a tether on the whole
-      battlefield; the old global tether minor rune effect; transfer and actions; the
-      round-trip door.
+      battlefield; the old global tether minor rune effect; transfer and actions.
 - [ ] Can a filter inscription narrow a global modification? Whether filters stay
       at all. (Mend's minor rune spares your side on ground and on a global
       modification, Nov 5.)
