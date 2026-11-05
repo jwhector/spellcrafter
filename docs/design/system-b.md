@@ -56,11 +56,19 @@ the center and the ring always makes a different spell.
 - A rune's major output stays unique to the center, and minor runes always do something
   different. Combos (such as a healing portal) come from [linking](#linking).
 - On a major output (a gate, a summon, a shield, ground), minor runes change the
-  output itself rather than adding an effect to it. The one exception so far is
-  Wound on a gate.
+  output itself rather than adding an effect to it. This is a useful guide, not a
+  hard rule (Jared, Nov 5): Wound on a gate and Dispel on a summon add effects.
 - Every rune gets a meaning in every major output type.
+- **The design philosophy (Jared, Nov 5).** The major output is the rune's core.
+  Each rune has one ring idea that runs through every major output type (Fire
+  spreads, Expose pierces), so a player can guess what a minor rune does somewhere
+  new. Minor runes change mechanics rather than adding stats. Minor runes are
+  cheaper, so a strong one is paid for in the spell's size and length.
 - Only a Dispel center can target a spell, and its minor runes decide what
   happens to that spell.
+- When Fire repeats or copies something (a second hit, a summon's copy, a
+  repeated strip), only the major output repeats, without the minor runes
+  (Jared, Nov 5).
 
 **Decided (Nov 4): a minor rune that matches the center adds strength to the
 center,** like a duplicate.
@@ -72,11 +80,11 @@ Which major output type a minor rune reads depends on what the center made. Ther
 | Major output type | Used when |
 | --- | --- |
 | At a destination | The center makes an effect on an area |
-| On a unit | The center makes an effect on one unit; also a Protect center's shield, with each minor rune firing when the shield is hit |
+| On a unit | The center makes an effect on one unit; also each end of a tether (Decided Nov 5) |
 | On ground | A lingering area effect, or a wall |
-| Along a tether | A tether inscription joins two destinations |
 | Through a gate | A Portal center |
 | On a summon | A Summon center |
+| On a shield | A Protect center (Decided Nov 5: minor runes change the shield itself) |
 | On a spell | A Dispel center aimed at a spell |
 | Global modification | The whole-battlefield shape (Jared's name) |
 
@@ -105,7 +113,7 @@ new shape or a new kind of major output can't ship with an undefined combination
 - A rune or inscription that needs two destinations (a portal, a tether) uses the
   caster as its second destination when the spell has only one.
 - Each major rune defines how its ring is read. Summon: what the summon is made
-  of. Protect: what happens to anyone who hits the shield. Portal: what happens to
+  of. Protect: how the shield behaves. Portal: what happens to
   whoever goes through.
 - **Decided (Nov 4):** gates and tethers with three or more destinations join each destination
   to the next.
@@ -182,8 +190,12 @@ geometry needs check against it (a portal needs two destinations).
 **Decided (Nov 4)**
 
 - Tether is no longer a rune. It exists only as inscriptions.
-- The "along a tether" major output type stays: anything that travels between two ends
-  travels along a tether underneath, so the engine keeps one link and one major output type.
+- Anything that travels between two ends travels along a tether underneath, so
+  the engine keeps one link.
+- **Decided (Nov 5): a tether has no major output type of its own.** Its kind
+  (copy, redirect, transfer) decides how the effect travels, and its minor runes
+  read the "on a unit" table at each end. This replaces the "along a tether"
+  major output type.
 - Each way of routing an effect along a tether is its own inscription. They are
   the same tether underneath; in the UI they are separate inscriptions, each
   balanced on its own numbers (cost, share, range, duration). The names below are
@@ -314,19 +326,55 @@ items are tradable like runes or bound like inscriptions.
 ## Ground
 
 **Proposed (Nov 4).** A lingering effect on a place is ground, and a wall always
-leaves ground. The center still hits whoever stands there when it's cast; the
-minor runes become the ground's aspects, which don't depend on order. Ground can't
-be attacked. Its aspects fire when a unit steps onto it, stands in it at round end,
-or leaves it. Opposite pairs cancel on ground, except Summon and Dispel. Units that
-die leave **remains**, a kind of ground, and a summon raised on remains is
-stronger.
+leaves ground. Ground can't be attacked, except Summon's cloud (below), which is a
+summon.
+
+**Decided (Nov 5): the major rune sets what the ground does, and the minor runes
+change it.** The ground is the major output, lasting: lingering Fire is burning
+ground, and Fire's major output lands again on whoever is in it. The minor runes
+become the ground's aspects, which don't depend on order, and change the ground
+itself (it spreads, it's slick, it can't be seen). Proposed (Nov 4): the ground
+acts when a unit steps onto it, stands in it at round end, or leaves it.
+
+**Decided (Jared, Nov 5): the ground each major rune makes.** Filters don't work
+on ground, so it acts on both sides. The budget spreads its strength over the
+rounds it lasts, and a binary ground reaches only as many units as the budget pays
+for, nearest first.
+
+| Major rune | The ground it makes |
+| --- | --- |
+| Fire | Burning ground: units in it start burning |
+| Frost | Ice: units in it lose their bonus move |
+| Mend | Healing ground: it heals everyone in it, enemies included |
+| Wound | Harmful ground: it damages everyone in it, more to units below half health |
+| Protect | Warded ground: units in it at round end gain a small shield |
+| Expose | Units in it take more damage and heal less |
+| Portal | A unit in it can travel to any hex of it without spending movement |
+| Summon | A cloud over the area that blocks line of sight through it. It is a summon, so any hit inside the area hits it, and it can be killed or dispelled |
+| Dispel | Statuses can't stay on units in it, and spells aimed into it lose minor runes |
+| Stone | Rock that blocks movement, crumbling to rubble (rough ground) when it ends |
+| Amplification | Units in it deal more damage and give more healing |
+| Diminishing | Units in it deal less damage and give less healing |
+| Haste | Units that start their turn in it get an extra move, once per round each. Only the first one or two, as the budget pays: a balance point to watch in playtest |
+| Slow | While a unit stands in it, it can't take actions, but it can still move |
+| Invisibility | Units in it are hidden |
+| Revelation | Units in it can't hide, and enemies in it show their next move exactly (area, pushes and side effects) without deciphering (to playtest) |
+
+Keeping a ground going is the totem's job (Summon as a minor rune), so Summon's
+own ground is the cloud rather than something that refreshes.
+
+**Proposed (Nov 4):** opposite pairs cancel on ground, except Summon and Dispel.
+Units that die leave **remains**, a kind of ground, and a summon raised on remains
+is stronger.
 
 **Decided (Nov 4):** battlefields start with terrain players can reshape, and filters
-don't work on ground. How grounds stack, replace each other or react is future
+don't work on ground. The one exception is Mend as a minor rune, which spares
+allies from a ground's harmful effects (Jared, Nov 5, to playtest). How grounds stack, replace each other or react is future
 expansion.
 
 **Proposed (Nov 4): three ways a player shapes terrain.** Make it (any area spell
-with lingering leaves ground, and its ring sets the properties). Change what's
+with lingering leaves ground; its major rune sets what the ground does and its
+minor runes change it, Decided Nov 5). Change what's
 already there (aim a sigil at existing ground and its runes react with it through
 the rune-by-state table: fire on ice clears it, dispel removes it). Change it
 everywhere (a global modification rewrites terrain rules).
@@ -357,12 +405,12 @@ everywhere (a global modification rewrites terrain rules).
 - A unit standing exactly on the destination is pushed in the spell's direction of
   travel, or stays put on a self-cast.
 - **Decided (Nov 4): beneficial effects go to allies first and harmful effects to
-  enemies first,** wherever a rune has a choice of recipient (a shield's bearer or
-  attacker, a summon's neighbours, a tether's two ends). An area still hits
-  everyone standing in it, so friendly fire stays on. Example: a shield with mend
-  and wound in its ring heals the bearer and hurts whoever hits it.
-- **Decided (Nov 4): a shield's minor runes are order-free aspects** that fire when the
-  shield is hit, following the rule above.
+  enemies first,** wherever a rune has a choice of recipient (a summon's
+  neighbours, a tether's two ends). An area still hits everyone standing in it,
+  so friendly fire stays on.
+- **Decided (Nov 5): a shield's minor runes are order-free aspects that change the
+  shield itself** (see the [rune reference](rune-reference.md#minor-rune-effect-on-a-shield)).
+  This replaces the Nov 4 rule that they fired when the shield was hit.
 - **Decided (Nov 4): opposite runes cancel only where their minor rune effects in that major output type
   are true opposites** (at a destination, on a unit, through a gate). There they cancel by
   amount. Elsewhere both apply. Fire and frost count as opposites.
@@ -378,7 +426,9 @@ everywhere (a global modification rewrites terrain rules).
   the recipe, so both orders are one spell (same look and discovery credit), and
   draws interchangeable runes joined in the ring.
 
-**Open:** can a filter (enemies only, allies only) narrow a global modification?
+**Open:** can a filter inscription (enemies only, allies only) narrow a global
+modification? Mend's minor rune effect already spares your side from one (Decided
+Nov 5, as on ground).
 
 ## Cooldowns for similar spells
 
@@ -450,7 +500,7 @@ are still placeholders, so we can talk about the parts.
 | destination | A place the spell acts; a burst has one, a dash two (start and landing), a chain three | Jared | point |
 | section | The minor runes that act at one destination (an engine word) | Jared | |
 | cohort | Neighbouring runes whose order doesn't matter | Jared | bundle |
-| aspect | A minor rune that becomes a lasting property of a summon, ground, a shield or a tether | Jared | trait |
+| aspect | A minor rune that becomes a lasting property of a summon, ground or a shield | Jared | trait |
 | primitives | The engine's building blocks (see the [engine model](engine-model.md)) | Jared | |
 | property primitives | The seven properties every spell record has | Jared | |
 | recipe, recipe id | A spell's identity: the sigil after sorting and merging | Jared | |
@@ -470,9 +520,8 @@ placeholders.
 - [ ] Tethers: redirect, transfer and leash on a spell; a tether on the whole
       battlefield; the old global tether minor rune effect; transfer and actions; the
       round-trip door.
-- [ ] Can a filter narrow a global modification? Whether filters stay at all.
+- [ ] Can a filter inscription narrow a global modification? Whether filters stay
+      at all. (Mend's minor rune spares your side on ground and on a global
+      modification, Nov 5.)
 - [ ] The Blank rune's mechanics (see the [rune reference](rune-reference.md)).
 - [ ] Names for the five roles (plain effect, amplifier, mover, maker, remover).
-- [ ] Whether a tether (made by an inscription) and a Protect shield (read as "on a
-      unit") fit "the kind of thing a major rune makes", or the major output types
-      need their own rows for them.

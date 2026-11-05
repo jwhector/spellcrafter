@@ -12,7 +12,7 @@ Sixteen questions. The last column says which rules depend on the answer, so a n
 | Flag | Question | Options | Rules that read it |
 | --- | --- | --- | --- |
 | Scaling | Can the forge turn it up or down? | Smooth (damage, healing, shield, dealing more or less) · In steps (hexes moved, rounds lasted, units reached) · Binary (extra action, lost action, hidden, encased, cancelled move) | Budget split, the three-pass split, Amplification and Diminishing, the ring minimum, linking reach |
-| Side | Who does it want to land on? | Helps · Harms · Either (forced movement, terrain) | Allies first or enemies first (Decided Nov 4), friendly fire cost, shield bearer or attacker |
+| Side | Who does it want to land on? | Helps · Harms · Either (forced movement, terrain) | Allies first or enemies first (Decided Nov 4), friendly fire cost, a summon's neighbours or a tether's two ends |
 | Lands on | What does it touch? | A unit · hexes · a summon · a gate's travelers · a spell (Dispel center only, Decided Nov 5) · the whole battlefield | Which major output type it sits in; whether filters work (not on ground, Decided Nov 4) |
 | How long | When does it end? | Instant · this round · next turn · lingers for some rounds · until removed | Lingering, Dispel, delay, linked spells' timing |
 | Status | Does it stick to a unit as a status? | Yes · No | What Dispel strips, the once per unit per spell rule, stacking |

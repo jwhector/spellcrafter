@@ -39,6 +39,11 @@ before it's priced are in the [effect flags checklist](effect-flags-checklist.md
 - **Forced movement** (the Push and Pull inscriptions) is paid from the spell's
   budget by hexes moved times units moved.
 
+- **No minor rune effect may be worth more than the major output on the same
+  budget** (Jared, Nov 5). The audit tool flags any that is, in step 4 (the
+  numbers pass). A minor rune effect that scales with the target's maximum
+  health is the usual cause, which is why Wound's finish uses a fixed amount.
+
 **Proposed (preliminary values, Jared Nov 5).** The handoff records these as
 decided, but no frozen doc states them, and Jared marked them preliminary:
 

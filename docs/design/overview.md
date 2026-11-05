@@ -45,6 +45,14 @@ economy yet. System A and System B run on one engine so both can be playtested.
 - **Enemy intent (Nov 3).** Each enemy shows only its next move, Slay the Spire
   style, drawn as its sigil. Deciphering the sigil is optional and gives an
   advantage; players who don't can still play.
+- **When an enemy's move is fixed (Proposed, Jared Nov 5, to playtest).** Enemy
+  moves use the same grammar as players' spells. A move aimed at a place (an
+  area, a line, a wall) is fixed when it's shown, so it can be dodged, at the cost
+  of the bonus action, or enemies can be pushed into it. A move aimed at a unit
+  (single target, bolt, chain) follows its target, so only shields, hiding,
+  body-blocking or control answer it. Dodging stays costly because a move is the
+  bonus action and standard movement is 1 hex, and there are more threats than
+  answers. Reading the sigil tells players which kind a move is.
 - **Live actions.** Actions in the players' phase land the moment you take them.
 - **Action economy.** Each round you get an action and a bonus action (like D&D).
   The bonus action is either a move or certain kinds of spells, so moving is a

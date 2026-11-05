@@ -77,17 +77,19 @@ name). Nothing else describes a spell.
 
 | Property primitive | What it holds | Possible values |
 | --- | --- | --- |
-| **Output** | The kind of thing the spell produces: its major output type | effect on a place, effect on a unit, link, gate, summon, shield, altered spell, global effect, ground |
+| **Output** | The kind of thing the spell produces: its major output type | effect on a place, effect on a unit, gate, summon, shield, altered spell, global effect, ground (a tether is a link under an effect, not an output of its own: Decided Nov 5) |
 | **Where** | Ordered destinations, the region at each destination, the origin, the anchor, and how the region changes over time | destinations from the shape; anchors: a hex, a unit, the other unit in a trigger event; region shapes: grow, shrink, sweep, close in, anchor, follow a unit, steer, jump between zones |
 | **When** | Start, duration, repeats | now, next round, on a trigger; instant or N rounds; once or each round |
 | **Who** | Which units it touches, in what order, and what carries it | everyone, enemies only, allies only; weakest first with a health pool; carried by nothing, a unit, or a summon |
 | **What** | The payload: a list of engine primitive calls | damage, heal, move, status, terrain, create, remove, link, alter spell, global rule, set aside |
 | **How much** | A magnitude for each payload item | set by the power budget, then scaled |
-| **Aspects** | Only for major outputs and links (summons, gates, links, shields, ground): small effect records attached to the output, each with its own When | "on hit", "each round", "on pass-through", "along the link" |
+| **Aspects** | Only for major outputs (summons, gates, shields, ground, global effects): small effect records attached to the output, each with its own When | "each round", "on pass-through", "when it breaks" (a shield's Amplification burst) |
 
-Aspects are effect records inside an effect record, which is how a burning,
-teleporting summon is described: a summon whose aspects are "burn neighbours each
-round" and "teleport once per round". Minor Where inscriptions generalize aspects
+Aspects are effect records inside an effect record, which is how a
+self-copying, blinking summon is described: a summon whose aspects are "a
+half-strength copy appears next round" and "blink once per round". An effect
+around a summon (a burning aura) comes from a minor Where inscription instead
+(Decided Nov 5, on a summon). Minor Where inscriptions generalize aspects
 into **sub-effects**: small effect records anchored on the output. Aspects on a
 summon are sub-effects anchored on a summon. Nesting stops at one level.
 
@@ -199,7 +201,7 @@ For each output, the forge tries these in order:
 
 1. What, on the output's own recipients.
 2. What, re-aimed at the nearest unit the output involves: the spell's caster, a
-   gate's travelers, a summon's neighbours, a shield's attacker.
+   gate's travelers, a summon's neighbours, a shield's bearer.
 3. Where or When, if the rune has a minor rune effect there.
 4. If nothing fits, the rune does nothing in that major output type, and the forge flags it as
    wasted rather than inventing a meaning.
