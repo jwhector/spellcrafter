@@ -36,7 +36,7 @@ then decides which row of the major output types table its minor runes read
 | Frost | Plain effect | Fire | an effect | Chills the target, which loses its bonus move | Every unit's bonus move is gone while it lasts (Decided, Jared Nov 5) |
 | Mend | Plain effect | Wound | an effect | Heals the target | Every unit heals for part of the damage it deals, which rewards the side that hits harder (Decided, Jared Nov 5) |
 | Wound | Plain effect | Mend | an effect | Deals plain damage, more to units below half health | Everyone takes a little damage at the end of each round (Decided, Jared Nov 5) |
-| Protect | Amplifier | Expose | a shield | Shields the target, which also heals a little more; the ring changes the shield itself | No single hit can take more than a set share of a unit's health (bosses need care) (Decided, Jared Nov 5) |
+| Protect | Amplifier | Expose | a shield | Shields the target, which also heals a little more; the ring changes the shield itself | No single hit can take more than a set share of a unit's health (Decided, Jared Nov 5; how it treats bosses is Open) |
 | Expose | Amplifier | Protect | an effect | Makes the target take more damage and heal less | All damage is increased a little (Decided, Jared Nov 5) |
 | Portal | Mover | none | a gate | Opens a gate that lasts the round; anyone can walk through. Cast on yourself with an extra destination, it moves you there | Units move by blinking: a move can pass walls and units, at the same distance. The old rule (two random hexes become linked gates each round) is now Portal's minor rune effect on a global modification (Decided, Jared Nov 5) |
 | Summon | Maker | Dispel | a summon | Creates a body at each destination; the ring says what it is made of. Aimed at a unit, the unit is set aside and the body takes its place until it dies or the spell ends | A weak neutral creature enters at the edge each round (Decided, Jared Nov 5) |
@@ -235,7 +235,7 @@ behaves. The numbers are preliminary values.
 | --- | --- |
 | Fire | When it ends, it comes back once for a round at half strength. Only the major output repeats, without the minor runes |
 | Frost | Units moving while it lasts slide 1 hex further |
-| Mend | Your side is spared its harmful parts: the one filter on a global modification, as on ground |
+| Mend | Your side is spared its harmful parts: the one filter on a global modification, as on ground (to playtest) |
 | Wound | While it lasts, units at or below the fixed amount of health (as at a destination) die |
 | Protect | Units in cover are spared it |
 | Expose | Nothing can block it: it gets through dispel ground and "can't be undone" |
@@ -252,6 +252,7 @@ behaves. The numbers are preliminary values.
 
 ## Open
 
+- [ ] How Protect's global cap on a single hit treats bosses.
 - [ ] Amplification and Diminishing: whether to swap their major outputs and
       minor rune ideas, reviewed across every major output type (Jared, Nov 5).
       Diminishing's minor rune is still a cooldown and size knob everywhere.

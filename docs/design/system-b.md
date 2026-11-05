@@ -326,7 +326,8 @@ items are tradable like runes or bound like inscriptions.
 ## Ground
 
 **Proposed (Nov 4).** A lingering effect on a place is ground, and a wall always
-leaves ground. Ground can't be attacked.
+leaves ground. Ground can't be attacked, except Summon's cloud (below), which is a
+summon.
 
 **Decided (Nov 5): the major rune sets what the ground does, and the minor runes
 change it.** The ground is the major output, lasting: lingering Fire is burning
@@ -360,9 +361,11 @@ for, nearest first.
 | Revelation | Units in it can't hide, and enemies in it show their next move exactly (area, pushes and side effects) without deciphering (to playtest) |
 
 Keeping a ground going is the totem's job (Summon as a minor rune), so Summon's
-own ground is the cloud rather than something that refreshes. Opposite pairs cancel on ground, except Summon and Dispel. Units that
-die leave **remains**, a kind of ground, and a summon raised on remains is
-stronger.
+own ground is the cloud rather than something that refreshes.
+
+**Proposed (Nov 4):** opposite pairs cancel on ground, except Summon and Dispel.
+Units that die leave **remains**, a kind of ground, and a summon raised on remains
+is stronger.
 
 **Decided (Nov 4):** battlefields start with terrain players can reshape, and filters
 don't work on ground. The one exception is Mend as a minor rune, which spares
@@ -370,7 +373,8 @@ allies from a ground's harmful effects (Jared, Nov 5, to playtest). How grounds 
 expansion.
 
 **Proposed (Nov 4): three ways a player shapes terrain.** Make it (any area spell
-with lingering leaves ground, and its ring sets the properties). Change what's
+with lingering leaves ground; its major rune sets what the ground does and its
+minor runes change it, Decided Nov 5). Change what's
 already there (aim a sigil at existing ground and its runes react with it through
 the rune-by-state table: fire on ice clears it, dispel removes it). Change it
 everywhere (a global modification rewrites terrain rules).
@@ -496,7 +500,7 @@ are still placeholders, so we can talk about the parts.
 | destination | A place the spell acts; a burst has one, a dash two (start and landing), a chain three | Jared | point |
 | section | The minor runes that act at one destination (an engine word) | Jared | |
 | cohort | Neighbouring runes whose order doesn't matter | Jared | bundle |
-| aspect | A minor rune that becomes a lasting property of a summon, ground, a shield or a global modification | Jared | trait |
+| aspect | A minor rune that becomes a lasting property of a summon, ground or a shield | Jared | trait |
 | primitives | The engine's building blocks (see the [engine model](engine-model.md)) | Jared | |
 | property primitives | The seven properties every spell record has | Jared | |
 | recipe, recipe id | A spell's identity: the sigil after sorting and merging | Jared | |
