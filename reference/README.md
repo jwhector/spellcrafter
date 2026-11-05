@@ -26,6 +26,10 @@ he sent them, except that the two tests are named `.cjs` instead of `.js`:
 they use `require`, and this package is an ES module package, so Node would
 refuse them as `.js`.
 
+The tests need Playwright with Chromium, which this package does not
+install. Cloud sessions have both preinstalled. Elsewhere, run
+`npm install --no-save playwright && npx playwright install chromium` first.
+
 - `crafter-test.cjs`: a Playwright smoke test for the crafter. It clicks
   every preset, prints the reading of preset 20 onward, sweeps every center
   and shape with the lingering toggle, prints any page errors, and saves

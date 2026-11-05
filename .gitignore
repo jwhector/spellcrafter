@@ -6,4 +6,5 @@ coverage/
 *.log
 .DS_Store
 *.tsbuildinfo
-shot*.png
+/shot.png
+reference/shot*.png
