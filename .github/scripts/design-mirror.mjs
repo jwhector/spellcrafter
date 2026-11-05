@@ -54,34 +54,48 @@ function headingId(text) {
 const escapeHtml = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
 /**
- * Renders one doc. Links to another design doc switch tabs; other relative
- * links point at the file on GitHub's main branch.
+ * Renders one doc. Links to another design doc switch tabs, and a link to a
+ * heading (in this doc or another) also scrolls to it; other relative links
+ * point at the file on GitHub's main branch. Heading ids follow GitHub's
+ * anchors, prefixed with the doc's tab id, so the same link works in both.
  */
 export function renderDoc(file, markdown, { files, repoUrl }) {
   const slug = slugOf(file);
   const headings = [];
+  const ids = [];
+  const links = [];
   const seen = new Map();
   const marked = new Marked({
     gfm: true,
-    walkTokens(token) {
-      if (token.type !== "link") return;
-      const href = token.href;
-      if (/^[a-z]+:/i.test(href) || href.startsWith("#")) return;
-      const [path, anchor] = href.split("#");
-      if (files.includes(path)) {
-        token.href = `#${slugOf(path)}`;
-        return;
-      }
-      const target = posix.normalize(posix.join(DESIGN, path));
-      token.href = `${repoUrl}/blob/main/${target}${anchor ? `#${anchor}` : ""}`;
-    },
     renderer: {
+      link({ href, title, tokens }) {
+        const text = this.parser.parseInline(tokens);
+        let out = href;
+        let jump = "";
+        if (href.startsWith("#")) {
+          out = `#${slug}`;
+          jump = `${slug}--${href.slice(1)}`;
+        } else if (!/^[a-z]+:/i.test(href)) {
+          const [path, anchor] = href.split("#");
+          if (files.includes(path)) {
+            out = `#${slugOf(path)}`;
+            if (anchor) jump = `${slugOf(path)}--${anchor}`;
+          } else {
+            const target = posix.normalize(posix.join(DESIGN, path));
+            out = `${repoUrl}/blob/main/${target}${anchor ? `#${anchor}` : ""}`;
+          }
+        }
+        if (jump) links.push(jump);
+        const attrs = `${jump ? ` data-jump="${escapeHtml(jump)}"` : ""}${title ? ` title="${escapeHtml(title)}"` : ""}`;
+        return `<a href="${escapeHtml(out)}"${attrs}>${text}</a>`;
+      },
       heading({ tokens, depth }) {
         const inner = this.parser.parseInline(tokens);
         let id = `${slug}--${headingId(inner)}`;
         const n = seen.get(id) ?? 0;
         seen.set(id, n + 1);
         if (n > 0) id = `${id}-${n + 1}`;
+        ids.push(id);
         if (depth === 2 || depth === 3) headings.push({ id, depth, html: inner });
         return `<h${depth} id="${id}">${inner}</h${depth}>\n`;
       },
@@ -96,7 +110,7 @@ export function renderDoc(file, markdown, { files, repoUrl }) {
       (_, w) => `<strong class="mark mark-${w.toLowerCase()}">${w}`,
     );
   const title = (markdown.match(/^# (.+)$/m)?.[1] ?? file).trim();
-  return { slug, file, title, html, headings };
+  return { slug, file, title, html, headings, ids, links };
 }
 
 /** The page, from the rendered docs and where they came from. */

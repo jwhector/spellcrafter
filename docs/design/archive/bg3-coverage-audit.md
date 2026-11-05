@@ -2,6 +2,14 @@
 
 Nov 4, 2026 · @Jared
 
+**Archived 2026-11-05.** From the Claude Doc (frozen rev 24). The audit is finished:
+every fix it proposed was put into the design on Nov 4, and its open questions
+were answered. The fixes live in [System B rules](../system-b.md), the
+[rune reference](../rune-reference.md) and the [engine model](../engine-model.md);
+the terrain brainstorm became ground. The spell list is still a useful coverage
+test, and its data is in `reference/bg3-spells.py`. Links below point at the
+frozen Claude Docs.
+
 Half of the BG3 spells that fit this game can be built today, and four additions would take that to about three quarters. I rebuilt 176 spells from levels 0 to 6 and skipped 37 that don't fit. 88 (50%) are an easy fit, 28 (16%) are an awkward fit, and 60 (34%) need an extension.
 
 The four additions that unlock the most, in order. Everything here is Proposed.

@@ -13,8 +13,8 @@ and saw as a `Proof:` paragraph in a commit message.
 
 - **Engine rules** (`engine/`). Run the rule on the cases the design docs
   give, and compare with what the doc says, line by line. The worked
-  examples in `docs/design/spell-model.md` and the recipes in
-  `docs/design/effect-flags-checklist.md` are the reference cases. Where the
+  examples in `docs/design/engine-model.md` and the recipes in
+  `docs/design/budget-model.md` are the reference cases. Where the
   reference crafter (`reference/crafter.html`) still matches the design,
   compare its output for the same circle too; where it is out of date (see
   `reference/README.md`), the docs win. A test that encodes a doc's example

@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { test } from "node:test";
 import { buildPage, docFiles, renderDoc, slugOf } from "./design-mirror.mjs";
 
@@ -65,4 +65,27 @@ test("the page names its source commit and shows the first tab", () => {
   assert.match(page, />abcdef1<\/a> on main, 2026-11-05/);
   assert.match(page, />Game design<\/a>/);
   assert.doesNotMatch(page, /\{\{[A-Z_]+\}\}/);
+});
+
+test("links to a heading jump to it, in this doc or another", () => {
+  const md = "# T\n\n## The parts\n\nSee [parts](#the-parts) and [linking](spell-model.md#linking).";
+  const doc = renderDoc("game-design.md", md, OPTS);
+  assert.match(doc.html, /href="#game-design" data-jump="game-design--the-parts"/);
+  assert.match(doc.html, /href="#spell-model" data-jump="spell-model--linking"/);
+});
+
+test("every link between the repo's design docs lands on a heading or file that exists", () => {
+  const dir = new URL("../../docs/design/", import.meta.url);
+  const readme = readFileSync(new URL("README.md", dir), "utf8");
+  const files = [...docFiles(readme), "README.md"];
+  const opts = { files, repoUrl: "https://github.com/o/r" };
+  const docs = files.map((f) => renderDoc(f, readFileSync(new URL(f, dir), "utf8"), opts));
+  const ids = new Set(docs.flatMap((d) => d.ids));
+  const missing = docs.flatMap((d) => d.links.filter((l) => !ids.has(l)).map((l) => `${d.file}: ${l}`));
+  assert.deepEqual(missing, []);
+  const relative = docs.flatMap((d) =>
+    [...d.html.matchAll(/href="https:\/\/github.com\/o\/r\/blob\/main\/([^"#]+)/g)].map((m) => [d.file, m[1]]),
+  );
+  const absent = relative.filter(([, path]) => !existsSync(new URL(`../../${path}`, import.meta.url)));
+  assert.deepEqual(absent, []);
 });

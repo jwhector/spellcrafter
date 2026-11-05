@@ -1,10 +1,117 @@
-# Sigil brainstorm
+# The Hollow: System A
 
-Nov 3, 2026 · @Jared
+System A builds a spell from a fixed sigil plus runes. It is one of the two
+crafting systems Jared will A/B test (Decided Nov 3); the other is
+[System B](system-b.md). Linking, which both systems use, is in
+[System B rules](system-b.md#linking).
 
-A throw-everything-at-the-wall list for [The Hollow: game design](https://claude.ai/artifact/3dn6hFFKkYTwLjKffii1gL). Labels are plain descriptions, not names. Runes in examples (protect, fire, frost, force, mend, stone) are placeholders, each read three ways: on a unit, on the ground, on yourself. Cooldowns are in rounds; **A** = uses your action, **B** = uses your bonus action.
+## Sigils
 
-## Shapeshifter
+**Decided (Nov 3)**
+
+- The configuration a spell is built on is called a **sigil** (Jared's name).
+- Sigils are learned by playing and can never be traded. Possibly learned by
+  consuming an item (Open).
+- **Sigils are geometry, runes are effects.** A sigil sets shape, slots, timing and
+  where the spell starts (you, a target hex, an ally). Effects, including movement
+  of units, come from runes.
+- **Movement runes work relative to the spell's starting point:** a push sends units
+  away from it, a pull drags them toward it. So a circle sigil with a push is an
+  outward blast and with a pull is a vortex; no separate vortex sigil.
+- **Exception:** sigils that move the caster (dash, leap) stay sigil-defined,
+  because the caster's travel is part of the geometry.
+
+(In System B, Push and Pull became inscriptions on Nov 5. Whether System A keeps
+them as runes is not decided.)
+
+**Proposed: the sigil is the form, runes are the substance**
+
+|  | Sigil | Rune |
+| --- | --- | --- |
+| What it decides | Slot count, cooldown, slot layout (how each slot channels a rune), area shape, range, what it can target, action or bonus action | Element, effect (damage, heal, shield, push, terrain), strength (quality) |
+| How you get it | Learned by playing (bosses, quests, depth, discoveries) | Drops, trading, fusing |
+| Owned how | Knowledge: permanent, personal, never traded | Items: collected, traded, fused, offered |
+| Progression meaning | What you've *learned*: shows experience | What you *own*: shows collection and wealth |
+
+- **Slots channel runes differently.** Example: the center slot applies a rune at
+  full strength to the target, an outer slot applies it at half strength to the
+  area around, another slot turns it into terrain. Same rune, different result
+  depending on where it sits.
+- **Slots can have constraints** ("only an element here"), which makes crafting a
+  small puzzle between battles.
+- **References:** Path of Exile (skill gems in linked item sockets) and Diablo 2
+  runewords (runes in a socketed item form a named effect). Both separate the
+  container from what goes in it.
+- **The sigil sets the cooldown and the number of slots,** fixed when the spell is
+  created. A small sigil (1 or 2 slots) comes back every round or two; a large
+  one (5 slots) is once per battle.
+- **Upgrade versus new spell:** changing the sigil makes a new spell with its own
+  cooldown. Since runes are consumed when learning a spell (Decided Nov 3), an
+  upgrade means learning the spell again with better runes.
+- Modifiers (doubling, copying, extending) live on sigil slots, so runes stay pure
+  effects.
+- Around 8 runes at launch. Variety comes from runes × sigils × slot positions, not
+  from a long rune list.
+
+**Worked example (illustrative): a 2-slot line sigil.** Shape: a line 3 hexes out
+from you. Action, cooldown 1. The *tip* slot applies its rune at full strength to
+the first unit the line hits; the *trail* slot applies its rune to every hex along
+the line as terrain.
+
+- Fire at the tip, frost in the trail: burns the first enemy and leaves ice along
+  the line.
+- Push at the tip, fire in the trail: shoves the first enemy back along the line
+  onto burning ground.
+- Heal at the tip, shield in the trail: heals the first ally in line and protects
+  the hexes leading to them.
+
+**What a sigil can decide, with examples**
+
+| Property | Example sigil |
+| --- | --- |
+| Shape | 3-slot triangle (a cone): front slot hits the nearest row at full strength, back slots hit the wider rows at half |
+| Origin | 2-slot through-ally: cast onto a teammate; slot 1 affects the ally, slot 2 everything adjacent to them |
+| Targets | 1-slot ring around you: applies its rune to all 6 neighbouring hexes (push everyone away, or heal adjacent allies) |
+| Action cost | That same 1-slot ring is a bonus action, so it can be used instead of moving |
+| Timing: delayed | 2-slot marked point: mark a hex 3 away; next round it erupts (slot 1 at the center, slot 2 in a ring). Telegraphed like enemy attacks |
+| Timing: triggered | 1-slot reaction: fires when an enemy steps next to you during the enemy phase (the if/then idea) |
+| Duration | 3-slot wall: a line of 3 hexes sideways in front of you, terrain lasting 2 rounds, middle slot stronger |
+| Movement | 2-slot dash: move up to 2 hexes in a line (beyond the 1-hex rule) and apply the runes to whatever you pass |
+| Slot rules | A slot that doubles the rune beside it, a slot that copies its rune to the next ally who acts, a slot that only takes elements |
+
+**Proposed: every rune has three readings.** A rune always means the same thing, but
+how it shows up depends on where the sigil sends it: onto a **unit**, onto the
+**ground** (terrain), or onto **yourself**. Players learn one meaning per rune, and
+the sigil does the translating. The runes here are illustrative.
+
+| Rune (illustrative) | On a unit | On the ground | On yourself |
+| --- | --- | --- | --- |
+| Protect | A shield that absorbs damage | A barrier hex that blocks line attacks and movement | You take less damage this round |
+| Fire | Damage now plus burning | Burning hexes that hurt whoever stands there | Your next spell deals extra fire damage |
+| Frost | Slowed or frozen in place | Ice: units slide one extra hex when pushed or moving | You can't be pushed this round |
+| Force | Pushed one hex away from the source | A hex that pushes whoever enters it | You move one extra hex |
+| Mend | Heals | A healing zone for allies standing in it | Heal yourself |
+| Stone | Stunned briefly | Raises an obstacle (blocks movement and line of sight) | Hard to move and harder to hurt |
+
+Examples:
+
+- **Dash sigil + protect:** you dash and gain a shield on the way in. If the dash's
+  other slot puts protect on units passed, every ally you run past gets a shield
+  too: a rescue run.
+- **Wall sigil + protect:** the wall becomes a barrier that blocks enemy line
+  attacks and blocks movement for 2 rounds. With fire instead, it's a burning line
+  enemies won't want to cross; with frost, a slippery line that sends pushed
+  enemies sliding.
+
+## Brainstorm: 42 sigils (Nov 3)
+
+A throw-everything-at-the-wall list. Labels are plain descriptions, not names.
+Runes in examples (protect, fire, frost, force, mend, stone) are placeholders, each
+read three ways: on a unit, on the ground, on yourself. Cooldowns are in rounds;
+**A** = uses your action, **B** = uses your bonus action. Number 25 was superseded
+on Nov 3 and is in the [archive](archive/superseded.md).
+
+### Shapeshifter
 
 | # | Sigil | Shape and slots | Cost | Example |
 | --- | --- | --- | --- | --- |
@@ -17,7 +124,7 @@ A throw-everything-at-the-wall list for [The Hollow: game design](https://claude
 | 7 | Sweep | The 3 hexes in an arc in front of you. Left slot and right slot can hold different runes | A, 1 | Protect left on an ally, fire right on an enemy, in one swing |
 | 8 | Chain | Hits a target, then jumps to the nearest other unit within 2 hexes, ally or enemy. Slot 1: first target. Slot 2: the second | A, 2 | Fire then mend: hit an enemy, and the jump heals the ally beside it |
 
-## Allies and support
+### Allies and support
 
 | # | Sigil | Shape and slots | Cost | Example |
 | --- | --- | --- | --- | --- |
@@ -27,7 +134,7 @@ A throw-everything-at-the-wall list for [The Hollow: game design](https://claude
 | 12 | Gift | An ally up to 3 away gets your rune's *on yourself* reading | B, 1 | Frost: your ally can't be pushed this round |
 | 13 | Sanctuary | A 7-hex circle around a target hex for 2 rounds. Center slot: ground at the center. Ring slot: ground around it. Third slot: on allies who enter | A, 3 | Mend everywhere, protect for whoever steps in: a safe camp mid-fight |
 
-## Timing
+### Timing
 
 | # | Sigil | Shape and slots | Cost | Example |
 | --- | --- | --- | --- | --- |
@@ -36,9 +143,9 @@ A throw-everything-at-the-wall list for [The Hollow: game design](https://claude
 | 16 | Retaliation | For this round, every enemy that hits you gets the slot's rune | B, 2 | Fire: attackers catch fire. Force: attackers get knocked back |
 | 17 | Charged | Takes your action this round and next. Fires at the end of next round at double strength. 3 slots. If you're pushed while charging, it fizzles | A (2 rounds), 3 | Three fire runes in a burst: a huge payoff if your team keeps you safe |
 | 18 | Aura | Follows you for 3 rounds. 1 slot: at the end of each round, applies to the hex you stand on and adjacent units | A, 3 | Mend: a walking heal for whoever stays close to you |
-| 19 | Foresight | Deciphers the enemy's shown move for the party: exact area, push directions and side effects (was: revealed the hidden order, dropped Nov 3). 1 slot: on everyone that move is about to hit | A, 3 | Protect: pre-shield exactly the allies about to be hit. Force: push them out of it |
+| 19 | Foresight | Deciphers the enemy's shown move for the party: exact area, push directions and side effects. 1 slot: on everyone that move is about to hit | A, 3 | Protect: pre-shield exactly the allies about to be hit. Force: push them out of it |
 
-## Movement and displacement
+### Movement and displacement
 
 | # | Sigil | Shape and slots | Cost | Example |
 | --- | --- | --- | --- | --- |
@@ -47,9 +154,8 @@ A throw-everything-at-the-wall list for [The Hollow: game design](https://claude
 | 22 | Pull | A line 4 hexes out. Drags the first unit hit to the hex next to you. Slot 1: on that unit. Slot 2: ground on the hexes it was dragged over | A, 1 | Pull a stranded ally to safety, or yank an enemy across burning ground |
 | 23 | Shove | Hit an adjacent unit and push it 2 hexes. If it collides with something, the slot's rune hits both | A, 1 | Stone: push an enemy into another and stun them both |
 | 24 | Escort | Move yourself and one adjacent ally 1 hex together. 1 slot: on both of you | B, 1 | Protect: walk your ally out of danger with a shield on both of you |
-| 25 | Vortex | (Superseded Nov 3: a vortex is now a circle sigil with a pull rune, since movement comes from runes.) Target a hex; every unit within 2 hexes is pulled 1 hex toward it. Slot 1: ground at the center. Slot 2: on every unit pulled | A, 3 | Fire center + frost on units: gather the enemies, freeze them on top of a fire |
 
-## Terrain and zones
+### Terrain and zones
 
 | # | Sigil | Shape and slots | Cost | Example |
 | --- | --- | --- | --- | --- |
@@ -59,7 +165,7 @@ A throw-everything-at-the-wall list for [The Hollow: game design](https://claude
 | 29 | Scatter | Choose 3 separate hexes up to 3 away; each gets one slot's rune as ground | A, 2 | Paint a route of protect hexes for allies, or ring an enemy with fire |
 | 30 | Spreading ground | 1 slot on one hex; the ground spreads one hex in every direction each round for 3 rounds | A, 3 | Fire: a slow wildfire that herds enemies. Mend: a growing safe area |
 
-## Party combos and wild runes
+### Party combos and wild runes
 
 | # | Sigil | Shape and slots | Cost | Example |
 | --- | --- | --- | --- | --- |
@@ -69,7 +175,7 @@ A throw-everything-at-the-wall list for [The Hollow: game design](https://claude
 | 34 | Mimic | No slots. Recast the last spell an ally cast this round, from your position, with their runes | A, 3 | Copy the healer's sanctuary on the other side of the board |
 | 35 | Relay | Slot 1 applies to an ally now. Slot 2 is handed to that ally, who can fire it from their position before the round ends | A, 2 | You give the Dash user a free fire burst to drop wherever they land |
 
-## Risky and strange
+### Risky and strange
 
 | # | Sigil | Shape and slots | Cost | Example |
 | --- | --- | --- | --- | --- |
@@ -81,9 +187,19 @@ A throw-everything-at-the-wall list for [The Hollow: game design](https://claude
 | 41 | Gamble | 2 slots. Which slot goes to the target and which goes to you is decided at random | A, 0 | Cheap and fast, sometimes hilarious |
 | 42 | Anchor | 1 slot. Pins a unit up to 3 away: it can't move or be moved for 1 round | B, 2 | Lock an enemy inside a delayed mark, or keep an ally from being knocked off a ledge |
 
-## Patterns worth noticing
+### Patterns worth noticing
 
 - **Cooldown tracks slot count and reach:** 1 slot and short range tend toward 0–1, 3+ slots or board-wide effects toward 3 or once per battle.
 - **Bonus-action sigils are small and reactive:** rings, swaps, gifts, reactions. They compete with your 1-hex move, which is the tension Jared wanted.
 - **Several sigils only shine with a teammate** (Through an ally, Tether, Prime, Convergence, Relay, Mimic). That's the social layer built into crafting.
 - **Candidates to cut first** if this is too much: Mimic, Relay, Gamble, Inversion. They're the hardest to read at a glance.
+
+## Open
+
+- [ ] Slot constraints: yes or no?
+- [ ] How many sigils exist, and how many can one player know?
+- [ ] If sigils are learned from an item, can that item be traded? A tradable item
+      effectively makes sigils tradable.
+- [ ] Can a player teach a sigil to another player (social, but not trading)?
+- [ ] Whether System A keeps Push and Pull as runes now that System B made them
+      inscriptions.
