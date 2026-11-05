@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+# Fast checks on what is staged: Biome's format and lint, on staged files only.
+# The full gate (typecheck, tests, build) runs in CI and before a push, not here.
+#
+# Bypass (rarely correct): git commit --no-verify
+
+repo=$(git rev-parse --show-toplevel) || exit 0
+cd "$repo" || exit 0
+
+if [ ! -x node_modules/.bin/biome ]; then
+  echo "pre-commit: Biome is not installed (run 'npm ci'), so staged files were NOT checked." >&2
+  exit 0
+fi
+
+node_modules/.bin/biome check --staged --no-errors-on-unmatched --files-ignore-unknown=true || {
+  echo "pre-commit: fix the issues above ('npm run format' fixes most), or bypass with --no-verify." >&2
+  exit 1
+}
