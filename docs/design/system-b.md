@@ -321,7 +321,34 @@ change it.** The ground is the major output, lasting: lingering Fire is burning
 ground, and Fire's major output lands again on whoever is in it. The minor runes
 become the ground's aspects, which don't depend on order, and change the ground
 itself (it spreads, it's slick, it can't be seen). Proposed (Nov 4): the ground
-acts when a unit steps onto it, stands in it at round end, or leaves it. Opposite pairs cancel on ground, except Summon and Dispel. Units that
+acts when a unit steps onto it, stands in it at round end, or leaves it.
+
+**Decided (Jared, Nov 5): the ground each major rune makes.** Filters don't work
+on ground, so it acts on both sides. The budget spreads its strength over the
+rounds it lasts, and a binary ground reaches only as many units as the budget pays
+for, nearest first.
+
+| Major rune | The ground it makes |
+| --- | --- |
+| Fire | Burning ground: units in it start burning |
+| Frost | Ice: units in it lose their bonus move and slide 1 hex further when pushed or pulled |
+| Mend | Healing ground: it heals everyone in it, enemies included |
+| Wound | Harmful ground: it damages everyone in it, more to units below half health |
+| Protect | Warded ground: units in it at round end gain a small shield |
+| Expose | Units in it take more damage and heal less |
+| Portal | A unit in it can travel to any hex of it without spending movement |
+| Summon | A cloud over the area that blocks line of sight through it. It is a summon, so any hit inside the area hits it, and it can be killed or dispelled |
+| Dispel | Statuses can't stay on units in it, and spells aimed into it lose minor runes |
+| Stone | Rock that blocks movement, crumbling to rubble (rough ground) when it ends |
+| Amplification | Units in it deal more damage and give more healing |
+| Diminishing | Units in it deal less damage and give less healing |
+| Haste | Units that start their turn in it get an extra move, once per round each. Only the first one or two, as the budget pays: a balance point to watch in playtest |
+| Slow | While a unit stands in it, it can't take actions, but it can still move |
+| Invisibility | Units in it are hidden |
+| Revelation | Units in it can't hide, and enemies in it show their next move exactly (area, pushes and side effects) without deciphering (to playtest) |
+
+Keeping a ground going is the totem's job (Summon as a minor rune), so Summon's
+own ground is the cloud rather than something that refreshes. Opposite pairs cancel on ground, except Summon and Dispel. Units that
 die leave **remains**, a kind of ground, and a summon raised on remains is
 stronger.
 
