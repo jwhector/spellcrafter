@@ -34,19 +34,19 @@ then decides which row of the major output types table its minor runes read
 
 | Rune | Role | Opposite | Makes | Aimed at the board | Across the whole battlefield |
 | --- | --- | --- | --- | --- | --- |
-| Fire | Plain effect | Frost | an effect | Burns the target now and next round | Burning lasts a round longer for everyone. Open (Jared, Nov 5): needs something more interesting |
-| Frost | Plain effect | Fire | an effect | Chills the target, which loses its bonus move | Every unit's bonus move is gone while it lasts |
-| Mend | Plain effect | Wound | an effect | Heals the target | Everyone heals a little at the start of each round. Open (Jared, Nov 5): healing enemies too makes little sense; the idea of healing stays |
+| Fire | Plain effect | Frost | an effect | Burns the target now and next round | Every damaging hit leaves its hex burning for a round (Decided, Jared Nov 5) |
+| Frost | Plain effect | Fire | an effect | Chills the target, which loses its bonus move | Every unit's bonus move is gone while it lasts (Decided, Jared Nov 5) |
+| Mend | Plain effect | Wound | an effect | Heals the target | Every unit heals for part of the damage it deals, which rewards the side that hits harder (Decided, Jared Nov 5) |
 | Wound | Plain effect | Mend | an effect | Deals plain damage, more to units below half health | Everyone takes a little damage at the end of each round (Decided, Jared Nov 5) |
-| Protect | Amplifier | Expose | a shield | Shields the target, which also heals a little more; the ring changes the shield itself | The first hit on each unit each round is reduced |
+| Protect | Amplifier | Expose | a shield | Shields the target, which also heals a little more; the ring changes the shield itself | No single hit can take more than a set share of a unit's health (bosses need care) (Decided, Jared Nov 5) |
 | Expose | Amplifier | Protect | an effect | Makes the target take more damage and heal less | All damage is increased a little (Decided, Jared Nov 5) |
-| Portal | Mover | none | a gate | Opens a gate that lasts the round; anyone can walk through. Cast on yourself with an extra destination, it moves you there | Open (Jared, Nov 5): to rethink. The old rule (each round, two random hexes become linked gates) moves to Portal's minor rune effect on a global modification |
+| Portal | Mover | none | a gate | Opens a gate that lasts the round; anyone can walk through. Cast on yourself with an extra destination, it moves you there | Units move by blinking: a move can pass walls and units, at the same distance. The old rule (two random hexes become linked gates each round) is now Portal's minor rune effect on a global modification (Decided, Jared Nov 5) |
 | Summon | Maker | Dispel | a summon | Creates a body at each destination; the ring says what it is made of. Aimed at a unit, the unit is set aside and the body takes its place until it dies or the spell ends | A weak neutral creature enters at the edge each round (Decided, Jared Nov 5) |
 | Dispel | Remover | Summon | an effect | Clears statuses, terrain and summons | All statuses and lingering terrain clear, and new ones last only a round (Decided, Jared Nov 5) |
 | Stone | Maker | none | an effect | Raises stone that blocks movement; units already standing there are encased | The edge hexes turn to rock, shrinking the battlefield (Decided, Jared Nov 5) |
-| Amplification | Amplifier | Diminishing | an effect | Makes the target deal more damage and give more healing for a round | Everyone deals a little more |
-| Diminishing | Amplifier | Amplification | an effect | Makes the target deal less damage and give less healing for a round | Everyone deals a little less |
-| Haste | Plain effect | Slow | an effect | Gives the target an extra move next turn (an extra action with more strength) | Everyone gets an extra move each round |
+| Amplification | Amplifier | Diminishing | an effect | Makes the target deal more damage and give more healing for a round | A hit on a unit already hit this round deals more, which rewards focus fire (Decided, Jared Nov 5) |
+| Diminishing | Amplifier | Amplification | an effect | Makes the target deal less damage and give less healing for a round | A hit on a unit already hit this round deals less, which rewards spreading damage (Decided, Jared Nov 5) |
+| Haste | Plain effect | Slow | an effect | Gives the target an extra move next turn (an extra action with more strength) | Everyone gets an extra move each round (Decided, Jared Nov 5) |
 | Slow | Plain effect | Haste | an effect | Makes the target lose its next action; on an enemy that cancels its shown move | Each unit can either act or move on its turn, not both (Decided, Jared Nov 5) |
 | Invisibility | Plain effect | Revelation | an effect | Hides the target: single, bolt and chain spells can't pick it until it acts, and an enemy move aimed at it loses its target; areas still hit it | Units more than 3 hexes away can't be picked as single targets (Decided, Jared Nov 5) |
 | Revelation | Plain effect | Invisibility | an effect | Removes hiding from the target and stops it hiding again for a round. On an enemy, it also shows that enemy's next move exactly (Proposed, Jared Nov 5, to playtest) | No one can hide (Decided, Jared Nov 5) |
@@ -70,7 +70,7 @@ names are still placeholders (see the [glossary](system-b.md#glossary)).
 | Fire | Spreads | Next round the effect hits again on units next to the ones it hit, at half strength. Only the major output repeats, without the minor runes (Jared, Nov 5) |
 | Frost | Slick | Units the effect hits slide 1 hex further from any push or pull this round; at a destination it also leaves ice |
 | Mend | Spares allies | At a destination, allies take none of the effect's harm, and nobody is healed. On a unit, a weak heal (about a quarter of a Mend center's on the same budget) goes to the target if it's an ally, or to the caster if it's an enemy |
-| Wound | Finishes | Units the effect leaves below a fifth of their health die |
+| Wound | Finishes | Units the effect leaves at or below a fixed amount of health die, whatever their maximum health, so it is strong on weak units and does little to bosses (Jared, Nov 5; the amount is a preliminary value) |
 | Protect | Capped guard | You gain one shield worth about a quarter of everything the effect did |
 | Expose | Pierces | The effect ignores shields and cover |
 | Portal | From elsewhere | The spell starts from an ally or your summon instead of you, for range and line of sight |
@@ -83,9 +83,6 @@ names are still placeholders (see the [glossary](system-b.md#glossary)).
 | Slow | Drawn out | The effect lands in pieces over this round and the next two. The later pieces are priced like delay, so the total comes out higher (about ×1.2, to tune). Binary effects start a round later and last a round longer. The delay inscription stays |
 | Invisibility | Unseen | Enemies can't see the effect's area or read it, at any time (Jared, Nov 5). An enemy AI is blind to it too |
 | Revelation | Seeking | The effect can pick hidden units, but they stay hidden; the center is what removes hiding |
-
-**Open:** whether Wound's finish applies to bosses (immune, or a smaller
-threshold).
 
 ## Minor rune effect: through a gate
 
@@ -183,7 +180,7 @@ change the ground itself. The numbers are preliminary values.
 | Fire | It grows 1 hex each round it lasts |
 | Frost | Units crossing it slide 1 hex further |
 | Mend | Allies are spared its harmful effects. This is the one filter that works on ground (Jared, Nov 5, to playtest) |
-| Wound | Units it leaves below a fifth of their health at round end die |
+| Wound | Units it leaves at or below a fixed amount of health at round end die (the same fixed amount as at a destination) |
 | Protect | Cover: units in it take less damage from attacks that come from outside it |
 | Expose | Open sightlines: units in it can be targeted from anywhere within range, through walls, clouds and cover |
 | Portal | Random pairs of its hexes are linked: step on one and come out at the other |
@@ -281,7 +278,6 @@ shapes that global effect.
 
 - [ ] The ring review: global modification and along a tether (next).
 - [ ] What the Blank rune does in the center and in the ring.
-- [ ] Wound's finish against bosses.
 - [ ] Which runes ship first.
 - [ ] The crafter and audit tool still show the old minor rune effects and list Push and
       Pull as runes; they get updated once the ring review is done.
