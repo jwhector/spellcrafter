@@ -193,7 +193,7 @@ change the ground itself. The numbers are preliminary values.
 | Haste | Casting it costs a bonus action |
 | Slow | It pulses: it acts every other round at double strength, and lasts twice as long |
 | Invisibility | Enemies can't see it at any time |
-| Revelation | It acts on hidden units, and they stay hidden |
+| Revelation | Your side can pick hidden units in it as single targets, and they stay hidden (Jared, Nov 6) |
 
 ## Minor rune effect: on a spell
 

@@ -71,6 +71,9 @@ the center and the ring always makes a different spell.
   cheaper, so a strong one is paid for in the spell's size and length.
 - Only a Dispel center can target a spell, and its minor runes decide what
   happens to that spell.
+- **Allowed for now (Jared, Nov 6):** a few minor rune effects still repeat
+  their rune's major output: Mend's weak heal on a unit, Protect's shield at a
+  destination and on a spell, and Frost's ice at a destination.
 - When Fire repeats or copies something (a second hit, a summon's copy, a
   repeated strip), only the major output repeats, without the minor runes
   (Jared, Nov 5).
@@ -165,10 +168,13 @@ geometry needs check against it (a portal needs two destinations).
   plus 2 extra destinations).
 - **More range.**
 - **Delay.**
-- **Lingering, one rule (Proposed Nov 4):** what the spell made lasts longer. On a
-  place that's the ground, on a unit the status, on a major output the output, on a global
-  effect the rules, and on an enemy's spell its next shown moves for a few rounds,
-  which is how lasting control works.
+- **Lingering makes ground (Decided, Jared Nov 6).** That is its one job: a spell
+  with lingering leaves its ground on the place it acts (see [Ground](#ground)).
+  Anything else that lasts longer (a status, a summon, a shield, a global
+  modification, a change to an enemy's spell) gets it from a minor rune, mainly
+  Stone. This replaces the Nov 4 proposal that lingering made whatever the spell
+  made last longer. **Open:** what lingering does on a unit shape (single target,
+  bolt, chain).
 - **Filters:** enemies only, allies only. **Decided (Nov 4):** filters don't work on
   ground, and filter balance in general is in question.
 - **Push and pull (Decided Nov 5).** Push and Pull are inscriptions, not runes, so
@@ -216,15 +222,14 @@ next destination, or to you. Four kinds:
 | Transfer | Turns damage the spell deals into healing at the other end, and moves statuses it removes (the vampire wraith) |
 | Leash | Keeps the first end within 2 hexes of the other (a fourth kind, or drop it if it isn't fun) |
 
-Presets in the crafter: damage sharing (protect with redirect), life drain (wound
+Presets in the crafter: life drain (wound
 with transfer), vampire wraith (summon with wound and transfer), shared mend (mend
 with copy) and bodyguard (summon with leash). A tether on a spell keeps its old
 meaning as copy on a spell.
 
-**Proposed (Nov 4): snap-back becomes a lingering move.** Lingering statuses and
-terrain already end when they expire. Applied to movement, a lingering move undoes
-itself when it expires, and the unit returns to where it started. A lingering
-pull is a yank that lets go.
+**Open (Nov 6): snap-back needs a new home.** The Nov 4 proposal made it a
+lingering move (a move that undoes itself when it expires, such as a yank that
+lets go), but lingering now only makes ground.
 
 **Open:** what redirect, transfer and leash mean on a spell; whether a tether on the
 whole battlefield is refused (the tools refuse it for now); a new home for the old
@@ -478,9 +483,6 @@ counterspell is a rune, and its recipient is the "on a spell" major output type.
   one is taken). It hits allies too, unless a
   filter limits it. In System A the same spell needs a linking item, which makes
   it a good A/B test case.
-- **Damage sharing.** Protect at the center, the redirect tether, allies only,
-  lingering. You take part of an ally's damage for a few rounds; the share comes
-  from the protect rune's quality.
 - **Life drain.** Wound at the center, the transfer tether.
 
 ## Glossary
@@ -527,5 +529,9 @@ placeholders.
 - [ ] Can a filter inscription narrow a global modification? Whether filters stay
       at all. (Mend's minor rune spares your side on ground and on a global
       modification, Nov 5.)
+- [ ] How damage sharing is built (taking part of an ally's damage for a few
+      rounds). The old example, a Protect center with the redirect tether, no
+      longer works now that a Protect center makes a shield (Jared, Nov 6).
+- [ ] What lingering does on a unit shape, and a new home for snap-back.
 - [ ] The Blank rune's mechanics (see the [rune reference](rune-reference.md)).
 - [ ] Names for the five roles (plain effect, amplifier, mover, maker, remover).

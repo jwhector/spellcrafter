@@ -13,6 +13,10 @@ something Jared decided.
 
 | Decision | What it replaced | Where it lives now |
 | --- | --- | --- |
+| The lingering inscription makes ground and nothing else; longer durations elsewhere come from minor runes, mainly Stone. | Lingering made whatever the spell made last longer, including lasting control on an enemy's spell (Proposed Nov 4); snap-back as a lingering move, now Open | [System B rules](system-b.md#other-major-inscriptions) |
+| Revelation on ground: your side can pick hidden units in it as single targets, and they stay hidden. | "It acts on hidden units", which did nothing because areas already hit hidden units | [Rune reference](rune-reference.md#minor-rune-effect-on-ground) |
+| Mend's weak heal on a unit, Protect's shield at a destination and on a spell, and Frost's ice at a destination may repeat their major outputs, for now. | Unflagged exceptions to "a rune's major output stays unique to the center" | [System B rules](system-b.md#what-the-center-makes-and-what-the-ring-does) |
+| How damage sharing is built is Open; the Protect-center-with-redirect example and crafter preset are dropped. | The damage sharing example | [System B rules](system-b.md#open) |
 | Lingering Summon and Protect on a place make their ground (Summon's cloud, Protect's warded ground), as a lingering Portal does. | A Summon or Protect center always made a summon or a shield | [System B rules](system-b.md#what-the-center-makes-and-what-the-ring-does) |
 | Opposite runes don't cancel: after the ring review no pair of minor rune effects are true opposites, so both apply. | Opposites cancelled by amount at a destination, on a unit and through a gate (Nov 4), and on ground (Proposed) | [System B rules](system-b.md#conflict-and-order-rules) |
 | Mend's minor rune, which spares allies, is the deliberate exception to surrounding runes never narrowing the center. | "Surrounding runes only add, never restrict" (Proposed Nov 3) | [System B rules](system-b.md#the-parts-of-a-sigil) |
