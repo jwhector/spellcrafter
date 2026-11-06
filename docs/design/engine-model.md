@@ -106,8 +106,8 @@ Every rune and inscription is a small list of writes to property primitives:
 | **Shape** | Transform Where or When (grow, shrink, sweep, close in, anchor, follow, repeat) | Center and ring |
 
 "Minor runes modify the major output" is exactly the rule that **minor runes never
-use Set**. That's why Stone can feel like an inscription on a global effect: it
-shapes Where and When (anchor, last longer), while an inscription sets them.
+use Set**. That's why Stone can feel like an inscription: it shapes When (it lasts a
+round longer), while an inscription sets it.
 
 **Compiling a sigil, in order:**
 
@@ -144,15 +144,13 @@ and at what its payload's primitives read and change:
   A move changes positions, and damage reads positions, so a push then fire is not
   fire then a push. Expose changes damage modifiers, and fire reads them; Mend
   doesn't, so Expose and Mend swap. Damage modifiers add up, so Expose and Protect
-  swap with each other (and cancel).
+  swap with each other.
 
 This replaces hand-declared "order matters" flags: the engine computes it from the
 primitives a minor rune effect uses.
 
-**Inverse adds cancel.** Fire and Frost statuses in the same cohort cancel, as do
-Mend and Wound, Protect and Expose. The forge flags them as wasted. This only
-applies where both minor rune effects in that major output type are true opposites on the same
-recipients (Decided Nov 4: at a destination, on a unit, through a gate).
+**Opposite runes don't cancel (Decided, Jared Nov 6).** Two opposite runes in a
+sigil both apply; see [System B rules](system-b.md#conflict-and-order-rules).
 
 **Duplicates scale.** A rune twice in a section becomes one write with its
 magnitude scaled up. A minor rune that matches the center scales the center the
@@ -172,6 +170,10 @@ kind, so new minor rune effects can be written consistently. Where an output has
 rune's What (a global effect has no single target to burn), the essence lands on
 Where or When instead.
 
+This table predates the ring review (crafter v14). Each rune's ring idea is now
+set by its rows in the [rune reference](rune-reference.md), and where the two
+disagree, the rune reference leads.
+
 | Rune | Essence | What (payload) | Where (shape) | When (shape) | Who / How much |
 | --- | --- | --- | --- | --- | --- |
 | Fire | burning | burn status, burning terrain | | | |
@@ -186,8 +188,8 @@ Where or When instead.
 | Stone | permanence | rubble terrain, encase | anchor | last longer | |
 | Amplification | putting out more | outgoing damage and healing up | | | scale up |
 | Diminishing | putting out less | outgoing damage and healing down | | | scale down |
-| Haste | tempo | extra move or action | | goes off sooner, repeats | |
-| Slow | lost time | lose next action (cancels a shown move) | | goes off a round later | |
+| Haste | tempo | extra move at once, this round and next, then haste sickness (action or bonus action, not both) | | goes off sooner, repeats | |
+| Slow | lost time | action or bonus action, not both, for a round; next spell lands a round late | | goes off a round later | |
 | Invisibility | unseen | hidden status | | | single-target shapes can't pick it |
 | Revelation | seen | removes hidden, blocks it a round | | | |
 
@@ -219,8 +221,8 @@ One essence (permanence), three outputs:
 stone at center, burst          Output=effect on a place   What+=[rubble terrain]
 fire center + stone ring        What+=[burn, burning terrain]; When: scale duration +1; What+=[rubble at edge]
 fire center + whole battlefield + stone ring
-                                Output=global effect  What+=[rule: burning lasts longer]
-                                Where: shape anchor(one region); When: scale duration
+                                Output=global effect  What+=[rule: damaging hits leave burning hexes]
+                                When: scale duration +1
 ```
 
 ## Extending it

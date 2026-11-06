@@ -23,7 +23,8 @@ minor rune effect (Decided Nov 4).
 
 The center decides what the spell makes: an effect, a gate (Portal), a summon
 (Summon) or a shield (Protect). An effect that lingers on an area, or is cast as a
-wall, becomes ground. All Proposed (crafter v14), except where marked.
+wall, becomes ground, and so does a lingering Portal, Summon or Protect on a
+place (Decided, Jared Nov 5 and 6). All Proposed (crafter v14), except where marked.
 
 A rune's row here is its major output: what it does in the center. "Makes"
 is its major output type, the kind of thing it makes. Where the spell is aimed
@@ -36,16 +37,16 @@ then decides which row of the major output types table its minor runes read
 | Frost | Plain effect | Fire | an effect | Chills the target, which loses its bonus move | Every unit's bonus move is gone while it lasts (Decided, Jared Nov 5) |
 | Mend | Plain effect | Wound | an effect | Heals the target | Every unit heals for part of the damage it deals, which rewards the side that hits harder (Decided, Jared Nov 5) |
 | Wound | Plain effect | Mend | an effect | Deals plain damage, more to units below half health | Everyone takes a little damage at the end of each round (Decided, Jared Nov 5) |
-| Protect | Amplifier | Expose | a shield | Shields the target, which also heals a little more; the ring changes the shield itself | No single hit can take more than a set share of a unit's health (Decided, Jared Nov 5; how it treats bosses is Open) |
+| Protect | Amplifier | Expose | a shield | Shields the target; the ring changes the shield itself (Decided, Jared Nov 6: no extra heal) | No single hit can take more than a set share of a unit's health (Decided, Jared Nov 5; how it treats bosses is Open) |
 | Expose | Amplifier | Protect | an effect | Makes the target take more damage and heal less | All damage is increased a little (Decided, Jared Nov 5) |
 | Portal | Mover | none | a gate | Opens a gate that lasts the round; anyone can walk through. Cast on yourself with an extra destination, it moves you there | Units move by blinking: a move can pass walls and units, at the same distance. The old rule (two random hexes become linked gates each round) is now Portal's minor rune effect on a global modification (Decided, Jared Nov 5) |
 | Summon | Maker | Dispel | a summon | Creates a body at each destination; the ring says what it is made of. Aimed at a unit, the unit is set aside and the body takes its place until it dies or the spell ends | A weak neutral creature enters at the edge each round (Decided, Jared Nov 5) |
-| Dispel | Remover | Summon | an effect | Clears statuses, terrain and summons | All statuses and lingering terrain clear, and new ones last only a round (Decided, Jared Nov 5) |
+| Dispel | Remover | Summon | an effect | Clears statuses and terrain, and strips a summon's minor runes instead of removing it (Decided, Jared Nov 6) | All statuses and lingering terrain clear, and new ones last only a round (Decided, Jared Nov 5) |
 | Stone | Maker | none | an effect | Raises stone that blocks movement; units already standing there are encased | The edge hexes turn to rock, shrinking the battlefield (Decided, Jared Nov 5) |
 | Amplification | Amplifier | Diminishing | an effect | Makes the target deal more damage and give more healing for a round | A hit on a unit already hit this round deals more, which rewards focus fire (Decided, Jared Nov 5) |
 | Diminishing | Amplifier | Amplification | an effect | Makes the target deal less damage and give less healing for a round | A hit on a unit already hit this round deals less, which rewards spreading damage (Decided, Jared Nov 5) |
-| Haste | Plain effect | Slow | an effect | Gives the target an extra move next turn (an extra action with more strength) | Everyone gets an extra move each round (Decided, Jared Nov 5) |
-| Slow | Plain effect | Haste | an effect | Makes the target lose its next action; on an enemy that cancels its shown move | Each unit can either act or move on its turn, not both (Decided, Jared Nov 5) |
+| Haste | Plain effect | Slow | an effect | Gives the target an extra move at once, this round and next, then haste sickness: for a round it can take its action or its bonus action, not both (Decided, Jared Nov 6) | Everyone gets an extra move each round (Decided, Jared Nov 5) |
+| Slow | Plain effect | Haste | an effect | For a round, the target can take its action or its bonus action, not both, and its next spell lands a round late. On an enemy, its shown move goes off next round instead, still shown (Decided, Jared Nov 6) | Each unit can either act or move on its turn, not both (Decided, Jared Nov 5) |
 | Invisibility | Plain effect | Revelation | an effect | Hides the target: single, bolt and chain spells can't pick it until it acts, and an enemy move aimed at it loses its target; areas still hit it | Units more than 3 hexes away can't be picked as single targets (Decided, Jared Nov 5) |
 | Revelation | Plain effect | Invisibility | an effect | Removes hiding from the target and stops it hiding again for a round. On an enemy, it also shows that enemy's next move exactly (Proposed, Jared Nov 5, to playtest) | No one can hide (Decided, Jared Nov 5) |
 | Blank (Jared's name, Decided Nov 5) | | none | an effect | Open: the center for a spell that only moves things, with the Push or Pull inscription | Open |
@@ -192,7 +193,7 @@ change the ground itself. The numbers are preliminary values.
 | Haste | Casting it costs a bonus action |
 | Slow | It pulses: it acts every other round at double strength, and lasts twice as long |
 | Invisibility | Enemies can't see it at any time |
-| Revelation | It acts on hidden units, and they stay hidden |
+| Revelation | Your side can pick hidden units in it as single targets, and they stay hidden (Jared, Nov 6) |
 
 ## Minor rune effect: on a spell
 
@@ -259,4 +260,4 @@ behaves. The numbers are preliminary values.
 - [ ] What the Blank rune does in the center and in the ring.
 - [ ] Which runes ship first.
 - [ ] The crafter and audit tool still show the old minor rune effects and list Push and
-      Pull as runes; they get updated once the ring review is done.
+      Pull as runes (seed spellcrafter-5f29).

@@ -31,8 +31,9 @@ at a later Level, minor Who and When first, minor Where after.
   so they are never free power.
 - Cooldown comes from sigil size plus inscriptions, so swapping in a better rune
   never changes it. Adding a rune makes a new spell.
-- Surrounding runes only add, never restrict. Dispel plus fire clears an area and
-  then sets it burning, not "dispels only fire".
+- Surrounding runes never narrow the center to particular runes or states: Dispel
+  with Fire in the ring doesn't become "dispels only fire". Mend's minor rune,
+  which spares allies, is the deliberate exception (Jared, Nov 6).
 
 **Open:** how sigil size grows with Level; whether inscriptions can also drop as
 loot (more trading) or stay learned only (protects progression).
@@ -44,12 +45,16 @@ on their own. They modify what the center produces, so swapping a rune between
 the center and the ring always makes a different spell.
 
 - A summon, portal or protect center always makes its summon, gate or shield,
-  wherever it's aimed on the battlefield.
+  wherever it's aimed on the battlefield. **Decided (Jared, Nov 5 and 6):** the
+  exception is lingering on a place, which makes that rune's ground instead:
+  Portal ground, Summon's cloud and Protect's warded ground (see
+  [Ground](#ground)). A gate, summon or shield that lasts longer comes from minor
+  runes, such as Summon's totem or Stone.
 - Any center aimed at a spell outputs an altered spell.
 - A plain-effect center outputs an effect: on a place, on a unit, or (across the
   whole battlefield) a global effect.
-- A lingering effect on a place, or a wall, makes ground (Proposed Nov 4; see
-  [Ground](#ground)).
+- A lingering effect on a place makes ground (Decided, Jared Nov 6), and so does
+  a wall (Proposed Nov 4); see [Ground](#ground).
 
 **Decided (Nov 5)**
 
@@ -66,6 +71,9 @@ the center and the ring always makes a different spell.
   cheaper, so a strong one is paid for in the spell's size and length.
 - Only a Dispel center can target a spell, and its minor runes decide what
   happens to that spell.
+- **Allowed for now (Jared, Nov 6):** a few minor rune effects still repeat
+  their rune's major output: Mend's weak heal on a unit, Protect's shield at a
+  destination and on a spell, and Frost's ice at a destination.
 - When Fire repeats or copies something (a second hit, a summon's copy, a
   repeated strip), only the major output repeats, without the minor runes
   (Jared, Nov 5).
@@ -132,7 +140,8 @@ geometry needs check against it (a portal needs two destinations).
 
 - **Starter:** single target (the free default), self, bolt (stops at the first
   unit it hits), burst (a hex plus its 6 neighbours, at range).
-- **Learned:** line (3 hexes, hits everything), cone (rows of 1, 2 and 3), ring (the
+- **Learned:** line (3 hexes, pierces and hits everything along it: Decided,
+  Jared Nov 6, so it stays distinct from a bolt), cone (rows of 1, 2 and 3), ring (the
   6 hexes around a destination, not the destination), wall (3 hexes at range, leaves ground),
   dash (move up to 3 in a line; 2 destinations), leap (like dash, over units and
   obstacles; 2 destinations), chain (jumps to the nearest other unit twice; 3 destinations),
@@ -160,10 +169,13 @@ geometry needs check against it (a portal needs two destinations).
   plus 2 extra destinations).
 - **More range.**
 - **Delay.**
-- **Lingering, one rule (Proposed Nov 4):** what the spell made lasts longer. On a
-  place that's the ground, on a unit the status, on a major output the output, on a global
-  effect the rules, and on an enemy's spell its next shown moves for a few rounds,
-  which is how lasting control works.
+- **Lingering makes ground (Decided, Jared Nov 6).** That is its one job: a spell
+  with lingering leaves its ground on the place it acts (see [Ground](#ground)).
+  Anything else that lasts longer (a status, a summon, a shield, a global
+  modification, a change to an enemy's spell) gets it from a minor rune, mainly
+  Stone. This replaces the Nov 4 proposal that lingering made whatever the spell
+  made last longer. **Open:** what lingering does on a unit shape (single target,
+  bolt, chain).
 - **Filters:** enemies only, allies only. **Decided (Nov 4):** filters don't work on
   ground, and filter balance in general is in question.
 - **Push and pull (Decided Nov 5).** Push and Pull are inscriptions, not runes, so
@@ -211,22 +223,19 @@ next destination, or to you. Four kinds:
 | Transfer | Turns damage the spell deals into healing at the other end, and moves statuses it removes (the vampire wraith) |
 | Leash | Keeps the first end within 2 hexes of the other (a fourth kind, or drop it if it isn't fun) |
 
-Presets in the crafter: damage sharing (protect with redirect), life drain (wound
+Presets in the crafter: life drain (wound
 with transfer), vampire wraith (summon with wound and transfer), shared mend (mend
 with copy) and bodyguard (summon with leash). A tether on a spell keeps its old
 meaning as copy on a spell.
 
-**Proposed (Nov 4): snap-back becomes a lingering move.** Lingering statuses and
-terrain already end when they expire. Applied to movement, a lingering move undoes
-itself when it expires, and the unit returns to where it started. A lingering
-portal is the round-trip door; a lingering pull is a yank that lets go.
+**Open (Nov 6): snap-back needs a new home.** The Nov 4 proposal made it a
+lingering move (a move that undoes itself when it expires, such as a yank that
+lets go), but lingering now only makes ground.
 
 **Open:** what redirect, transfer and leash mean on a spell; whether a tether on the
 whole battlefield is refused (the tools refuse it for now); a new home for the old
 global tether minor rune effect (splash damage to neighbours); what the transfer tether does
-with an action taken from one end; and the round-trip door, because lingering on
-a gate already means the gate stays open longer, which clashes with the proposal
-that a lingering move undoes itself when it expires (snap-back).
+with an action taken from one end.
 
 ### Triggers
 
@@ -248,8 +257,9 @@ Nov 4:
 
 - **Minor Who or When** (filter, delay, lingering, trigger): the minor rune still
   modifies the major output, using its normal minor rune effect, but only for those units
-  or at that time. Example: wound center, burst, enemies only; mend in the ring
-  with a minor "allies only". Enemies are hit and allies are healed.
+  or at that time. Example: fire center, burst; wound in the ring with a minor
+  "enemies only". Everyone in the burst burns, and only enemies are finished off
+  at the fixed amount of health.
 - **Minor Where** (a shape, more range): the minor rune becomes a small sub-effect
   anchored on the output. It uses its own major output, over its own region,
   positioned relative to the anchor (a destination, a unit, or a major output). It is still a
@@ -325,9 +335,12 @@ items are tradable like runes or bound like inscriptions.
 
 ## Ground
 
-**Proposed (Nov 4).** A lingering effect on a place is ground, and a wall always
-leaves ground. Ground can't be attacked, except Summon's cloud (below), which is a
-summon.
+**Decided (Jared, Nov 5 and 6).** A lingering effect on a place is ground. This
+includes a lingering Portal, Summon or Protect on a place, which makes the ground
+in the table below rather than a gate, summon or shield.
+
+**Proposed (Nov 4).** A wall always leaves ground. Ground can't be attacked,
+except Summon's cloud (below), which is a summon.
 
 **Decided (Nov 5): the major rune sets what the ground does, and the minor runes
 change it.** The ground is the major output, lasting: lingering Fire is burning
@@ -363,8 +376,7 @@ for, nearest first.
 Keeping a ground going is the totem's job (Summon as a minor rune), so Summon's
 own ground is the cloud rather than something that refreshes.
 
-**Proposed (Nov 4):** opposite pairs cancel on ground, except Summon and Dispel.
-Units that die leave **remains**, a kind of ground, and a summon raised on remains
+**Proposed (Nov 4):** units that die leave **remains**, a kind of ground, and a summon raised on remains
 is stronger.
 
 **Decided (Nov 4):** battlefields start with terrain players can reshape, and filters
@@ -411,9 +423,10 @@ everywhere (a global modification rewrites terrain rules).
 - **Decided (Nov 5): a shield's minor runes are order-free aspects that change the
   shield itself** (see the [rune reference](rune-reference.md#minor-rune-effect-on-a-shield)).
   This replaces the Nov 4 rule that they fired when the shield was hit.
-- **Decided (Nov 4): opposite runes cancel only where their minor rune effects in that major output type
-  are true opposites** (at a destination, on a unit, through a gate). There they cancel by
-  amount. Elsewhere both apply. Fire and frost count as opposites.
+- **Decided (Jared, Nov 6): opposite runes don't cancel.** After the ring review no
+  pair of minor rune effects are true opposites, so two opposite runes in a sigil
+  both apply. Opposite pairs still matter for the runes themselves (loot,
+  trading, and what Dispel undoes).
 - **Order (Proposed Nov 4).** Whether ring order matters is declared on each minor rune effect,
   not on the rune, because the same rune can be a step in one place and an aspect
   in another. Each minor rune effect declares what it reads and what it changes. Two
@@ -473,9 +486,6 @@ counterspell is a rune, and its recipient is the "on a spell" major output type.
   one is taken). It hits allies too, unless a
   filter limits it. In System A the same spell needs a linking item, which makes
   it a good A/B test case.
-- **Damage sharing.** Protect at the center, the redirect tether, allies only,
-  lingering. You take part of an ally's damage for a few rounds; the share comes
-  from the protect rune's quality.
 - **Life drain.** Wound at the center, the transfer tether.
 
 ## Glossary
@@ -506,7 +516,7 @@ are still placeholders, so we can talk about the parts.
 | recipe, recipe id | A spell's identity: the sigil after sorting and merging | Jared | |
 | global modification | A spell cast on the whole battlefield | Jared | |
 | binary (effect) | An effect that is all or nothing, such as an extra action | Jared | |
-| totem | The marker Summon leaves in the ring at a destination or on a unit | Jared | |
+| totem | The marker Summon leaves as a minor rune. It keeps a major output going or repeats it, as each minor rune table says | Jared | |
 | blank (rune) | The major rune for a spell that only moves things | Jared | |
 
 The role names themselves (plain effect, amplifier, mover, maker, remover) are
@@ -518,10 +528,13 @@ placeholders.
 - [ ] Names for the new inscriptions and triggers, linking items and trigger types.
 - [ ] Whether linking items are tradable.
 - [ ] Tethers: redirect, transfer and leash on a spell; a tether on the whole
-      battlefield; the old global tether minor rune effect; transfer and actions; the
-      round-trip door.
+      battlefield; the old global tether minor rune effect; transfer and actions.
 - [ ] Can a filter inscription narrow a global modification? Whether filters stay
       at all. (Mend's minor rune spares your side on ground and on a global
       modification, Nov 5.)
+- [ ] How damage sharing is built (taking part of an ally's damage for a few
+      rounds). The old example, a Protect center with the redirect tether, no
+      longer works now that a Protect center makes a shield (Jared, Nov 6).
+- [ ] What lingering does on a unit shape, and a new home for snap-back.
 - [ ] The Blank rune's mechanics (see the [rune reference](rune-reference.md)).
 - [ ] Names for the five roles (plain effect, amplifier, mover, maker, remover).
