@@ -188,8 +188,8 @@ disagree, the rune reference leads.
 | Stone | permanence | rubble terrain, encase | anchor | last longer | |
 | Amplification | putting out more | outgoing damage and healing up | | | scale up |
 | Diminishing | putting out less | outgoing damage and healing down | | | scale down |
-| Haste | tempo | extra move or action | | goes off sooner, repeats | |
-| Slow | lost time | lose next action (cancels a shown move) | | goes off a round later | |
+| Haste | tempo | extra move at once, this round and next, then haste sickness (action or bonus action, not both) | | goes off sooner, repeats | |
+| Slow | lost time | action or bonus action, not both, for a round; next spell lands a round late | | goes off a round later | |
 | Invisibility | unseen | hidden status | | | single-target shapes can't pick it |
 | Revelation | seen | removes hidden, blocks it a round | | | |
 

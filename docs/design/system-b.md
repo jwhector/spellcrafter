@@ -47,14 +47,14 @@ the center and the ring always makes a different spell.
 - A summon, portal or protect center always makes its summon, gate or shield,
   wherever it's aimed on the battlefield. **Decided (Jared, Nov 5 and 6):** the
   exception is lingering on a place, which makes that rune's ground instead:
-  Portal's free-travel ground, Summon's cloud and Protect's warded ground (see
+  Portal ground, Summon's cloud and Protect's warded ground (see
   [Ground](#ground)). A gate, summon or shield that lasts longer comes from minor
   runes, such as Summon's totem or Stone.
 - Any center aimed at a spell outputs an altered spell.
 - A plain-effect center outputs an effect: on a place, on a unit, or (across the
   whole battlefield) a global effect.
-- A lingering effect on a place, or a wall, makes ground (Proposed Nov 4; see
-  [Ground](#ground)).
+- A lingering effect on a place makes ground (Decided, Jared Nov 6), and so does
+  a wall (Proposed Nov 4); see [Ground](#ground).
 
 **Decided (Nov 5)**
 
@@ -257,8 +257,9 @@ Nov 4:
 
 - **Minor Who or When** (filter, delay, lingering, trigger): the minor rune still
   modifies the major output, using its normal minor rune effect, but only for those units
-  or at that time. Example: fire center, burst; frost in the ring with a minor
-  "enemies only". Everyone in the burst burns, and only enemies slide further.
+  or at that time. Example: fire center, burst; wound in the ring with a minor
+  "enemies only". Everyone in the burst burns, and only enemies are finished off
+  at the fixed amount of health.
 - **Minor Where** (a shape, more range): the minor rune becomes a small sub-effect
   anchored on the output. It uses its own major output, over its own region,
   positioned relative to the anchor (a destination, a unit, or a major output). It is still a
@@ -334,11 +335,12 @@ items are tradable like runes or bound like inscriptions.
 
 ## Ground
 
-**Proposed (Nov 4).** A lingering effect on a place is ground, and a wall always
-leaves ground. Decided (Jared, Nov 5 and 6): this includes a lingering Portal,
-Summon or Protect on a place, which makes the ground in the table below rather
-than a gate, summon or shield. Ground can't be attacked, except Summon's cloud (below), which is a
-summon.
+**Decided (Jared, Nov 5 and 6).** A lingering effect on a place is ground. This
+includes a lingering Portal, Summon or Protect on a place, which makes the ground
+in the table below rather than a gate, summon or shield.
+
+**Proposed (Nov 4).** A wall always leaves ground. Ground can't be attacked,
+except Summon's cloud (below), which is a summon.
 
 **Decided (Nov 5): the major rune sets what the ground does, and the minor runes
 change it.** The ground is the major output, lasting: lingering Fire is burning
