@@ -87,7 +87,9 @@ export const INSCRIPTIONS: readonly Inscription[] = [
   shape("self", "self", "unit", 1, "The spell lands on you."),
   shape("bolt", "bolt", "unit", 1, "Stops at the first unit it hits; a bolt that finds no unit does nothing."),
   shape("burst", "burst", "area", 1, "A hex plus its 6 neighbours, at range."),
-  shape("line", "line", "area", 1, "3 hexes from you, hitting everything."),
+  shape("line", "line", "area", 1, "3 hexes from you; it pierces and hits everything along it.", {
+    status: "Decided",
+  }),
   shape("cone", "cone", "area", 1, "Rows of 1, 2 and 3 hexes in front of you."),
   shape("ring", "ring", "area", 1, "The 6 hexes around a destination, not the destination itself."),
   shape("wall", "wall", "area", 1, "3 hexes at range; it always leaves ground."),
@@ -134,7 +136,8 @@ export const INSCRIPTIONS: readonly Inscription[] = [
   }),
   other("weakest", "weakest first", "who", "Touches units with the least health first, until its strength runs out."),
   other("delay", "delay", "when", "The spell goes off later.", { minor: "whowhen" }),
-  other("lingering", "lingering", "when", "What the spell made lasts longer: on a place, it leaves ground.", {
+  other("lingering", "lingering", "when", "Its one job: the spell leaves its ground on the place it acts.", {
+    status: "Decided",
     minor: "whowhen",
   }),
   other("push", "push", "move", "Shoves the units it hits away.", { status: "Decided" }),

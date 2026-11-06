@@ -259,6 +259,16 @@ export function isLingering(s: Sigil): boolean {
   return s.inscriptions.includes("lingering");
 }
 
+/** Lingering on a place makes the major rune's ground (system-b.md "Ground", Decided, Jared Nov 5 and 6). */
+export function lingersOnPlace(s: Sigil): boolean {
+  return isLingering(s) && shapeOf(s).aims === "area";
+}
+
+/** A Portal center makes a gate unless it lingers on a place, where it makes Portal ground instead. */
+export function makesGate(s: Sigil): boolean {
+  return s.center === "portal" && !lingersOnPlace(s);
+}
+
 export function hasTether(s: Sigil): string | null {
   return s.inscriptions.find((i) => inscription(i).group === "tether") ?? null;
 }
@@ -284,6 +294,11 @@ export function makes(ref: RuneReference, s: Sigil): Makes {
   if (shape.id === "global") {
     return pick("global", "global", "The whole battlefield shape makes a global modification.", "Decided");
   }
+  // system-b.md "Ground" (Decided, Jared Nov 5 and 6): lingering on a place makes the major rune's ground, even for
+  // a Portal, Summon or Protect center, which would otherwise make a gate, summon or shield.
+  if (lingersOnPlace(s)) {
+    return pick("on ground", "on ground", "A lingering effect on a place makes ground.", "Decided");
+  }
   if (center === "portal")
     return pick("through a gate", "through a gate", "A Portal center always makes its gate.", "Decided");
   if (center === "summon")
@@ -298,14 +313,7 @@ export function makes(ref: RuneReference, s: Sigil): Makes {
   }
   // A tether has no major output type of its own (system-b.md "Tethers", Decided Nov 5): the shape decides the type,
   // and readSigil notes that the minor runes read "on a unit" at each end.
-  if (shape.id === "wall" || (isLingering(s) && shape.aims === "area")) {
-    return pick(
-      "on ground",
-      "on ground",
-      shape.id === "wall" ? "A wall always leaves ground." : "A lingering effect on a place makes ground.",
-      "Proposed",
-    );
-  }
+  if (shape.id === "wall") return pick("on ground", "on ground", "A wall always leaves ground.", "Proposed");
   if (shape.aims === "area" || shape.aims === "move") {
     return pick("at a destination", "at a destination", "The center makes an effect on an area.", "Decided");
   }
@@ -315,13 +323,6 @@ export function makes(ref: RuneReference, s: Sigil): Makes {
 /** Major output types where every minor rune is an aspect, so ring order never matters (system-b.md "Conflict and order rules": Decided Nov 5 for a shield and ground, Proposed for a summon and a global modification). */
 export function orderFree(kind: OutputKind): boolean {
   return kind === "on a summon" || kind === "on ground" || kind === "on a shield" || kind === "global";
-}
-
-/** Where opposite minor runes cancel by amount (Decided Nov 4); on ground they cancel except Summon and Dispel (Proposed). */
-function opposites(kind: OutputKind): "cancel" | "ground" | null {
-  if (kind === "at a destination" || kind === "on a unit" || kind === "through a gate") return "cancel";
-  if (kind === "on ground") return "ground";
-  return null;
 }
 
 export interface RingLine {
@@ -436,19 +437,14 @@ export function readSigil(ref: RuneReference, s: Sigil, grounds: Record<string, 
       );
     }
   }
-  const opp = opposites(m.kind);
-  if (opp) {
-    for (const sec of sections) {
-      // A minor rune that matches the center adds strength to the center, so it has no minor rune effect to cancel.
-      const slugs = new Set(sec.lines.map((l) => l.rune.slug).filter((slug) => slug !== s.center));
-      for (const r of ref.runes) {
-        const other = ref.center.rows[r.slug]?.Opposite;
-        const o = ref.runes.find((x) => x.name === other);
-        if (!o || r.slug > o.slug || !slugs.has(r.slug) || !slugs.has(o.slug)) continue;
-        if (opp === "cancel") note(`${r.name} and ${o.name} are opposites here, so they cancel by amount.`, "Decided");
-        else if (r.slug !== "summon" && r.slug !== "dispel")
-          note(`${r.name} and ${o.name} cancel on ground.`, "Proposed");
-      }
+  // system-b.md "Conflict and order rules" (Decided, Jared Nov 6): opposite runes don't cancel; both apply.
+  for (const sec of sections) {
+    // A minor rune that matches the center adds strength to the center, so it is left out here.
+    const slugs = new Set(sec.lines.map((l) => l.rune.slug).filter((slug) => slug !== s.center));
+    for (const r of ref.runes) {
+      const o = ref.runes.find((x) => x.name === ref.center.rows[r.slug]?.Opposite);
+      if (!o || r.slug > o.slug || !slugs.has(r.slug) || !slugs.has(o.slug)) continue;
+      note(`${r.name} and ${o.name} are opposites, and both apply: opposite runes don't cancel.`, "Decided");
     }
   }
 
@@ -464,6 +460,8 @@ export function readSigil(ref: RuneReference, s: Sigil, grounds: Record<string, 
   if (m.kind === "on ground" && s.inscriptions.some((i) => i === "enemies" || i === "allies")) {
     note("Filters don't work on ground (Decided Nov 4), so the filter does nothing here.", "Decided", true);
   }
+  if (isLingering(s) && shape.aims === "unit")
+    note("What lingering does on a unit shape is still Open; on a place, it makes ground.", "Open");
   if (s.inscriptions.includes("steerable") && !isLingering(s)) note("Steerable needs lingering.", "Proposed", true);
   if (hasTether(s) && (m.kind === "on a unit" || m.kind === "at a destination"))
     note(
@@ -481,7 +479,7 @@ export function readSigil(ref: RuneReference, s: Sigil, grounds: Record<string, 
     } else note("A self-cast portal or tether does nothing.", "Decided", true);
   }
   if (shape.id === "self" && s.center === "summon") note("A self-cast summon appears next to you.", "Decided");
-  if ((s.center === "portal" || hasTether(s)) && n === 1 && shape.id !== "self" && shape.id !== "global") {
+  if ((makesGate(s) || hasTether(s)) && n === 1 && shape.id !== "self" && shape.id !== "global") {
     note("It needs two destinations, so it uses you as the second one.", "Proposed");
   }
   if (shape.aims === "unit" && shape.id !== "self") note("A unit shape can't be aimed at an empty hex.", "Decided");

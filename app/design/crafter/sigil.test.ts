@@ -93,7 +93,16 @@ describe("which major output type the ring reads (system-b.md)", () => {
   it("follows the center for Portal, Summon and Protect", () => {
     expect(kind(build("portal", [], ["burst"]))).toBe("through a gate");
     expect(kind(build("summon", []))).toBe("on a summon");
-    expect(kind(build("protect", [], ["lingering", "burst"]))).toBe("on a shield");
+    expect(kind(build("protect", [], ["burst"]))).toBe("on a shield");
+  });
+
+  it("makes ground from lingering on a place, even for Portal, Summon and Protect", () => {
+    for (const center of ["portal", "summon", "protect"]) {
+      expect(kind(build(center, [], ["burst", "lingering"]))).toBe("on ground");
+    }
+    expect(kind(build("portal", [], ["bolt", "lingering"]))).toBe("through a gate");
+    const notes = readSigil(REF, build("portal", [], ["burst", "lingering"])).notes;
+    expect(notes.some((n) => /two destinations/.test(n.text))).toBe(false);
   });
 
   it("reads a plain effect by its shape", () => {
@@ -184,12 +193,12 @@ describe("the readout", () => {
     const table = r.makes.table;
     expect(lines[0]?.text).toBe(table?.rows.frost?.["Minor rune effect"]);
     expect(lines[1]?.text).toMatch(/adds strength to the center/);
-    expect(r.notes.some((n) => /Fire and Frost .*cancel by amount/.test(n.text))).toBe(false); // Fire is the center's match, not a minor opposite
+    expect(r.notes.some((n) => /Fire and Frost are opposites/.test(n.text))).toBe(false); // Fire is the center's match, not a minor opposite
   });
 
-  it("notes opposites that cancel, and filters that do nothing on ground", () => {
+  it("notes that opposites both apply, and filters that do nothing on ground", () => {
     const r = readSigil(REF, build("wound", ["fire", "frost"], ["burst"]));
-    expect(r.notes.some((n) => /Fire and Frost are opposites here/.test(n.text))).toBe(true);
+    expect(r.notes.some((n) => /Fire and Frost are opposites, and both apply/.test(n.text))).toBe(true);
     const ground = readSigil(REF, build("fire", ["mend"], ["burst", "lingering", "allies"]));
     expect(ground.notes.some((n) => n.warn && /Filters don't work on ground/.test(n.text))).toBe(true);
   });

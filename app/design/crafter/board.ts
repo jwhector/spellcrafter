@@ -8,7 +8,7 @@
  * coordinates.
  */
 import type { Sigil } from "./sigil";
-import { destinations as destinationCount, hasTether, shapeOf } from "./sigil";
+import { destinations as destinationCount, hasTether, makesGate, shapeOf } from "./sigil";
 
 export const COLS = 7;
 export const ROWS = 7;
@@ -134,7 +134,7 @@ export function planBoard(s: Sigil): BoardPlan {
     const [d] = destinations;
     if (d) path = lineBetween(caster, d).slice(1, -1);
   }
-  if (shape.id === "chain" || s.center === "portal" || hasTether(s)) {
+  if (shape.id === "chain" || makesGate(s) || hasTether(s)) {
     for (let i = 0; i + 1 < destinations.length; i++) {
       const a = destinations[i];
       const b = destinations[i + 1];
