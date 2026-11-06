@@ -13,6 +13,7 @@ something Jared decided.
 
 | Decision | What it replaced | Where it lives now |
 | --- | --- | --- |
+| Center, cast on units: Protect's shield no longer heals; Dispel strips a summon's minor runes instead of removing it; Haste gives an extra move at once, this round and next, then haste sickness (what it does is Open). | Protect also healed a little; Dispel cleared summons; Haste gave an extra move next turn | [Rune reference](rune-reference.md#center) |
 | A line pierces and hits everything along it, which keeps it distinct from a bolt; bolts stop at the first unit. | The overview's "line and cone attacks stop at the first unit", which contradicted System B | [System B rules](system-b.md#shapes-one-per-sigil), [overview](overview.md#making-tanking-and-support-necessary-proposed) |
 | The lingering inscription makes ground and nothing else; longer durations elsewhere come from minor runes, mainly Stone. | Lingering made whatever the spell made last longer, including lasting control on an enemy's spell (Proposed Nov 4); snap-back as a lingering move, now Open | [System B rules](system-b.md#other-major-inscriptions) |
 | Revelation on ground: your side can pick hidden units in it as single targets, and they stay hidden. | "It acts on hidden units", which did nothing because areas already hit hidden units | [Rune reference](rune-reference.md#minor-rune-effect-on-ground) |
