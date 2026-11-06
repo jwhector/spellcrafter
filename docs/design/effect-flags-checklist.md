@@ -18,7 +18,7 @@ Sixteen questions. The last column says which rules depend on the answer, so a n
 | Status | Does it stick to a unit as a status? | Yes · No | What Dispel strips, the once per unit per spell rule, stacking |
 | Stacking | What happens if it lands twice on one unit? | Adds up · refreshes · strongest wins · once only | Once per unit per spell; overlapping spells (Open) |
 | Repeats | Does it fire more than once? | Once · each round · on a trigger | Price multipliers (summon aspects and global rules ×2, lingering ×1.6), triggers ×0.75 |
-| Opposite | Which rune cancels it? | A rune · none | Cancelling pairs count as zero; what Dispel undoes |
+| Opposite | Which rune is its opposite? | A rune · none | What Dispel undoes; opposites don't cancel in a sigil (Decided Nov 6) |
 | Actions | Does it change how many actions a unit gets, or whether a shown move happens? | Yes · No | Extra-action cap (Open), base value, portal plus Haste worry |
 | Information | Does it change what units can see or pick, or what a shown move tells you? | Yes · No | Invisibility and Revelation, single-target picking, deciphering shown moves |
 | Position | Does it move units or change the board? | Yes · No | Hazard combo bonus, gates, leash, walls |

@@ -137,9 +137,8 @@ on the same unit. Effects that move in steps use their own step, such as a hex.
 | Fire spreads (next round, units next to the ones hit, at half strength) | Half strength on the neighbours, a round later | Neighbours get the full effect a round later, allies first for helpful effects, as many as the budget pays for (nearest first). It spreads once, never again from the new units | Proposed |
 
 Diminishing's binary rule is in the [rune reference](rune-reference.md#minor-rune-effect-at-a-destination-or-on-a-unit)
-(Decided Nov 5). Some current wording would need to change, for example the
-single-target bonus note in the crafter. Those edits wait until the effects are
-settled.
+(Decided Nov 5). The crafter's wording, such as its single-target bonus note,
+is updated with seed spellcrafter-5f29.
 
 **Binary centers today (crafter v14).** Haste, Slow, Frost, Invisibility and
 Revelation are binary in the center. Stone is in steps (wall hexes), plus binary

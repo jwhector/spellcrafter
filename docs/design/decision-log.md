@@ -9,10 +9,26 @@ that were cut word for word are also in the [archive](README.md#the-archive).
 A rule that is still Proposed or Open is in the docs, not here. A row here is
 something Jared decided.
 
+## Nov 6
+
+| Decision | What it replaced | Where it lives now |
+| --- | --- | --- |
+| Center, cast on units: Slow lets the target take its action or its bonus action, not both, for a round, and its next spell lands a round late (an enemy's shown move goes off next round). Haste sickness is the same action-or-bonus-action limit, for a round after Haste. | Slow made the target lose its next action, cancelling an enemy's shown move | [Rune reference](rune-reference.md#center) |
+| Center, cast on units: Protect's shield no longer heals; Dispel strips a summon's minor runes instead of removing it; Haste gives an extra move at once, this round and next, then haste sickness (defined in the row above). | Protect also healed a little; Dispel cleared summons; Haste gave an extra move next turn | [Rune reference](rune-reference.md#center) |
+| A line pierces and hits everything along it, which keeps it distinct from a bolt; bolts stop at the first unit. | The overview's "line and cone attacks stop at the first unit", which contradicted System B | [System B rules](system-b.md#shapes-one-per-sigil), [overview](overview.md#making-tanking-and-support-necessary-proposed) |
+| The lingering inscription makes ground and nothing else; longer durations elsewhere come from minor runes, mainly Stone. | Lingering made whatever the spell made last longer, including lasting control on an enemy's spell (Proposed Nov 4); snap-back as a lingering move, now Open | [System B rules](system-b.md#other-major-inscriptions) |
+| Revelation on ground: your side can pick hidden units in it as single targets, and they stay hidden. | "It acts on hidden units", which did nothing because areas already hit hidden units | [Rune reference](rune-reference.md#minor-rune-effect-on-ground) |
+| Mend's weak heal on a unit, Protect's shield at a destination and on a spell, and Frost's ice at a destination may repeat their major outputs, for now. | Unflagged exceptions to "a rune's major output stays unique to the center" | [System B rules](system-b.md#what-the-center-makes-and-what-the-ring-does) |
+| How damage sharing is built is Open; the Protect-center-with-redirect example and crafter preset are dropped. | The damage sharing example | [System B rules](system-b.md#open) |
+| Lingering Summon and Protect on a place make their ground (Summon's cloud, Protect's warded ground), as a lingering Portal does. | A Summon or Protect center always made a summon or a shield | [System B rules](system-b.md#what-the-center-makes-and-what-the-ring-does) |
+| Opposite runes don't cancel: after the ring review no pair of minor rune effects are true opposites, so both apply. | Opposites cancelled by amount at a destination, on a unit and through a gate (Nov 4), and on ground (Proposed) | [System B rules](system-b.md#conflict-and-order-rules) |
+| Mend's minor rune, which spares allies, is the deliberate exception to surrounding runes never narrowing the center. | "Surrounding runes only add, never restrict" (Proposed Nov 3) | [System B rules](system-b.md#the-parts-of-a-sigil) |
+
 ## Nov 5
 
 | Decision | What it replaced | Where it lives now |
 | --- | --- | --- |
+| A lingering Portal on a place makes Portal ground (travel to any hex of it without spending movement), the one exception to a Portal center always making a gate. | A lingering Portal as a gate that stays open longer, or as the round-trip door (Open) | [System B rules](system-b.md#what-the-center-makes-and-what-the-ring-does) |
 | A tether has no major output type of its own: its kind decides how the effect travels, and its minor runes read the "on a unit" table at each end. Eight major output types. | The "along a tether" major output type, whose v14 entries sent each rune's own effect along the tether | [System B rules](system-b.md#tethers) |
 | Global modification, ring review: Fire returns once at half strength (major output only), Frost slides units further, Mend spares your side, Wound finishes at the fixed amount, Protect spares units in cover, Expose can't be blocked, Portal links two random hexes each round, Summon's totem keeps it going, Dispel can't be ended or replaced, Stone lasts a round longer, Amplification charges a stronger last round, Haste costs a bonus action, Slow pulses, Invisibility hides it, Revelation lets your side pick hidden units. Diminishing is Open, waiting on a review of Amplification and Diminishing together. | The crafter's v14 global minor rune effects, which mostly added each rune's own effect | [Rune reference](rune-reference.md#minor-rune-effect-global-modification) |
 | New global major outputs: Fire leaves burning hexes where damage lands, Mend heals each unit for part of the damage it deals, Portal makes every move a blink, Protect caps how much one hit can take, Amplification and Diminishing make repeat hits on a unit in the same round deal more or less. Frost and Haste stay as they were. | Burning lasting longer, everyone healing, random linked gates, the first hit reduced, everyone dealing a little more or less | [Rune reference](rune-reference.md#center) |

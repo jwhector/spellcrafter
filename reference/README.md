@@ -10,10 +10,13 @@ They are self-contained pages: open one in a browser to use it.
 - `audit.html`: Hollow Spell Audit v4. It reuses the crafter's engine block
   and adds the price-list value model and the sweep.
 
-**Out of date (as of Nov 5):** both still show the old ring entries and still
+**Out of date (as of Nov 6):** both still show the old ring entries and still
 list Push and Pull as runes. Push and Pull became inscriptions on Nov 5, and
-the ring review (step 3 of the plan) is changing ring entries column by
-column. Where these tools and the design docs disagree, the docs win.
+the ring review (step 3 of the plan) rewrote every ring column on Nov 5. On
+Nov 6, opposite runes stopped cancelling, lingering came to make ground only,
+the damage sharing preset was dropped, and the Protect, Dispel, Haste and Slow
+centers changed. Where these tools and the design docs disagree, the docs win,
+including for the engine port (seed spellcrafter-5f29 tracks the update).
 
 These files are not part of the build, are not formatted or linted, and are
 not edited here. The engine port replaces them; once a view covers a tool,
