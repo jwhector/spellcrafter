@@ -1,0 +1,23 @@
+.nav {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 12px;
+  color: #a39a8a;
+}
+
+.nav a {
+  color: #a39a8a;
+  text-decoration: none;
+}
+
+.nav a:hover,
+.nav a[aria-current="page"] {
+  color: #ebe4d6;
+}
+
+.nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}

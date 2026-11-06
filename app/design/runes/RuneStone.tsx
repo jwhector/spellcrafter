@@ -4,7 +4,7 @@
  * One rune in 3D: the coded stone with its symbol, or the rune's model file
  * when it has one. Rendered inside a drei View (see RuneDashboard).
  */
-import { useGLTF } from "@react-three/drei";
+import { PerspectiveCamera, useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { Suspense, useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
@@ -20,6 +20,8 @@ export interface Motion {
   idleTurn: boolean;
   /** Changes when the rune is summoned, which plays the spin and the glow pulse. */
   summonKey?: number;
+  /** Plays the spin and the glow pulse once when the rune first appears. */
+  summonOnMount?: boolean;
   /** Extra rotation from dragging, in radians. */
   drag?: { current: { yaw: number; pitch: number } };
   reducedMotion?: boolean;
@@ -77,13 +79,18 @@ function ModelStone({ url }: { url: string }) {
 export function RuneStone({ slug, modelUrl, motion }: { slug: string; modelUrl: string | null; motion: Motion }) {
   const group = useRef<THREE.Group>(null);
   const glow = useRef(1.4);
-  const clock = useRef({ turn: 0, summonedAt: Number.NEGATIVE_INFINITY, lastKey: motion.summonKey });
+  const clock = useRef({
+    turn: 0,
+    summonedAt: motion.summonOnMount ? Number.NaN : Number.NEGATIVE_INFINITY,
+    lastKey: motion.summonKey,
+  });
 
   useFrame((state, delta) => {
     const g = group.current;
     if (!g) return;
     const c = clock.current;
     const now = state.clock.elapsedTime;
+    if (Number.isNaN(c.summonedAt)) c.summonedAt = now;
     if (motion.summonKey !== c.lastKey) {
       c.lastKey = motion.summonKey;
       c.summonedAt = now;
@@ -118,4 +125,9 @@ export function RuneLights() {
       <directionalLight position={[-3, -1, -2]} intensity={0.8} color="#9fb3ff" />
     </>
   );
+}
+
+/** The camera every single-rune view uses. */
+export function CameraForRune() {
+  return <PerspectiveCamera makeDefault position={[0, 0, 4.2]} fov={35} />;
 }
