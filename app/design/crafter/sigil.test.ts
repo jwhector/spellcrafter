@@ -103,6 +103,8 @@ describe("which major output type the ring reads (system-b.md)", () => {
     expect(kind(build("portal", [], ["bolt", "lingering"]))).toBe("through a gate");
     const notes = readSigil(REF, build("portal", [], ["burst", "lingering"])).notes;
     expect(notes.some((n) => /two destinations/.test(n.text))).toBe(false);
+    const bolt = readSigil(REF, build("fire", [], ["bolt", "lingering"])).notes;
+    expect(bolt.some((n) => n.status === "Open" && /isn't an area/.test(n.text))).toBe(true);
   });
 
   it("reads a plain effect by its shape", () => {

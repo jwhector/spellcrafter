@@ -422,7 +422,12 @@ export function readSigil(ref: RuneReference, s: Sigil, grounds: Record<string, 
             text: `Becomes a small sub-effect anchored on the output: ${rune.name}'s own major output over its own ${ins.label}.`,
             status: "Proposed" as Status,
           }
-        : { label: ins.label, text: minorSentence(ins), status: "Proposed" as Status };
+        : {
+            label: ins.label,
+            text: minorSentence(ins),
+            // system-b.md no longer says what a minor lingering does, now that lingering makes ground (Nov 6).
+            status: (ins.id === "lingering" ? "Open" : "Proposed") as Status,
+          };
     });
     sections[sec]?.lines.push({ slot, rune, text, status, extra, minorInscriptions });
   });
@@ -460,8 +465,8 @@ export function readSigil(ref: RuneReference, s: Sigil, grounds: Record<string, 
   if (m.kind === "on ground" && s.inscriptions.some((i) => i === "enemies" || i === "allies")) {
     note("Filters don't work on ground (Decided Nov 4), so the filter does nothing here.", "Decided", true);
   }
-  if (isLingering(s) && shape.aims === "unit")
-    note("What lingering does on a unit shape is still Open; on a place, it makes ground.", "Open");
+  if (isLingering(s) && (shape.aims === "unit" || shape.aims === "move"))
+    note("What lingering does when the shape isn't an area is still Open; on a place, it makes ground.", "Open");
   if (s.inscriptions.includes("steerable") && !isLingering(s)) note("Steerable needs lingering.", "Proposed", true);
   if (hasTether(s) && (m.kind === "on a unit" || m.kind === "at a destination"))
     note(
@@ -517,6 +522,6 @@ export function readSigil(ref: RuneReference, s: Sigil, grounds: Record<string, 
 function minorSentence(ins: Inscription): string {
   if (ins.group === "who") return `It acts only on ${ins.label.replace(" only", "")}.`;
   if (ins.id === "delay") return "It acts after a delay.";
-  if (ins.id === "lingering") return "It keeps acting while the spell lingers.";
+  if (ins.id === "lingering") return "The docs don't say what a minor lingering does now that lingering makes ground.";
   return `It acts only ${ins.label}.`;
 }

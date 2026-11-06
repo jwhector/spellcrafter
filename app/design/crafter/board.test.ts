@@ -9,6 +9,13 @@ function sigil(center: string, inscriptions: string[] = []): Sigil {
 }
 const touched = (s: Sigil) => planBoard(s).touched.length;
 
+describe("planBoard draws a gate link only for a gate", () => {
+  it("links a Portal's ends, but not when it lingers on a place and makes ground", () => {
+    expect(planBoard(sigil("portal", ["burst"])).links.length).toBeGreaterThan(0);
+    expect(planBoard(sigil("portal", ["burst", "lingering"])).links).toEqual([]);
+  });
+});
+
 describe("planBoard follows the shape descriptions in system-b.md", () => {
   it("covers the right number of hexes", () => {
     expect(touched(sigil("fire"))).toBe(1); // single target
