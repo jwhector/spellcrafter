@@ -118,8 +118,9 @@ enemy intent and scarce movement.
 - **Body blocking.** Units can't pass through each other, and stepping next to a
   sturdy unit can stop an enemy's movement. Terrain creates chokepoints for a
   tank to hold.
-- **Line and cone attacks stop at the first unit,** so standing in front shields
-  whoever is behind.
+- **Bolts stop at the first unit,** so standing in front shields whoever is
+  behind. Lines pierce and hit everything along them (Decided, Jared Nov 6), which
+  keeps them distinct from a bolt.
 - **Spikes only a tank survives.** Some enemy moves would drop a fragile character
   in one hit. The enemy's shown intent warns the party, and a tank answers it by
   standing in the hit's path or forcing the enemy to target them.

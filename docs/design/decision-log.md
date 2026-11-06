@@ -13,6 +13,7 @@ something Jared decided.
 
 | Decision | What it replaced | Where it lives now |
 | --- | --- | --- |
+| A line pierces and hits everything along it, which keeps it distinct from a bolt; bolts stop at the first unit. | The overview's "line and cone attacks stop at the first unit", which contradicted System B | [System B rules](system-b.md#shapes-one-per-sigil), [overview](overview.md#making-tanking-and-support-necessary-proposed) |
 | The lingering inscription makes ground and nothing else; longer durations elsewhere come from minor runes, mainly Stone. | Lingering made whatever the spell made last longer, including lasting control on an enemy's spell (Proposed Nov 4); snap-back as a lingering move, now Open | [System B rules](system-b.md#other-major-inscriptions) |
 | Revelation on ground: your side can pick hidden units in it as single targets, and they stay hidden. | "It acts on hidden units", which did nothing because areas already hit hidden units | [Rune reference](rune-reference.md#minor-rune-effect-on-ground) |
 | Mend's weak heal on a unit, Protect's shield at a destination and on a spell, and Frost's ice at a destination may repeat their major outputs, for now. | Unflagged exceptions to "a rune's major output stays unique to the center" | [System B rules](system-b.md#what-the-center-makes-and-what-the-ring-does) |

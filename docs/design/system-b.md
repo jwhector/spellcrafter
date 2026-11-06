@@ -140,7 +140,8 @@ geometry needs check against it (a portal needs two destinations).
 
 - **Starter:** single target (the free default), self, bolt (stops at the first
   unit it hits), burst (a hex plus its 6 neighbours, at range).
-- **Learned:** line (3 hexes, hits everything), cone (rows of 1, 2 and 3), ring (the
+- **Learned:** line (3 hexes, pierces and hits everything along it: Decided,
+  Jared Nov 6, so it stays distinct from a bolt), cone (rows of 1, 2 and 3), ring (the
   6 hexes around a destination, not the destination), wall (3 hexes at range, leaves ground),
   dash (move up to 3 in a line; 2 destinations), leap (like dash, over units and
   obstacles; 2 destinations), chain (jumps to the nearest other unit twice; 3 destinations),
