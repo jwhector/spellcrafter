@@ -23,8 +23,8 @@ minor rune effect (Decided Nov 4).
 
 The center decides what the spell makes: an effect, a gate (Portal), a summon
 (Summon) or a shield (Protect). An effect that lingers on an area, or is cast as a
-wall, becomes ground, and so does a lingering Portal on a place (Decided, Jared
-Nov 5). All Proposed (crafter v14), except where marked.
+wall, becomes ground, and so does a lingering Portal, Summon or Protect on a
+place (Decided, Jared Nov 5 and 6). All Proposed (crafter v14), except where marked.
 
 A rune's row here is its major output: what it does in the center. "Makes"
 is its major output type, the kind of thing it makes. Where the spell is aimed
@@ -260,4 +260,4 @@ behaves. The numbers are preliminary values.
 - [ ] What the Blank rune does in the center and in the ring.
 - [ ] Which runes ship first.
 - [ ] The crafter and audit tool still show the old minor rune effects and list Push and
-      Pull as runes; they get updated once the ring review is done.
+      Pull as runes (seed spellcrafter-5f29).

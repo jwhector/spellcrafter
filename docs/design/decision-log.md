@@ -9,6 +9,14 @@ that were cut word for word are also in the [archive](README.md#the-archive).
 A rule that is still Proposed or Open is in the docs, not here. A row here is
 something Jared decided.
 
+## Nov 6
+
+| Decision | What it replaced | Where it lives now |
+| --- | --- | --- |
+| Lingering Summon and Protect on a place make their ground (Summon's cloud, Protect's warded ground), as a lingering Portal does. | A Summon or Protect center always made a summon or a shield | [System B rules](system-b.md#what-the-center-makes-and-what-the-ring-does) |
+| Opposite runes don't cancel: after the ring review no pair of minor rune effects are true opposites, so both apply. | Opposites cancelled by amount at a destination, on a unit and through a gate (Nov 4), and on ground (Proposed) | [System B rules](system-b.md#conflict-and-order-rules) |
+| Mend's minor rune, which spares allies, is the deliberate exception to surrounding runes never narrowing the center. | "Surrounding runes only add, never restrict" (Proposed Nov 3) | [System B rules](system-b.md#the-parts-of-a-sigil) |
+
 ## Nov 5
 
 | Decision | What it replaced | Where it lives now |
