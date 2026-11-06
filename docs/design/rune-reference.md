@@ -45,8 +45,8 @@ then decides which row of the major output types table its minor runes read
 | Stone | Maker | none | an effect | Raises stone that blocks movement; units already standing there are encased | The edge hexes turn to rock, shrinking the battlefield (Decided, Jared Nov 5) |
 | Amplification | Amplifier | Diminishing | an effect | Makes the target deal more damage and give more healing for a round | A hit on a unit already hit this round deals more, which rewards focus fire (Decided, Jared Nov 5) |
 | Diminishing | Amplifier | Amplification | an effect | Makes the target deal less damage and give less healing for a round | A hit on a unit already hit this round deals less, which rewards spreading damage (Decided, Jared Nov 5) |
-| Haste | Plain effect | Slow | an effect | Gives the target an extra move at once, this round and next, then haste sickness (Decided, Jared Nov 6; what haste sickness does is Open) | Everyone gets an extra move each round (Decided, Jared Nov 5) |
-| Slow | Plain effect | Haste | an effect | Makes the target lose its next action; on an enemy that cancels its shown move | Each unit can either act or move on its turn, not both (Decided, Jared Nov 5) |
+| Haste | Plain effect | Slow | an effect | Gives the target an extra move at once, this round and next, then haste sickness: for a round it can take its action or its bonus action, not both (Decided, Jared Nov 6) | Everyone gets an extra move each round (Decided, Jared Nov 5) |
+| Slow | Plain effect | Haste | an effect | For a round, the target can take its action or its bonus action, not both, and its next spell lands a round late. On an enemy, its shown move goes off next round instead, still shown (Decided, Jared Nov 6) | Each unit can either act or move on its turn, not both (Decided, Jared Nov 5) |
 | Invisibility | Plain effect | Revelation | an effect | Hides the target: single, bolt and chain spells can't pick it until it acts, and an enemy move aimed at it loses its target; areas still hit it | Units more than 3 hexes away can't be picked as single targets (Decided, Jared Nov 5) |
 | Revelation | Plain effect | Invisibility | an effect | Removes hiding from the target and stops it hiding again for a round. On an enemy, it also shows that enemy's next move exactly (Proposed, Jared Nov 5, to playtest) | No one can hide (Decided, Jared Nov 5) |
 | Blank (Jared's name, Decided Nov 5) | | none | an effect | Open: the center for a spell that only moves things, with the Push or Pull inscription | Open |
@@ -257,8 +257,6 @@ behaves. The numbers are preliminary values.
 - [ ] Amplification and Diminishing: whether to swap their major outputs and
       minor rune ideas, reviewed across every major output type (Jared, Nov 5).
       Diminishing's minor rune is still a cooldown and size knob everywhere.
-- [ ] What haste sickness does after Haste's two rounds, and how Slow is balanced
-      when it cancels a shown move.
 - [ ] What the Blank rune does in the center and in the ring.
 - [ ] Which runes ship first.
 - [ ] The crafter and audit tool still show the old minor rune effects and list Push and
