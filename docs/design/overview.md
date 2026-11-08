@@ -45,6 +45,8 @@ economy yet. System A and System B run on one engine so both can be playtested.
 - **Enemy intent (Nov 3).** Each enemy shows only its next move, Slay the Spire
   style, drawn as its sigil. Deciphering the sigil is optional and gives an
   advantage; players who don't can still play.
+- **Enemy spells (Jared, Nov 8).** Players learn an enemy's spells only as
+  they're cast or shown, not from a list before the battle.
 - **When an enemy's move is fixed (Proposed, Jared Nov 5, to playtest).** Enemy
   moves use the same grammar as players' spells. A move aimed at a place (an
   area, a line, a wall) is fixed when it's shown, so it can be dodged, at the cost

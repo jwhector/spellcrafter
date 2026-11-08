@@ -27,6 +27,8 @@ something Jared decided.
 | As far as possible, a recipe with more runes gives more options, not more power. | Nothing: a three-rune spell risked being strictly better than its pairs and singles (Jared's concern, Nov 8) | [System C rules](system-c.md#recipes) |
 | Every minor rune has an empowered effect, got by spending that rune from the air. Recipe runes fill the air (one rune per spell, chosen when it is cast) and minor runes spend it. The air is shared with enemies, anyone can spend, including whoever filled it, and spending is a choice. An empowered effect takes the rune's transform one step further, one rule per rune to start, with exceptions allowed; on an output that lasts, it holds only for the round it is cast. | Nothing: minor runes had one effect per output | [System C rules](system-c.md#empowered-effects) |
 | Air keeps sliding a spell's area until it meets something, as its empowered cell on a spell; Frost gets a different cell. | System B's Frost on a spell (Nov 5), which System B keeps | [System C rules](system-c.md#air) |
+| Illusion hides what a spell is: the other side sees that it's an illusion, where it is and its output kind, not what it does, until it's touched or revealed. When you cast, you choose whether it looks threatening or beneficial (for now), and the look may lie. Empowered, it shows a decoy footprint as well. | Illusion's minor idea "unseen", carried over from Invisibility | [System C rules](system-c.md#illusion) |
+| Players learn an enemy's spells only as they're cast or shown. | Nothing: it was unstated | [Overview](overview.md#battles) |
 
 ## Nov 6
 
