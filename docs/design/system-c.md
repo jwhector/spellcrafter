@@ -42,7 +42,7 @@ over from the 16-rune tables in the [rune reference](rune-reference.md)
 
 | Rune | Opposite | Takes in | Minor idea so far |
 | --- | --- | --- | --- |
-| Fire | Frost | Fire | Spreads |
+| Fire | Frost | Fire | Contagion: what the spell leaves on a unit spreads (Decided, below) |
 | Frost | Fire | Frost | Slick |
 | Life | Death | Mend | Spares allies |
 | Death | Life | Wound | Finishes |
@@ -96,6 +96,19 @@ center: an effect at a destination or on a unit, through a gate, on a summon, on
 a shield, on ground, on a spell, and across the whole battlefield. A new kind is
 added only when an authored spell can't be described by one of these, since
 each kind costs a cell for every minor rune.
+
+**Decided (Jared, Nov 8): two more output kinds,** found when Fire's
+contagion had nothing to spread on some spells:
+
+- **Along the caster's path:** a spell that moves its own caster, such as a
+  blink, a jump or a charge (candidate C5 in the spell survey).
+- **On a link:** a lasting bond between two units, such as a life link, a
+  taunt or a charm (candidate C6).
+
+The rows worked out before these two get a second pass to fill them (Open).
+Proposed (Nov 8): the survey's other candidates stay out. A spell aimed at
+ground already on the board makes ground or an effect, so it uses those
+columns, and a charge uses the cell of whatever it lands on.
 
 ## Minor runes
 
@@ -357,6 +370,40 @@ Kept for authored spells rather than Temporal's minor rune (Jared, Nov 8):
 - Rewind, where a unit snaps back at the end of the round to where it was. It
   is noted as an idea for an authored spell.
 
+### Fire
+
+**Decided (Jared, Nov 8): Fire is contagion.** What a Fire spell leaves on a
+unit spreads to other units. What spreads depends on the recipe spell: each
+spell's sheet names what it passes on. Contagion fits a state a unit is left
+in (burning, a slow, a weak side, a disguise). A plain hit with nothing
+lasting passes on a copy of the hit (Proposed).
+
+Proposed (Nov 8), to settle with the cells:
+
+- The base cells pass it on one step, at half strength (a preliminary
+  number), and empowered it chains: whoever catches it passes it on too.
+- A unit catches the same spell only once.
+- Catching ignores sides, as friendly fire does, so a contagious heal can
+  reach an enemy standing next to your ally.
+- A caught push or pull goes away from, or toward, the unit it was caught
+  from.
+
+**Decided (Jared, Nov 8): on ground, it spreads 1 hex in every direction at
+the end of the round; empowered, it spreads once more.** Jared also floated a
+larger area instead; that is a stat dial, so spreading was taken.
+
+| Output | Fire as a minor rune | Empowered |
+| --- | --- | --- |
+| At a destination or on a unit | Proposed: a unit hit carries it until the end of next round, and any unit it moves next to, or is pushed into, catches it | Proposed: it chains |
+| Along the caster's path | Proposed: units the caster passes next to catch it | Proposed: it chains |
+| On a link | Proposed: a linked unit passes the link on to the first unit it moves next to | Proposed: it chains |
+| Through a gate | Proposed: a unit standing next to one going through is carried along with it | Proposed: it chains, so a connected group goes through together |
+| On a summon | Open: the first draft (what it hits carries it) only works for summons that attack | Open |
+| On a shield | Proposed: an ally that moves next to the bearer catches a half-strength copy | Proposed: this round, the copy is full strength |
+| On ground | It spreads 1 hex in every direction at the end of the round | It spreads once more |
+| On a spell | Proposed, the shakiest: the enemy's next spell also catches the units next to its caster | Proposed: they pass it on too |
+| Whole battlefield | Proposed: this round, any spell's effect can be caught one step | Proposed: it chains |
+
 ## Open
 
 - [ ] How System C sits beside System A and System B in the playtest.
@@ -377,17 +424,17 @@ Kept for authored spells rather than Temporal's minor rune (Jared, Nov 8):
 - [ ] The table of runes against board states, and whether it needs materials
       that aren't runes (water, oil). First rows from the survey: fire ignites
       oil, water conducts lightning, cold freezes water.
-- [ ] Which of the survey's candidate output kinds become columns.
-      Proposed (Nov 8): none yet. A spell aimed at ground already on the
-      board makes ground or an effect, so it uses those columns, and a charge
-      uses the cell of whatever it lands on. A lasting link between two units
-      would need a column; it is added when an authored spell needs one.
+- [ ] A second pass over the rows worked out before the two new output
+      kinds (Air, Illusion, Spatial, Stone, Revelation, Temporal), to fill
+      their cells along the caster's path and on a link.
+- [ ] Fire's cells other than on ground, and the contagion rules above.
 - [ ] Whether enemies always spend a rune from the air when their move can
       use it, as Gloomhaven's monsters do, so their shown move tells you.
 - [ ] Spatial's empowered cell on a spell (an enemy would avoid an entrance,
       so it needs a rule that doesn't rest on their choice).
-- [ ] Fire's minor idea, "spreads", overlaps Spatial's empowered ground,
-      which spreads to touching ground.
+- [ ] Fire's ground cell spreads ground, and Spatial's empowered ground
+      spreads its free movement to touching ground: check they stay
+      distinct.
 - [ ] How enemy AI reads and uses illusions (Jared, Nov 8: it has to take
       them into account).
 - [ ] Illusion's cell on a spell, the weakest of its row.
