@@ -24,6 +24,9 @@ something Jared decided.
 | Stat dials (a bonus-action cast, a shorter cooldown, a stronger effect) are not minor runes; they move to a dial of their own. | Haste's quick cast, Diminishing's cooldown and Amplification's "a third stronger" as minor rune effects | [System C rules](system-c.md#minor-runes) |
 | Randomness is welcome, except in accuracy for now; charm and domination (a unit switching sides) are acceptable. | Direct control as something that "may come later as a rare, expensive effect" (Nov 4) | [Overview](overview.md#battles) |
 | Air pushes or pulls, chosen when you craft, and System C has no Push and Pull inscriptions. | Push and Pull as inscriptions (System B keeps them) | [System C rules](system-c.md#air) |
+| As far as possible, a recipe with more runes gives more options, not more power. | Undecided (Open since the Nov 8 roguelike lean) | [System C rules](system-c.md#recipes) |
+| Every minor rune has an empowered effect, got by spending that rune from the air. Recipe runes fill the air (one rune per spell, chosen when it is cast) and minor runes spend it. The air is shared with enemies, anyone can spend, including whoever filled it, and spending is a choice. An empowered effect takes the rune's transform one step further, one rule per rune to start, with exceptions allowed; on an output that lasts, it holds only for the round it is cast. | Nothing: minor runes had one effect per output | [System C rules](system-c.md#empowered-effects) |
+| Air keeps sliding a spell's area until it meets something, as its empowered cell on a spell; Frost gets a different cell. | System B's Frost on a spell (Nov 5), which System B keeps | [System C rules](system-c.md#air) |
 
 ## Nov 6
 

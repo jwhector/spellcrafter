@@ -73,6 +73,10 @@ A, 10 of AA, 10 of AAA, 45 of AB, 90 of AAB and 120 of ABC.
 **Decided (Jared, Nov 8):** summons come from recipes, not from a rune of
 their own.
 
+**Decided (Jared, Nov 8): as far as possible, a recipe with more runes gives
+more options, not more power.** A trio is stronger only in what it lets you
+do, such as which rune it leaves in the air (below).
+
 **Proposed (Nov 7): an authored spell has to be worth authoring.** It needs one
 rule no other spell has, and it fails if it can be described as another spell
 with other numbers, or reached by crafting a nearby spell.
@@ -118,22 +122,65 @@ Randomness (except in accuracy) and charm or domination are allowed in minor
 rune effects and spells, as in the whole game (Decided, Jared Nov 8; see the
 [overview](overview.md#battles)).
 
+### Empowered effects
+
+**Decided (Jared, Nov 8): every minor rune also has an empowered effect,** a
+stronger version a spell gets by spending that rune from the air. The idea
+comes from Gloomhaven's elements (row MI0 of the spell survey). "In the air"
+is a working phrase.
+
+- **Decided (Jared, Nov 8): recipe runes fill the air, and minor runes spend
+  it.** When a spell is cast, one of the runes in its recipe is left in the
+  air across the battlefield. A later spell that carries the same rune as a
+  minor rune can spend it for that minor rune's empowered effect.
+- **Decided (Jared, Nov 8): a spell fills one rune,** chosen when it is cast,
+  whatever the size of its recipe. A trio gives the air no more than a
+  single; it gives the caster a choice of three.
+- **Decided (Jared, Nov 8): the air is shared.** Enemies fill it and spend it
+  too.
+- **Decided (Jared, Nov 8): anyone can spend a rune,** including whoever
+  filled it, and spending is always a choice.
+- **Decided (Jared, Nov 8): an empowered effect takes the rune's transform
+  one step further,** with one rule per rune for all its cells, to start.
+  Exceptions are allowed when a good effect has no natural step further, or
+  is strong enough without one.
+- **Decided (Jared, Nov 8): on an output that lasts** (ground, a summon, a
+  shield, the whole battlefield), the empowered effect holds only for the
+  round it is cast.
+- Proposed (Nov 8): a rune stays in the air until the end of the next round,
+  as in Gloomhaven (a preliminary number).
+- Proposed (Nov 8, to playtest): filling a rune clears its opposite from the
+  air, so filling Fire wipes out Frost.
+
+### A charge
+
+**Proposed (Jared, Nov 8): some authored spells hold a charge** (working
+word). The spell stores its minor rune on another unit, and it acts on that
+unit's next action as a minor rune would, using the cell for whatever that
+action makes (a basic attack is an effect). If the action exposes more than
+one output, that unit's player chooses which one it changes (Jared's lean). A
+charge needs no column of its own.
+
 ### Air
 
 **Decided (Jared, Nov 8): Air pushes or pulls,** chosen when you craft, and
 the Push and Pull inscriptions are removed.
 
-**Proposed (Nov 8): Air's cells.**
+**Proposed (Nov 8): Air's cells.** Empowered, the push or pull carries on
+until the unit hits something, and the board's edge counts as a wall. A pull
+drags the unit all the way in, until it reaches the spot or something in the
+way. Air keeps the empowered spell cell, sliding until it meets something
+(Jared, Nov 8), so Frost gets a different one.
 
-| Output | Air as a minor rune |
-| --- | --- |
-| At a destination or on a unit | Units hit are pushed (or pulled) 1 hex from where it landed |
-| Through a gate | Each arrival shoves units next to the exit 1 hex away (or draws them 1 hex in) |
-| On a summon | Its attacks push or pull 1 hex |
-| On a shield | Units that hit it from next door are pushed 1 hex back (or pulled in) |
-| On ground | A current: units in it move 1 hex each round in the direction it was cast |
-| On a spell | Its area is nudged 1 hex in a direction you choose |
-| Whole battlefield | A gale: every unit is moved 1 hex downwind each round |
+| Output | Air as a minor rune | Empowered |
+| --- | --- | --- |
+| At a destination or on a unit | Units hit are pushed (or pulled) 1 hex from where it landed | Carried until they hit a unit, a wall or the edge |
+| Through a gate | Each arrival shoves units next to the exit 1 hex away (or draws them 1 hex in) | Shoved until they hit something |
+| On a summon | Its attacks push or pull 1 hex | This round, its attacks carry the target until it hits something |
+| On a shield | Units that hit it from next door are pushed 1 hex back (or pulled in) | This round, thrown back until they hit something |
+| On ground | A current: units in it move 1 hex each round in the direction it was cast | This round, the current carries units until they hit something |
+| On a spell | Its area is nudged 1 hex in a direction you choose | Its area slides until it meets something |
+| Whole battlefield | A gale: every unit is moved 1 hex downwind each round | This round, every unit is blown until it hits something |
 
 **Proposed (Nov 8): two board rules make pushing a game.** A unit pushed into
 a wall or another unit takes damage, and so does the unit it hits. A unit
@@ -148,15 +195,23 @@ pushed into ground is affected by it at once.
 - [ ] The table of runes against board states, and whether it needs materials
       that aren't runes (water, oil). First rows from the survey: fire ignites
       oil, water conducts lightning, cold freezes water.
-- [ ] Whether a spell aimed at ground already on the board (to transform,
-      consume or swap it) becomes an eighth output kind.
+- [ ] Which of the survey's candidate output kinds become columns.
+      Proposed (Nov 8): none yet. A spell aimed at ground already on the
+      board makes ground or an effect, so it uses those columns, and a charge
+      uses the cell of whatever it lands on. A lasting link between two units
+      would need a column; it is added when an authored spell needs one.
+- [ ] Whether enemies always spend a rune from the air when their move can
+      use it, as Gloomhaven's monsters do, so their shown move tells you.
+- [ ] Each rune's empowered rule, Air's aside.
 - [ ] Which of System B's rules carry over: inscriptions, triggers, tethers,
       linking, ground, and the conflict and order rules.
 - [ ] How many minor runes a spell can hold, and how that grows.
 - [ ] How several minor runes on one spell combine.
 - [ ] Where the line falls between Frost and Time, which both slow (System
       B's Frost takes away the bonus move), and between Air and Spatial, which
-      both move units (Air pushes and pulls; Spatial took in Portal).
+      both move units (Air pushes and pulls; Spatial took in Portal). Frost's
+      cell on a spell can't be System B's slide, which is now Air's empowered
+      cell.
 - [ ] Whether System C needs a Blank rune for spells that only move things,
       now that Air pushes and pulls and there are no centers (System B keeps
       its Blank row).
