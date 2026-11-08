@@ -346,7 +346,7 @@ move, which Jared is now weighing (Open, below).
 | On a summon | It holds its action, and takes it on the first enemy that comes in reach or starts a move | This round it acts now and also holds a second action |
 | On a shield | It waits on the caster and goes to the first ally that is attacked | This round, after each hit it moves on to the next ally attacked, keeping what is left of it |
 | On ground | For its first round, it is active only in the players' phase or only in the enemy phase, chosen when you craft, so it can help allies or catch enemies | The limit lasts as long as the ground does, an exception Jared chose to the rule that empowered effects on lasting outputs hold only for the round they are cast |
-| On a spell | Open: going last in the enemy phase was turned down, since enemies act together | Open |
+| On a spell | The enemy's next spell is held where it was aimed and lands at the start of next round, shown to everyone: half a counterspell (Jared, Nov 8) | Open |
 | Whole battlefield | This round, each player can hold their bonus action and take it in the enemy phase | They can hold their action too |
 
 Kept for authored spells rather than Temporal's minor rune (Jared, Nov 8):
@@ -363,7 +363,7 @@ Kept for authored spells rather than Temporal's minor rune (Jared, Nov 8):
 - [ ] Each of the other four runes' minor rune row (Fire, Frost, Life,
       Death), starting from the [16-rune tables](rune-reference.md) for
       the runes each one takes in. Frost is set aside for now (Jared, Nov 8).
-- [ ] Temporal's empowered cell on a gate, and both its cells on a spell.
+- [ ] Temporal's empowered cells on a gate and on a spell.
 - [ ] Which conditions a readied spell can wait for, beyond the first two.
 - [ ] A pass over every rule here that leans on enemies showing their next
       move, once Jared settles whether they do (Open in the
