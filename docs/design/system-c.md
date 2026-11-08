@@ -35,10 +35,10 @@ is no Summon rune. Proposed: each rune does two jobs, as an ingredient in
 recipes and as a minor rune with its own table.
 
 Each rune takes in some of System B's 16, or in Air's case the job of
-pushing and pulling (Decided, Jared Nov 8). The minor
-ideas below, other than Air's, are candidates carried over from the 16-rune
-tables in the [rune reference](rune-reference.md) (Proposed); choosing one per
-rune is the audit still to come.
+pushing and pulling (Decided, Jared Nov 8). Each minor idea below carries its
+own marker where its row has been worked out; the rest are candidates carried
+over from the 16-rune tables in the [rune reference](rune-reference.md)
+(Proposed), and choosing one per rune is the audit still to come.
 
 | Rune | Opposite | Takes in | Minor idea so far |
 | --- | --- | --- | --- |
@@ -276,7 +276,8 @@ that block movement outright are kept for authored spells.
 - It blocks line of sight through it, so it gives cover.
 - It stops a shove: a unit pushed into it collides, as with a wall.
 - A unit on top sees over it, and over other raised stone.
-- A unit pushed off the top falls and takes the collision damage.
+- A unit pushed off the top falls and takes the same damage as a collision
+  (the collision rule under Air is still Proposed).
 
 **Note for the art (Jared, Nov 8):** every summon needs a ridden animation,
 since Stone lets allies ride one.
@@ -286,13 +287,13 @@ is Proposed and tentative.
 
 | Output | Stone as a minor rune | Empowered |
 | --- | --- | --- |
-| At a destination or on a unit | Raised stone rises under the hexes it hit until the end of next round, and units there are lifted on top | It lasts the whole battle |
+| At a destination or on a unit | Raised stone rises under the hexes it hit until the end of next round, and units there are lifted on top | It lasts the whole battle (Jared accepted this, Nov 8) |
 | Through a gate | The exit rises as raised stone, so arrivals come out on high ground | It stays as long as the gate does |
-| On a summon | Its body counts as raised stone: allies can climb on and ride it, and shoves collide with it | Allies on top move with it |
+| On a summon | Its body counts as raised stone: allies can climb on for high ground, and shoves collide with it | This round, allies on top ride it and move with it |
 | On a shield | Raised stone rises on one side of the unit, which you choose | It rises on every side this round, which also blocks the unit's own sight out |
-| On ground | Units in it can't be moved by Air or Spatial | It also rises as raised stone: high ground nobody can be pushed off |
+| On ground | Units in it can't be moved by Air or Spatial | This round, it also rises as raised stone: high ground nobody can be pushed off |
 | On a spell | Proposed, tentative: against a single-target move that follows its target, raised stone rises between the caster and the target, and the move is lost only if the target is still behind it when the move goes off | It stays up through the next round |
-| Whole battlefield | Each round, raised stone rises on a few random hexes | Units standing there are lifted on top |
+| Whole battlefield | Each round, raised stone rises on a few random hexes | This round, units standing there are lifted on top |
 
 ### Revelation
 
@@ -306,11 +307,11 @@ and has set it aside to come back to (Nov 8).
 | --- | --- | --- |
 | At a destination or on a unit | Units hit show their weak side until the end of next round | This round, every side is weak |
 | Through a gate | Arrivals reveal hidden units and illusions next to the exit | They also show those units' weak sides |
-| On a summon | Its attacks show the target's weak side | It reveals every unit it can see |
+| On a summon | Its attacks show the target's weak side | This round, it reveals every unit it can see |
 | On a shield | Units that hit it show their weak side | Every unit that hits it this round does |
-| On ground | Units in it can't hide or be disguised, and show their weak side | So does anything touching the ground |
+| On ground | Units in it can't hide or be disguised, and show their weak side | This round, so does anything touching the ground |
 | On a spell | An enemy's shown move shows a weak point: a hit on its caster from the weak side cancels it | Any hit on the caster cancels it this round |
-| Whole battlefield | Illusions and hidden units show everywhere | Every unit's weak side shows to everyone |
+| Whole battlefield | Illusions and hidden units show everywhere | This round, every unit's weak side shows to everyone |
 
 ## Open
 
