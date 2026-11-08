@@ -91,7 +91,8 @@ for example, exposes its damage and the ground it leaves.
 chooses which one each minor rune changes.** The choice is part of the agency
 crafting gives.
 
-**Proposed (Nov 8): the output kinds are System B's seven,** without the
+**Proposed (Nov 8): the output kinds are System B's seven,** plus the two
+below, without the
 center: an effect at a destination or on a unit, through a gate, on a summon, on
 a shield, on ground, on a spell, and across the whole battlefield. A new kind is
 added only when an authored spell can't be described by one of these, since
@@ -389,7 +390,8 @@ Proposed (Nov 8), to settle with the cells:
   from.
 
 **Decided (Jared, Nov 8): on ground, it spreads 1 hex in every direction at
-the end of the round; empowered, it spreads once more.** Jared also floated a
+the end of the round it is cast; empowered, it spreads once more** (Proposed:
+at the end of the next round). Jared also floated a
 larger area instead; that is a stat dial, so spreading was taken.
 
 | Output | Fire as a minor rune | Empowered |
@@ -400,14 +402,14 @@ larger area instead; that is a stat dial, so spreading was taken.
 | Through a gate | Proposed: a unit standing next to one going through is carried along with it | Proposed: it chains, so a connected group goes through together |
 | On a summon | Open: the first draft (what it hits carries it) only works for summons that attack | Open |
 | On a shield | Proposed: an ally that moves next to the bearer catches a half-strength copy | Proposed: this round, the copy is full strength |
-| On ground | It spreads 1 hex in every direction at the end of the round | It spreads once more |
+| On ground | It spreads 1 hex in every direction at the end of the round it is cast | It spreads once more (Proposed: at the end of the next round) |
 | On a spell | Proposed, the shakiest: the enemy's next spell also catches the units next to its caster | Proposed: they pass it on too |
 | Whole battlefield | Proposed: this round, any spell's effect can be caught one step | Proposed: it chains |
 
 ## Open
 
 - [ ] How System C sits beside System A and System B in the playtest.
-- [ ] Each of the other four runes' minor rune row (Fire, Frost, Life,
+- [ ] Each of the other three runes' minor rune row (Frost, Life,
       Death), starting from the [16-rune tables](rune-reference.md) for
       the runes each one takes in. Frost is set aside for now (Jared, Nov 8).
 - [ ] Temporal's empowered cells on a gate and on a spell.
