@@ -44,7 +44,7 @@ over from the 16-rune tables in the [rune reference](rune-reference.md)
 | --- | --- | --- | --- |
 | Fire | Frost | Fire | Contagion: what the spell leaves on a unit passes from unit to unit (Decided, below) |
 | Frost | Fire | Frost | Slick |
-| Life | Death | Mend | Spares allies |
+| Life | Death | Mend | Takes root: the spell grows while its caster stays put (Decided, below) |
 | Death | Life | Wound | Finishes |
 | Stone | Air | Stone, and protection (Protect) | Raises stone you can climb (Decided, below) |
 | Air | Stone | Pushing and pulling units | Pushes or pulls (Decided, below) |
@@ -171,6 +171,9 @@ is a working phrase.
   true to it give more emergence than one modifier tacked on everywhere. This
   replaces "one empowered rule per rune, to start" (earlier on Nov 8). An
   empowered cell often takes its base cell one step further, but it needn't.
+- **Decided (Jared, Nov 8): an empowered cell is value in itself.** The base
+  cell is the small game; spending a rune from the air is already the setup,
+  so the empowered cell doesn't wait on a second trigger.
 - **Decided (Jared, Nov 8): on an output that lasts** (ground, a summon, a
   shield, the whole battlefield), the empowered effect holds only for the
   round it is cast.
@@ -429,13 +432,9 @@ lean, Nov 8): the empowered spread reaches 2 hexes.
 
 **Decided (Jared, Nov 8, for now): through a gate, it is a burst.** Whenever a
 unit goes through, everything within 1 hex of it goes too. Empowered, the
-burst reaches 2 hexes. Proposed: units carried along don't set off a burst
-of their own, so it doesn't cascade through a whole group. An empowered blast at the exit was turned down as only
+burst reaches 2 hexes. Units carried along don't set off a burst of their
+own, so it doesn't cascade through a whole group (Jared, Nov 8). An empowered blast at the exit was turned down as only
 useful against enemies, and placing arrivals felt like Spatial's job.
-
-**Proposed (Nov 8): an empowered cell is value in itself.** The base
-cell is the small game; spending a rune from the air is already the setup, so
-the empowered cell doesn't wait on a second trigger.
 
 The other cells below were redrafted for passing (Nov 8) and are Proposed.
 
@@ -451,13 +450,44 @@ The other cells below were redrafted for passing (Nov 8) and are Proposed.
 | On a spell | The enemy's next spell is held on its caster, and goes off at the end of its next turn on whoever holds it | Open |
 | Whole battlefield | This round, every effect on a unit passes when its carrier moves or is pushed | Each pass copies instead of moving |
 
+### Life
+
+**Decided (Jared, Nov 8): Life takes root.** The spell grows while its caster
+stays put. It is rooted in the caster, not the target, so a stun or a root
+can't keep itself going, and it works the same on every output kind. The game
+is the caster's choice between moving and letting the spell grow, and the
+enemy's answer is to move the caster.
+
+**Decided (Jared, Nov 8): what can't grow stronger grows longer.** A binary
+effect, such as a stun, a charm or hiding, gains duration instead of
+strength.
+
+**Decided (Jared, Nov 8): Life's cells.** The numbers are preliminary: the
+spell grows a step for each round its caster stays put, before or after
+casting, up to double. Moving, or being moved, resets it.
+
+| Output | Life as a minor rune | Empowered |
+| --- | --- | --- |
+| At a destination or on a unit | An instant hit is a step stronger for each round the caster stood still before casting; a lasting effect keeps growing after it lands | It starts fully grown |
+| Along the caster's path | The path is a hex longer for each round the caster stood still first | Full length at once |
+| On a link | It grows each round the caster stays put | It starts fully grown |
+| Through a gate | It stays open a round longer for each round the caster stays put | It opens at full duration |
+| On a summon | It grows a step each round its caster stays put | It arrives fully grown |
+| On a shield | It thickens each round its caster stays put | It starts at full strength |
+| On ground | It grows in strength, or lasts longer, each round its caster stays put | It starts fully grown |
+| On a spell | The enemy's next spell is a step weaker for each round the caster has stood still, down to half | Half at once |
+| Whole battlefield | This round, every spell grows with its caster's stillness, on both sides | Each round of stillness counts twice |
+
 ## Open
 
 - [ ] How System C sits beside System A and System B in the playtest.
-- [ ] Each of the other three runes' minor rune row (Frost, Life,
+- [ ] Each of the other two runes' minor rune row (Frost and
       Death), starting from the [16-rune tables](rune-reference.md) for
       the runes each one takes in. Frost is set aside for now (Jared, Nov 8).
 - [ ] Temporal's empowered cells on a gate and on a spell.
+- [ ] How Life's empowered "starts fully grown" on a lasting output (a
+      summon, a shield, ground) meets the rule that an empowered effect there
+      holds only for the round it is cast.
 - [ ] Which conditions a readied spell can wait for, beyond the first two.
 - [ ] A pass over every rule here that leans on enemies showing their next
       move, once Jared settles whether they do (Open in the
