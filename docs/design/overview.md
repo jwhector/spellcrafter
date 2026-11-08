@@ -44,7 +44,8 @@ economy yet. System A and System B run on one engine so both can be playtested.
   late joiners. If someone leaves, a fallback plays their seat (details Open).
 - **Enemy intent (Nov 3).** Each enemy shows only its next move, Slay the Spire
   style, drawn as its sigil. Deciphering the sigil is optional and gives an
-  advantage; players who don't can still play.
+  advantage; players who don't can still play. Jared is weighing this again
+  (Nov 8, see Open below).
 - **Enemy spells (Jared, Nov 8).** Players learn an enemy's spells only as
   they're cast or shown, not from a list before the battle.
 - **When an enemy's move is fixed (Proposed, Jared Nov 5, to playtest).** Enemy
@@ -99,6 +100,11 @@ economy yet. System A and System B run on one engine so both can be playtested.
 
 **Open**
 
+- **Whether enemies keep showing their next move (Jared, Nov 8).** Jared is
+  tentative about it: it locks enemies in, makes counterplay too easy, and
+  stops the enemy AI from answering changes on the battlefield. Many rules
+  lean on it (deciphering sigils, when a move is fixed, control, and several
+  minor rune cells), so they get one pass together once this is settled.
 - **Downed or dead,** Open until playtesting (Jared, Nov 5). The Nov 4 lean was
   toward dying; the support ideas below include rescuing a downed ally.
 - Dice in battle. No dice was the lean while the enemy's move order was hidden;

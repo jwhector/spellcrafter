@@ -335,9 +335,20 @@ fallback instead.
 enemy phase as well,** two chances instead of one. Proposed: if nothing sets it
 off then, it goes off at the start of the round after.
 
+**Decided (Jared, Nov 8): Temporal's cells,** except those marked Open. They
+were worked out assuming enemies no longer show their next move, which Jared
+is now weighing (Open, below), so holding back is the main way to answer what
+enemies do.
+
 | Output | Temporal as a minor rune | Empowered |
 | --- | --- | --- |
 | At a destination or on a unit | Readied, as above | It stays ready through the next round's enemy phase as well |
+| Through a gate | It is open only in the players' phase, so units can go through and enemies can't follow | Open: it needs a more specific design |
+| On a summon | It holds its action, and strikes the first enemy that comes in reach or starts a move | This round it acts now and also holds a second action |
+| On a shield | It waits on the caster and goes to the first ally that is attacked | After each hit it moves on to the next ally attacked, keeping what is left of it |
+| On ground | For its first round, it is active only in the players' phase or only in the enemy phase, chosen when you craft, so it can help allies or catch enemies | The limit lasts as long as the ground does, an exception Jared chose to the rule that empowered effects on lasting outputs hold only for the round they are cast |
+| On a spell | Open: going last in the enemy phase was turned down, since enemies act together | Open |
+| Whole battlefield | This round, each player can hold their bonus action and take it in the enemy phase | They can hold their action too |
 
 Kept for authored spells rather than Temporal's minor rune (Jared, Nov 8):
 
@@ -347,16 +358,18 @@ Kept for authored spells rather than Temporal's minor rune (Jared, Nov 8):
 - Rewind, where a unit snaps back at the end of the round to where it was. It
   is noted as an idea for an authored spell.
 
-Its cells for the other output kinds are Open (listed below).
-
 ## Open
 
 - [ ] How System C sits beside System A and System B in the playtest.
 - [ ] Each of the other four runes' minor rune row (Fire, Frost, Life,
       Death), starting from the [16-rune tables](rune-reference.md) for
       the runes each one takes in. Frost is set aside for now (Jared, Nov 8).
-- [ ] Temporal's cells other than the one at a destination or on a unit.
+- [ ] Temporal's empowered cell on a gate, and both its cells on a spell.
 - [ ] Which conditions a readied spell can wait for, beyond the first two.
+- [ ] A pass over every rule here that leans on enemies showing their next
+      move, once Jared settles whether they do (Open in the
+      [overview](overview.md#battles)). Among them: Temporal's readied
+      condition, and the cells on a spell for Revelation, Spatial and Stone.
 - [ ] Revelation's row, which is Proposed and set aside to come back to, and
       whether Revelation and Illusion need more counterplay against each
       other (Jared, Nov 8).
