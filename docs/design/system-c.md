@@ -257,10 +257,10 @@ spell, which is Proposed.
 | Output | Spatial as a minor rune | Empowered |
 | --- | --- | --- |
 | At a destination or on a unit | It carries on from an ally it can reach, as above | A one-way spell portal for the round, as above |
-| Through a gate | Spells can travel through the gate this round | Spells can travel through it for as long as the gate lasts (an exception to the one-round rule) |
+| Through a gate | Spells can travel through the gate this round | Spells can travel through it for as long as the gate lasts |
 | On a summon | It is an exit for the next spell cast through it | It is an exit for everyone for the whole round, and it moves with the summon: the only exit that can move |
 | On a shield | The first single-target hit on it this round goes into a portal and comes out at an exit you place; area effects are not caught | Every single-target hit this round |
-| On ground | A unit in it can move to any hex of it as a single move, and the ground acts on it once for each hex crossed | The free movement spreads to any ground touching this ground |
+| On ground | A unit in it can move to any hex of it as a single move, and the ground acts on it once for each hex crossed | This round, the free movement spreads to any ground touching this ground |
 | On a spell | An enemy spell goes through a portal, and its origin moves to a hex you choose | Proposed: every spell that enemy casts this round comes out of the exit you placed |
 | Whole battlefield | This round, every spell can carry on once from an ally | From any unit |
 
@@ -281,7 +281,10 @@ spell, which is Proposed.
       would need a column; it is added when an authored spell needs one.
 - [ ] Whether enemies always spend a rune from the air when their move can
       use it, as Gloomhaven's monsters do, so their shown move tells you.
-- [ ] Each rune's empowered rule, Air's, Illusion's and Spatial's aside.
+- [ ] Each rune's empowered rule, Air's and Illusion's aside. Spatial's
+      empowered cells are set, but they don't yet share one stated rule.
+- [ ] Spatial's empowered cell on a spell (an enemy would avoid an entrance,
+      so it needs a rule that doesn't rest on their choice).
 - [ ] Fire's minor idea, "spreads", overlaps Spatial's empowered ground,
       which spreads to touching ground.
 - [ ] How enemy AI reads and uses illusions (Jared, Nov 8: it has to take
@@ -292,8 +295,9 @@ spell, which is Proposed.
 - [ ] How many minor runes a spell can hold, and how that grows.
 - [ ] How several minor runes on one spell combine.
 - [ ] Where the line falls between Frost and Time, which both slow (System
-      B's Frost takes away the bonus move). Air and Spatial are now apart: Air
-      moves units, and Spatial moves where spells come from. Frost's
+      B's Frost takes away the bonus move), and between Air and Spatial:
+      Spatial's core is now where spells come from, but its ground cell still
+      moves units. Frost's
       cell on a spell can't be System B's slide, which is now Air's empowered
       cell.
 - [ ] Whether System C needs a Blank rune for spells that only move things,
