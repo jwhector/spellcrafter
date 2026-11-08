@@ -162,7 +162,7 @@ enemy intent and scarce movement.
 - **Schools.** Runes belong to schools (the set and names are Jared's to design).
   Elements are one kind: basic and easy to understand.
 - **Ten runes in five opposed pairs (Jared, Nov 8):** Fire and Frost, Life and
-  Death, Stone and Air, Revelation and Illusion, Space and Time. A summon comes
+  Death, Stone and Air, Revelation and Illusion, Spatial and Time. A summon comes
   from a combination of runes, not from a rune of its own. They are System
   C's runes; see [System C rules](system-c.md#the-ten-runes).
 - **A spell is built from runes.** Its power comes from the quality of its runes

@@ -30,7 +30,7 @@ you have a spell you can guess what a minor rune will do to it.
 ## The ten runes
 
 **Decided (Jared, Nov 8): ten runes, in five opposed pairs:** Fire and Frost,
-Life and Death, Stone and Air, Revelation and Illusion, Space and Time. There
+Life and Death, Stone and Air, Revelation and Illusion, Spatial and Time. There
 is no Summon rune. Proposed: each rune does two jobs, as an ingredient in
 recipes and as a minor rune with its own table.
 
@@ -50,13 +50,13 @@ rune is the audit still to come.
 | Air | Stone | Pushing and pulling units | Pushes or pulls (Decided, below) |
 | Revelation | Illusion | Revelation, Dispel and Expose: it shows what is true, so it strips what is false or hidden and lays weak points bare | Pierces, can't be undone, or seeks hidden units |
 | Illusion | Revelation | Invisibility, Amplification and Diminishing: the school of buffs and debuffs | Unseen (stronger and shorter cooldown are stat dials now) |
-| Space | Time | Portal | From elsewhere |
-| Time | Space | Haste and Slow | Drawn out (quick cast is a stat dial now) |
+| Spatial | Time | Portal | From elsewhere |
+| Time | Spatial | Haste and Slow | Drawn out (quick cast is a stat dial now) |
 
 ## Recipes
 
-**Proposed (Jared, Nov 7, to confirm as Decided): every recipe shape has a
-job,** and none is ruled out, only different:
+**Decided (Jared, Nov 7 and 8): every recipe shape has a job,** and none is
+ruled out, only different:
 
 | Shape | Its job |
 | --- | --- |
@@ -65,6 +65,10 @@ job,** and none is ruled out, only different:
 | Two runes (AB) | A spell of two schools |
 | Two of one rune and one of another (AAB) | The AB spell, focused and scaled toward A |
 | Three runes (ABC) | A unique mechanic, whose uniqueness is its power |
+
+Every pair of runes has two of the AAB shape: AAB leans toward A and ABB leans
+toward B (Jared, Nov 8). With ten runes, the shapes give 285 recipes: 10 of
+A, 10 of AA, 10 of AAA, 45 of AB, 90 of AAB and 120 of ABC.
 
 **Decided (Jared, Nov 8):** summons come from recipes, not from a rune of
 their own.
@@ -151,12 +155,15 @@ pushed into ground is affected by it at once.
 - [ ] How many minor runes a spell can hold, and how that grows.
 - [ ] How several minor runes on one spell combine.
 - [ ] Where the line falls between Frost and Time, which both slow (System
-      B's Frost takes away the bonus move), and between Air and Space, which
-      both move units (Air pushes and pulls; Space was Portal).
+      B's Frost takes away the bonus move), and between Air and Spatial, which
+      both move units (Air pushes and pulls; Spatial took in Portal).
 - [ ] Whether System C needs a Blank rune for spells that only move things,
       now that Air pushes and pulls and there are no centers (System B keeps
       its Blank row).
 - [ ] Progression: Jared leans toward a roguelike where the number of runes in
-      a recipe is the gate (one-rune spells first, then pairs, then trios, with
-      crafting between). Not decided.
+      a recipe is the gate. His Nov 8 sketch: the game opens with one-rune
+      spells, varied enough that crafting them is a game of its own and
+      teaches the minor runes; then discovery begins, first with AA (your
+      spell, but better), and then it opens the dozens of unique spells,
+      which crafting then changes. Not decided.
 - [ ] How the budget model prices an authored spell and its crafting.
