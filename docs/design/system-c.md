@@ -425,12 +425,12 @@ Proposed (Nov 8), to settle with the cells:
 ground along every hex it crosses until it lands.** This replaces an earlier
 Nov 8 call, that the ground spreads 1 hex at the end of the round, which is now
 the empowered cell: as a base it was mostly a bigger area. Proposed (Jared's
-lean, Nov 8): empowered, it also spreads 2 hexes in every direction at the end
-of the round.
+lean, Nov 8): the empowered spread reaches 2 hexes.
 
 **Decided (Jared, Nov 8, for now): through a gate, it is a burst.** Whenever a
 unit goes through, everything within 1 hex of it goes too. Empowered, the
-burst reaches 2 hexes. An empowered blast at the exit was turned down as only
+burst reaches 2 hexes. Proposed: units carried along don't set off a burst
+of their own, so it doesn't cascade through a whole group. An empowered blast at the exit was turned down as only
 useful against enemies, and placing arrivals felt like Spatial's job.
 
 **Proposed (Nov 8): an empowered cell is value in itself.** The base
@@ -447,7 +447,7 @@ The other cells below were redrafted for passing (Nov 8) and are Proposed.
 | Through a gate | A burst: whenever a unit goes through, everything within 1 hex of it goes too | The burst reaches 2 hexes |
 | On a summon | At the end of the round, what its spell passes on goes to a unit next to it | This round, every unit next to it gets a copy |
 | On a shield | The shield passes to the next ally the bearer moves next to | This round, that ally gets a copy and the bearer keeps the shield |
-| On ground | A unit pushed out of it drags it along every hex it crosses until it lands | Proposed: it also spreads 2 hexes in every direction at the end of the round |
+| On ground | A unit pushed out of it drags it along every hex it crosses until it lands | It also spreads in every direction at the end of the round (Proposed: 2 hexes) |
 | On a spell | The enemy's next spell is held on its caster, and goes off at the end of its next turn on whoever holds it | Open |
 | Whole battlefield | This round, every effect on a unit passes when its carrier moves or is pushed | Each pass copies instead of moving |
 
@@ -474,12 +474,13 @@ The other cells below were redrafted for passing (Nov 8) and are Proposed.
 - [ ] A second pass over the rows worked out before the two new output
       kinds (Air, Illusion, Spatial, Stone, Revelation, Temporal), to fill
       their cells along the caster's path and on a link.
-- [ ] Fire's cells other than on ground, and the contagion rules above.
+- [ ] Fire's cells other than on ground and through a gate, and the
+      contagion rules above.
 - [ ] Whether enemies always spend a rune from the air when their move can
       use it, as Gloomhaven's monsters do, so their shown move tells you.
 - [ ] Spatial's empowered cell on a spell (an enemy would avoid an entrance,
       so it needs a rule that doesn't rest on their choice).
-- [ ] Fire's ground cell spreads ground, and Spatial's empowered ground
+- [ ] Fire's empowered ground spreads ground, and Spatial's empowered ground
       spreads its free movement to touching ground: check they stay
       distinct.
 - [ ] How enemy AI reads and uses illusions (Jared, Nov 8: it has to take
