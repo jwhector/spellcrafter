@@ -421,23 +421,33 @@ Proposed (Nov 8), to settle with the cells:
 - Empowered, it copies for one step instead of moving: duplication is the
   payoff for spending Fire from the air.
 
-**Decided (Jared, Nov 8): on ground, it spreads 1 hex in every direction at
-the end of the round it is cast; empowered, it spreads once more** (Proposed:
-at the end of the next round). Jared also floated a
-larger area instead; that is a stat dial, so spreading was taken.
+**Decided (Jared, Nov 8): on ground, a unit pushed out of it drags the
+ground along every hex it crosses until it lands.** This replaces an earlier
+Nov 8 call, that the ground spreads 1 hex at the end of the round, which is now
+the empowered cell: as a base it was mostly a bigger area. Proposed (Jared's
+lean, Nov 8): empowered, it also spreads 2 hexes in every direction at the end
+of the round.
 
-The cells below were redrafted for passing (Nov 8) and are Proposed, except
-on ground.
+**Decided (Jared, Nov 8, for now): through a gate, it is a burst.** Whenever a
+unit goes through, everything within 1 hex of it goes too. Empowered, the
+burst reaches 2 hexes. An empowered blast at the exit was turned down as only
+useful against enemies, and placing arrivals felt like Spatial's job.
+
+**Proposed (Nov 8): an empowered cell is value in itself.** The base
+cell is the small game; spending a rune from the air is already the setup, so
+the empowered cell doesn't wait on a second trigger.
+
+The other cells below were redrafted for passing (Nov 8) and are Proposed.
 
 | Output | Fire as a minor rune | Empowered |
 | --- | --- | --- |
 | At a destination or on a unit | What it leaves on a unit passes, as above | It copies for one step instead of moving |
 | Along the caster's path | The caster carries it, and passes it to the first unit it moves next to | It copies to every unit the caster passes next to |
 | On a link | When a linked unit moves next to another unit, that unit takes its place in the link | A second link forms instead, and the first stays |
-| Through a gate | A unit next to one going through is carried along with it | A connected group goes through together |
+| Through a gate | A burst: whenever a unit goes through, everything within 1 hex of it goes too | The burst reaches 2 hexes |
 | On a summon | At the end of the round, what its spell passes on goes to a unit next to it | This round, every unit next to it gets a copy |
 | On a shield | The shield passes to the next ally the bearer moves next to | This round, that ally gets a copy and the bearer keeps the shield |
-| On ground | It spreads 1 hex in every direction at the end of the round it is cast | It spreads once more (Proposed: at the end of the next round) |
+| On ground | A unit pushed out of it drags it along every hex it crosses until it lands | Proposed: it also spreads 2 hexes in every direction at the end of the round |
 | On a spell | The enemy's next spell is held on its caster, and goes off at the end of its next turn on whoever holds it | Open |
 | Whole battlefield | This round, every effect on a unit passes when its carrier moves or is pushed | Each pass copies instead of moving |
 
