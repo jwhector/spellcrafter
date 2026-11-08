@@ -14,7 +14,9 @@ placeholders unless the [glossary](#glossary) marks them as Jared's.
 [rune reference](rune-reference.md#the-ten-runes)). The rules here still name
 the 16 runes they were written for. Where a rule belongs to a rune that folds
 into another (Portal's gate, Protect's shield, Summon's summon and totem,
-Dispel targeting a spell), which of the ten takes it over is Open.
+Dispel targeting a spell), which of the ten takes it over is Open. Air takes
+over the Blank rune's job of moving units; whether a Blank rune stays
+alongside the ten is Open.
 
 ## The parts of a sigil
 
@@ -523,7 +525,7 @@ are still placeholders, so we can talk about the parts.
 | global modification | A spell cast on the whole battlefield | Jared | |
 | binary (effect) | An effect that is all or nothing, such as an extra action | Jared | |
 | totem | The marker Summon leaves as a minor rune. It keeps a major output going or repeats it, as each minor rune table says. Summon is no longer a rune (Nov 8), so which rune leaves it is Open | Jared | |
-| blank (rune) | The major rune for a spell that only moves things. Air takes over moving units (Nov 8); whether Blank stays is Open | Jared | |
+| blank (rune) | The major rune for a spell that only moves things. Air takes over moving units (Nov 8); whether a Blank rune stays alongside the ten is Open | Jared | |
 
 The role names themselves (plain effect, amplifier, mover, maker, remover) are
 placeholders.

@@ -299,8 +299,8 @@ behaves. The numbers are preliminary values.
 - [ ] Where the line falls between Frost and Time, which both slow (today's
       Frost takes away the bonus move), and between Air and Space, which both
       move units.
-- [ ] How Air relates to the Push and Pull inscriptions, and whether the Blank
-      rune is still needed.
+- [ ] How Air relates to the Push and Pull inscriptions, and whether a Blank
+      rune stays alongside the ten.
 - [ ] Which runes ship first.
 - [ ] The crafter and audit tool still show the old minor rune effects and list Push and
       Pull as runes (seed spellcrafter-5f29).
