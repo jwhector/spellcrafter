@@ -5,10 +5,12 @@ that pick a major output type are in [System B rules](system-b.md#what-the-cente
 what each meaning costs is in the [budget model](budget-model.md).
 
 **Decided (Jared, Nov 8): the runes are becoming ten,** in five opposed pairs
-(see [The ten runes](#the-ten-runes)). What each of the ten does is Open. Until
-a new rune is written, the tables below keep the 16 runes decided on Nov 5, and
-they are the starting material for the ten: each new rune draws on the rows of
-the runes it takes in.
+(see [The ten runes](#the-ten-runes)). What each of the ten does is Open.
+
+How this doc is kept meanwhile (not a design decision): until a new rune is
+written, the tables below keep the 16 runes decided on Nov 5, as the starting
+material for the ten, so each new rune can draw on the rows of the runes it
+takes in.
 
 The 16 in these tables (Decided Nov 5) are in opposite pairs: Fire and Frost,
 Mend and Wound, Protect and Expose, Summon and Dispel, Amplification and
