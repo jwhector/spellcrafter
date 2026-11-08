@@ -9,6 +9,14 @@ that were cut word for word are also in the [archive](README.md#the-archive).
 A rule that is still Proposed or Open is in the docs, not here. A row here is
 something Jared decided.
 
+## Nov 8
+
+| Decision | What it replaced | Where it lives now |
+| --- | --- | --- |
+| The game has ten runes, in five opposed pairs: Fire and Frost, Life and Death, Stone and Air, Revelation and Illusion, Space and Time (Jared's names). What each new rune does is Open. | 16 runes in seven opposite pairs plus Portal and Stone (Nov 5) | [Rune reference](rune-reference.md#the-ten-runes) |
+| Where today's runes go: Life takes in Mend, Death takes in Wound, Space takes in Portal, and Time takes in Haste and Slow. Revelation takes in Dispel and Expose. Illusion takes in Invisibility, Amplification and Diminishing. Stone takes in protection (Protect), and Air takes in pushing and pulling units, the job planned for Blank; whether a Blank rune stays alongside the ten is Open. | Each of those as a rune of its own | [Rune reference](rune-reference.md#the-ten-runes) |
+| There is no Summon rune. A summon is found as a combination of runes; how runes combine is Open. | Summon as a rune whose center makes a summon (Nov 4) | [Rune reference](rune-reference.md#the-ten-runes) |
+
 ## Nov 6
 
 | Decision | What it replaced | Where it lives now |
