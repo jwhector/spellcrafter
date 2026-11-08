@@ -126,6 +126,17 @@ rune effect should open a small game that combines with other spells, other
 players or the board, the way pushing a unit into a wall or into burning ground
 does. Moving units for free is strong, but it feels correctly balanced.
 
+**Decided (Jared, Nov 8): a minor rune's game stands on its own.**
+
+- A minor rune is worth putting on any spell for the change it makes. Its game
+  never needs particular runes in the recipe.
+- An authored spell is complete without any minor rune. It is never designed
+  so that one minor rune is the only way to get value from it, all the more
+  since a roguelike run may never offer that rune.
+- Some authored spells may touch a minor rune's game on purpose, as their own
+  special mechanic. For example, a spell whose passed-on effect grows faster
+  under Fire.
+
 **Decided (Jared, Nov 8): stat dials are not minor runes.** Plain changes to a
 number, such as casting as a bonus action, a shorter cooldown or a stronger
 effect, move to a dial of their own (Open: where it lives). The Nov 8
@@ -374,37 +385,56 @@ Kept for authored spells rather than Temporal's minor rune (Jared, Nov 8):
 ### Fire
 
 **Decided (Jared, Nov 8): Fire is contagion.** What a Fire spell leaves on a
-unit spreads to other units. What spreads depends on the recipe spell: each
-spell's sheet names what it passes on. Contagion fits a state a unit is left
-in (burning, a slow, a weak side, a disguise). A plain hit with nothing
-lasting passes on a copy of the hit (Proposed).
+unit passes from unit to unit. What passes depends on the recipe spell: each
+spell's sheet names what it passes on.
+
+**Decided (Jared, Nov 8): it is passed around, and passes only when its
+carrier moves next to a unit or is pushed into one.** It leaves the carrier
+when it passes, so it is never duplicated and no spell has to be balanced as
+if it might hit twice. It is a mechanic that triggers, not a way to power up
+your own spells by passing them back and forth.
+
+**Decided (Jared, Nov 8): it grows only under certain conditions,** and being
+displaced (pushed, pulled or bounced) is one of them. Stepping next to a unit
+yourself passes it at the same strength.
 
 Proposed (Nov 8), to settle with the cells:
 
-- The base cells pass it on one step, at half strength (a preliminary
-  number), and empowered it chains: whoever catches it passes it on too.
-- A unit catches the same spell only once.
-- Catching ignores sides, as friendly fire does, so a contagious heal can
-  reach an enemy standing next to your ally.
-- A caught push or pull goes away from, or toward, the unit it was caught
-  from.
+- Each growth is one step, capped at double (preliminary numbers).
+- It also grows when it passes from one side to the other, so passing it
+  between allies never grows it.
+- A plain hit with nothing lasting is held, and goes off on whoever holds it
+  at the end of the first holder's next turn (Jared's idea). The time is fixed
+  when it is cast and passing never resets it, so it may return to a unit
+  that held it: passing changes who it hits, never when.
+- A spell at a destination that hits no unit leaves it on the hexes it hit,
+  and the first unit to step on them carries it.
+- Catching ignores sides, as friendly fire does.
+- A Frost spell on the holder puts it out or shrinks it a step, from Fire's
+  opposite.
+- A passed push or pull goes away from, or toward, the unit it came from.
+- Empowered, it copies for one step instead of moving: duplication is the
+  payoff for spending Fire from the air.
 
 **Decided (Jared, Nov 8): on ground, it spreads 1 hex in every direction at
 the end of the round it is cast; empowered, it spreads once more** (Proposed:
 at the end of the next round). Jared also floated a
 larger area instead; that is a stat dial, so spreading was taken.
 
+The cells below were redrafted for passing (Nov 8) and are Proposed, except
+on ground.
+
 | Output | Fire as a minor rune | Empowered |
 | --- | --- | --- |
-| At a destination or on a unit | Proposed: a unit hit carries it until the end of next round, and any unit it moves next to, or is pushed into, catches it | Proposed: it chains |
-| Along the caster's path | Proposed: units the caster passes next to catch it | Proposed: it chains |
-| On a link | Proposed: a linked unit passes the link on to the first unit it moves next to | Proposed: it chains |
-| Through a gate | Proposed: a unit standing next to one going through is carried along with it | Proposed: it chains, so a connected group goes through together |
-| On a summon | Open: the first draft (what it hits carries it) only works for summons that attack | Open |
-| On a shield | Proposed: an ally that moves next to the bearer catches a half-strength copy | Proposed: this round, the copy is full strength |
+| At a destination or on a unit | What it leaves on a unit passes, as above | It copies for one step instead of moving |
+| Along the caster's path | The caster carries it, and passes it to the first unit it moves next to | It copies to every unit the caster passes next to |
+| On a link | When a linked unit moves next to another unit, that unit takes its place in the link | A second link forms instead, and the first stays |
+| Through a gate | A unit next to one going through is carried along with it | A connected group goes through together |
+| On a summon | At the end of the round, what its spell passes on goes to a unit next to it | This round, every unit next to it gets a copy |
+| On a shield | The shield passes to the next ally the bearer moves next to | This round, that ally gets a copy and the bearer keeps the shield |
 | On ground | It spreads 1 hex in every direction at the end of the round it is cast | It spreads once more (Proposed: at the end of the next round) |
-| On a spell | Proposed, the shakiest: the enemy's next spell also catches the units next to its caster | Proposed: they pass it on too |
-| Whole battlefield | Proposed: this round, any spell's effect can be caught one step | Proposed: it chains |
+| On a spell | The enemy's next spell is held on its caster, and goes off at the end of its next turn on whoever holds it | Open |
+| Whole battlefield | This round, every effect on a unit passes when its carrier moves or is pushed | Each pass copies instead of moving |
 
 ## Open
 
