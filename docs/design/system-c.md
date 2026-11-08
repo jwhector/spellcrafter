@@ -194,21 +194,28 @@ pushed into ground is affected by it at once.
 **Decided (Jared, Nov 8): Illusion hides what a spell is, and can fake
 people out.** The other side sees that a spell is an illusion, where it is and
 what kind of output it is, since its footprint shows that, but not what it
-does. It stays hidden until a unit or spell touches it or Revelation shows it.
-This replaces "unseen", which Jared turned down as a passive advantage with no
+does, until it is revealed. This replaces "unseen", which Jared turned down as a passive advantage with no
 play in it.
 
 **Decided (Jared, Nov 8, for now): when you cast, you choose whether the
 illusion looks threatening or beneficial.** The look may lie or tell the
 truth. An illusion over real Fire ground that looks like Fire ground is a
-double bluff. Choosing at cast keeps a player's bluffs from becoming
-predictable. Because players learn enemy spells only as they're cast
-([overview](overview.md#battles)), the look is what keeps the doubt bounded:
-the other side judges one claim, not every spell in the game.
+double bluff. Every cell wears that look; the default illusory look on an
+effect and the random look on a summon are how it is drawn.
 
 **Decided (Jared, Nov 8): empowered, the spell also shows a decoy,** a
-second footprint with the same look. Only one is real, and the decoy does
-nothing and breaks when touched.
+second footprint with the same look. Only one is real.
+
+**Proposed (Nov 8):**
+
+- What reveals an illusion: Revelation, a unit walking into it or attacking
+  it, or (for a summon) its first action. Units a spell lands on don't reveal
+  it by being hit.
+- A decoy does nothing and breaks when a unit touches it.
+- Choosing the look at cast keeps a player's bluffs from becoming
+  predictable. Because players learn enemy spells only as they're cast or
+  shown ([overview](overview.md#battles)), the look is what keeps the doubt
+  bounded: the other side judges one claim, not every spell in the game.
 
 **Proposed (Nov 8): Illusion's cells.**
 
@@ -219,7 +226,7 @@ nothing and breaks when touched.
 | On a summon | It wears a random look, and what it is stays hidden until it acts or is revealed (Jared, Nov 8) | A decoy summon with the same look |
 | On a shield | How strong it is and what it does stay hidden until it's hit | A decoy shield on a second unit |
 | On ground | It shows as unknown ground with the chosen look | A decoy patch of ground |
-| On a spell | The change it made is hidden, so the spell still shows as before | A second spell looks changed too |
+| On a spell | The change it made is hidden: the spell shows its old look, marked as an illusion | A second spell looks changed too |
 | Whole battlefield | The board shows that a modification is in force, but not what it is | Two modifications show, and only one is real |
 
 ## Open
