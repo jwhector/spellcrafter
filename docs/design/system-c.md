@@ -50,7 +50,7 @@ rune is the audit still to come.
 | Air | Stone | Pushing and pulling units | Pushes or pulls (Decided, below) |
 | Revelation | Illusion | Revelation, Dispel and Expose: it shows what is true, so it strips what is false or hidden and lays weak points bare | Pierces, can't be undone, or seeks hidden units |
 | Illusion | Revelation | Invisibility, Amplification and Diminishing: the school of buffs and debuffs | Hides what the spell is (Decided, below; stronger and shorter cooldown are stat dials now) |
-| Spatial | Time | Portal | From elsewhere |
+| Spatial | Time | Portal | From elsewhere: a spell carries on from an ally (Decided, below) |
 | Time | Spatial | Haste and Slow | Drawn out (quick cast is a stat dial now) |
 
 ## Recipes
@@ -229,10 +229,45 @@ second footprint with the same look. Only one is real.
 | On a spell | The change it made is hidden: the spell shows its old look, marked as an illusion | A second spell looks changed too |
 | Whole battlefield | The board shows that a modification is in force, but not what it is | Two modifications show, and only one is real |
 
+### Spatial
+
+**Decided (Jared, Nov 8): Spatial is about where a spell comes from.** Swapping
+places was turned down as its core; it belongs on an authored spell.
+
+**Decided (Jared, Nov 8): a spell that can reach an ally carries on from
+them.** It passes through a portal at the ally and goes on as if cast from
+their hex, with its range counted again from there, like a bounce.
+Proposed: line of sight is counted from there too, since every spell needs it.
+
+**Decided (Jared, Nov 8): empowered, the spell also opens a one-way spell
+portal for the round,** with its entrance and exit placed on any hexes in
+range. Any spell, from anyone, that can reach the entrance carries on from the
+exit, with its range counted again from there.
+
+**Decided (Jared, Nov 8): spells can't travel through a gate** unless a minor
+rune lets them.
+
+**Note for the art (Jared, Nov 8):** every spell and attack needs a version
+that travels through a portal, since that is how gates and this rune show on
+the board.
+
+**Decided (Jared, Nov 8): Spatial's cells,** except the empowered cell on a
+spell, which is Proposed.
+
+| Output | Spatial as a minor rune | Empowered |
+| --- | --- | --- |
+| At a destination or on a unit | It carries on from an ally it can reach, as above | A one-way spell portal for the round, as above |
+| Through a gate | Spells can travel through the gate this round | Spells can travel through it for as long as the gate lasts (an exception to the one-round rule) |
+| On a summon | It is an exit for the next spell cast through it | It is an exit for everyone for the whole round, and it moves with the summon: the only exit that can move |
+| On a shield | The first single-target hit on it this round goes into a portal and comes out at an exit you place; area effects are not caught | Every single-target hit this round |
+| On ground | A unit in it can move to any hex of it as a single move, and the ground acts on it once for each hex crossed | The free movement spreads to any ground touching this ground |
+| On a spell | An enemy spell goes through a portal, and its origin moves to a hex you choose | Proposed: every spell that enemy casts this round comes out of the exit you placed |
+| Whole battlefield | This round, every spell can carry on once from an ally | From any unit |
+
 ## Open
 
 - [ ] How System C sits beside System A and System B in the playtest.
-- [ ] Each of the other eight runes' minor rune row, starting from the
+- [ ] Each of the other seven runes' minor rune row, starting from the
       [16-rune tables](rune-reference.md) for the runes each one takes in.
       Frost is set aside for now (Jared, Nov 8).
 - [ ] Where the stat dial lives, and how it is priced.
@@ -246,7 +281,9 @@ second footprint with the same look. Only one is real.
       would need a column; it is added when an authored spell needs one.
 - [ ] Whether enemies always spend a rune from the air when their move can
       use it, as Gloomhaven's monsters do, so their shown move tells you.
-- [ ] Each rune's empowered rule, Air's and Illusion's aside.
+- [ ] Each rune's empowered rule, Air's, Illusion's and Spatial's aside.
+- [ ] Fire's minor idea, "spreads", overlaps Spatial's empowered ground,
+      which spreads to touching ground.
 - [ ] How enemy AI reads and uses illusions (Jared, Nov 8: it has to take
       them into account).
 - [ ] Illusion's cell on a spell, the weakest of its row.
@@ -255,8 +292,8 @@ second footprint with the same look. Only one is real.
 - [ ] How many minor runes a spell can hold, and how that grows.
 - [ ] How several minor runes on one spell combine.
 - [ ] Where the line falls between Frost and Time, which both slow (System
-      B's Frost takes away the bonus move), and between Air and Spatial, which
-      both move units (Air pushes and pulls; Spatial took in Portal). Frost's
+      B's Frost takes away the bonus move). Air and Spatial are now apart: Air
+      moves units, and Spatial moves where spells come from. Frost's
       cell on a spell can't be System B's slide, which is now Air's empowered
       cell.
 - [ ] Whether System C needs a Blank rune for spells that only move things,

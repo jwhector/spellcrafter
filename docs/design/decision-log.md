@@ -29,6 +29,7 @@ something Jared decided.
 | Air keeps sliding a spell's area until it meets something, as its empowered cell on a spell; Frost gets a different cell. | System B's Frost on a spell (Nov 5), which System B keeps | [System C rules](system-c.md#air) |
 | Illusion hides what a spell is: the other side sees that it's an illusion, where it is and its output kind, not what it does, until it's revealed. When you cast, you choose whether it looks threatening or beneficial (for now), and the look may lie. Empowered, it shows a decoy footprint as well. | Illusion's minor idea "unseen", carried over from Invisibility | [System C rules](system-c.md#illusion) |
 | Players learn an enemy's spells only as they're cast or shown. | Nothing: it was unstated | [Overview](overview.md#battles) |
+| Spatial is about where a spell comes from: a spell that can reach an ally carries on from them, with its range counted again. Empowered, it opens a one-way spell portal anyone can use for the round. Spells can't travel through a gate unless a minor rune lets them. Spatial's cells are set (all but the empowered cell on a spell). | Spatial's minor idea "from elsewhere", carried over from Portal, and swapping places, which was turned down as its core | [System C rules](system-c.md#spatial) |
 
 ## Nov 6
 
