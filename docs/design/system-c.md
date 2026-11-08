@@ -42,7 +42,7 @@ over from the 16-rune tables in the [rune reference](rune-reference.md)
 
 | Rune | Opposite | Takes in | Minor idea so far |
 | --- | --- | --- | --- |
-| Fire | Frost | Fire | Contagion: what the spell leaves on a unit spreads (Decided, below) |
+| Fire | Frost | Fire | Contagion: what the spell leaves on a unit passes from unit to unit (Decided, below) |
 | Frost | Fire | Frost | Slick |
 | Life | Death | Mend | Spares allies |
 | Death | Life | Wound | Finishes |
@@ -390,26 +390,31 @@ spell's sheet names what it passes on.
 
 **Decided (Jared, Nov 8): it is passed around, and passes only when its
 carrier moves next to a unit or is pushed into one.** It leaves the carrier
-when it passes, so it is never duplicated and no spell has to be balanced as
-if it might hit twice. It is a mechanic that triggers, not a way to power up
+when it passes, so the base effect is never duplicated and no spell has to be
+balanced as if it might hit twice. Copying is proposed only for empowered
+cells, below. It is a mechanic that triggers, not a way to power up
 your own spells by passing them back and forth.
 
 **Decided (Jared, Nov 8): it grows only under certain conditions,** and being
-displaced (pushed, pulled or bounced) is one of them. Stepping next to a unit
-yourself passes it at the same strength.
+displaced (pushed or pulled) is one of them.
 
 Proposed (Nov 8), to settle with the cells:
 
 - Each growth is one step, capped at double (preliminary numbers).
-- It also grows when it passes from one side to the other, so passing it
+- Stepping next to a unit yourself passes it at the same strength.
+- It also grows when it passes from one side to the other. Stepping it
   between allies never grows it.
+- When the carrier comes next to several units at once, the carrier's player
+  chooses which one takes it.
 - A plain hit with nothing lasting is held, and goes off on whoever holds it
-  at the end of the first holder's next turn (Jared's idea). The time is fixed
+  at the end of a holder's next turn (Jared's idea). Proposed on top of it:
+  the time is that of the first holder, a player's turn ending with the
+  players' phase and an enemy's with the enemy phase. The time is fixed
   when it is cast and passing never resets it, so it may return to a unit
   that held it: passing changes who it hits, never when.
 - A spell at a destination that hits no unit leaves it on the hexes it hit,
   and the first unit to step on them carries it.
-- Catching ignores sides, as friendly fire does.
+- Passing ignores sides, as friendly fire does.
 - A Frost spell on the holder puts it out or shrinks it a step, from Fire's
   opposite.
 - A passed push or pull goes away from, or toward, the unit it came from.
