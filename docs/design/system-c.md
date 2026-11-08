@@ -46,9 +46,9 @@ rune is the audit still to come.
 | Frost | Fire | Frost | Slick |
 | Life | Death | Mend | Spares allies |
 | Death | Life | Wound | Finishes |
-| Stone | Air | Stone, and protection (Protect) | Anchors, or a shield from what the spell did |
+| Stone | Air | Stone, and protection (Protect) | Raises stone you can climb (Decided, below) |
 | Air | Stone | Pushing and pulling units | Pushes or pulls (Decided, below) |
-| Revelation | Illusion | Revelation, Dispel and Expose: it shows what is true, so it strips what is false or hidden and lays weak points bare | Pierces, can't be undone, or seeks hidden units |
+| Revelation | Illusion | Revelation, Dispel and Expose: it shows what is true, so it strips what is false or hidden and lays weak points bare | Shows a weak side (Proposed, below) |
 | Illusion | Revelation | Invisibility, Amplification and Diminishing: the school of buffs and debuffs | Hides what the spell is (Decided, below; stronger and shorter cooldown are stat dials now) |
 | Spatial | Time | Portal | From elsewhere: a spell carries on from an ally (Decided, below) |
 | Time | Spatial | Haste and Slow | Drawn out (quick cast is a stat dial now) |
@@ -140,10 +140,12 @@ is a working phrase.
   too.
 - **Decided (Jared, Nov 8): anyone can spend a rune,** including whoever
   filled it, and spending is always a choice.
-- **Decided (Jared, Nov 8): an empowered effect takes the rune's transform
-  one step further,** with one rule per rune for all its cells, to start.
-  Exceptions are allowed when a good effect has no natural step further, or
-  is strong enough without one.
+- **Decided (Jared, Nov 8): each cell of a rune's row, empowered cells
+  included, can be its own effect,** as long as it fits the rune and works on
+  any spell with that output kind. Effects that differ by output kind but feel
+  true to it give more emergence than one modifier tacked on everywhere. This
+  replaces "one empowered rule per rune, to start" (earlier on Nov 8). An
+  empowered cell often takes its base cell one step further, but it needn't.
 - **Decided (Jared, Nov 8): on an output that lasts** (ground, a summon, a
   shield, the whole battlefield), the empowered effect holds only for the
   round it is cast.
@@ -264,12 +266,62 @@ spell, which is Proposed.
 | On a spell | An enemy spell goes through a portal, and its origin moves to a hex you choose | Proposed: every spell that enemy casts this round comes out of the exit you placed |
 | Whole battlefield | This round, every spell can carry on once from an ally | From any unit |
 
+### Stone
+
+**Decided (Jared, Nov 8): Stone raises stone you can climb,** a terrain
+halfway to a wall. "Raised stone" is a working name; its name is Open. Walls
+that block movement outright are kept for authored spells.
+
+- It doesn't block movement: a unit can climb onto it as a normal move.
+- It blocks line of sight through it, so it gives cover.
+- It stops a shove: a unit pushed into it collides, as with a wall.
+- A unit on top sees over it, and over other raised stone.
+- A unit pushed off the top falls and takes the collision damage.
+
+**Note for the art (Jared, Nov 8):** every summon needs a ridden animation,
+since Stone lets allies ride one.
+
+**Decided (Jared, Nov 8): Stone's cells,** except the cell on a spell, which
+is Proposed and tentative.
+
+| Output | Stone as a minor rune | Empowered |
+| --- | --- | --- |
+| At a destination or on a unit | Raised stone rises under the hexes it hit until the end of next round, and units there are lifted on top | It lasts the whole battle |
+| Through a gate | The exit rises as raised stone, so arrivals come out on high ground | It stays as long as the gate does |
+| On a summon | Its body counts as raised stone: allies can climb on and ride it, and shoves collide with it | Allies on top move with it |
+| On a shield | Raised stone rises on one side of the unit, which you choose | It rises on every side this round, which also blocks the unit's own sight out |
+| On ground | Units in it can't be moved by Air or Spatial | It also rises as raised stone: high ground nobody can be pushed off |
+| On a spell | Proposed, tentative: against a single-target move that follows its target, raised stone rises between the caster and the target, and the move is lost only if the target is still behind it when the move goes off | It stays up through the next round |
+| Whole battlefield | Each round, raised stone rises on a few random hexes | Units standing there are lifted on top |
+
+### Revelation
+
+**Proposed (Nov 8): Revelation shows a weak side.** A unit's weak side is the
+side facing away from the Revelation spell's caster, and hits from that side go
+through shields and cover. The team has to get behind the target, with Air,
+with Spatial's bounce from an ally, or on foot. Jared likes the game it opens
+and has set it aside to come back to (Nov 8).
+
+| Output | Revelation as a minor rune | Empowered |
+| --- | --- | --- |
+| At a destination or on a unit | Units hit show their weak side until the end of next round | This round, every side is weak |
+| Through a gate | Arrivals reveal hidden units and illusions next to the exit | They also show those units' weak sides |
+| On a summon | Its attacks show the target's weak side | It reveals every unit it can see |
+| On a shield | Units that hit it show their weak side | Every unit that hits it this round does |
+| On ground | Units in it can't hide or be disguised, and show their weak side | So does anything touching the ground |
+| On a spell | An enemy's shown move shows a weak point: a hit on its caster from the weak side cancels it | Any hit on the caster cancels it this round |
+| Whole battlefield | Illusions and hidden units show everywhere | Every unit's weak side shows to everyone |
+
 ## Open
 
 - [ ] How System C sits beside System A and System B in the playtest.
-- [ ] Each of the other seven runes' minor rune row, starting from the
-      [16-rune tables](rune-reference.md) for the runes each one takes in.
-      Frost is set aside for now (Jared, Nov 8).
+- [ ] Each of the other five runes' minor rune row (Fire, Frost, Life,
+      Death, Time), starting from the [16-rune tables](rune-reference.md) for
+      the runes each one takes in. Frost is set aside for now (Jared, Nov 8).
+- [ ] Revelation's row, which is Proposed and set aside to come back to, and
+      whether Revelation and Illusion need more counterplay against each
+      other (Jared, Nov 8).
+- [ ] The name of Stone's raised stone.
 - [ ] Where the stat dial lives, and how it is priced.
 - [ ] The table of runes against board states, and whether it needs materials
       that aren't runes (water, oil). First rows from the survey: fire ignites
@@ -281,8 +333,6 @@ spell, which is Proposed.
       would need a column; it is added when an authored spell needs one.
 - [ ] Whether enemies always spend a rune from the air when their move can
       use it, as Gloomhaven's monsters do, so their shown move tells you.
-- [ ] Each rune's empowered rule, Air's and Illusion's aside. Spatial's
-      empowered cells are set, but they don't yet share one stated rule.
 - [ ] Spatial's empowered cell on a spell (an enemy would avoid an entrance,
       so it needs a rule that doesn't rest on their choice).
 - [ ] Fire's minor idea, "spreads", overlaps Spatial's empowered ground,
