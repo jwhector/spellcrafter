@@ -14,6 +14,7 @@ something Jared decided.
 | Decision | What it replaced | Where it lives now |
 | --- | --- | --- |
 | The game has ten runes, in five opposed pairs: Fire and Frost, Life and Death, Stone and Air, Revelation and Illusion, Space and Time (Jared's names). What each new rune does is Open. | 16 runes in seven opposite pairs plus Portal and Stone (Nov 5) | [System C rules](system-c.md#the-ten-runes) |
+| The Time rune is renamed Temporal (Jared's name). | Time (earlier on Nov 8) | [System C rules](system-c.md#temporal) |
 | The Space rune is renamed Spatial (Jared's name). | Space (earlier on Nov 8) | [System C rules](system-c.md#the-ten-runes) |
 | Where today's runes go: Life takes in Mend, Death takes in Wound, Space takes in Portal, and Time takes in Haste and Slow. Revelation takes in Dispel and Expose. Illusion takes in Invisibility, Amplification and Diminishing. Stone takes in protection (Protect), and Air takes in pushing and pulling units, the job planned for Blank; whether a Blank rune stays alongside the ten is Open. | Each of those as a rune of its own | [System C rules](system-c.md#the-ten-runes) |
 | There is no Summon rune. A summon is found as a combination of runes. | Summon as a rune whose center makes a summon (Nov 4) | [System C rules](system-c.md#recipes) |
@@ -32,6 +33,7 @@ something Jared decided.
 | Spatial is about where a spell comes from: a spell that can reach an ally carries on from them, with its range counted again. Empowered, it opens a one-way spell portal anyone can use for the round. Spells can't travel through a gate unless a minor rune lets them. Spatial's cells are set (all but the empowered cell on a spell). | Spatial's minor idea "from elsewhere", carried over from Portal, and swapping places, which was turned down as its core | [System C rules](system-c.md#spatial) |
 | Each cell of a rune's row, empowered cells included, can be its own effect, as long as it fits the rune and works on any spell with that output kind. | One empowered rule per rune for all its cells, to start (earlier on Nov 8) | [System C rules](system-c.md#empowered-effects) |
 | Stone raises stone you can climb: it doesn't block movement, blocks line of sight, stops a shove, gives high ground, and a unit pushed off it falls. Walls that block movement are kept for authored spells. Stone's cells are set (all but the cell on a spell), and every summon needs a ridden animation. | Stone's minor ideas "anchors" (now its ground cell) and "a shield from what the spell did", and raising full walls | [System C rules](system-c.md#stone) |
+| Temporal readies a spell: it waits, shown to everyone, and goes off the first time a condition chosen when you craft is met in the enemy phase, or at the start of next round if nothing sets it off. Empowered, it stays ready through the next round's enemy phase too. Tempo is kept for an authored spell with a cooldown, and rewind is noted as an authored spell idea. | Haste and Slow's drawn-out idea, carried over as Time's minor idea | [System C rules](system-c.md#temporal) |
 
 ## Nov 6
 

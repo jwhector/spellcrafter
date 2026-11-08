@@ -30,9 +30,9 @@ you have a spell you can guess what a minor rune will do to it.
 ## The ten runes
 
 **Decided (Jared, Nov 8): ten runes, in five opposed pairs:** Fire and Frost,
-Life and Death, Stone and Air, Revelation and Illusion, Spatial and Time. There
-is no Summon rune. Proposed: each rune does two jobs, as an ingredient in
-recipes and as a minor rune with its own table.
+Life and Death, Stone and Air, Revelation and Illusion, Spatial and Temporal.
+There is no Summon rune. Proposed: each rune does two jobs, as an ingredient
+in recipes and as a minor rune with its own table.
 
 Each rune takes in some of System B's 16, or in Air's case the job of
 pushing and pulling (Decided, Jared Nov 8). Each minor idea below carries its
@@ -50,8 +50,8 @@ over from the 16-rune tables in the [rune reference](rune-reference.md)
 | Air | Stone | Pushing and pulling units | Pushes or pulls (Decided, below) |
 | Revelation | Illusion | Revelation, Dispel and Expose: it shows what is true, so it strips what is false or hidden and lays weak points bare | Shows a weak side (Proposed, below) |
 | Illusion | Revelation | Invisibility, Amplification and Diminishing: the school of buffs and debuffs | Hides what the spell is (Decided, below; stronger and shorter cooldown are stat dials now) |
-| Spatial | Time | Portal | From elsewhere: a spell carries on from an ally (Decided, below) |
-| Time | Spatial | Haste and Slow | Drawn out (quick cast is a stat dial now) |
+| Spatial | Temporal | Portal | From elsewhere: a spell carries on from an ally (Decided, below) |
+| Temporal | Spatial | Haste and Slow | Readied: the spell waits for a condition (Decided, below; quick cast is a stat dial now) |
 
 ## Recipes
 
@@ -313,12 +313,45 @@ and has set it aside to come back to (Nov 8).
 | On a spell | An enemy's shown move shows a weak point: a hit on its caster from the weak side cancels it | Any hit on the caster cancels it this round |
 | Whole battlefield | Illusions and hidden units show everywhere | This round, every unit's weak side shows to everyone |
 
+### Temporal
+
+**Decided (Jared, Nov 8): the Time rune is renamed Temporal.**
+
+**Decided (Jared, Nov 8): Temporal readies a spell.** The spell waits where it
+was cast, shown to everyone, and goes off the first time its condition is met
+during the enemy phase. If nothing sets it off, it goes off at the start of
+the next round, so it is never wasted. The condition is chosen when you craft.
+To start there are two: a unit enters the spell's area, or a unit in its area
+starts a shown move.
+
+Waiting on a condition is its own small crafting game. What keeps it in check:
+everyone can see it, it waits through one enemy phase, and its condition is
+fixed when you craft. A spell that only waits until next round was weighed as
+the base and found too rarely worth more than casting now, so it is the
+fallback instead.
+
+**Decided (Jared, Nov 8): empowered, it stays ready through the next round's
+enemy phase as well,** two chances instead of one, and goes off at the end of
+that round if nothing sets it off.
+
+Turned down as Temporal's core (Jared, Nov 8):
+
+- Tempo, where enemies' shown moves land a round late and your side acts
+  early. It is too strong for a minor rune and belongs on an authored spell
+  with a cooldown.
+- Rewind, where a unit snaps back at the end of the round to where it was. It
+  is noted as an idea for an authored spell.
+
+Its cells for the other output kinds are Open.
+
 ## Open
 
 - [ ] How System C sits beside System A and System B in the playtest.
-- [ ] Each of the other five runes' minor rune row (Fire, Frost, Life,
-      Death, Time), starting from the [16-rune tables](rune-reference.md) for
+- [ ] Each of the other four runes' minor rune row (Fire, Frost, Life,
+      Death), starting from the [16-rune tables](rune-reference.md) for
       the runes each one takes in. Frost is set aside for now (Jared, Nov 8).
+- [ ] Temporal's cells other than the one at a destination or on a unit.
+- [ ] Which conditions a readied spell can wait for, beyond the first two.
 - [ ] Revelation's row, which is Proposed and set aside to come back to, and
       whether Revelation and Illusion need more counterplay against each
       other (Jared, Nov 8).
@@ -345,7 +378,7 @@ and has set it aside to come back to (Nov 8).
       linking, ground, and the conflict and order rules.
 - [ ] How many minor runes a spell can hold, and how that grows.
 - [ ] How several minor runes on one spell combine.
-- [ ] Where the line falls between Frost and Time, which both slow (System
+- [ ] Where the line falls between Frost and Temporal, which both slow (System
       B's Frost takes away the bonus move), and between Air and Spatial:
       Spatial's core is now where spells come from, but its ground cell still
       moves units. Frost's
