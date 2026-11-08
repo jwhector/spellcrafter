@@ -102,7 +102,8 @@ economy yet. System A and System B run on one engine so both can be playtested.
 - Dice in battle. No dice was the lean while the enemy's move order was hidden;
   now that the next move is shown, it needs revisiting. Some uncertainty could
   stay by hiding which enemy acts first within the enemy phase. Dice stay for
-  events.
+  events. Jared welcomed randomness other than accuracy on Nov 8 (above), which
+  bears on this.
 - A concentration-like limit is wanted, and gets its own conversation (Nov 4).
 
 ### Making tanking and support necessary (Proposed)

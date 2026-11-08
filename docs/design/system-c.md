@@ -34,7 +34,8 @@ Life and Death, Stone and Air, Revelation and Illusion, Space and Time. There
 is no Summon rune. Proposed: each rune does two jobs, as an ingredient in
 recipes and as a minor rune with its own table.
 
-Each rune takes in some of System B's 16 (Decided, Jared Nov 8). The minor
+Each rune takes in some of System B's 16, or in Air's case the job of
+pushing and pulling (Decided, Jared Nov 8). The minor
 ideas below, other than Air's, are candidates carried over from the 16-rune
 tables in the [rune reference](rune-reference.md) (Proposed); choosing one per
 rune is the audit still to come.
@@ -150,7 +151,11 @@ pushed into ground is affected by it at once.
 - [ ] How many minor runes a spell can hold, and how that grows.
 - [ ] How several minor runes on one spell combine.
 - [ ] Where the line falls between Frost and Time, which both slow (System
-      B's Frost takes away the bonus move).
+      B's Frost takes away the bonus move), and between Air and Space, which
+      both move units (Air pushes and pulls; Space was Portal).
+- [ ] Whether System C needs a Blank rune for spells that only move things,
+      now that Air pushes and pulls and there are no centers (System B keeps
+      its Blank row).
 - [ ] Progression: Jared leans toward a roguelike where the number of runes in
       a recipe is the gate (one-rune spells first, then pairs, then trios, with
       crafting between). Not decided.
