@@ -17,6 +17,8 @@ Nov 6, opposite runes stopped cancelling, lingering came to make ground only,
 the damage sharing preset was dropped, and the Protect, Dispel, Haste and Slow
 centers changed. Where these tools and the design docs disagree, the docs win,
 including for the engine port (seed spellcrafter-5f29 tracks the update).
+On Nov 8 the runes became ten, with no Summon rune; both tools still list
+the 16, and what each of the ten does is not written yet.
 
 These files are not part of the build, are not formatted or linted, and are
 not edited here. The engine port replaces them; once a view covers a tool,

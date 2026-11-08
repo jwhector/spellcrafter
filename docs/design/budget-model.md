@@ -11,7 +11,10 @@ where it ends. The numbers come from the audit tool's current price list and get
 tuned in step 4 of the plan (numbers in the audit tool).
 
 The rules that use these numbers are in [System B rules](system-b.md) and the
-[rune reference](rune-reference.md). The questions every new effect answers
+[rune reference](rune-reference.md). The examples name the 16 runes these
+rules were written for, including the budget unit (a Wound center). The runes
+are becoming ten (Decided, Jared Nov 8), and each new rune is valued once it is
+written. The questions every new effect answers
 before it's priced are in the [effect flags checklist](effect-flags-checklist.md).
 
 ## Decided

@@ -6,7 +6,9 @@ rules it implements are in [System B rules](system-b.md), and what a spell costs
 is in the [budget model](budget-model.md).
 
 All of it is Proposed unless marked otherwise. Working words are placeholders
-unless the [glossary](system-b.md#glossary) marks them as Jared's.
+unless the [glossary](system-b.md#glossary) marks them as Jared's. The examples
+name the 16 runes the rules were written for; the runes are becoming ten
+(Decided, Jared Nov 8; see the [rune reference](rune-reference.md#the-ten-runes)).
 
 ## Summary
 
@@ -208,8 +210,9 @@ For each output, the forge tries these in order:
 4. If nothing fits, the rune does nothing in that major output type, and the forge flags it as
    wasted rather than inventing a meaning.
 
-With the current sixteen runes, step 2 always succeeds, because every rune has a
-What that works on a unit. Step 4 only matters for a future rune with no What of
+With the sixteen runes these rules were written for, step 2 always succeeds,
+because every rune has a What that works on a unit. That needs checking again
+for each of the ten runes once it is written (Nov 8). Step 4 only matters for a future rune with no What of
 its own (a pure shaping rune, which may be what Blank becomes). That rune would
 need its own minor rune effect in each major output type, or the forge would refuse it where it has none.
 
