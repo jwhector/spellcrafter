@@ -317,7 +317,8 @@ and has set it aside to come back to (Nov 8).
 
 **Decided (Jared, Nov 8): the Time rune is renamed Temporal.**
 
-**Decided (Jared, Nov 8): Temporal readies a spell.** The spell waits where it
+**Decided (Jared, Nov 8): Temporal readies a spell** ("readied" is a working
+word). The spell waits where it
 was cast, shown to everyone, and goes off the first time its condition is met
 during the enemy phase. If nothing sets it off, it goes off at the start of
 the next round, so it is never wasted. The condition is chosen when you craft.
@@ -331,10 +332,14 @@ the base and found too rarely worth more than casting now, so it is the
 fallback instead.
 
 **Decided (Jared, Nov 8): empowered, it stays ready through the next round's
-enemy phase as well,** two chances instead of one, and goes off at the end of
-that round if nothing sets it off.
+enemy phase as well,** two chances instead of one. Proposed: if nothing sets it
+off then, it goes off at the start of the round after.
 
-Turned down as Temporal's core (Jared, Nov 8):
+| Output | Temporal as a minor rune | Empowered |
+| --- | --- | --- |
+| At a destination or on a unit | Readied, as above | It stays ready through the next round's enemy phase as well |
+
+Kept for authored spells rather than Temporal's minor rune (Jared, Nov 8):
 
 - Tempo, where enemies' shown moves land a round late and your side acts
   early. It is too strong for a minor rune and belongs on an authored spell
@@ -342,7 +347,7 @@ Turned down as Temporal's core (Jared, Nov 8):
 - Rewind, where a unit snaps back at the end of the round to where it was. It
   is noted as an idea for an authored spell.
 
-Its cells for the other output kinds are Open.
+Its cells for the other output kinds are Open (listed below).
 
 ## Open
 
