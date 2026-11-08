@@ -22,7 +22,8 @@ what changed and why is in the decision log, and retired text is in the archive.
 | --- | --- | --- |
 | Game overview | [overview.md](overview.md) | The pitch, goals, the first prototype, battles, crafting and the hotbar, the spell forge, rune economy, progression, platform. |
 | System B rules | [system-b.md](system-b.md) | The freeform sigil: center, ring, major output types, inscriptions, tethers, triggers, minor inscriptions, linking, ground, conflict and order rules, and the glossary. |
-| Rune reference | [rune-reference.md](rune-reference.md) | The ten runes decided on Nov 8, and, until each new rune is written, what each of the 16 runes they replace does in the center and in each major output type. |
+| System C rules | [system-c.md](system-c.md) | Discovered recipe spells crafted with minor runes, no centers: the ten runes, recipes, outputs, and minor runes. |
+| Rune reference | [rune-reference.md](rune-reference.md) | What each of System B's 16 runes does in the center and in each major output type; also the starting material for System C's minor rune rows. |
 | Budget model | [budget-model.md](budget-model.md) | The budget unit and cap, the value model, the primitives math, binary effects, and balancing area relocation. |
 | Engine model | [engine-model.md](engine-model.md) | Board state, engine primitives, property primitives, write modes, compiling, the combination math, rune essences, extension points, and the audit and test tools. |
 | Effect flags checklist | [effect-flags-checklist.md](effect-flags-checklist.md) | The 16 questions every new effect answers before it goes in. |

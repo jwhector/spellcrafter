@@ -13,9 +13,15 @@ something Jared decided.
 
 | Decision | What it replaced | Where it lives now |
 | --- | --- | --- |
-| The game has ten runes, in five opposed pairs: Fire and Frost, Life and Death, Stone and Air, Revelation and Illusion, Space and Time (Jared's names). What each new rune does is Open. | 16 runes in seven opposite pairs plus Portal and Stone (Nov 5) | [Rune reference](rune-reference.md#the-ten-runes) |
-| Where today's runes go: Life takes in Mend, Death takes in Wound, Space takes in Portal, and Time takes in Haste and Slow. Revelation takes in Dispel and Expose. Illusion takes in Invisibility, Amplification and Diminishing. Stone takes in protection (Protect), and Air takes in pushing and pulling units, the job planned for Blank; whether a Blank rune stays alongside the ten is Open. | Each of those as a rune of its own | [Rune reference](rune-reference.md#the-ten-runes) |
-| There is no Summon rune. A summon is found as a combination of runes; how runes combine is Open. | Summon as a rune whose center makes a summon (Nov 4) | [Rune reference](rune-reference.md#the-ten-runes) |
+| The game has ten runes, in five opposed pairs: Fire and Frost, Life and Death, Stone and Air, Revelation and Illusion, Space and Time (Jared's names). What each new rune does is Open. | 16 runes in seven opposite pairs plus Portal and Stone (Nov 5) | [System C rules](system-c.md#the-ten-runes) |
+| Where today's runes go: Life takes in Mend, Death takes in Wound, Space takes in Portal, and Time takes in Haste and Slow. Revelation takes in Dispel and Expose. Illusion takes in Invisibility, Amplification and Diminishing. Stone takes in protection (Protect), and Air takes in pushing and pulling units, the job planned for Blank; whether a Blank rune stays alongside the ten is Open. | Each of those as a rune of its own | [System C rules](system-c.md#the-ten-runes) |
+| There is no Summon rune. A summon is found as a combination of runes; how runes combine is Open. | Summon as a rune whose center makes a summon (Nov 4) | [System C rules](system-c.md#the-ten-runes) |
+| System C: a third crafting system, documented beside A and B. Spells are discovered recipes of up to three runes, crafted with minor runes, and there are no centers. Discovery is discontinuous; crafting is continuous. | System B's center and ring as the only freeform system | [System C rules](system-c.md) |
+| In System C, each minor rune is a table with one effect for every output kind. A spell exposes its outputs, and the player chooses which one each minor rune changes. | A minor rune modifying a center's major output | [System C rules](system-c.md#minor-runes) |
+| Minor runes only transform, never add (Nov 7), and each should set up plays with other spells, players or the board. | Minor rune effects that added an effect, such as a weak heal | [System C rules](system-c.md#minor-runes) |
+| Stat dials (a bonus-action cast, a shorter cooldown, a stronger effect) are not minor runes; they move to a dial of their own. | Haste's quick cast, Diminishing's cooldown and Amplification's "a third stronger" as minor rune effects | [System C rules](system-c.md#minor-runes) |
+| Randomness is welcome, except in accuracy for now; charm and domination (a unit switching sides) are acceptable. | Direct control as something that "may come later as a rare, expensive effect" (Nov 4) | [Overview](overview.md#battles) |
+| Air pushes or pulls, chosen when you craft, and System C has no Push and Pull inscriptions. | Push and Pull as inscriptions (System B keeps them) | [System C rules](system-c.md#air) |
 
 ## Nov 6
 

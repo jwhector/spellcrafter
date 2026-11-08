@@ -4,10 +4,8 @@ Every new rune effect, inscription or modifier for The Hollow answers each
 question below before it goes into the docs or the crafter. All of it is
 Proposed unless marked Decided. The answers feed the
 [budget model](budget-model.md) and the rules in [System B rules](system-b.md).
-The rune names here are the 16 runes these rules were written for; the runes
-are becoming ten (Decided, Jared Nov 8; see the
-[rune reference](rune-reference.md#the-ten-runes)), and which of the ten takes
-over Dispel's rules is Open.
+The rune names here are System B's 16 runes; System C's ten are in
+[System C rules](system-c.md#the-ten-runes) (Decided, Jared Nov 8).
 
 ## The flags
 

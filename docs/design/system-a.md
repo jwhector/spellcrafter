@@ -83,8 +83,8 @@ the line as terrain.
 how it shows up depends on where the sigil sends it: onto a **unit**, onto the
 **ground** (terrain), or onto **yourself**. Players learn one meaning per rune, and
 the sigil does the translating. The runes here are illustrative, and predate
-the ten runes decided on Nov 8 (see the
-[rune reference](rune-reference.md#the-ten-runes)).
+the ten runes decided on Nov 8 (see
+[System C rules](system-c.md#the-ten-runes)).
 
 | Rune (illustrative) | On a unit | On the ground | On yourself |
 | --- | --- | --- | --- |

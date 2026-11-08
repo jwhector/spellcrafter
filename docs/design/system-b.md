@@ -10,13 +10,9 @@ other is [System A](system-a.md). What each rune does is in the
 Everything here is Proposed unless marked otherwise. Working words are
 placeholders unless the [glossary](#glossary) marks them as Jared's.
 
-**The runes are becoming ten (Decided, Jared Nov 8;** see the
-[rune reference](rune-reference.md#the-ten-runes)). The rules here still name
-the 16 runes they were written for. Where a rule belongs to a rune that folds
-into another (Portal's gate, Protect's shield, Summon's summon and totem,
-Dispel targeting a spell), which of the ten takes it over is Open. Air takes
-over the Blank rune's job of moving units; whether a Blank rune stays
-alongside the ten is Open.
+**System B keeps its 16 runes.** The ten runes decided on Nov 8 belong to
+[System C](system-c.md#the-ten-runes), which has no centers; how C sits beside
+B in the playtest is Open.
 
 ## The parts of a sigil
 
@@ -524,8 +520,8 @@ are still placeholders, so we can talk about the parts.
 | recipe, recipe id | A spell's identity: the sigil after sorting and merging | Jared | |
 | global modification | A spell cast on the whole battlefield | Jared | |
 | binary (effect) | An effect that is all or nothing, such as an extra action | Jared | |
-| totem | The marker Summon leaves as a minor rune. It keeps a major output going or repeats it, as each minor rune table says. Summon is no longer a rune (Nov 8), so which rune leaves it is Open | Jared | |
-| blank (rune) | The major rune for a spell that only moves things. Air takes over moving units (Nov 8); whether a Blank rune stays alongside the ten is Open | Jared | |
+| totem | The marker Summon leaves as a minor rune. It keeps a major output going or repeats it, as each minor rune table says. | Jared | |
+| blank (rune) | The major rune for a spell that only moves things. | Jared | |
 
 The role names themselves (plain effect, amplifier, mover, maker, remover) are
 placeholders.
@@ -544,8 +540,4 @@ placeholders.
       rounds). The old example, a Protect center with the redirect tether, no
       longer works now that a Protect center makes a shield (Jared, Nov 6).
 - [ ] What lingering does on a unit shape, and a new home for snap-back.
-- [ ] Which of the ten runes takes over each rule written for Portal, Protect,
-      Summon and Dispel, and whether the Blank rune is still needed now that
-      Air takes over moving units (both listed in the
-      [rune reference](rune-reference.md#open)).
 - [ ] Names for the five roles (plain effect, amplifier, mover, maker, remover).

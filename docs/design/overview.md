@@ -74,9 +74,10 @@ economy yet. System A and System B run on one engine so both can be playtested.
   considering; to discuss later).
 - **Friendly fire is on by default (Nov 4).**
 - **Basic attacks exist (Nov 4),** so smites and weapon buffs are in scope.
-- **No accuracy rolls for now (Nov 4).**
-- **Control works through the enemy's shown move first (Nov 4).** Direct control
-  (a unit switching sides) may come later as a rare, expensive effect.
+- **No accuracy rolls for now (Nov 4).** Randomness elsewhere is welcome
+  (Jared, Nov 8), and random accuracy may come later as a balancing choice.
+- **Control works through the enemy's shown move first (Nov 4).** Charm and
+  domination, where a unit switches sides, are acceptable (Jared, Nov 8).
 
 **Proposed**
 
@@ -161,8 +162,8 @@ enemy intent and scarce movement.
   Elements are one kind: basic and easy to understand.
 - **Ten runes in five opposed pairs (Jared, Nov 8):** Fire and Frost, Life and
   Death, Stone and Air, Revelation and Illusion, Space and Time. A summon comes
-  from a combination of runes, not from a rune of its own. What each rune does
-  is Open; see the [rune reference](rune-reference.md#the-ten-runes).
+  from a combination of runes, not from a rune of its own. They are System
+  C's runes; see [System C rules](system-c.md#the-ten-runes).
 - **A spell is built from runes.** Its power comes from the quality of its runes
   and how many it has.
 - **Fair power.** Each battle sets a power budget, normalized to who's in it.
@@ -179,6 +180,10 @@ enemy intent and scarce movement.
   - **System B**, a freeform sigil inspired by Witch Hat Atelier: a major rune,
     minor runes, and inscriptions (learned by playing, permanent, never traded).
     See [System B rules](system-b.md).
+- **System C (Jared, Nov 8),** a third system: spells are discovered as
+  recipes of up to three runes, then crafted with minor runes, with no center.
+  It has its own doc, beside A and B; how it sits in the playtest is Open. See
+  [System C rules](system-c.md).
 - **Inverses are separate runes, not flipped faces (Nov 3),** in both systems, for
   wider loot and trading.
 - **Runes affect each other through the board (Nov 3).** A rune leaves a visible

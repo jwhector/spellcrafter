@@ -4,13 +4,10 @@ What every System B rune does in the center and in each major output type. The r
 that pick a major output type are in [System B rules](system-b.md#what-the-center-makes-and-what-the-ring-does);
 what each meaning costs is in the [budget model](budget-model.md).
 
-**Decided (Jared, Nov 8): the runes are becoming ten,** in five opposed pairs
-(see [The ten runes](#the-ten-runes)). What each of the ten does is Open.
-
-How this doc is kept meanwhile (not a design decision): until a new rune is
-written, the tables below keep the 16 runes decided on Nov 5, as the starting
-material for the ten, so each new rune can draw on the rows of the runes it
-takes in.
+**The ten runes decided on Nov 8 belong to System C,** and their home is
+[System C rules](system-c.md#the-ten-runes). This doc keeps the 16 runes of
+System B (Decided Nov 5), which are also the starting material for the ten's
+minor rune rows.
 
 The 16 in these tables (Decided Nov 5) are in opposite pairs: Fire and Frost,
 Mend and Wound, Protect and Expose, Summon and Dispel, Amplification and
@@ -25,29 +22,6 @@ measures, then the ring review, then numbers in the audit tool, then playtest).
 Each table is marked Decided, with any row still Open marked in the row. A minor
 rune that matches the center adds strength to the center instead of using its
 minor rune effect (Decided Nov 4).
-
-## The ten runes
-
-**Decided (Jared, Nov 8).** The game has ten runes, in five opposed pairs, with
-Jared's names. Each takes in some of today's 16, listed below. What each new
-rune does in the center and in each major output type is Open.
-
-| Rune | Opposite | Takes in |
-| --- | --- | --- |
-| Fire | Frost | Fire |
-| Frost | Fire | Frost |
-| Life | Death | Mend |
-| Death | Life | Wound |
-| Stone | Air | Stone, and protection (Protect) |
-| Air | Stone | Pushing and pulling units, the job the Blank rune was planned for |
-| Revelation | Illusion | Revelation, Dispel and Expose: it shows what is true, so it strips what is false or hidden and lays weak points bare |
-| Illusion | Revelation | Invisibility, Amplification and Diminishing: the school of buffs and debuffs |
-| Space | Time | Portal |
-| Time | Space | Haste and Slow |
-
-**Decided (Jared, Nov 8): there is no Summon rune.** A summon is found as a
-combination of runes rather than made by a rune of its own. How runes combine
-into such a spell is Open.
 
 ## Center
 
@@ -287,20 +261,8 @@ behaves. The numbers are preliminary values.
 - [ ] Amplification and Diminishing: whether to swap their major outputs and
       minor rune ideas, reviewed across every major output type (Jared, Nov 5).
       Diminishing's minor rune is still a cooldown and size knob everywhere.
-      Both now go into Illusion (Nov 8), so this review may become part of
-      writing Illusion.
-- [ ] What each of the ten runes does in the center and in each major output
-      type, drawn from the rows of the runes it takes in.
-- [ ] Which of the ten takes over the rules written for runes that fold into
-      others: a Portal center makes a gate, a Protect center a shield, a Summon
-      center a summon, only a Dispel center can target a spell, Summon's minor
-      rune leaves a totem, and Mend's minor rune spares allies.
-- [ ] How runes combine into a summon, now that no rune makes one.
-- [ ] Where the line falls between Frost and Time, which both slow (today's
-      Frost takes away the bonus move), and between Air and Space, which both
-      move units.
-- [ ] How Air relates to the Push and Pull inscriptions, and whether a Blank
-      rune stays alongside the ten.
+      In System C, stronger and shorter cooldown are stat dials, not minor
+      runes (Jared, Nov 8).
 - [ ] Which runes ship first.
 - [ ] The crafter and audit tool still show the old minor rune effects and list Push and
       Pull as runes (seed spellcrafter-5f29).
