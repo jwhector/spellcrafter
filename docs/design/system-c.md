@@ -74,7 +74,7 @@ A, 10 of AA, 10 of AAA, 45 of AB, 90 of AAB and 120 of ABC.
 their own.
 
 **Decided (Jared, Nov 8): as far as possible, a recipe with more runes gives
-more options, not more power.** A trio is stronger only in what it lets you
+more options, not more power.** A trio is stronger mostly in what it lets you
 do, such as which rune it leaves in the air (below).
 
 **Proposed (Nov 7): an authored spell has to be worth authoring.** It needs one
@@ -169,8 +169,11 @@ the Push and Pull inscriptions are removed.
 **Proposed (Nov 8): Air's cells.** Empowered, the push or pull carries on
 until the unit hits something, and the board's edge counts as a wall. A pull
 drags the unit all the way in, until it reaches the spot or something in the
-way. Air keeps the empowered spell cell, sliding until it meets something
-(Jared, Nov 8), so Frost gets a different one.
+way.
+
+**Decided (Jared, Nov 8): Air keeps the slide on a spell** (its area slides
+until it meets something) as its empowered cell, so Frost gets a different
+cell on a spell. The cell's wording stays Proposed.
 
 | Output | Air as a minor rune | Empowered |
 | --- | --- | --- |
