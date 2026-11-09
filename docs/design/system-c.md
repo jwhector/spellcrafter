@@ -467,6 +467,10 @@ The other cells below were redrafted for passing (Nov 8) and are Proposed.
 
 ### Life
 
+**Jared wants to change Life's core (Nov 9),** since rewarding a caster for
+standing still is boring. The row below stands until he decides what
+replaces it (Open, below).
+
 **Decided (Jared, Nov 8): Life takes root.** The spell grows while its caster
 stays put. It is rooted in the caster, not the target, so a stun or a root
 can't keep itself going, and it works the same on every output kind. The game
@@ -641,7 +645,15 @@ are Proposed (Nov 9).
 - [ ] Which of System B's rules carry over: inscriptions, triggers, tethers,
       linking, ground, and the conflict and order rules.
 - [ ] How many minor runes a spell can hold, and how that grows.
-- [ ] How several minor runes on one spell combine.
+- [ ] How several minor runes on one spell combine, and, as part of the
+      pass over every rune's row, what emerges when two or three minor runes
+      sit on the same spell (Jared, Nov 9). This is where crafting makes a
+      spell its caster's own, not only tuned.
+- [ ] Life's core. Jared wants to replace "takes root" (Nov 9), because a
+      rune that rewards standing still is boring. Rooting it in a hex instead
+      was weighed (Proposed: it fails on instant spells, which have nothing
+      left to grow). Proposed in its place, not yet
+      discussed: the spell grows with each ally next to its caster when cast.
 - [ ] Where the line falls between Frost and Temporal, which both slow (System
       B's Frost takes away the bonus move), and between Air and Spatial:
       Spatial's core is now where spells come from, but its ground cell still
