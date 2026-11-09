@@ -41,6 +41,7 @@ something Jared decided.
 | Fire on ground: a unit pushed out of it drags it along every hex it crosses, and the end-of-round spread becomes the empowered cell. Fire through a gate, for now: a burst, so everything within 1 hex of a traveller goes too, and 2 hexes empowered. | Fire on ground spreading 1 hex at the end of the round as the base (earlier on Nov 8) | [System C rules](system-c.md#fire) |
 | Life takes root: the spell grows while its caster stays put, up to double, and moving or being moved resets it; what can't grow stronger grows longer. Its cells are set. | Spares allies (System B, Nov 5, which System B keeps) | [System C rules](system-c.md#life) |
 | An empowered cell is value in itself. Units carried along by Fire's gate burst don't burst again. | Nothing: both were unstated | [Empowered effects](system-c.md#empowered-effects), [Fire](system-c.md#fire) |
+| Death siphons the air: when cast, it drains a rune of the caster's choice from the air and gets that rune's minor rune cell for its own output; empowered, it gets that rune's empowered cell. To playtest. | Finishes: stronger on units below half health (System B, Nov 5, which System B keeps) | [System C rules](system-c.md#death) |
 | Two more output kinds: along the caster's path, and on a link between two units. | Seven kinds, with a link added only when an authored spell needed it (earlier on Nov 8) | [System C rules](system-c.md#outputs) |
 
 ## Nov 6
