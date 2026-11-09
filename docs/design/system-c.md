@@ -44,7 +44,7 @@ over from the 16-rune tables in the [rune reference](rune-reference.md)
 | --- | --- | --- | --- |
 | Fire | Frost | Fire | Contagion: what the spell leaves on a unit passes from unit to unit (Decided, below) |
 | Frost | Fire | Frost | A lasting spell can shift a hex (Decided, below; Jared is weighing renaming Frost to Water) |
-| Life | Death | Mend | Takes root: the spell grows while its caster stays put (Decided, below) |
+| Life | Death | Mend | Takes root: the spell grows while its caster stays put (Decided, below; Jared wants to replace it) |
 | Death | Life | Wound | Siphons: drains a rune from the air and borrows its cell (Decided Nov 9, below) |
 | Stone | Air | Stone, and protection (Protect) | Raises stone you can climb (Decided, below) |
 | Air | Stone | Pushing and pulling units | Pushes or pulls (Decided, below) |
@@ -152,10 +152,12 @@ effect, move to a dial of their own (Open: where it lives). The Nov 8
 spell survey found eleven, among them damage up or down,
 range, cooldown, cost, maximum health, damage reduction and speed.
 
-**Decided (Jared, Nov 9): a lasting spell affects each unit at most once per
-round,** whatever moves the spell or the unit. A shift, a push or a pass can
-change who a spell reaches, but never turn one spell into several hits on the
-same unit in a round.
+**Decided (Jared, Nov 9), for every rune: a lasting area affects each unit
+at most once per round,** whatever moves the area or the unit. The area is
+ground, or a lasting effect on hexes. A shift, a push or a pass can change
+who it reaches, but never turn it into several hits on the same unit in a
+round. Whether the rule reaches other lasting outputs (a gate, a summon, a
+shield, a link) is Open, below.
 
 Randomness (except in accuracy) and charm or domination are allowed in minor
 rune effects and spells, as in the whole game (Decided, Jared Nov 8; see the
@@ -532,22 +534,24 @@ damage), and filling it when the spell ends (not a siphon).
 **Jared is weighing renaming Frost to Water (Nov 9),** so that it covers both
 frost and the fluidity of water. Until he decides, it keeps its name here.
 
-**Decided (Jared, Nov 9): on anything that lasts, Frost lets it shift.** Once,
-at any moment while it lasts, including after the enemy phase, the caster can
-shift it 1 hex (in one of the two windows below). The game is adapting instead of committing: cast, see what the
-enemies do, then move it to where it matters.
+**Decided (Jared, Nov 9): on anything that lasts, Frost lets it shift.** Once
+while it lasts, in one of the two windows below, the caster can shift it 1
+hex. The game is adapting instead of committing: cast, see what the enemies
+do, then move it to where it matters.
 
 **Decided (Jared, Nov 9): a shift happens in one of two windows.** Players act
 together and live, and then the enemies act together, so nothing can step in
 during the enemy phase without pausing the game. A shift can be made at any
 point in the players' phase, as a live action, or in a short window after the
 enemy phase, before anything that goes off at the end of the round. Proposed:
-that window runs on a timer, like End turn.
+that window runs on a timer, as the players' phase does.
 
 **Decided (Jared, Nov 9): empowered, it gets a second shift.** One can be made
 in the players' phase, and if the spell is still on the board when the enemy
 phase ends, another in the window after it. This replaces "any number of
 times this round", which would have let ground follow an enemy hex by hex.
+Both shifts fall in the round it is cast, under the rule for empowered effects
+on lasting outputs.
 
 **Decided (Jared, Nov 9): a shift can count as a unit entering,** so moving an
 area onto a unit sets off whatever entering it would. Without that the shift
@@ -556,7 +560,8 @@ would be close to useless. The once-per-round rule under
 
 **Decided (Jared, Nov 9): Frost and Spatial stay apart: Spatial jumps, Frost
 flows.** A Spatial spell passes through portals, carries on from an ally and
-counts its range again from there, and walls between don't matter. A Frost
+counts its range again from there, so walls between the caster and the
+final target don't matter. A Frost
 spell moves itself hex by hex, needs an open route and keeps its own range.
 
 Turned down for Frost (Jared, Nov 9): brittle units, locking a spell in place,
@@ -649,6 +654,9 @@ are Proposed (Nov 9).
       pass over every rune's row, what emerges when two or three minor runes
       sit on the same spell (Jared, Nov 9). This is where crafting makes a
       spell its caster's own, not only tuned.
+- [ ] Whether the once-per-round rule for lasting areas also reaches a gate,
+      a summon, a shield or a link. Read literally, it would let a unit go
+      through a gate once a round, or a shield block one hit.
 - [ ] Life's core. Jared wants to replace "takes root" (Nov 9), because a
       rune that rewards standing still is boring. Rooting it in a hex instead
       was weighed (Proposed: it fails on instant spells, which have nothing
