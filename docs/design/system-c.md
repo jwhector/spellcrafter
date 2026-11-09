@@ -577,9 +577,11 @@ range: line of sight no longer matters, but it still needs a path, so a unit
 sealed in is safe.
 
 **Decided (Jared, Nov 9): empowered, a Frost spell also flows around
-allies,** sparing them, for the round it is cast. It sits on the empowered
-cells only, since friendly fire is on and a base cell that spared allies
-would make Frost the pick for every area spell.
+allies,** sparing them: for the round it is cast, its areas skip allies and
+its bend can slip past them. It sits on the empowered cells only, and every
+empowered cell in the table below carries it. Proposed reasoning: friendly
+fire is on, so a base cell that spared allies would make Frost the pick for
+every area spell.
 
 Balance notes (Proposed): it weakens cover, for both sides, but one bend
 keeps deep cover and closed corners safe, and counting range along the bend
@@ -594,9 +596,9 @@ another unit instead, and are Proposed. The cells along the caster's path
 (bending as an instant effect does), on a spell and on the whole battlefield
 are Proposed (Nov 9).
 
-| Output | Frost as a minor rune | Empowered |
+| Output | Frost as a minor rune | Empowered (each also spares allies, as above) |
 | --- | --- | --- |
-| Instant effect | It bends around one obstacle, as above | It travels through any route of open hexes within its range, and spares allies |
+| Instant effect | It bends around one obstacle, as above | It travels through any route of open hexes within its range |
 | Lasting effect | It shifts 1 hex once, in the players' phase or after the enemy phase | A second shift, as above |
 | Along the caster's path | The path bends around one obstacle in its way, as an instant effect does | It takes any route of open hexes within its range |
 | On a link | One end can shift to a unit next to it, once | A second shift, as above |
@@ -649,6 +651,9 @@ only if the other runes there can act on what it makes, using their own
 rules as written. Hiding what is inside something does not join the game
 Revelation and Illusion play unless it is hidden in the same sense an
 illusion is.
+
+The rule names and the words for the shared things are plain placeholders,
+not names Jared has given.
 
 | Board rule | What it says | The shared thing |
 | --- | --- | --- |
@@ -706,6 +711,9 @@ are opened by collision.
 - Life rewards a caster for standing still, which is boring (Jared).
 - Fire needs a note on every spell saying what it passes on, so it is not
   one rule.
+- Fire's Proposed empowered cells copy an effect with one rune, which the
+  duplication rule above no longer allows for a single rune. The cells
+  stand until Jared decides what replaces them.
 - "A kept thing leaves a copy when it is moved" was turned down (Jared): it
   is a special rule written to get a result, and it made one rune the hub
   of every duplication.

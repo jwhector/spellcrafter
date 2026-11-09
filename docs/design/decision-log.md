@@ -22,7 +22,7 @@ something Jared decided.
 | A shift can count as a unit entering. | Nothing: it was unstated | [System C rules](system-c.md#frost) |
 | Frost and Spatial stay apart: Spatial jumps (portals, from an ally, range counted again), Frost flows (hex by hex, an open route, its own range). | Nothing: the overlap was unstated | [System C rules](system-c.md#frost) |
 | Empowered, a Frost spell also flows around allies, sparing them, for the round it is cast. | Nothing: no cell spared allies | [System C rules](system-c.md#frost) |
-| Duplicating a spell should fall out of several minor runes on one spell (lean: two or three ways, each needing at least two minor runes and at least one empowered). The move-and-keep idea for getting there was turned down. | No free duplication (Nov 8), which still holds for a single rune | [System C rules](system-c.md#board-rules-and-mini-games) |
+| Duplicating a spell should fall out of several minor runes on one spell (lean: two or three ways, each needing at least two minor runes and at least one empowered). One way of getting there, a kept thing leaving a copy when it is moved, was turned down. | No free duplication (Nov 8), which still holds for a single rune | [System C rules](system-c.md#board-rules-and-mini-games) |
 
 ## Nov 8
 

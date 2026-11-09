@@ -75,7 +75,7 @@ They are notes, not the design: what was settled from them is in
 | How the minor runes play together | https://claude.ai/artifact/GLtDThPewErVVA8HGMvDwf | Which runes interact, combinations of two and three on one spell, and the weak spots |
 | Universal or authored: the case for each minor rune | https://claude.ai/artifact/H26zWcxCKaBLEECRcyKsK2 | The test for a universal effect, and each rune judged against it |
 | Spellcrafting verbs | https://claude.ai/artifact/SXxPdMWor1355Ph4noNXNg | 32 verbs players expect from a spellcrafter, and how each is reached |
-| Verbs from runes: a blank-slate pass | https://claude.ai/artifact/63us4SdzZgkdN7x2k2dZFg | Rune definitions built for verb coverage; its move-and-keep idea was turned down |
+| Verbs from runes: a blank-slate pass | https://claude.ai/artifact/63us4SdzZgkdN7x2k2dZFg | Rune definitions built for verb coverage; its idea that a kept thing leaves a copy when moved was turned down |
 
 ## The tools
 
