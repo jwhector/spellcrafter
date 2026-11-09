@@ -22,7 +22,8 @@ what changed and why is in the decision log, and retired text is in the archive.
 | --- | --- | --- |
 | Game overview | [overview.md](overview.md) | The pitch, goals, the first prototype, battles, crafting and the hotbar, the spell forge, rune economy, progression, platform. |
 | System B rules | [system-b.md](system-b.md) | The freeform sigil: center, ring, major output types, inscriptions, tethers, triggers, minor inscriptions, linking, ground, conflict and order rules, and the glossary. |
-| Rune reference | [rune-reference.md](rune-reference.md) | The ten runes decided on Nov 8, and, until each new rune is written, what each of the 16 runes they replace does in the center and in each major output type. |
+| System C rules | [system-c.md](system-c.md) | Discovered recipe spells crafted with minor runes, no centers: the ten runes, recipes, outputs, and minor runes. |
+| Rune reference | [rune-reference.md](rune-reference.md) | What each of System B's 16 runes does in the center and in each major output type; also the starting material for System C's minor rune rows. |
 | Budget model | [budget-model.md](budget-model.md) | The budget unit and cap, the value model, the primitives math, binary effects, and balancing area relocation. |
 | Engine model | [engine-model.md](engine-model.md) | Board state, engine primitives, property primitives, write modes, compiling, the combination math, rune essences, extension points, and the audit and test tools. |
 | Effect flags checklist | [effect-flags-checklist.md](effect-flags-checklist.md) | The 16 questions every new effect answers before it goes in. |
@@ -62,6 +63,19 @@ the mirror.
 | Effect flags checklist | https://claude.ai/artifact/9rXv5JzM92A2QwSakkonN3 | rev 88 | Effect flags checklist, budget model, rune reference, archive |
 | The Hollow: BG3 spell coverage audit | https://claude.ai/artifact/5msD9Jxa5fejQTnw3kX8qW | rev 24 | Archive |
 | Sigil brainstorm (System A) | https://claude.ai/artifact/AKGAvWsNPGhGMZ7h38Ycuf | rev 13 | System A |
+
+## Working notes
+
+Claude Docs written while working through System C's minor runes on Nov 9.
+They are notes, not the design: what was settled from them is in
+[system-c.md](system-c.md#board-rules-and-mini-games).
+
+| Note | Link | What it holds |
+| --- | --- | --- |
+| How the minor runes play together | https://claude.ai/artifact/GLtDThPewErVVA8HGMvDwf | Which runes interact, combinations of two and three on one spell, and the weak spots |
+| Universal or authored: the case for each minor rune | https://claude.ai/artifact/H26zWcxCKaBLEECRcyKsK2 | The test for a universal effect, and each rune judged against it |
+| Spellcrafting verbs | https://claude.ai/artifact/SXxPdMWor1355Ph4noNXNg | 32 verbs players expect from a spellcrafter, and how each is reached |
+| Verbs from runes: a blank-slate pass | https://claude.ai/artifact/63us4SdzZgkdN7x2k2dZFg | Rune definitions built for verb coverage; its idea that a kept thing leaves a copy when moved was turned down |
 
 ## The tools
 

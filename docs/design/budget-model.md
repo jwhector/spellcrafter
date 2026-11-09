@@ -12,9 +12,9 @@ tuned in step 4 of the plan (numbers in the audit tool).
 
 The rules that use these numbers are in [System B rules](system-b.md) and the
 [rune reference](rune-reference.md). The examples name the 16 runes these
-rules were written for, including the budget unit (a Wound center). The runes
-are becoming ten (Decided, Jared Nov 8), and each new rune is valued once it is
-written. The questions every new effect answers
+rules were written for, including the budget unit (a Wound center). System C's ten
+runes (Decided, Jared Nov 8; see [System C rules](system-c.md#the-ten-runes))
+are valued once their rows are written. The questions every new effect answers
 before it's priced are in the [effect flags checklist](effect-flags-checklist.md).
 
 ## Decided

@@ -44,7 +44,10 @@ economy yet. System A and System B run on one engine so both can be playtested.
   late joiners. If someone leaves, a fallback plays their seat (details Open).
 - **Enemy intent (Nov 3).** Each enemy shows only its next move, Slay the Spire
   style, drawn as its sigil. Deciphering the sigil is optional and gives an
-  advantage; players who don't can still play.
+  advantage; players who don't can still play. Jared is weighing this again
+  (Nov 8, see Open below).
+- **Enemy spells (Jared, Nov 8).** Players learn an enemy's spells only as
+  they're cast or shown, not from a list before the battle.
 - **When an enemy's move is fixed (Proposed, Jared Nov 5, to playtest).** Enemy
   moves use the same grammar as players' spells. A move aimed at a place (an
   area, a line, a wall) is fixed when it's shown, so it can be dodged, at the cost
@@ -74,9 +77,10 @@ economy yet. System A and System B run on one engine so both can be playtested.
   considering; to discuss later).
 - **Friendly fire is on by default (Nov 4).**
 - **Basic attacks exist (Nov 4),** so smites and weapon buffs are in scope.
-- **No accuracy rolls for now (Nov 4).**
-- **Control works through the enemy's shown move first (Nov 4).** Direct control
-  (a unit switching sides) may come later as a rare, expensive effect.
+- **No accuracy rolls for now (Nov 4).** Randomness elsewhere is welcome
+  (Jared, Nov 8), and random accuracy may come later as a balancing choice.
+- **Control works through the enemy's shown move first (Nov 4).** Charm and
+  domination, where a unit switches sides, are acceptable (Jared, Nov 8).
 
 **Proposed**
 
@@ -96,12 +100,18 @@ economy yet. System A and System B run on one engine so both can be playtested.
 
 **Open**
 
+- **Whether enemies keep showing their next move (Jared, Nov 8).** Jared is
+  tentative about it: it locks enemies in, makes counterplay too easy, and
+  stops the enemy AI from answering changes on the battlefield. Many rules
+  lean on it (deciphering sigils, when a move is fixed, control, and several
+  minor rune cells), so they get one pass together once this is settled.
 - **Downed or dead,** Open until playtesting (Jared, Nov 5). The Nov 4 lean was
   toward dying; the support ideas below include rescuing a downed ally.
 - Dice in battle. No dice was the lean while the enemy's move order was hidden;
   now that the next move is shown, it needs revisiting. Some uncertainty could
   stay by hiding which enemy acts first within the enemy phase. Dice stay for
-  events.
+  events. Jared welcomed randomness other than accuracy on Nov 8 (above), which
+  bears on this.
 - A concentration-like limit is wanted, and gets its own conversation (Nov 4).
 
 ### Making tanking and support necessary (Proposed)
@@ -160,9 +170,9 @@ enemy intent and scarce movement.
 - **Schools.** Runes belong to schools (the set and names are Jared's to design).
   Elements are one kind: basic and easy to understand.
 - **Ten runes in five opposed pairs (Jared, Nov 8):** Fire and Frost, Life and
-  Death, Stone and Air, Revelation and Illusion, Space and Time. A summon comes
-  from a combination of runes, not from a rune of its own. What each rune does
-  is Open; see the [rune reference](rune-reference.md#the-ten-runes).
+  Death, Stone and Air, Revelation and Illusion, Spatial and Temporal. A summon
+  comes from a combination of runes, not from a rune of its own. They are
+  System C's runes; see [System C rules](system-c.md#the-ten-runes).
 - **A spell is built from runes.** Its power comes from the quality of its runes
   and how many it has.
 - **Fair power.** Each battle sets a power budget, normalized to who's in it.
@@ -179,6 +189,10 @@ enemy intent and scarce movement.
   - **System B**, a freeform sigil inspired by Witch Hat Atelier: a major rune,
     minor runes, and inscriptions (learned by playing, permanent, never traded).
     See [System B rules](system-b.md).
+- **System C (Jared, Nov 8),** a third system: spells are discovered as
+  recipes of up to three runes, then crafted with minor runes, with no center.
+  It has its own doc, beside A and B; how it sits in the playtest is Open. See
+  [System C rules](system-c.md).
 - **Inverses are separate runes, not flipped faces (Nov 3),** in both systems, for
   wider loot and trading.
 - **Runes affect each other through the board (Nov 3).** A rune leaves a visible
