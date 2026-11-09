@@ -43,7 +43,7 @@ over from the 16-rune tables in the [rune reference](rune-reference.md)
 | Rune | Opposite | Takes in | Minor idea so far |
 | --- | --- | --- | --- |
 | Fire | Frost | Fire | Contagion: what the spell leaves on a unit passes from unit to unit (Decided, below) |
-| Frost | Fire | Frost | Flows: a lasting spell can shift a hex (Decided, below; Jared is weighing renaming Frost to Water) |
+| Frost | Fire | Frost | A lasting spell can shift a hex (Decided, below; Jared is weighing renaming Frost to Water) |
 | Life | Death | Mend | Takes root: the spell grows while its caster stays put (Decided, below) |
 | Death | Life | Wound | Siphons: drains a rune from the air and borrows its cell (Decided Nov 9, below) |
 | Stone | Air | Stone, and protection (Protect) | Raises stone you can climb (Decided, below) |
@@ -92,8 +92,8 @@ chooses which one each minor rune changes.** The choice is part of the agency
 crafting gives.
 
 **Proposed (Nov 8): the output kinds are System B's seven,** plus the two
-below, without the
-center: an effect at a destination or on a unit, through a gate, on a summon, on
+below, without the center: an effect at a destination or on a unit (split in
+two on Nov 9, below), through a gate, on a summon, on
 a shield, on ground, on a spell, and across the whole battlefield. A new kind is
 added only when an authored spell can't be described by one of these, since
 each kind costs a cell for every minor rune.
@@ -114,10 +114,10 @@ columns, and a charge uses the cell of whatever it lands on.
 **Decided (Jared, Nov 9): the effect at a destination or on a unit splits in
 two,** an instant effect (a hit that is over as it lands) and a lasting effect
 (a state left on a unit or hexes). It was the only kind that held both, and
-cells kept needing a separate rule for each. The other kinds already have a
-fixed persistence: a gate, a summon, a shield, ground, a link and the whole
-battlefield last; the caster's path and the cell on a spell are instant. The
-rows worked out before the split get a pass to give instants their own cell
+cells kept needing a separate rule for each. Proposed (Nov 9): the other
+kinds already have a fixed persistence, since a gate, a summon, a shield,
+ground, a link and the whole battlefield last, while the caster's path and the
+cell on a spell are instant. The rows worked out before the split get a pass to give instants their own cell
 where they need one (Open).
 
 ## Minor runes
@@ -523,7 +523,7 @@ damage), and filling it when the spell ends (not a siphon).
 **Jared is weighing renaming Frost to Water (Nov 9),** so that it covers both
 frost and the fluidity of water. Until he decides, it keeps its name here.
 
-**Decided (Jared, Nov 9): on anything that lasts, Frost lets it flow.** Once,
+**Decided (Jared, Nov 9): on anything that lasts, Frost lets it shift.** Once,
 at any moment while it lasts, including after the enemy phase, the caster can
 shift it 1 hex. The game is adapting instead of committing: cast, see what the
 enemies do, then move it to where it matters.
@@ -533,8 +533,9 @@ and frozen intent, where an enemy hit is locked into its next move and shows
 it. Frozen intent is noted as an idea for a Revelation authored spell; it is
 too strong for a minor rune.
 
-So the base cells for a lasting effect, a link, a gate, a summon, a shield and
-ground follow from it. The instant cells (an instant effect, the caster's path,
+So the base cells for a lasting effect, a gate, a summon and ground follow
+from it. The link and shield cells move it to another unit instead, and are
+Proposed. The instant cells (an instant effect, the caster's path,
 a spell), the whole battlefield and the empowered cells are Proposed (Nov 9).
 
 | Output | Frost as a minor rune | Empowered |
@@ -547,8 +548,8 @@ a spell), the whole battlefield and the empowered cells are Proposed (Nov 9).
 | On a summon | It can be shifted 1 hex, once, outside its own move | This round, it can shift any number of times |
 | On a shield | It can shift to an ally next to the bearer, once | This round, it can shift any number of times |
 | On ground | It shifts 1 hex, once | This round, it can shift any number of times |
-| On a spell | The enemy's next spell lands 1 hex from where it was aimed, in a direction you choose | It lands up to 2 hexes away |
-| Whole battlefield | This round, every lasting spell can shift 1 hex once | Twice |
+| On a spell | The enemy's next spell is diluted: it spreads over twice as many hexes, at half strength, in a shape you choose | It spreads over three times as many, at a third |
+| Whole battlefield | Every lasting spell on the board, on either side, can be shifted 1 hex once by its caster while it lasts | This round, any number of times |
 
 ## Open
 
@@ -558,7 +559,7 @@ a spell), the whole battlefield and the empowered cells are Proposed (Nov 9).
 - [ ] A pass over the rows worked out before the effect column split
       (Nov 9), to give instant effects their own cell where they need one.
 - [ ] What Death gets when it drains a rune whose cell for that output is
-      still unset (Frost's row, Fire's and Temporal's Open cells, and the
+      still unset (Frost's Proposed cells, Fire's and Temporal's Open cells, and the
       earlier rows' cells along the caster's path and on a link).
 - [ ] Temporal's empowered cells on a gate and on a spell.
 - [ ] How Life's empowered "starts fully grown" on anything that lasts (a
