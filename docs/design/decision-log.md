@@ -14,6 +14,8 @@ something Jared decided.
 | Decision | What it replaced | Where it lives now |
 | --- | --- | --- |
 | Death siphons the air: when cast, it drains a rune of the caster's choice from the air and gets that rune's minor rune cell for its own output; empowered, it gets that rune's empowered cell. To playtest. | Finishes: units the effect leaves at or below a fixed amount of health die (System B, Nov 5, which System B keeps) | [System C rules](system-c.md#death) |
+| The effect at a destination or on a unit splits into an instant effect and a lasting effect. | One column for both (Nov 5) | [System C rules](system-c.md#outputs) |
+| Frost, on anything that lasts, lets the caster shift it 1 hex once, at any moment while it lasts, including after the enemy phase. Brittle, locking in place and frozen intent were turned down; frozen intent is noted for a Revelation authored spell. | Slick (System B, Nov 5, which System B keeps) | [System C rules](system-c.md#frost) |
 
 ## Nov 8
 

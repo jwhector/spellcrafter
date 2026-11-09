@@ -43,7 +43,7 @@ over from the 16-rune tables in the [rune reference](rune-reference.md)
 | Rune | Opposite | Takes in | Minor idea so far |
 | --- | --- | --- | --- |
 | Fire | Frost | Fire | Contagion: what the spell leaves on a unit passes from unit to unit (Decided, below) |
-| Frost | Fire | Frost | Slick |
+| Frost | Fire | Frost | Flows: a lasting spell can shift a hex (Decided, below; Jared is weighing renaming Frost to Water) |
 | Life | Death | Mend | Takes root: the spell grows while its caster stays put (Decided, below) |
 | Death | Life | Wound | Siphons: drains a rune from the air and borrows its cell (Decided Nov 9, below) |
 | Stone | Air | Stone, and protection (Protect) | Raises stone you can climb (Decided, below) |
@@ -110,6 +110,15 @@ The rows worked out before these two get a second pass to fill them (Open).
 Proposed (Nov 8): the survey's other candidates stay out. A spell aimed at
 ground already on the board makes ground or an effect, so it uses those
 columns, and a charge uses the cell of whatever it lands on.
+
+**Decided (Jared, Nov 9): the effect at a destination or on a unit splits in
+two,** an instant effect (a hit that is over as it lands) and a lasting effect
+(a state left on a unit or hexes). It was the only kind that held both, and
+cells kept needing a separate rule for each. The other kinds already have a
+fixed persistence: a gate, a summon, a shield, ground, a link and the whole
+battlefield last; the caster's path and the cell on a spell are instant. The
+rows worked out before the split get a pass to give instants their own cell
+where they need one (Open).
 
 ## Minor runes
 
@@ -509,11 +518,45 @@ Turned down for Death (Jared, Nov 9): spells that go off again from a fallen uni
 (duplication), filling the air when units lose health (works only for
 damage), and filling it when the spell ends (not a siphon).
 
+### Frost
+
+**Jared is weighing renaming Frost to Water (Nov 9),** so that it covers both
+frost and the fluidity of water. Until he decides, it keeps its name here.
+
+**Decided (Jared, Nov 9): on anything that lasts, Frost lets it flow.** Once,
+at any moment while it lasts, including after the enemy phase, the caster can
+shift it 1 hex. The game is adapting instead of committing: cast, see what the
+enemies do, then move it to where it matters.
+
+Turned down for Frost (Jared, Nov 9): brittle units, locking a spell in place,
+and frozen intent, where an enemy hit is locked into its next move and shows
+it. Frozen intent is noted as an idea for a Revelation authored spell; it is
+too strong for a minor rune.
+
+So the base cells for a lasting effect, a link, a gate, a summon, a shield and
+ground follow from it. The instant cells (an instant effect, the caster's path,
+a spell), the whole battlefield and the empowered cells are Proposed (Nov 9).
+
+| Output | Frost as a minor rune | Empowered |
+| --- | --- | --- |
+| Instant effect | It flows around one obstacle, so it can reach a target out of line of sight | It flows around any number of obstacles |
+| Lasting effect | It shifts 1 hex once, at any moment while it lasts | It can shift once each round it lasts |
+| Along the caster's path | The path flows around one obstacle in its way | It flows around any number |
+| On a link | One end can shift to a unit next to it, once | Once each round |
+| Through a gate | The entrance or the exit shifts 1 hex, once | Once each round |
+| On a summon | It can be shifted 1 hex, once, outside its own move | Once each round |
+| On a shield | It can shift to an ally next to the bearer, once | Once each round |
+| On ground | It shifts 1 hex, once | Once each round |
+| On a spell | The enemy's next spell lands 1 hex from where it was aimed, in a direction you choose | It lands up to 2 hexes away |
+| Whole battlefield | This round, every lasting spell can shift 1 hex once | Twice |
+
 ## Open
 
 - [ ] How System C sits beside System A and System B in the playtest.
-- [ ] Frost's minor rune row. Frost was set aside earlier on Nov 8;
-      Jared took it up again on Nov 9 ("move on to frost").
+- [ ] Frost's instant cells, its whole-battlefield cell and its empowered
+      cells, and whether Frost is renamed Water.
+- [ ] A pass over the rows worked out before the effect column split
+      (Nov 9), to give instant effects their own cell where they need one.
 - [ ] What Death gets when it drains a rune whose cell for that output is
       still unset (Frost's row, Fire's and Temporal's Open cells, and the
       earlier rows' cells along the caster's path and on a link).
