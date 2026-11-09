@@ -152,6 +152,11 @@ effect, move to a dial of their own (Open: where it lives). The Nov 8
 spell survey found eleven, among them damage up or down,
 range, cooldown, cost, maximum health, damage reduction and speed.
 
+**Decided (Jared, Nov 9): a lasting spell affects each unit at most once per
+round,** whatever moves the spell or the unit. A shift, a push or a pass can
+change who a spell reaches, but never turn one spell into several hits on the
+same unit in a round.
+
 Randomness (except in accuracy) and charm or domination are allowed in minor
 rune effects and spells, as in the whole game (Decided, Jared Nov 8; see the
 [overview](overview.md#battles)).
@@ -525,8 +530,30 @@ frost and the fluidity of water. Until he decides, it keeps its name here.
 
 **Decided (Jared, Nov 9): on anything that lasts, Frost lets it shift.** Once,
 at any moment while it lasts, including after the enemy phase, the caster can
-shift it 1 hex. The game is adapting instead of committing: cast, see what the
+shift it 1 hex (in one of the two windows below). The game is adapting instead of committing: cast, see what the
 enemies do, then move it to where it matters.
+
+**Decided (Jared, Nov 9): a shift happens in one of two windows.** Players act
+together and live, and then the enemies act together, so nothing can step in
+during the enemy phase without pausing the game. A shift can be made at any
+point in the players' phase, as a live action, or in a short window after the
+enemy phase, before anything that goes off at the end of the round. Proposed:
+that window runs on a timer, like End turn.
+
+**Decided (Jared, Nov 9): empowered, it gets a second shift.** One can be made
+in the players' phase, and if the spell is still on the board when the enemy
+phase ends, another in the window after it. This replaces "any number of
+times this round", which would have let ground follow an enemy hex by hex.
+
+**Decided (Jared, Nov 9): a shift can count as a unit entering,** so moving an
+area onto a unit sets off whatever entering it would. Without that the shift
+would be close to useless. The once-per-round rule under
+[Minor runes](#minor-runes) keeps it from hitting a unit twice.
+
+**Decided (Jared, Nov 9): Frost and Spatial stay apart: Spatial jumps, Frost
+flows.** A Spatial spell passes through portals, carries on from an ally and
+counts its range again from there, and walls between don't matter. A Frost
+spell moves itself hex by hex, needs an open route and keeps its own range.
 
 Turned down for Frost (Jared, Nov 9): brittle units, locking a spell in place,
 and frozen intent, where an enemy hit is locked into its next move and shows
@@ -547,31 +574,30 @@ an ally and counts its range again from there. A bent hit arrives from the
 direction of its last leg, so with Revelation it could reach a weak side
 without anyone moving. The empowered route may need a cap shorter than the spell's range.
 
-So the base cells for a lasting effect, a gate, a summon and ground follow
-from the shift above. The link and shield cells move it to another unit instead, and are
-Proposed. The cells along the caster's path (bending as an instant effect
-does) and on a spell, the whole battlefield, and the empowered cells other
-than on an instant effect are Proposed (Nov 9).
+So the cells for a lasting effect, a gate, a summon and ground, base and
+empowered, follow from the shift above. The link and shield cells move it to
+another unit instead, and are Proposed. The cells along the caster's path
+(bending as an instant effect does), on a spell and on the whole battlefield
+are Proposed (Nov 9).
 
 | Output | Frost as a minor rune | Empowered |
 | --- | --- | --- |
 | Instant effect | It bends around one obstacle, as above | It travels through any route of open hexes within its range |
-| Lasting effect | It shifts 1 hex once, at any moment while it lasts | This round, it can shift any number of times |
+| Lasting effect | It shifts 1 hex once, in the players' phase or after the enemy phase | A second shift, as above |
 | Along the caster's path | The path bends around one obstacle in its way, as an instant effect does | It takes any route of open hexes within its range |
-| On a link | One end can shift to a unit next to it, once | This round, it can shift any number of times |
-| Through a gate | The entrance or the exit shifts 1 hex, once | This round, it can shift any number of times |
-| On a summon | It can be shifted 1 hex, once, outside its own move | This round, it can shift any number of times |
-| On a shield | It can shift to an ally next to the bearer, once | This round, it can shift any number of times |
-| On ground | It shifts 1 hex, once | This round, it can shift any number of times |
+| On a link | One end can shift to a unit next to it, once | A second shift, as above |
+| Through a gate | The entrance or the exit shifts 1 hex, once | A second shift, as above |
+| On a summon | It can be shifted 1 hex, once, outside its own move | A second shift, as above |
+| On a shield | It can shift to an ally next to the bearer, once | A second shift, as above |
+| On ground | It shifts 1 hex, once | A second shift, as above |
 | On a spell | The enemy's next spell is diluted: it spreads over twice as many hexes, at half strength, in a shape you choose | It spreads over three times as many, at a third |
-| Whole battlefield | Every lasting spell on the board, on either side, can be shifted 1 hex once by its caster while it lasts | This round, any number of times |
+| Whole battlefield | Every lasting spell on the board, on either side, can be shifted 1 hex once by its caster while it lasts | Each gets a second shift, as above |
 
 ## Open
 
 - [ ] How System C sits beside System A and System B in the playtest.
 - [ ] Frost's Proposed cells (the path, the spell, the whole battlefield,
-      the link and shield, and the empowered cells on lasting outputs), and
-      whether Frost is renamed Water.
+      and the link and shield), and whether Frost is renamed Water.
 - [ ] A pass over the rows worked out before the effect column split
       (Nov 9), to give instant effects their own cell where they need one.
 - [ ] What Death gets when it drains a rune whose cell for that output is
