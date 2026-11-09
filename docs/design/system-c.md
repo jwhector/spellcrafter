@@ -540,13 +540,13 @@ a spell), the whole battlefield and the empowered cells are Proposed (Nov 9).
 | Output | Frost as a minor rune | Empowered |
 | --- | --- | --- |
 | Instant effect | It flows around one obstacle, so it can reach a target out of line of sight | It flows around any number of obstacles |
-| Lasting effect | It shifts 1 hex once, at any moment while it lasts | It can shift once each round it lasts |
+| Lasting effect | It shifts 1 hex once, at any moment while it lasts | This round, it can shift any number of times |
 | Along the caster's path | The path flows around one obstacle in its way | It flows around any number |
-| On a link | One end can shift to a unit next to it, once | Once each round |
-| Through a gate | The entrance or the exit shifts 1 hex, once | Once each round |
-| On a summon | It can be shifted 1 hex, once, outside its own move | Once each round |
-| On a shield | It can shift to an ally next to the bearer, once | Once each round |
-| On ground | It shifts 1 hex, once | Once each round |
+| On a link | One end can shift to a unit next to it, once | This round, it can shift any number of times |
+| Through a gate | The entrance or the exit shifts 1 hex, once | This round, it can shift any number of times |
+| On a summon | It can be shifted 1 hex, once, outside its own move | This round, it can shift any number of times |
+| On a shield | It can shift to an ally next to the bearer, once | This round, it can shift any number of times |
+| On ground | It shifts 1 hex, once | This round, it can shift any number of times |
 | On a spell | The enemy's next spell lands 1 hex from where it was aimed, in a direction you choose | It lands up to 2 hexes away |
 | Whole battlefield | This round, every lasting spell can shift 1 hex once | Twice |
 
