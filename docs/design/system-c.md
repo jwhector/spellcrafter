@@ -433,7 +433,8 @@ lean, Nov 8): the empowered spread reaches 2 hexes.
 **Decided (Jared, Nov 8, for now): through a gate, it is a burst.** Whenever a
 unit goes through, everything within 1 hex of it goes too. Empowered, the
 burst reaches 2 hexes. Units carried along don't set off a burst of their
-own, so it doesn't cascade through a whole group (Jared, Nov 8). An empowered blast at the exit was turned down as only
+own, so it doesn't cascade through a whole group (Jared, Nov 8). An empowered
+blast at the exit was turned down as only
 useful against enemies, and placing arrivals felt like Spatial's job.
 
 The other cells below were redrafted for passing (Nov 8) and are Proposed.
@@ -481,13 +482,16 @@ casting, up to double. Moving, or being moved, resets it.
 ## Open
 
 - [ ] How System C sits beside System A and System B in the playtest.
-- [ ] Each of the other two runes' minor rune row (Frost and
-      Death), starting from the [16-rune tables](rune-reference.md) for
+- [ ] Each of the other two runes' minor rune row (Frost
+      and Death), starting from the [16-rune tables](rune-reference.md) for
       the runes each one takes in. Frost is set aside for now (Jared, Nov 8).
 - [ ] Temporal's empowered cells on a gate and on a spell.
-- [ ] How Life's empowered "starts fully grown" on a lasting output (a
-      summon, a shield, ground) meets the rule that an empowered effect there
-      holds only for the round it is cast.
+- [ ] How Life's empowered "starts fully grown" on anything that lasts (a
+      lasting effect, a gate, a summon, a shield, ground) meets the rule that
+      an empowered effect on a lasting output holds only for the round it is
+      cast; whether "resets" drops a grown effect back to its base or only
+      stops its growth; and whether the repeated "starts fully grown" cell
+      needs another pass, given the per-cell rule.
 - [ ] Which conditions a readied spell can wait for, beyond the first two.
 - [ ] A pass over every rule here that leans on enemies showing their next
       move, once Jared settles whether they do (Open in the
