@@ -13,7 +13,7 @@ something Jared decided.
 
 | Decision | What it replaced | Where it lives now |
 | --- | --- | --- |
-| Death siphons the air: when cast, it drains a rune of the caster's choice from the air and gets that rune's minor rune cell for its own output; empowered, it gets that rune's empowered cell. To playtest. | Finishes: stronger on units below half health (System B, Nov 5, which System B keeps) | [System C rules](system-c.md#death) |
+| Death siphons the air: when cast, it drains a rune of the caster's choice from the air and gets that rune's minor rune cell for its own output; empowered, it gets that rune's empowered cell. To playtest. | Finishes: units the effect leaves at or below a fixed amount of health die (System B, Nov 5, which System B keeps) | [System C rules](system-c.md#death) |
 
 ## Nov 8
 

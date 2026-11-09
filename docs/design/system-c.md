@@ -483,11 +483,14 @@ casting, up to double. Moving, or being moved, resets it.
 
 **Decided (Jared, Nov 9): Death siphons the air.** When the spell is cast, it
 drains a rune of the caster's choice from the air and gets that rune's minor
-rune cell for its own output kind, as if it carried that rune. So its row is
-one rule in every cell. It works on any spell, since the air is global.
+rune cell for its own output kind, as if it carried that rune.
+
+Its row is therefore one rule in every cell, and it works on any spell, since
+the air is global.
 
 **Decided (Jared, Nov 9): empowered, it gets the drained rune's empowered cell
-instead.** That spends two runes from the air, Death and the one it drains.
+instead.** Under the empowered rules, that spends two runes from the air:
+Death, and the one it drains.
 
 Jared wants it playtested (Nov 9). What keeps it from always being the best
 pick: the rune it wants has to be in the air when it is cast; it gets the base
@@ -497,10 +500,12 @@ runes with four players filling it, and a roguelike run that never offers the
 rune you need. Levers if playtests show that (Proposed): the borrowed cell
 lands at half strength, or the air holds fewer runes at once.
 
-Proposed (Nov 9): with nothing in the air, Death does nothing; and it can't
-drain Death itself.
+Proposed (Nov 9): with nothing in the air, Death does nothing; it can't drain
+Death itself; and it drains before its own spell fills the air, so it can
+never drain its own recipe rune. Without that, a Death spell would always
+find a rune to drain.
 
-Turned down for Death (Nov 9): spells that go off again from a fallen unit
+Turned down for Death (Jared, Nov 9): spells that go off again from a fallen unit
 (duplication), filling the air when units lose health (works only for
 damage), and filling it when the spell ends (not a siphon).
 
@@ -508,7 +513,10 @@ damage), and filling it when the spell ends (not a siphon).
 
 - [ ] How System C sits beside System A and System B in the playtest.
 - [ ] Frost's minor rune row. Frost was set aside earlier on Nov 8;
-      Jared took it up again on Nov 9.
+      Jared took it up again on Nov 9 ("move on to frost").
+- [ ] What Death gets when it drains a rune whose cell for that output is
+      still unset (Frost's row, Fire's and Temporal's Open cells, and the
+      earlier rows' cells along the caster's path and on a link).
 - [ ] Temporal's empowered cells on a gate and on a spell.
 - [ ] How Life's empowered "starts fully grown" on anything that lasts (a
       lasting effect, a gate, a summon, a shield, ground) meets the rule that
