@@ -545,10 +545,10 @@ keeps deep cover and closed corners safe, and counting range along the bend
 keeps it to short and middle distances. It differs from Spatial, which needs
 an ally and counts its range again from there. A bent hit arrives from the
 direction of its last leg, so with Revelation it could reach a weak side
-without anyone moving. The empowered route may need a range cap.
+without anyone moving. The empowered route may need a cap shorter than the spell's range.
 
 So the base cells for a lasting effect, a gate, a summon and ground follow
-from it. The link and shield cells move it to another unit instead, and are
+from the shift above. The link and shield cells move it to another unit instead, and are
 Proposed. The cells along the caster's path (bending as an instant effect
 does) and on a spell, the whole battlefield, and the empowered cells other
 than on an instant effect are Proposed (Nov 9).
@@ -557,7 +557,7 @@ than on an instant effect are Proposed (Nov 9).
 | --- | --- | --- |
 | Instant effect | It bends around one obstacle, as above | It travels through any route of open hexes within its range |
 | Lasting effect | It shifts 1 hex once, at any moment while it lasts | This round, it can shift any number of times |
-| Along the caster's path | The path flows around one obstacle in its way | It flows around any number |
+| Along the caster's path | The path bends around one obstacle in its way, as an instant effect does | It takes any route of open hexes within its range |
 | On a link | One end can shift to a unit next to it, once | This round, it can shift any number of times |
 | Through a gate | The entrance or the exit shifts 1 hex, once | This round, it can shift any number of times |
 | On a summon | It can be shifted 1 hex, once, outside its own move | This round, it can shift any number of times |
