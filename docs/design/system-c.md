@@ -45,7 +45,7 @@ over from the 16-rune tables in the [rune reference](rune-reference.md)
 | Fire | Frost | Fire | Contagion: what the spell leaves on a unit passes from unit to unit (Decided, below) |
 | Frost | Fire | Frost | Slick |
 | Life | Death | Mend | Takes root: the spell grows while its caster stays put (Decided, below) |
-| Death | Life | Wound | Siphons: drains a rune from the air and borrows its cell (Decided, below) |
+| Death | Life | Wound | Siphons: drains a rune from the air and borrows its cell (Decided Nov 9, below) |
 | Stone | Air | Stone, and protection (Protect) | Raises stone you can climb (Decided, below) |
 | Air | Stone | Pushing and pulling units | Pushes or pulls (Decided, below) |
 | Revelation | Illusion | Revelation, Dispel and Expose: it shows what is true, so it strips what is false or hidden and lays weak points bare | Shows a weak side (Proposed, below) |
@@ -481,12 +481,12 @@ casting, up to double. Moving, or being moved, resets it.
 
 ### Death
 
-**Decided (Jared, Nov 8): Death siphons the air.** When the spell is cast, it
+**Decided (Jared, Nov 9): Death siphons the air.** When the spell is cast, it
 drains a rune of the caster's choice from the air and gets that rune's minor
 rune cell for its own output kind, as if it carried that rune. So its row is
 one rule in every cell. It works on any spell, since the air is global.
 
-**Decided (Jared, Nov 8): empowered, it gets the drained rune's empowered cell
+**Decided (Jared, Nov 9): empowered, it gets the drained rune's empowered cell
 instead.** That spends two runes from the air, Death and the one it drains.
 
 Jared wants it playtested (Nov 9). What keeps it from always being the best
@@ -497,10 +497,10 @@ runes with four players filling it, and a roguelike run that never offers the
 rune you need. Levers if playtests show that (Proposed): the borrowed cell
 lands at half strength, or the air holds fewer runes at once.
 
-Proposed (Nov 8): with nothing in the air, Death does nothing; and it can't
+Proposed (Nov 9): with nothing in the air, Death does nothing; and it can't
 drain Death itself.
 
-Turned down for Death (Nov 8): spells that go off again from a fallen unit
+Turned down for Death (Nov 9): spells that go off again from a fallen unit
 (duplication), filling the air when units lose health (works only for
 damage), and filling it when the spell ends (not a siphon).
 
