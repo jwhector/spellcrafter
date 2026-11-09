@@ -533,14 +533,29 @@ and frozen intent, where an enemy hit is locked into its next move and shows
 it. Frozen intent is noted as an idea for a Revelation authored spell; it is
 too strong for a minor rune.
 
+**Decided (Jared, Nov 9): on an instant effect, it bends around one
+obstacle.** Line of sight is traced from the caster to a hex where it bends,
+and again from there to the target, and the spell's range is counted along
+both legs. Empowered, it travels through any route of open hexes within its
+range: line of sight no longer matters, but it still needs a path, so a unit
+sealed in is safe.
+
+Balance notes (Proposed): it weakens cover, for both sides, but one bend
+keeps deep cover and closed corners safe, and counting range along the bend
+keeps it to short and middle distances. It differs from Spatial, which needs
+an ally and counts its range again from there. A bent hit arrives from the
+direction of its last leg, so with Revelation it could reach a weak side
+without anyone moving. The empowered route may need a range cap.
+
 So the base cells for a lasting effect, a gate, a summon and ground follow
 from it. The link and shield cells move it to another unit instead, and are
-Proposed. The instant cells (an instant effect, the caster's path,
-a spell), the whole battlefield and the empowered cells are Proposed (Nov 9).
+Proposed. The cells along the caster's path (bending as an instant effect
+does) and on a spell, the whole battlefield, and the empowered cells other
+than on an instant effect are Proposed (Nov 9).
 
 | Output | Frost as a minor rune | Empowered |
 | --- | --- | --- |
-| Instant effect | It flows around one obstacle, so it can reach a target out of line of sight | It flows around any number of obstacles |
+| Instant effect | It bends around one obstacle, as above | It travels through any route of open hexes within its range |
 | Lasting effect | It shifts 1 hex once, at any moment while it lasts | This round, it can shift any number of times |
 | Along the caster's path | The path flows around one obstacle in its way | It flows around any number |
 | On a link | One end can shift to a unit next to it, once | This round, it can shift any number of times |
@@ -554,8 +569,9 @@ a spell), the whole battlefield and the empowered cells are Proposed (Nov 9).
 ## Open
 
 - [ ] How System C sits beside System A and System B in the playtest.
-- [ ] Frost's instant cells, its whole-battlefield cell and its empowered
-      cells, and whether Frost is renamed Water.
+- [ ] Frost's Proposed cells (the path, the spell, the whole battlefield,
+      the link and shield, and the empowered cells on lasting outputs), and
+      whether Frost is renamed Water.
 - [ ] A pass over the rows worked out before the effect column split
       (Nov 9), to give instant effects their own cell where they need one.
 - [ ] What Death gets when it drains a rune whose cell for that output is
