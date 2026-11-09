@@ -576,6 +576,11 @@ both legs. Empowered, it travels through any route of open hexes within its
 range: line of sight no longer matters, but it still needs a path, so a unit
 sealed in is safe.
 
+**Decided (Jared, Nov 9): empowered, a Frost spell also flows around
+allies,** sparing them, for the round it is cast. It sits on the empowered
+cells only, since friendly fire is on and a base cell that spared allies
+would make Frost the pick for every area spell.
+
 Balance notes (Proposed): it weakens cover, for both sides, but one bend
 keeps deep cover and closed corners safe, and counting range along the bend
 keeps it to short and middle distances. It differs from Spatial, which needs
@@ -591,7 +596,7 @@ are Proposed (Nov 9).
 
 | Output | Frost as a minor rune | Empowered |
 | --- | --- | --- |
-| Instant effect | It bends around one obstacle, as above | It travels through any route of open hexes within its range |
+| Instant effect | It bends around one obstacle, as above | It travels through any route of open hexes within its range, and spares allies |
 | Lasting effect | It shifts 1 hex once, in the players' phase or after the enemy phase | A second shift, as above |
 | Along the caster's path | The path bends around one obstacle in its way, as an instant effect does | It takes any route of open hexes within its range |
 | On a link | One end can shift to a unit next to it, once | A second shift, as above |
@@ -602,9 +607,131 @@ are Proposed (Nov 9).
 | On a spell | The enemy's next spell is diluted: it spreads over twice as many hexes, at half strength, in a shape you choose | It spreads over three times as many, at a third |
 | Whole battlefield | Every lasting spell on the board, on either side, can be shifted 1 hex once by its caster while it lasts | Each gets a second shift, as above |
 
+## Board rules and mini games
+
+This section records where the Nov 9 talks about how minor runes play
+together ended up. It is the frame for the next pass over every rune's row.
+The rows above were written before it, one rune at a time, and will be
+checked against it (Open, below). Everything here is Proposed unless it says
+otherwise.
+
+The working notes behind it are listed in the
+[design README](README.md#working-notes).
+
+**Goals (Jared, Nov 9).**
+
+- The more powerful crafting verbs, such as chaining, splitting and repeating
+  a spell, come from combinations of minor runes, not from one rune.
+- Every combination of minor runes on a spell is valid. Players will expect
+  it.
+- The design balances itself: investing in any rune always means thinking
+  about its interplay with the others, so no rune is the obvious pick.
+- Fundamental effects behave as written, and the interplay comes out of
+  that. No special rule says what two runes do together.
+
+**Decided (Jared, Nov 9): duplicating a spell should fall out of several
+minor runes on one spell.** Jared's lean on the limits: two or three ways to
+reach it, each needing at least two minor runes, preferably three, with at
+least one of them empowered. This loosens "no free duplication", which still
+holds for a single rune.
+
+**The principle (Proposed).** A rune only puts something on the board, or
+changes how a spell travels across it. It never names another rune. Stone
+and Air show it: Stone raises terrain, Air moves units, and the board's rule
+for collisions does the rest. Revelation, Spatial and Frost show it too: one
+puts a weak side on the board, and the others change the direction a hit
+arrives from.
+
+**Five board rules (Proposed; Jared likes the shape, Nov 9).** Each is one
+rule of the board with one shared thing that every rune in it makes or acts
+on. Jared's test (Nov 9): the words are not themes. A rune belongs to a rule
+only if the other runes there can act on what it makes, using their own
+rules as written. Hiding what is inside something does not join the game
+Revelation and Illusion play unless it is hidden in the same sense an
+illusion is.
+
+| Board rule | What it says | The shared thing |
+| --- | --- | --- |
+| Collision | A unit moved by force into something stops, and both are hurt | A blocker |
+| Direction | Every hit arrives along a line; things in the way block it, and a weak side lets it through | The line |
+| Touch | Things next to each other pass things between them | A neighbour |
+| What's known | Something on the board can be hidden: it shows a look, not its truth, until a unit touches it or it is revealed | A hidden thing |
+| Timing | Something can be waiting to go off, at a set moment or on a condition, where everyone can see it | A waiting effect |
+
+Collision is an event and touch is a state, so they stay apart (Jared,
+Nov 9). The air is not a sixth rule: it is a layer above the five that
+empowers them (Jared, Nov 9).
+
+**The math (Proposed).**
+
+- Interplay can't be written pair by pair. Ten runes make 45 pairs, and ten
+  output kinds make 450 pair cells, or 1,800 with base and empowered
+  versions. So a pair's behaviour has to come from each rune's own cell,
+  applied in the crafter's order.
+- Ten runes that each sit on two rules fill twenty places, which is five
+  rules of four runes. A rule needs three or four runes to be a game and not
+  one pair, so two rules each holds for five or six rules and thins out past
+  that.
+- Five rules have exactly ten pairs, one for each rune. Then no two runes sit
+  on the same pair, every rule holds four runes, and each rune shares a rule
+  with six of the other nine.
+- A rune's own sentence sits on two rules. It can reach a third through play,
+  or through its empowered cell.
+
+**A first seating (Proposed).** Six runes sit cleanly, and three opposed
+pairs share a rule: Stone and Air share collision, Revelation and Illusion
+share what's known, and Fire and Frost share touch.
+
+| Rune | Its two rules |
+| --- | --- |
+| Stone | Collision and direction |
+| Air | Collision and touch |
+| Revelation | Direction and what's known |
+| Illusion | Touch and what's known |
+| Fire | Touch and timing |
+| Frost | Direction and touch |
+| Spatial | Direction and timing (the timing half is a stretch) |
+| Temporal | What's known and timing |
+| Life | Collision and what's known (Jared's lean, Nov 9) |
+| Death | Collision and timing |
+
+Jared is open to a complete overhaul of Life and Death under this frame
+(Nov 9). His idea for them: receptacles on the board that hold something and
+are opened by collision.
+
+**Flaws found on Nov 9,** which the next pass has to answer:
+
+- The rows were written one rune at a time, so their interplay is uneven.
+  Air and Stone are hubs, while Life, Death and Illusion play mostly alone.
+- Life rewards a caster for standing still, which is boring (Jared).
+- Fire needs a note on every spell saying what it passes on, so it is not
+  one rule.
+- "A kept thing leaves a copy when it is moved" was turned down (Jared): it
+  is a special rule written to get a result, and it made one rune the hub
+  of every duplication.
+- Rules written for one pair of runes, such as a decoy made real by
+  Revelation, break "every combination is valid".
+- A rule's name is not a game. A cell can use the word and still not join
+  the play (Jared).
+- A readied spell listens only in the enemy phase, so pushing a unit into it
+  does nothing. Frost on a readied spell almost never misses.
+- No rule says how the enemy AI reads an illusion.
+- Crafting so far tunes a spell more than it makes one, and a crafted spell
+  looks the same as a plain one.
+
+Ideas noted, not settled: an illusion that becomes real when the real thing
+it copies touches it (Jared keeps coming back to solid illusions, and is
+unsure whether it is a minor rune interplay or an authored spell); a readied
+condition "an ally's spell lands here", which would give casting on a hit;
+and changing a spell's shape, which Jared sees as a gap that also changes a
+spell's power.
+
 ## Open
 
 - [ ] How System C sits beside System A and System B in the playtest.
+- [ ] A pass over every rune's row against the five board rules above:
+      settle the five rules and each rune's two, starting with new cores for
+      Life and Death (Jared, Nov 9).
 - [ ] Frost's Proposed cells (the path, the spell, the whole battlefield,
       and the link and shield), and whether Frost is renamed Water.
 - [ ] A pass over the rows worked out before the effect column split
@@ -628,7 +755,9 @@ are Proposed (Nov 9).
       whether Revelation and Illusion need more counterplay against each
       other (Jared, Nov 8).
 - [ ] The name of Stone's raised stone.
-- [ ] Where the stat dial lives, and how it is priced.
+- [ ] Where the stat dial lives, and how it is priced. Jared's lean
+      (Nov 9): not in minor runes, but in something like relics, gear or
+      personal stats, to be designed after the mechanics.
 - [ ] The table of runes against board states, and whether it needs materials
       that aren't runes (water, oil). First rows from the survey: fire ignites
       oil, water conducts lightning, cold freezes water.

@@ -64,6 +64,19 @@ the mirror.
 | The Hollow: BG3 spell coverage audit | https://claude.ai/artifact/5msD9Jxa5fejQTnw3kX8qW | rev 24 | Archive |
 | Sigil brainstorm (System A) | https://claude.ai/artifact/AKGAvWsNPGhGMZ7h38Ycuf | rev 13 | System A |
 
+## Working notes
+
+Claude Docs written while working through System C's minor runes on Nov 9.
+They are notes, not the design: what was settled from them is in
+[system-c.md](system-c.md#board-rules-and-mini-games).
+
+| Note | Link | What it holds |
+| --- | --- | --- |
+| How the minor runes play together | https://claude.ai/artifact/GLtDThPewErVVA8HGMvDwf | Which runes interact, combinations of two and three on one spell, and the weak spots |
+| Universal or authored: the case for each minor rune | https://claude.ai/artifact/H26zWcxCKaBLEECRcyKsK2 | The test for a universal effect, and each rune judged against it |
+| Spellcrafting verbs | https://claude.ai/artifact/SXxPdMWor1355Ph4noNXNg | 32 verbs players expect from a spellcrafter, and how each is reached |
+| Verbs from runes: a blank-slate pass | https://claude.ai/artifact/63us4SdzZgkdN7x2k2dZFg | Rune definitions built for verb coverage; its move-and-keep idea was turned down |
+
 ## The tools
 
 | Tool | Link | Copy | Notes |
